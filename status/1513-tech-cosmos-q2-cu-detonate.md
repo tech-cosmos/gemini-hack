@@ -1,0 +1,1 @@
+done: brake q2 (route PASS/DETONATE/STOP, intent) + real Hydrogen computer_use agent + site-style default traps (flights/bank/shop) + DETONATE card with app/detonate.py stub; next: cached replay of a full run, projector polish; blocked: nothing
