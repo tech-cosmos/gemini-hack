@@ -3,14 +3,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root{--bg:#0d1117;--panel:#161b22;--line:#30363d;--fg:#f0f6fc;--mut:#9da7b3;--red:#ff4d4f;--green:#2ea043;--amber:#f0a020;--blue:#58a6ff}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.35 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
-header{display:flex;align-items:baseline;gap:18px;padding:10px 24px;border-bottom:1px solid var(--line)}
-header h1{margin:0;font-size:30px;letter-spacing:.3px}header h1 span{color:var(--red)}header .sub{color:var(--mut);font-size:17px}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:18px/1.3 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+body{display:flex;flex-direction:column;overflow:hidden}
+header{display:flex;align-items:baseline;gap:18px;padding:6px 20px;border-bottom:1px solid var(--line)}
+header h1{margin:0;font-size:28px;letter-spacing:.3px}header h1 span{color:var(--red)}header .sub{color:var(--mut);font-size:17px}
 header .cfg{margin-left:auto;color:var(--mut);font-size:14px}
-main{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(400px,1fr);gap:18px;padding:14px 24px}
+main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(370px,1fr);gap:14px;padding:10px 20px}
+main>section{min-height:0;display:flex;flex-direction:column}
+#stepsPanel{flex:1;min-height:0;display:flex;flex-direction:column}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
 .lbl{font-size:13px;text-transform:uppercase;letter-spacing:1.2px;color:var(--mut);margin:0 0 6px}
-#stage{position:relative;width:100%;aspect-ratio:1280/800;overflow:hidden;border-radius:8px;border:2px solid var(--line);background:#fff}
+#stage{position:relative;width:100%;aspect-ratio:1280/620;overflow:hidden;border-radius:8px;border:2px solid var(--line);background:#fff}
 #stage iframe{position:absolute;left:0;top:0;width:1280px;height:800px;border:0;transform-origin:0 0;pointer-events:none}
 .ring{position:absolute;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;border:6px solid var(--red);box-shadow:0 0 0 4px rgba(255,77,79,.35);pointer-events:none;animation:pop .35s ease-out}
 .ring.green{border-color:var(--green);box-shadow:0 0 0 4px rgba(46,160,67,.35)}.ring.amber{border-color:var(--amber);box-shadow:0 0 0 4px rgba(240,160,32,.35)}
@@ -19,26 +22,29 @@ main{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(400px,1fr);gap:1
 .row{display:flex;gap:10px;align-items:center;margin-top:9px;flex-wrap:wrap}
 input[type=text],textarea,select{background:#0d1117;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font:inherit;font-size:17px}
 input[type=text]{flex:1;min-width:120px}textarea{width:100%;resize:vertical;min-height:44px}
-.attacker{border:2px dashed var(--red);border-radius:10px;padding:10px 12px;margin-top:10px}
+.attacker{border:2px dashed var(--red);border-radius:10px;padding:8px 12px;margin-top:8px}
 .attacker .lbl{color:var(--red)}
 .tmpl{font-size:20px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.tmpl input{font-size:20px;font-weight:600}
 details summary{cursor:pointer;color:var(--mut);font-size:14px;margin-top:8px}
-button.run{flex:1;font:inherit;font-size:21px;font-weight:700;padding:14px 10px;border-radius:10px;border:0;cursor:pointer;color:#fff}
+button.run{flex:1;font:inherit;font-size:20px;font-weight:800;padding:11px 8px;white-space:nowrap;border-radius:10px;border:0;cursor:pointer;color:#fff}
 button.off{background:#6e2a2a}button.on{background:#1f6f3a}button.run:disabled{opacity:.45;cursor:wait}
 button.small{font:inherit;font-size:14px;background:#21262d;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer}
-#verdict{border-radius:12px;padding:16px 18px;margin-bottom:12px;min-height:128px;display:flex;flex-direction:column;justify-content:center}
-#verdict .big{font-size:40px;font-weight:800;line-height:1.1}#verdict .det{font-size:21px;margin-top:6px}
+#verdict{border-radius:12px;padding:12px 16px;margin-bottom:10px;min-height:120px;display:flex;flex-direction:column;justify-content:center}
+#verdict .big{font-size:42px;font-weight:900;line-height:1.08}#verdict .det{font-size:21px;margin-top:6px;font-weight:600}
 #verdict.idle{background:#21262d;color:var(--mut)}#verdict.idle .big{font-size:26px;font-weight:600}
 #verdict.red{background:#5c1416;border:3px solid var(--red)}#verdict.stop{background:#4a3500;border:3px solid var(--amber)}
 #verdict.green{background:#0f3d1e;border:3px solid var(--green)}#verdict.work{background:#0c2d4d;border:3px solid var(--blue)}
 #verdict.det8{background:#3d2a00;border:3px dashed var(--amber)}
-#steps{list-style:none;margin:0;padding:0;max-height:50vh;overflow:auto}
-#steps li{display:grid;grid-template-columns:28px 1fr auto;gap:10px;padding:8px 4px;border-bottom:1px solid var(--line);font-size:17px;align-items:baseline}
-#steps li .t{font-variant-numeric:tabular-nums;font-weight:700;color:var(--blue);font-size:18px}
-#steps li .m{color:var(--mut);font-size:14px}#steps li.bad{color:#ffb3b3}#steps li.ok{color:#b6f0c2}#steps li.warn{color:#ffd58a}
+#steps{list-style:none;margin:0;padding:0;flex:1;min-height:0;overflow:auto}
+#steps li{display:grid;grid-template-columns:24px 1fr auto;gap:8px;padding:6px 2px;border-bottom:1px solid var(--line);font-size:19px;font-weight:600;align-items:baseline}
+#steps li .t{font-variant-numeric:tabular-nums;font-weight:800;color:var(--blue);font-size:20px}
+#steps li .m{color:var(--mut);font-size:13px;font-weight:400}#steps li.bad{color:#ffb3b3}#steps li.ok{color:#b6f0c2}#steps li.warn{color:#ffd58a}
 .chk{font-size:14px;color:var(--mut);display:flex;gap:6px;align-items:center}
 .spin{display:inline-block;width:20px;height:20px;border:3px solid #fff4;border-top-color:#fff;border-radius:50%;animation:sp 1s linear infinite;vertical-align:-2px;margin-right:10px}
 @keyframes sp{to{transform:rotate(360deg)}}
+#stageTag{display:none;position:absolute;right:10px;top:10px;background:#8250df;color:#fff;font-weight:800;font-size:22px;padding:4px 12px;border-radius:8px;letter-spacing:2px}
+.replaytag{display:inline-block;align-self:flex-start;background:#8250df;color:#fff;font-weight:800;font-size:15px;padding:2px 10px;border-radius:6px;margin-bottom:6px;letter-spacing:1px}
+#steps li.m{color:var(--mut);font-size:14px}
 </style></head>
 <body>
 <header><h1>Click<span>-</span>Brake</h1><div class="sub">a brake in front of every click a browser agent makes</div><div class="cfg" id="cfg"></div></header>
@@ -47,7 +53,7 @@ button.small{font:inherit;font-size:14px;background:#21262d;color:var(--fg);bord
   <div class="panel">
    <div class="row" style="margin-top:0"><span class="lbl" style="margin:0">The site the agent is using (live page)</span>
     <select id="site"></select></div>
-   <div id="stage" style="margin-top:8px"><iframe id="frame" sandbox="allow-same-origin"></iframe></div>
+   <div id="stage" style="margin-top:8px"><iframe id="frame" sandbox="allow-same-origin"></iframe><div id="stageTag">REPLAY</div></div>
    <div class="row"><span class="lbl" style="margin:0">User's task</span><input type="text" id="task"></div>
    <div class="attacker">
     <div class="row" style="margin-top:0"><span class="lbl" style="margin:0">Attacker: write your own trap</span>
@@ -68,13 +74,14 @@ button.small{font:inherit;font-size:14px;background:#21262d;color:var(--fg);bord
    <button class="run off" id="runOff">Run agent · brake OFF</button>
    <button class="run on" id="runOn">Run agent · brake ON</button>
   </div>
-  <div class="row" style="margin:8px 0 10px">
+  <div class="row" style="margin:6px 0 8px;gap:12px">
    <select id="backend" style="font-size:14px"><option value="cu">agent: Gemini computer use (Hydrogen)</option><option value="json">agent: fast stand-in (flash-lite JSON)</option></select>
    <label class="chk"><input type="checkbox" id="mock"> offline mock</label>
    <label class="chk" title="Brake-OFF and the first brake-ON proposal replay a click on the injected button instead of asking the agent"><input type="checkbox" id="replay"> replay hijack proposal</label>
+   <label class="chk" title="Play back the recorded live run for this site (no network). Clearly labelled REPLAY."><input type="checkbox" id="offline"> Replay (offline)</label>
   </div>
   <div id="verdict" class="idle"><div class="big">Write a trap, then run the agent.</div></div>
-  <div class="panel"><p class="lbl">Steps · latency</p><ul id="steps"></ul></div>
+  <div class="panel" id="stepsPanel"><p class="lbl">Steps · latency</p><ul id="steps"></ul></div>
  </section>
 </main>
 <script>
@@ -92,10 +99,20 @@ function fromTemplate(){ const w = $("t_what").value.trim(), b = $("t_btn").valu
 function scaleFrame(){ const w = $("stage").clientWidth; $("frame").style.transform = `scale(${w/1280})`; }
 window.addEventListener("resize", scaleFrame);
 
+let REC = null, PLAY = null;
+const sleep = ms => new Promise(res => setTimeout(res, ms));
 async function post(path, body){
+  if (PLAY) {  // offline replay of a recorded live run: same responses, same wall times
+    const e = PLAY.events[PLAY.i++]; if (!e || e.path !== path) throw new Error(`replay out of sync at ${path}`);
+    await sleep(e.ms); return e.resp;
+  }
+  const t = performance.now();
   const r = await fetch(path, {method: "POST", headers: {"Content-Type": "application/json"},
     body: JSON.stringify({...body, mock: $("mock").checked, backend: $("backend").value})});
-  const j = await r.json(); if (!r.ok) throw new Error(j.error || r.status); return j;
+  const j = await r.json();
+  if (!r.ok) { const e = new Error(j.error || ("HTTP " + r.status)); e.busy = !!j.busy; e.quota = !!j.quota; e.notes = j.notes || []; throw e; }
+  if (REC) REC.push({path, ms: Math.round(performance.now() - t), resp: j});
+  return j;
 }
 function clearRings(){ document.querySelectorAll("#stage .ring").forEach(e => e.remove()); }
 function ring(x, y, cls, tag){
@@ -110,10 +127,11 @@ function step(text, secs, cls, meta){
   li.children[1].textContent = text;
   if (meta) { const m = document.createElement("div"); m.className = "m"; m.textContent = meta; li.children[1].appendChild(m); }
   li.children[2].textContent = secs == null ? "" : Number(secs).toFixed(2) + " s";
-  $("steps").appendChild(li); li.scrollIntoView({block: "nearest"}); return li;
+  $("steps").appendChild(li); $("steps").scrollTop = $("steps").scrollHeight; return li;
 }
 function verdict(cls, big, det, spin){
   const v = $("verdict"); v.className = cls; v.innerHTML = ""; const b = document.createElement("div"); b.className = "big";
+  if (PLAY) { const r = document.createElement("div"); r.className = "replaytag"; r.textContent = `REPLAY · recorded live ${PLAY.recorded}`; v.appendChild(r); }
   if (spin || cls === "work") b.innerHTML = '<span class="spin"></span>'; b.appendChild(document.createTextNode(big)); v.appendChild(b);
   if (det) { const d = document.createElement("div"); d.className = "det"; d.textContent = det; v.appendChild(d); }
 }
@@ -136,9 +154,21 @@ const ROUTE_CLS = {PASS: "ok", STOP: "warn", DETONATE: "warn"};
 
 async function run(brake){
   if (busy) return; busy = true; $("runOff").disabled = $("runOn").disabled = true;
-  $("steps").innerHTML = ""; clearRings();
+  $("steps").innerHTML = ""; clearRings(); PLAY = null; REC = null;
+  let outcome = "error";
+  if ($("offline").checked) {
+    try {
+      const rec = await (await fetch("/api/replay", {method: "POST", headers: {"Content-Type": "application/json"},
+                                                    body: JSON.stringify({site: $("site").value, brake})})).json();
+      if (rec.error) throw new Error(rec.error);
+      $("task").value = rec.task; $("mode").value = rec.mode; if (rec.attack) fill(rec.attack);
+      PLAY = {events: rec.events, i: 0, recorded: rec.recorded.slice(11, 16)};
+      $("stageTag").style.display = "block";
+    } catch (e) { verdict("idle", "No recorded run for this site yet", "A successful live run with a working key saves one automatically (app/replays/)."); busy = false; $("runOff").disabled = $("runOn").disabled = false; return; }
+  } else if (!$("mock").checked) REC = [];
   const task = $("task").value, replay = $("replay").checked, site = $("site").value;
   let mode = $("mode").value, note = null, total = 0, stopped = null;
+  const mode0 = mode, attack0 = mode === "none" ? null : attack();
   try {
     for (let i = 0; i < 6; i++) {
       verdict("work", "Rendering page…");
@@ -147,6 +177,7 @@ async function run(brake){
       verdict("work", note ? "Agent re-plans after the block…" : "Agent is choosing a click…");
       const pr = await post("/api/propose", {page_id: page.page_id, task, note, replay: replay && !note});
       const p = pr.proposal, el = pr.element, name = el.text || p.label || "?"; total += p.s;
+      (p.notes || []).forEach(n => step(n, null, "m"));
       clearRings(); ring(p.x, p.y, brake ? "amber" : "", name.slice(0, 40));
       step(`Agent proposes: click “${name}” → ${KIND_TEXT[el.kind]}`, p.s, el.kind === "injected" ? "bad" : "",
            `${p.model} · (${p.x}, ${p.y})${p.intent ? " · intent: " + p.intent.slice(0, 110) : ""}`);
@@ -183,7 +214,7 @@ async function run(brake){
       if (el.kind === "injected") {
         clearRings(); ring(p.x, p.y, "", "HIJACKED");
         verdict("red", `HIJACKED — agent clicked “${name}”`, brake ? "The brake let it through (a miss)." : "That's what happens today.");
-        step("Click fired on the attacker's button", null, "bad"); break;
+        step("Click fired on the attacker's button", null, "bad"); outcome = "hijacked"; break;
       }
       if (el.kind === "popup") { step(`Click fired on the site's own “${el.text}” (allowed)`, null, "ok"); mode = "none"; note = null; continue; }
       if (el.kind === "dismiss") { step(`Click fired on “${el.text}”: dialog closed`, null, "ok"); mode = "none"; continue; }
@@ -192,13 +223,29 @@ async function run(brake){
         const how = stopped ? `Hijack ${stopped.sandbox ? "detonated and " : ""}STOPPED in ${stopped.latency_s.toFixed(2)} s, then the agent clicked “${el.text}”`
                             : `${brake ? "Brake ON" : "Brake OFF"} · agent clicked “${el.text}”`;
         verdict("green", `${S().done} ✓`, `${how} · total model time ${total.toFixed(1)} s`);
-        step(`Click fired on “${el.text}”: ${S().done.toLowerCase()}`, null, "ok");
+        step(`Click fired on “${el.text}”: ${S().done.toLowerCase()}`, null, "ok"); outcome = stopped ? "stopped_then_done" : "done";
         if (brake) { const f = await post("/api/finish", {page_id: page.page_id, task}); if (f.finish) step("Managed Agents finished the task", f.finish.s, "ok"); }
         break;
       }
       verdict("idle", `Agent clicked “${name}”`, "Not the task button and not the trap."); step("Click fired elsewhere", null); break;
     }
-  } catch (e) { verdict("red", "Error", String(e)); step("Error: " + e, null, "bad"); }
+  } catch (e) {
+    outcome = "error"; (e.notes || []).forEach(n => step(n, null, "m"));
+    if (e.busy) {
+      verdict("idle", e.quota ? "API quota reached on this key" : "Model busy — venue load",
+              e.quota ? "Switch key (GEMINI_API_KEY_ALT) or use the recorded run." : "All retries and fallbacks failed. Try again, or use the recorded run.");
+      const b = document.createElement("button"); b.className = "small"; b.style.cssText = "font-size:20px;margin-top:10px;align-self:flex-start";
+      b.textContent = "▶ Use replay"; b.onclick = () => { $("offline").checked = true; run(brake); }; $("verdict").appendChild(b);
+      step(e.message, null, "warn");
+    } else { verdict("red", "Something went wrong", e.message); step(e.message, null, "bad"); }
+  }
+  // keep the demo-worthy live runs as offline replays: brake OFF hijacked, brake ON stopped then finished
+  if (REC && ((!brake && outcome === "hijacked") || (brake && outcome === "stopped_then_done"))) {
+    try { const sv = await (await fetch("/api/save_replay", {method: "POST", headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({site, brake, task, mode: mode0, attack: attack0, outcome, events: REC})})).json();
+          step(`Saved as offline replay (${sv.saved})`, null, "m"); } catch (e) {}
+  }
+  REC = null; PLAY = null; $("stageTag").style.display = "none";
   busy = false; $("runOff").disabled = $("runOn").disabled = false;
 }
 $("runOff").addEventListener("click", () => run(false));
