@@ -8,6 +8,11 @@ the slides or the talk.
 -
 
 ## Along the way (spikes, pilots, things that failed)
+- **3 of 10** · wrong clips the online Tripwire flagged before the clip ended (Decision 1 per 2 s prefix, flag at p ≥ 0.75), 20 held-out ego2act clips, tasks at ranks 30–39; **spike failed its pass mark of 8/10** · `results/s3_tripwire.json` · `.venv/bin/python spikes/s3_tripwire.py` (11:55)
+- 0 of 10 · false alarms on the correct clips, same run · same file
+- 2.042 s · median lead time before clip end over the 3 flagged wrong clips (leads 1.667, 8.542, 2.042) · same file
+- 0.69 s / 1.28 s · Decision 1 p50 / max latency per tick, 160 ticks, 160 calls, 0 errors · same file
+- 0.674 · highest p on any correct clip at any tick (book_miniature); 5 of the 7 missed wrong clips never exceed 0.582 · same file
 - **0.925 at 1.58 s p50** · cascade balanced accuracy and latency on 40 **held-out** ego2act human clips (20 unseen tasks × correct/wrong), rule frozen before the run · `results/s2_heldout.json` · `.venv/bin/python spikes/s2_heldout.py 10 20` (11:42)
 - 0.80 at 1.21 s · Decision 1 alone, same 40 clips · same file
 - 0.925 at 16.8 s · Neon agentic alone, same 40 clips (max 47.9 s) · same file
