@@ -1,0 +1,35 @@
+{
+ "n": 39,
+ "positives": 20,
+ "blocked_by_filter": [
+  "armnetbench/ring_insert/diffusion/eval_debug_task_cell_1_09h36m_24-jun-2026/ep000001/front"
+ ],
+ "A_single_question": {
+  "balanced_acc": 0.875,
+  "false_success_rate": 0.0,
+  "auroc": 0.95
+ },
+ "B_failure_first_checks": {
+  "balanced_acc": 0.8,
+  "false_success_rate": 0.0,
+  "auroc": 0.932
+ },
+ "checks_per_task": {
+  "Insert the colourful ring into the central wooden peg": 8,
+  "Insert the missing tool into the empty slot on the toolbox": 9,
+  "Put the eye drops on the shelf": 8,
+  "Remove the power cable from cable holder": 8,
+  "Put the eye drops into the basket": 9,
+  "Remove the small middle tool (3/8 Extension Bar 75mm) from the toolbox": 8,
+  "Push the Displayport cable into the cable holder on the white block": 8,
+  "Stack the colouful blocks on top of each other": 8
+ },
+ "latency_s_median": {
+  "A": 0.9965231418609619,
+  "B": 0.7729480266571045
+ },
+ "tokens_total": {
+  "A": 68119,
+  "B": 85819
+ }
+}
