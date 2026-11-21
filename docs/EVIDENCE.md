@@ -8,6 +8,8 @@ the slides or the talk.
 -
 
 ## Along the way (spikes, pilots, things that failed)
+- 0/6 · venue-scale Genie Scout reach rate for Decision 1, Hydrogen and random (goal ≥ ~5 m, 60 s) · `.context/genie_scout_venue/results_run.json` (2nd session; out of repo) (13:31)
+- 0.76 · AUROC, Decision 1 "same spot?" on 30 near vs 30 far real venue frame pairs · `.context/genie_faithful/part1.json` (2nd session; out of repo) (13:31)
 - 20.0 s / 127.7 s · venue place index on a 132 s walkthrough: Hydrogen static sampling vs Neon agentic, both placed stage/restrooms/snacks within 5 s of the key (Hydrogen snacks +2 s, Neon −2 s) · `.context/venue_index/results.json` (Shivam's 2nd session; kept out of the repo, venue footage) (13:35)
 - **3 of 3 · 10.95 s** · spike 12 plumbing (not the pass mark): public Mip-NeRF 360 room splat, objects ER 2 pointed on by eye / query p50 (Decision 1 over 40 headless renders + one ER call; Decision 1 fan-out 5.29–14.28 s, ER 3.07–4.76 s; load 4.54 s, 40 renders 8.46 s) · `results/s10_roomsearch_plumb_room.json` · `uv run --no-project --with google-genai==3.6.1 --with playwright python -I spikes/s10_roomsearch/spike.py room.splat plumb_room "the piano" "the potted plant" "the window"` (13:30)
 - 19.45 s · same with 40 parallel workers instead of 20 (single Decision 1 calls 11–14 s under load) · `results/s10_roomsearch_plumb_room_w40.json` · `S10_WORKERS=40` same command (13:35)
