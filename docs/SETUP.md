@@ -3,7 +3,7 @@
 **People:** paste this into your AI coding tool (Claude Code, Codex, Cursor, anything with a terminal) and
 approve what it asks:
 
-> Set me up for our hackathon repo by following docs/SETUP.md in https://github.com/__REPO__
+> Set me up for our hackathon repo by following docs/SETUP.md in https://github.com/tech-cosmos/gemini-hack
 > (the "Agent steps" section). My GitHub username is ___.
 
 ---
@@ -15,12 +15,12 @@ Do these in order, yourself. Stop to ask your person only where a step says so. 
    (browser login), then continue. Check that `gh api user --jq .login` is the username they gave you.
 2. **Accept the repo invite** (skip if already a collaborator):
    ```bash
-   id=$(gh api user/repository_invitations --jq '.[] | select(.repository.full_name=="__REPO__") | .id')
+   id=$(gh api user/repository_invitations --jq '.[] | select(.repository.full_name=="tech-cosmos/gemini-hack") | .id')
    [ -n "$id" ] && gh api -X PATCH "user/repository_invitations/$id"
    ```
-   No invite, and `gh api repos/__REPO__/collaborators/$(gh api user --jq .login)` fails? Tell your person to
-   ask `__LEAD__` to add them, and stop.
-3. **Clone or update.** Not on disk yet: `gh repo clone __REPO__ ~/hackathon-repo`. Then `cd` into it and
+   No invite, and `gh api repos/tech-cosmos/gemini-hack/collaborators/$(gh api user --jq .login)` fails? Tell your person to
+   ask `tech-cosmos` to add them, and stop.
+3. **Clone or update.** Not on disk yet: `gh repo clone tech-cosmos/gemini-hack ~/hackathon-repo`. Then `cd` into it and
    `git pull`. Work from this folder from now on, and tell your person to open their tool here next time.
    Running several agents? Give each its own `git worktree`, never two in one checkout.
 4. **Tools.** Check what `docs/BRIEF.md` and the README say the project needs and install what's missing.

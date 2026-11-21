@@ -1,4 +1,4 @@
-# __EVENT__
+# Gemini 4 NYC Hackathon
 
 <!-- Replace this file with the project's README once the idea is picked. Check docs/BRIEF.md for the
      sections the organizers require. Every number comes from docs/EVIDENCE.md. -->

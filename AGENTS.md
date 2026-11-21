@@ -1,4 +1,4 @@
-# __EVENT__ · rules for every agent (Claude Code, Codex, Cursor, Copilot, Gemini)
+# Gemini 4 NYC Hackathon · rules for every agent (Claude Code, Codex, Cursor, Copilot, Gemini)
 
 **First time here?** Do `docs/SETUP.md` ("Agent steps") before anything else.
 **Every session and before every task:** run `scripts/catchup` (Claude Code runs it for you), and keep
@@ -8,14 +8,14 @@ The repo is the team's only shared memory. People and agents on different laptop
 chats, so anything that matters is written here.
 
 ## Roles
-- **`__LEAD__` is the team lead.** The lead and their agent plan the work, open issues, send directives,
+- **`tech-cosmos` is the team lead.** The lead and their agent plan the work, open issues, send directives,
   decide, and own the lead files: `AGENTS.md`, `kit.env`, `docs/`, `scripts/`, `.claude/`, `.github/`.
   The lead's agent follows `docs/PLAYBOOK.md`.
 - **Everyone else is a lane owner.** You own a whole piece of the product (a lane), not a list of tickets.
   You work only on issues you claimed, inside their folders, and you decide how to build your piece.
 - Need a lead file changed, a decision, or something from another lane? `scripts/request "<what and why>"`.
   Never work around it in someone else's folder, and never send it as a chat message: agents can't read chat.
-- Not sure who you work for? `gh api user --jq .login`. If it isn't `__LEAD__`, you are a lane owner.
+- Not sure who you work for? `gh api user --jq .login`. If it isn't `tech-cosmos`, you are a lane owner.
 
 ## What we're building
 <!-- LEAD: two sentences, written once the idea is picked. -->
