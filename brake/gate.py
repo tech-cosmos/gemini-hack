@@ -13,6 +13,7 @@ from __future__ import annotations
 import io
 import os
 import pathlib
+import threading
 import time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -41,13 +42,15 @@ def _load_env() -> None:
 
 _load_env()
 _client = None
+_lock = threading.Lock()
 
 
 def _beta():
     global _client
-    if _client is None:
-        from google import genai
-        _client = genai.Client(http_options={"api_version": "v1beta", "timeout": 60_000})
+    with _lock:
+        if _client is None:
+            from google import genai
+            _client = genai.Client(http_options={"api_version": "v1beta", "timeout": 60_000})
     return _client
 
 
