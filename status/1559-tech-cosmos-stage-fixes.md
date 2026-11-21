@@ -1,1 +1,0 @@
-done: done state no longer leaves the click ring/cursor/chip over the new layout; Dan's 3 app/sites templates checked in the stage at 1280x720 (MOCK_ROUTE=DETONATE): fill the frame exactly, no clash, contract OK; next: replays when a key works; blocked: key quota (#29)

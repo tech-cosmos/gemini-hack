@@ -1,7 +1,0 @@
-# The lead's files. scripts/init writes the lead's login here.
-/AGENTS.md   @tech-cosmos
-/kit.env     @tech-cosmos
-/docs/       @tech-cosmos
-/scripts/    @tech-cosmos
-/.claude/    @tech-cosmos
-/.github/    @tech-cosmos

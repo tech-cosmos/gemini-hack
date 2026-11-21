@@ -1,1 +1,0 @@
-done: Room Search sessions: photos→splat on Mac 219 s; spike 12b locate FAIL (8/10, Neon p50 50.08 s); spike 13 Dream vs Twin FAIL (judge sanity 6/10) / next: Dan photographs a venue corner for spike 12; index views at scan time for speed / blocked: none

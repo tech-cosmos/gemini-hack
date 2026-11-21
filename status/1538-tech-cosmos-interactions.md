@@ -1,1 +1,0 @@
-done: agent computer_use on the Interactions API as primary (generate_content fallback), ER 2 on Interactions v1beta; 2 live probe calls, both 429 (no replays recorded); next: record flights replays with a working key; blocked: key quota (#29)

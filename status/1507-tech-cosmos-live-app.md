@@ -1,1 +1,0 @@
-done: live app (app/server.py, http://localhost:8765): typed modal trap hijacks the flash-lite agent with brake OFF; brake ON stops it (p=0.84, 1.16 s), then the order is placed; next: projector polish, swap in the spike 17 agent; blocked: nothing

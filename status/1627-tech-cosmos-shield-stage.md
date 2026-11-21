@@ -1,1 +1,0 @@
-done: #54 visible rename Brake -> Shield, SHIELD ON flash + frame badge, wandering agent cursor (~2 s, also in replay), HIJACKED/STOPPED/DONE overlays on the browser frame, detonation chamber (crop flies in, timer, phase feed + real what_happened/verdict, MALICIOUS/SAFE stamp, S skips wait = fail closed); MOCK-only; next: live replays; blocked: key quota (#29)

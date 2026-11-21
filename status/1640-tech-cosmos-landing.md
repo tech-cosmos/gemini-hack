@@ -1,1 +1,0 @@
-done: #57 Click Shield landing page at / (fits 1280x720; numbers only from docs/EVIDENCE.md), stage app moved to /demo unchanged (brand links back to /), /download/click-shield-extension.zip zips extension/ on the fly without _*, .py and test files (Chrome rejects "_" files); next: nothing; blocked: none

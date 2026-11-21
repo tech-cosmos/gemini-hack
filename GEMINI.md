@@ -1,1 +1,0 @@
-Read AGENTS.md first and follow it. New here: do docs/SETUP.md "Agent steps". tech-cosmos leads; everyone else works only on issues they claimed with scripts/claim. Run scripts/catchup and scripts/directives-check before each task, scripts/log after each step, and keep scripts/watch running in a spare terminal.
