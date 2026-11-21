@@ -12,3 +12,5 @@ pitch's "what surprised us" are written from this file, so be specific and inclu
 ## Limitations
 
 - 12:00 · Both people's agents run Claude Opus 5.5 (high). For "ask a different model" (fresh ideas, hostile judge) use Fable or Gemini 4, not Opus, so the second opinion isn't the same model twice. Ideas 10–17 and spike 3 came from Fable.
+
+- 12:09 · **Models our keys can call** (from the key's own model list, v1beta): Gemini 4 Carbon/Neon/Hydrogen/Argon, `gemini-decision-1`; **video gen/edit** `gemini-omni-1.2-flash` (also 1.1, `gemini-omni-flash-preview`; up to 15 s with audio, image→video, extend, edit); **interactive worlds** `genie-4` (bidi, 24 fps); images `gemini-nano-banana-2.1`, `gemini-3-pro-image`; music `lyria-3.5`; live voice/video `gemini-3.8-live`; robotics `gemini-robotics-er-2-preview` (+ streaming); `gemini-2.5-computer-use-preview-10-2025`. No Veo. Anyone may use any of these; the lead says the event key has no spend limit (still estimate before a batch). A Fable agent is measuring Omni and Genie now; numbers land here.
