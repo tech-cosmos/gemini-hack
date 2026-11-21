@@ -8,6 +8,8 @@ the slides or the talk.
 -
 
 ## Along the way (spikes, pilots, things that failed)
+- **10 of 10 · 2.23 s** · frames where `gemini-robotics-er-2-preview` points on the named object (majority of 3 calls, judged by eye; 5 real ego2act frames + 5 generated) · p50 latency per call, 30 calls, max 3.6 s, 0 errors, `thinking_level` low. Pass mark was ≥ 8 and ≤ 2.5 s: **pass** · `results/s8_er_pointing.json` · `.venv/bin/python spikes/s8_er_pointing.py` then `... judge` (12:58)
+- 2.32 s · one ER 2 trajectory call (docs prompt), 2 waypoints returned, n=1 · same file and command
 - **15 of 20 · 0 of 20** · full clips / half-length prefixes where Decision 1 says "finished and stopped" at p ≥ 0.6 (threshold refit on spike 6b, then frozen), 20 held-out ego2act clips, tasks at ranks 50–59. Pass mark was ≥ 16 and ≤ 2: **fail** by one full clip. Median p 0.672 vs 0.2375 · `results/s7_donegate_heldout.json` · `.venv/bin/python spikes/s7_donegate_heldout.py` (12:38)
 - 0.99 · 20 of 20 · AUROC of that p between full clips and half prefixes · full clips scoring above their own half, same run · same file
 - 0.825 s / 1.91 s · Decision 1 p50 / max latency per call, 40 calls, 0 errors, same run · same file

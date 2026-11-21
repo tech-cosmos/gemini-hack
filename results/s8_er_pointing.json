@@ -1,0 +1,543 @@
+{
+ "model": "gemini-robotics-er-2-preview",
+ "thinking_level": "low",
+ "api": "client.interactions.create",
+ "frames": {
+  "real_banknote_card_coin": {
+   "target": "the wallet",
+   "calls": [
+    {
+     "s": 2.36,
+     "out": [
+      {
+       "point": [
+        535,
+        327
+       ],
+       "label": "wallet"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [535, 327], \"label\": \"wallet\"}\n]\n```"
+    },
+    {
+     "s": 2.07,
+     "out": [
+      {
+       "point": [
+        535,
+        325
+       ],
+       "label": "wallet"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [535, 325], \"label\": \"wallet\"}\n]\n```"
+    },
+    {
+     "s": 1.81,
+     "out": [
+      {
+       "point": [
+        517,
+        342
+       ],
+       "label": "wallet"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [517, 342], \"label\": \"wallet\"}\n]\n```"
+    }
+   ],
+   "calls_on_target_by_eye": 3,
+   "hit": true
+  },
+  "real_butter_candy_mug": {
+   "target": "the metal spoon",
+   "calls": [
+    {
+     "s": 2.67,
+     "out": [
+      {
+       "point": [
+        643,
+        291
+       ],
+       "label": "metal spoon"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [643, 291], \"label\": \"metal spoon\"}\n]\n```"
+    },
+    {
+     "s": 1.95,
+     "out": [
+      {
+       "point": [
+        634,
+        289
+       ],
+       "label": "metal spoon"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [634, 289], \"label\": \"metal spoon\"}\n]\n```"
+    },
+    {
+     "s": 2.06,
+     "out": [
+      {
+       "point": [
+        632,
+        290
+       ],
+       "label": "metal spoon"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [632, 290], \"label\": \"metal spoon\"}\n]\n```"
+    }
+   ],
+   "calls_on_target_by_eye": 3,
+   "hit": true
+  },
+  "real_coffee_plate_bottle": {
+   "target": "the grey lid of the coffee container",
+   "calls": [
+    {
+     "s": 2.09,
+     "out": [
+      {
+       "point": [
+        608,
+        535
+       ],
+       "label": "grey lid"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [608, 535], \"label\": \"grey lid\"}\n]\n```"
+    },
+    {
+     "s": 1.85,
+     "out": [
+      {
+       "point": [
+        607,
+        535
+       ],
+       "label": "the grey lid of the coffee container"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [607, 535], \"label\": \"the grey lid of the coffee container\"}\n]\n```"
+    },
+    {
+     "s": 1.68,
+     "out": [
+      {
+       "point": [
+        605,
+        535
+       ],
+       "label": "the grey lid of the coffee container"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [605, 535], \"label\": \"the grey lid of the coffee container\"}\n]\n```"
+    }
+   ],
+   "calls_on_target_by_eye": 3,
+   "hit": true
+  },
+  "real_eyedrop_chapstick": {
+   "target": "the chapstick",
+   "calls": [
+    {
+     "s": 2.59,
+     "out": [
+      {
+       "point": [
+        719,
+        550
+       ],
+       "label": "chapstick"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [719, 550], \"label\": \"chapstick\"}\n]\n```"
+    },
+    {
+     "s": 2.58,
+     "out": [
+      {
+       "point": [
+        716,
+        550
+       ],
+       "label": "chapstick"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [716, 550], \"label\": \"chapstick\"}\n]\n```"
+    },
+    {
+     "s": 2.19,
+     "out": [
+      {
+       "point": [
+        719,
+        550
+       ],
+       "label": "chapstick"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [719, 550], \"label\": \"chapstick\"}\n]\n```"
+    }
+   ],
+   "calls_on_target_by_eye": 3,
+   "hit": true
+  },
+  "real_headphone_mouse_book": {
+   "target": "the headphone stand",
+   "calls": [
+    {
+     "s": 3.12,
+     "out": [
+      {
+       "point": [
+        272,
+        375
+       ],
+       "label": "headphone stand"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [272, 375], \"label\": \"headphone stand\"}\n]\n```"
+    },
+    {
+     "s": 3.49,
+     "out": [
+      {
+       "point": [
+        267,
+        375
+       ],
+       "label": "headphone stand"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [267, 375], \"label\": \"headphone stand\"}\n]\n```"
+    },
+    {
+     "s": 2.35,
+     "out": [
+      {
+       "point": [
+        272,
+        375
+       ],
+       "label": "headphone stand"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [272, 375], \"label\": \"headphone stand\"}\n]\n```"
+    }
+   ],
+   "calls_on_target_by_eye": 3,
+   "hit": true
+  },
+  "gen_genie": {
+   "target": "the blue water bottle",
+   "calls": [
+    {
+     "s": 3.6,
+     "out": [
+      {
+       "point": [
+        435,
+        810
+       ],
+       "label": "blue water bottle"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [435, 810], \"label\": \"blue water bottle\"}\n]\n```"
+    },
+    {
+     "s": 2.14,
+     "out": [
+      {
+       "point": [
+        422,
+        810
+       ],
+       "label": "blue water bottle"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [422, 810], \"label\": \"blue water bottle\"}\n]\n```"
+    },
+    {
+     "s": 2.0,
+     "out": [
+      {
+       "point": [
+        390,
+        812
+       ],
+       "label": "blue water bottle"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [390, 812], \"label\": \"blue water bottle\"}\n]\n```"
+    }
+   ],
+   "calls_on_target_by_eye": 3,
+   "hit": true
+  },
+  "gen_genie_seed": {
+   "target": "the black coffee can",
+   "calls": [
+    {
+     "s": 2.51,
+     "out": [
+      {
+       "point": [
+        386,
+        481
+       ],
+       "label": "black coffee can"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [386, 481], \"label\": \"black coffee can\"}\n]\n```"
+    },
+    {
+     "s": 1.89,
+     "out": [
+      {
+       "point": [
+        386,
+        482
+       ],
+       "label": "black coffee can"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [386, 482], \"label\": \"black coffee can\"}\n]\n```"
+    },
+    {
+     "s": 2.12,
+     "out": [
+      {
+       "point": [
+        382,
+        480
+       ],
+       "label": "black coffee can"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [382, 480], \"label\": \"black coffee can\"}\n]\n```"
+    }
+   ],
+   "calls_on_target_by_eye": 3,
+   "hit": true
+  },
+  "gen_matryoshka": {
+   "target": "the largest matryoshka doll",
+   "calls": [
+    {
+     "s": 2.28,
+     "out": [
+      {
+       "point": [
+        448,
+        679
+       ],
+       "label": "largest matryoshka doll"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [448, 679], \"label\": \"largest matryoshka doll\"}\n]\n```"
+    },
+    {
+     "s": 2.43,
+     "out": [
+      {
+       "point": [
+        444,
+        679
+       ],
+       "label": "largest matryoshka doll"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [444, 679], \"label\": \"largest matryoshka doll\"}\n]\n```"
+    },
+    {
+     "s": 1.76,
+     "out": [
+      {
+       "point": [
+        448,
+        679
+       ],
+       "label": "largest matryoshka doll"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [448, 679], \"label\": \"largest matryoshka doll\"}\n]\n```"
+    }
+   ],
+   "calls_on_target_by_eye": 3,
+   "hit": true
+  },
+  "gen_t2v": {
+   "target": "the white mug",
+   "calls": [
+    {
+     "s": 3.13,
+     "out": [
+      {
+       "point": [
+        490,
+        370
+       ],
+       "label": "white mug"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [490, 370], \"label\": \"white mug\"}\n]\n```"
+    },
+    {
+     "s": 2.1,
+     "out": [
+      {
+       "point": [
+        486,
+        376
+       ],
+       "label": "white mug"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [486, 376], \"label\": \"white mug\"}\n]\n```"
+    },
+    {
+     "s": 2.0,
+     "out": [
+      {
+       "point": [
+        504,
+        381
+       ],
+       "label": "white mug"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [504, 381], \"label\": \"white mug\"}\n]\n```"
+    }
+   ],
+   "calls_on_target_by_eye": 3,
+   "hit": true
+  },
+  "gen_eyeshadow": {
+   "target": "the eyeshadow palette",
+   "calls": [
+    {
+     "s": 2.74,
+     "out": [
+      {
+       "point": [
+        624,
+        840
+       ],
+       "label": "eyeshadow palette"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [624, 840], \"label\": \"eyeshadow palette\"}\n]\n```"
+    },
+    {
+     "s": 2.27,
+     "out": [
+      {
+       "point": [
+        632,
+        846
+       ],
+       "label": "eyeshadow palette"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [632, 846], \"label\": \"eyeshadow palette\"}\n]\n```"
+    },
+    {
+     "s": 3.12,
+     "out": [
+      {
+       "point": [
+        619,
+        846
+       ],
+       "label": "eyeshadow palette"
+      }
+     ],
+     "raw": "```json\n[\n  {\"point\": [619, 846], \"label\": \"eyeshadow palette\"}\n]\n```"
+    }
+   ],
+   "calls_on_target_by_eye": 3,
+   "hit": true
+  }
+ },
+ "latency": {
+  "n": 30,
+  "p50": 2.23,
+  "max": 3.6,
+  "min": 1.68,
+  "errors": 0
+ },
+ "trajectory": {
+  "s": 2.32,
+  "out": [
+   {
+    "step": 1,
+    "point": [
+     910,
+     515
+    ],
+    "action": "move hand towards the chapstick"
+   },
+   {
+    "step": 2,
+    "point": [
+     735,
+     548
+    ],
+    "action": "grip the chapstick"
+   }
+  ],
+  "raw": "```json\n[\n  {\"step\": 1, \"point\": [910, 515], \"action\": \"move hand towards the chapstick\"},\n  {\"step\": 2, \"point\": [735, 548], \"action\": \"grip the chapstick\"}\n]\n```"
+ },
+ "levels_probe": {
+  "minimal": {
+   "s": 1.64,
+   "out": [
+    {
+     "point": [
+      712,
+      552
+     ],
+     "label": "chapstick"
+    }
+   ],
+   "raw": "```json\n[\n  {\"point\": [712, 552], \"label\": \"chapstick\"}\n]\n```"
+  },
+  "medium": {
+   "s": 2.72,
+   "out": [
+    {
+     "point": [
+      715,
+      552
+     ],
+     "label": "chapstick"
+    }
+   ],
+   "raw": "```json\n[\n  {\"point\": [715, 552], \"label\": \"chapstick\"}\n]\n```"
+  },
+  "high": {
+   "s": 2.56,
+   "out": [
+    {
+     "point": [
+      719,
+      552
+     ],
+     "label": "chapstick"
+    }
+   ],
+   "raw": "```json\n[\n  {\"point\": [719, 552], \"label\": \"chapstick\"}\n]\n```"
+  }
+ },
+ "judged": {
+  "frames_on_target": 10,
+  "of": 10,
+  "how": "by eye on the annotated PNGs, majority of 3 calls",
+  "pass": true
+ }
+}
