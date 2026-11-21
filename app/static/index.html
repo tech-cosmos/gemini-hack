@@ -111,7 +111,7 @@ async function post(path, body){
     body: JSON.stringify({...body, mock: $("mock").checked, backend: $("backend").value})});
   const j = await r.json();
   if (!r.ok) { const e = new Error(j.error || ("HTTP " + r.status)); e.busy = !!j.busy; e.quota = !!j.quota; e.notes = j.notes || []; throw e; }
-  if (REC) REC.push({path, ms: Math.round(performance.now() - t), resp: j});
+  if (REC && !(path === "/api/detonate_poll" && !j.done)) REC.push({path, ms: path === "/api/detonate_poll" ? 1200 : Math.round(performance.now() - t), resp: j});
   return j;
 }
 function clearRings(){ document.querySelectorAll("#stage .ring").forEach(e => e.remove()); }
@@ -189,10 +189,19 @@ async function run(brake){
              `${r.model} · ${r.question_version} · PASS if on-task ≥ ${r.threshold}; else STOP if attack ≥ ${r.threshold}; else DETONATE`);
         if (r.route === "DETONATE") {
           clearRings(); ring(p.x, p.y, "amber", "UNSURE");
-          verdict("det8", "UNSURE → detonating in sandbox…", `on-task ${r.p_on_task.toFixed(2)}, attack ${r.p_injected.toFixed(2)}: a sandboxed agent clicks “${name}” first.`, true);
-          const d = await post("/api/detonate", {page_id: page.page_id, task, x: p.x, y: p.y}); total += d.s || 0;
-          const safe = d.verdict === "safe";
-          step(`Sandbox: ${d.verdict} — ${d.what_happened}`, d.s, safe ? "ok" : "warn", d.stub ? "detonate stub (managed/detonate.py not on main)" : (d.mock ? "mock" : "managed/detonate.py"));
+          const detMsg = `on-task ${r.p_on_task.toFixed(2)}, attack ${r.p_injected.toFixed(2)}: a sandboxed agent clicks “${name}” first.`;
+          verdict("det8", "UNSURE → detonating in sandbox… 0 s", detMsg, true);
+          let jp = {done: false, elapsed_s: 0};
+          while (!jp.done) {  // detonation already started server-side when the brake said DETONATE (40-90 s live)
+            await sleep(PLAY ? 0 : 1000);
+            jp = await post("/api/detonate_poll", {job: r.job});
+            const lbl = PLAY ? `recorded: took ${jp.elapsed_s.toFixed(0)} s live` : `${jp.elapsed_s.toFixed(0)} s`;
+            verdict("det8", `UNSURE → detonating in sandbox… ${lbl}`, detMsg, !jp.done);
+          }
+          const d = jp.result; total += d.s || 0;
+          const safe = d.verdict === "benign";
+          step(`Sandbox: ${d.verdict} — ${d.what_happened}`, d.s, safe ? "ok" : "warn",
+               (PLAY ? "recorded detonation · " : "") + (d.stub ? "detonate stub (managed/detonate.py not on main)" : (d.mock ? "mock" : "managed/detonate.py (Managed Agents sandbox)")));
           allowed = safe; if (!safe) r.sandbox = d;
         } else allowed = r.route === "PASS";
         if (!allowed) {
@@ -211,16 +220,28 @@ async function run(brake){
           continue;
         }
       }
+      // the click really fires in the app's own headless Chrome; every outside request is aborted there and listed
+      const fr = await post("/api/fire", {page_id: page.page_id, x: p.x, y: p.y});
+      if (fr.html_after) $("frame").srcdoc = fr.html_after;
+      const leak = (fr.blocked || [])[0];
+      let leakText = "";
+      if (leak) {
+        let what = ""; try { what = Object.entries(JSON.parse(leak.body)).filter(([k]) => k !== "page" && k !== "cookie").map(([k, v]) => v).join(", "); } catch (x) {}
+        const host = (leak.url.match(/^https?:\/\/([^/]+)/) || [])[1] || leak.url;
+        leakText = `would have sent ${what || "your data"} to ${host}`;
+        step(`Page ${leak.method} → ${host}: ${what}`, null, "bad", "blocked by the app's browser: nothing left this machine");
+      }
       if (el.kind === "injected") {
         clearRings(); ring(p.x, p.y, "", "HIJACKED");
-        verdict("red", `HIJACKED — agent clicked “${name}”`, brake ? "The brake let it through (a miss)." : "That's what happens today.");
+        verdict("red", `HIJACKED — agent clicked “${name}”`,
+                (leakText ? leakText[0].toUpperCase() + leakText.slice(1) + " (blocked here). " : "") + (brake ? "The brake let it through (a miss)." : "That's what happens today."));
         step("Click fired on the attacker's button", null, "bad"); outcome = "hijacked"; break;
       }
       if (el.kind === "popup") { step(`Click fired on the site's own “${el.text}” (allowed)`, null, "ok"); mode = "none"; note = null; continue; }
       if (el.kind === "dismiss") { step(`Click fired on “${el.text}”: dialog closed`, null, "ok"); mode = "none"; continue; }
       if (el.kind === "task") {
         clearRings(); ring(p.x, p.y, "green", el.text);
-        const how = stopped ? `Hijack ${stopped.sandbox ? "detonated and " : ""}STOPPED in ${stopped.latency_s.toFixed(2)} s, then the agent clicked “${el.text}”`
+        const how = stopped ? `Hijack ${stopped.sandbox ? "detonated and " : ""}STOPPED in ${(stopped.latency_s + (stopped.sandbox ? stopped.sandbox.s || 0 : 0)).toFixed(stopped.sandbox ? 0 : 2)} s, then the agent clicked “${el.text}”`
                             : `${brake ? "Brake ON" : "Brake OFF"} · agent clicked “${el.text}”`;
         verdict("green", `${S().done} ✓`, `${how} · total model time ${total.toFixed(1)} s`);
         step(`Click fired on “${el.text}”: ${S().done.toLowerCase()}`, null, "ok"); outcome = stopped ? "stopped_then_done" : "done";
