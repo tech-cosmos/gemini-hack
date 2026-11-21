@@ -1,0 +1,4737 @@
+{
+ "summary": {
+  "n_pairs": 7,
+  "n_gold": 25,
+  "errors": [
+   [
+    "bedroom_1_bedroom_2",
+    "APITimeoutError: Request timed out. This is a client-side timeout. You can increase the timeout by setting the `timeout` argument on your request or in the client http options."
+   ],
+   [
+    "bedroom_3_bedroom_5",
+    "APITimeoutError: Request timed out. This is a client-side timeout. You can increase the timeout by setting the `timeout` argument on your request or in the client http options."
+   ],
+   [
+    "living_room_41_living_room_42",
+    "APITimeoutError: Request timed out. This is a client-side timeout. You can increase the timeout by setting the `timeout` argument on your request or in the client http options."
+   ],
+   [
+    "office_13_office_14",
+    "APITimeoutError: Request timed out. This is a client-side timeout. You can increase the timeout by setting the `timeout` argument on your request or in the client http options."
+   ],
+   [
+    "store_11_store_12",
+    "APITimeoutError: Request timed out. This is a client-side timeout. You can increase the timeout by setting the `timeout` argument on your request or in the client http options."
+   ]
+  ],
+  "arms": {
+   "a_baseline": {
+    "added": {
+     "tp": 6,
+     "n_pred": 6,
+     "n_gold": 6,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "removed": {
+     "tp": 8,
+     "n_pred": 9,
+     "n_gold": 10,
+     "precision": 0.8888888888888888,
+     "recall": 0.8,
+     "f1": 0.8421052631578947
+    },
+    "moved": {
+     "tp": 9,
+     "n_pred": 10,
+     "n_gold": 9,
+     "precision": 0.9,
+     "recall": 1.0,
+     "f1": 0.9473684210526315
+    },
+    "overall": {
+     "tp": 23,
+     "n_pred": 25,
+     "n_gold": 25,
+     "precision": 0.92,
+     "recall": 0.92,
+     "f1": 0.92
+    },
+    "latency_s": {
+     "p50": 69.02,
+     "max": 160.2,
+     "note": "upload + model calls, parallel steps counted once; excludes ffmpeg re-encode and scoring"
+    },
+    "calls_per_pair": 1
+   },
+   "b_system": {
+    "added": {
+     "tp": 4,
+     "n_pred": 46,
+     "n_gold": 6,
+     "precision": 0.08695652173913043,
+     "recall": 0.6666666666666666,
+     "f1": 0.15384615384615385
+    },
+    "removed": {
+     "tp": 7,
+     "n_pred": 30,
+     "n_gold": 10,
+     "precision": 0.23333333333333334,
+     "recall": 0.7,
+     "f1": 0.35
+    },
+    "moved": {
+     "tp": 6,
+     "n_pred": 39,
+     "n_gold": 9,
+     "precision": 0.15384615384615385,
+     "recall": 0.6666666666666666,
+     "f1": 0.25
+    },
+    "overall": {
+     "tp": 17,
+     "n_pred": 115,
+     "n_gold": 25,
+     "precision": 0.14782608695652175,
+     "recall": 0.68,
+     "f1": 0.24285714285714285
+    },
+    "latency_s": {
+     "p50": 53.79,
+     "max": 85.64,
+     "note": "upload + model calls, parallel steps counted once; excludes ffmpeg re-encode and scoring"
+    },
+    "calls_per_pair": 4
+   },
+   "b_system_recheck": {
+    "added": {
+     "tp": 5,
+     "n_pred": 24,
+     "n_gold": 6,
+     "precision": 0.20833333333333334,
+     "recall": 0.8333333333333334,
+     "f1": 0.3333333333333333
+    },
+    "removed": {
+     "tp": 7,
+     "n_pred": 9,
+     "n_gold": 10,
+     "precision": 0.7777777777777778,
+     "recall": 0.7,
+     "f1": 0.7368421052631579
+    },
+    "moved": {
+     "tp": 8,
+     "n_pred": 10,
+     "n_gold": 9,
+     "precision": 0.8,
+     "recall": 0.8888888888888888,
+     "f1": 0.8421052631578947
+    },
+    "overall": {
+     "tp": 20,
+     "n_pred": 43,
+     "n_gold": 25,
+     "precision": 0.46511627906976744,
+     "recall": 0.8,
+     "f1": 0.5882352941176471
+    },
+    "latency_s": {
+     "p50": 245.23,
+     "max": 315.66,
+     "note": "upload + model calls, parallel steps counted once; excludes ffmpeg re-encode and scoring"
+    },
+    "calls_per_pair": 5
+   }
+  },
+  "inventory_items": {
+   "A": 128,
+   "B": 146
+  },
+  "d1_questions": 402,
+  "d1_call_s_p50": 0.855,
+  "rechecked_items": 176,
+  "recheck_flips": 94,
+  "new_calls_this_run": {
+   "neon": 40,
+   "decision1": 22,
+   "carbon": 21,
+   "upload": 24
+  },
+  "pairs": [
+   "airhockeytable_1_airhockeytable_2",
+   "bedroom_1_bedroom_2",
+   "bedroom_3_bedroom_5",
+   "kitchen_6_kitchen_7",
+   "living_room_17_living_room_18",
+   "living_room_41_living_room_42",
+   "lounge_1_lounge_2",
+   "office_13_office_14",
+   "store_11_store_12",
+   "store_7_store_8",
+   "table_1_table_3",
+   "table_5_table_6"
+  ],
+  "pass": false,
+  "kill": true
+ },
+ "pairs": [
+  {
+   "pair": "airhockeytable_1_airhockeytable_2",
+   "gold": [
+    {
+     "id": "0",
+     "label": "Air Hockey Sticker_1",
+     "type": "moved",
+     "deformability": "rigid"
+    }
+   ],
+   "upload_s": 3.69,
+   "a": {
+    "raw": "moved: white air hockey mallet",
+    "pred": [
+     {
+      "type": "moved",
+      "object": "white air hockey mallet"
+     }
+    ],
+    "s": 52.25,
+    "calls": 1,
+    "match": {
+     "0": 0
+    }
+   },
+   "b": {
+    "n_inv": [
+     5,
+     9
+    ],
+    "pred": [
+     {
+      "type": "removed",
+      "object": "white air hockey mallet (on the near right side of the blue air hockey table)"
+     },
+     {
+      "type": "moved",
+      "object": "white air hockey mallet (at the far end of the blue air hockey table, centered near the edge)"
+     },
+     {
+      "type": "removed",
+      "object": "dark grey chair (in the background hallway, directly behind the left glass panel of the entrance doors)"
+     },
+     {
+      "type": "removed",
+      "object": "dark grey floor mat (on the floor in front of the double glass doors in the background)"
+     },
+     {
+      "type": "added",
+      "object": "dark grey high-back armchair (on the carpet to the left of the air hockey table, beside the white pillar)"
+     },
+     {
+      "type": "added",
+      "object": "dark grey armchair (on the carpet past the high-back armchair, in front of the dark banner stand)"
+     },
+     {
+      "type": "added",
+      "object": "dark blue freestanding banner stand (standing on the carpet to the left of the glass double doors)"
+     },
+     {
+      "type": "added",
+      "object": "grey metal-legged chair (in the hallway beyond the left glass door, to the left of the vending machines)"
+     },
+     {
+      "type": "added",
+      "object": "light-colored small table (in the hallway just outside the left glass door, beside the grey chair)"
+     },
+     {
+      "type": "added",
+      "object": "beige metal-legged chair (in the hallway beyond the right glass window panel, to the right of the double doors)"
+     }
+    ],
+    "s": 53.79,
+    "calls": 4,
+    "inv_s": [
+     35.53,
+     49.37
+    ],
+    "d1_s": [
+     0.69,
+     0.73
+    ],
+    "n_questions": 19,
+    "match": {
+     "0": 1
+    }
+   },
+   "b_rc": {
+    "pred": [
+     {
+      "type": "moved",
+      "object": "white air hockey mallet (on the near right side of the blue air hockey table)"
+     },
+     {
+      "type": "added",
+      "object": "grey metal-legged chair (in the hallway beyond the left glass door, to the left of the vending machines)"
+     },
+     {
+      "type": "added",
+      "object": "light-colored small table (in the hallway just outside the left glass door, beside the grey chair)"
+     },
+     {
+      "type": "added",
+      "object": "beige metal-legged chair (in the hallway beyond the right glass window panel, to the right of the double doors)"
+     }
+    ],
+    "s": 285.04,
+    "calls": 5,
+    "n_rechecked": 9,
+    "n_flipped": 7,
+    "match": {
+     "0": 0
+    }
+   },
+   "items": [
+    {
+     "src": "A",
+     "object": "white air hockey mallet",
+     "location": "on the near right side of the blue air hockey table",
+     "p_present": 0.344,
+     "p_same": 0.233,
+     "conf": 0.656,
+     "verdict": "removed",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "A",
+     "object": "white air hockey mallet",
+     "location": "at the far end of the blue air hockey table, centered near the edge",
+     "p_present": 0.612,
+     "p_same": 0.432,
+     "conf": 0.568,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "dark grey armchair",
+     "location": "on the floor to the left of the air hockey table, next to the black photo booth",
+     "p_present": 0.637,
+     "p_same": 0.55,
+     "conf": 0.55,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "dark grey chair",
+     "location": "in the background hallway, directly behind the left glass panel of the entrance doors",
+     "p_present": 0.392,
+     "p_same": 0.309,
+     "conf": 0.608,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "dark grey floor mat",
+     "location": "on the floor in front of the double glass doors in the background",
+     "p_present": 0.436,
+     "p_same": 0.406,
+     "conf": 0.564,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white air hockey mallet",
+     "location": "near the far edge of the blue air hockey table, slightly left of center",
+     "p_present": 0.876,
+     "conf": 0.876,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white air hockey mallet",
+     "location": "near the far end of the blue air hockey table, slightly right of center",
+     "p_present": 0.865,
+     "conf": 0.865,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark grey high-back armchair",
+     "location": "on the carpet to the left of the air hockey table, beside the white pillar",
+     "p_present": 0.33,
+     "conf": 0.67,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark grey armchair",
+     "location": "on the carpet past the high-back armchair, in front of the dark banner stand",
+     "p_present": 0.306,
+     "conf": 0.694,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark blue freestanding banner stand",
+     "location": "standing on the carpet to the left of the glass double doors",
+     "p_present": 0.48,
+     "conf": 0.52,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark grey floor mat",
+     "location": "on the floor directly in front of the glass double doors",
+     "p_present": 0.67,
+     "conf": 0.67,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "grey metal-legged chair",
+     "location": "in the hallway beyond the left glass door, to the left of the vending machines",
+     "p_present": 0.238,
+     "conf": 0.762,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "light-colored small table",
+     "location": "in the hallway just outside the left glass door, beside the grey chair",
+     "p_present": 0.246,
+     "conf": 0.754,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "beige metal-legged chair",
+     "location": "in the hallway beyond the right glass window panel, to the right of the double doors",
+     "p_present": 0.213,
+     "conf": 0.787,
+     "verdict": "added",
+     "verdict_rc": "added"
+    }
+   ]
+  },
+  {
+   "pair": "bedroom_1_bedroom_2",
+   "gold": [
+    {
+     "id": "0",
+     "label": "jacket_1",
+     "type": "removed",
+     "deformability": "rigid"
+    },
+    {
+     "id": "1",
+     "label": "tissue_box_1",
+     "type": "moved",
+     "deformability": "rigid"
+    },
+    {
+     "id": "2",
+     "label": "quilt_1",
+     "type": "moved",
+     "deformability": "deformable"
+    },
+    {
+     "id": "3",
+     "label": "pajamas_1",
+     "type": "moved",
+     "deformability": "deformable"
+    }
+   ],
+   "upload_s": 5.47,
+   "a": {
+    "raw": "removed: black jacket\nmoved: tissue box\nmoved: grey shirt\nmoved: white comforter",
+    "pred": [
+     {
+      "type": "removed",
+      "object": "black jacket"
+     },
+     {
+      "type": "moved",
+      "object": "tissue box"
+     },
+     {
+      "type": "moved",
+      "object": "grey shirt"
+     },
+     {
+      "type": "moved",
+      "object": "white comforter"
+     }
+    ],
+    "s": 118.2,
+    "calls": 1
+   },
+   "b": {
+    "n_inv": [
+     34,
+     35
+    ],
+    "pred": [
+     {
+      "type": "moved",
+      "object": "black shelf floor lamp (standing on the floor in the right corner near the window wall)"
+     },
+     {
+      "type": "removed",
+      "object": "small black cylindrical speaker (on the top shelf of the floor lamp in the right corner)"
+     },
+     {
+      "type": "removed",
+      "object": "small black rectangular device (on the left side of the top shelf of the floor lamp in the right corner)"
+     },
+     {
+      "type": "removed",
+      "object": "small white jar (on the left side of the middle shelf of the floor lamp in the right corner)"
+     },
+     {
+      "type": "removed",
+      "object": "small white round dish (on the front left of the middle shelf of the floor lamp in the right corner)"
+     },
+     {
+      "type": "removed",
+      "object": "white power strip (on the right side of the middle shelf of the floor lamp in the right corner)"
+     },
+     {
+      "type": "moved",
+      "object": "small white cylindrical container (on the right-center of the windowsill)"
+     },
+     {
+      "type": "moved",
+      "object": "small grey metal object (on the center of the windowsill)"
+     },
+     {
+      "type": "moved",
+      "object": "clear plastic water bottle (standing on the left-center of the windowsill)"
+     },
+     {
+      "type": "removed",
+      "object": "small dark grey bottle (on the left side of the windowsill near the corner wall)"
+     },
+     {
+      "type": "moved",
+      "object": "cream comforter (crumpled on the right side of the bed near the window wall)"
+     },
+     {
+      "type": "removed",
+      "object": "grey pillow (at the head of the bed on the right side near the corner walls)"
+     },
+     {
+      "type": "moved",
+      "object": "white and grey desk lamp (on the back right corner of the nightstand next to the left side of the bed)"
+     },
+     {
+      "type": "moved",
+      "object": "yellow and purple tissue box (on the front right of the nightstand next to the left side of the bed)"
+     },
+     {
+      "type": "moved",
+      "object": "small white packet (on the left side of the top of the nightstand against the back wall)"
+     },
+     {
+      "type": "removed",
+      "object": "clear plastic water bottle (lying horizontally on the floor under the back right of the nightstand near the bed)"
+     },
+     {
+      "type": "removed",
+      "object": "dark grey laptop (closed on the floor in front of the left side of the bed)"
+     },
+     {
+      "type": "removed",
+      "object": "small white cylindrical stick (lying on the floor between the nightstand and the floor lamp against the back wall)"
+     },
+     {
+      "type": "moved",
+      "object": "grey and white floor lamp (standing on the floor against the back wall between the nightstand and the wall outlet)"
+     },
+     {
+      "type": "removed",
+      "object": "black jacket (crumpled in a pile on the floor in front of the back wall and floor lamp)"
+     },
+     {
+      "type": "removed",
+      "object": "brown cardboard box (open on the floor near the white door on the far left)"
+     },
+     {
+      "type": "added",
+      "object": "small white bottle cap (on top of the black nightstand against the left wall)"
+     },
+     {
+      "type": "added",
+      "object": "white bottle with black cap (on the carpeted floor underneath the right edge of the black nightstand)"
+     },
+     {
+      "type": "added",
+      "object": "beige and blue cardboard box (on the carpeted floor near the left side of the bed)"
+     },
+     {
+      "type": "added",
+      "object": "dark grey laptop (on the carpeted floor beside the side of the bed)"
+     },
+     {
+      "type": "added",
+      "object": "grey crumpled shirt (lying on the lower half of the bed)"
+     },
+     {
+      "type": "added",
+      "object": "small dark grey bottle (on the left side of the window sill)"
+     },
+     {
+      "type": "added",
+      "object": "blue and white shark plush toy (on the carpeted floor between the bed and the window wall)"
+     },
+     {
+      "type": "added",
+      "object": "white cardboard box (on the carpeted floor in the corner between the window wall and the right wall)"
+     },
+     {
+      "type": "added",
+      "object": "black rectangular case (resting inside the open white box in the corner between the window wall and the right wall)"
+     },
+     {
+      "type": "added",
+      "object": "small black electronic device (on the upper shelf of the shelf floor lamp against the right wall)"
+     },
+     {
+      "type": "added",
+      "object": "clear plastic container (on the middle shelf of the shelf floor lamp against the right wall)"
+     },
+     {
+      "type": "added",
+      "object": "black cardboard box (on the carpeted floor against the right wall, next to the shelf floor lamp)"
+     },
+     {
+      "type": "added",
+      "object": "brown and white open box (resting on top of the black box against the right wall)"
+     },
+     {
+      "type": "added",
+      "object": "dark green storage bin (on the carpeted floor against the right wall, to the right of the black box)"
+     },
+     {
+      "type": "added",
+      "object": "light blue open container (resting on top of the dark green storage bin against the right wall)"
+     },
+     {
+      "type": "added",
+      "object": "black portable speaker (on the carpeted floor in front of the boxes along the right wall)"
+     },
+     {
+      "type": "added",
+      "object": "white and black printed cardboard box (on the carpeted floor against the right wall, to the right of the dark green storage bin)"
+     }
+    ],
+    "s": 75.24,
+    "calls": 4,
+    "inv_s": [
+     65.24,
+     68.39
+    ],
+    "d1_s": [
+     1.13,
+     1.38
+    ],
+    "n_questions": 103
+   },
+   "error": "APITimeoutError: Request timed out. This is a client-side timeout. You can increase the timeout by setting the `timeout` argument on your request or in the client http options."
+  },
+  {
+   "pair": "bedroom_3_bedroom_5",
+   "gold": [
+    {
+     "id": "0",
+     "label": "tissue_box_1",
+     "type": "removed",
+     "deformability": "rigid"
+    },
+    {
+     "id": "1",
+     "label": "bottle_1",
+     "type": "removed",
+     "deformability": "rigid"
+    },
+    {
+     "id": "2",
+     "label": "bottle_2",
+     "type": "removed",
+     "deformability": "rigid"
+    },
+    {
+     "id": "3",
+     "label": "bottle_3",
+     "type": "removed",
+     "deformability": "rigid"
+    },
+    {
+     "id": "4",
+     "label": "bottle_4",
+     "type": "removed",
+     "deformability": "rigid"
+    },
+    {
+     "id": "5",
+     "label": "face_cream_1",
+     "type": "moved",
+     "deformability": "rigid"
+    },
+    {
+     "id": "6",
+     "label": "madicine_jar_1",
+     "type": "added",
+     "deformability": "rigid"
+    }
+   ],
+   "upload_s": 5.44,
+   "a": {
+    "raw": "moved: small spray bottle\nremoved: water bottle on the window sill\nremoved: water bottle under the nightstand\nremoved: water bottle lying on the floor\nremoved: standing water bottle next to the tissue box\nremoved: tissue box\nadded: small black-and-white box",
+    "pred": [
+     {
+      "type": "moved",
+      "object": "small spray bottle"
+     },
+     {
+      "type": "removed",
+      "object": "water bottle on the window sill"
+     },
+     {
+      "type": "removed",
+      "object": "water bottle under the nightstand"
+     },
+     {
+      "type": "removed",
+      "object": "water bottle lying on the floor"
+     },
+     {
+      "type": "removed",
+      "object": "standing water bottle next to the tissue box"
+     },
+     {
+      "type": "removed",
+      "object": "tissue box"
+     },
+     {
+      "type": "added",
+      "object": "small black-and-white box"
+     }
+    ],
+    "s": 169.04,
+    "calls": 1
+   },
+   "b": {
+    "n_inv": [
+     23,
+     17
+    ],
+    "pred": [
+     {
+      "type": "removed",
+      "object": "blue and white plush shark (on the floor beneath the window, beside the bed)"
+     },
+     {
+      "type": "moved",
+      "object": "black and white striped cloth (draped over the plush shark on the floor beneath the window)"
+     },
+     {
+      "type": "removed",
+      "object": "small grey bottle (on the left side of the windowsill)"
+     },
+     {
+      "type": "removed",
+      "object": "clear plastic water bottle (standing on the left-center of the windowsill)"
+     },
+     {
+      "type": "removed",
+      "object": "small dark grey clip (on the center of the windowsill)"
+     },
+     {
+      "type": "moved",
+      "object": "cream comforter (bunched along the right side of the bed)"
+     },
+     {
+      "type": "moved",
+      "object": "grey pillow (at the head of the bed against the wall, near the window corner)"
+     },
+     {
+      "type": "moved",
+      "object": "grey folded garment (on the left side of the bed, below the left pillow)"
+     },
+     {
+      "type": "moved",
+      "object": "black and white plaid shirt (crumpled on the left side of the bed)"
+     },
+     {
+      "type": "moved",
+      "object": "black and white plaid pants (folded on the lower-left side of the bed)"
+     },
+     {
+      "type": "removed",
+      "object": "black and white floor lamp (standing on the floor against the wall, to the left of the bed)"
+     },
+     {
+      "type": "moved",
+      "object": "white pump lotion bottle (on the left side of the small black side table against the wall)"
+     },
+     {
+      "type": "moved",
+      "object": "white pill bottle with red cap (on the front-right of the small black side table against the wall)"
+     },
+     {
+      "type": "removed",
+      "object": "small white cap (on the center of the small black side table against the wall)"
+     },
+     {
+      "type": "moved",
+      "object": "white and grey desk lamp (on the back-right of the small black side table against the wall)"
+     },
+     {
+      "type": "removed",
+      "object": "brown and beige patterned tissue box (on the floor beside the left side of the bed, in front of the side table)"
+     },
+     {
+      "type": "moved",
+      "object": "clear plastic water bottle (standing upright on the floor in front of the side table, next to the tissue box)"
+     },
+     {
+      "type": "added",
+      "object": "white rectangular container (on the balcony floor near the railing outside the right side of the window)"
+     },
+     {
+      "type": "added",
+      "object": "brown and white rectangular box (on the carpeted floor between the side table and the bed)"
+     }
+    ],
+    "s": 53.33,
+    "calls": 4,
+    "inv_s": [
+     46.04,
+     46.84
+    ],
+    "d1_s": [
+     1.05,
+     0.81
+    ],
+    "n_questions": 63
+   },
+   "error": "APITimeoutError: Request timed out. This is a client-side timeout. You can increase the timeout by setting the `timeout` argument on your request or in the client http options."
+  },
+  {
+   "pair": "kitchen_6_kitchen_7",
+   "gold": [
+    {
+     "id": "0",
+     "label": "knife_1",
+     "type": "moved",
+     "deformability": "rigid"
+    },
+    {
+     "id": "1",
+     "label": "dark_soy_sauce_1",
+     "type": "moved",
+     "deformability": "rigid"
+    },
+    {
+     "id": "2",
+     "label": "pot_1",
+     "type": "moved",
+     "deformability": "rigid"
+    }
+   ],
+   "upload_s": 3.68,
+   "a": {
+    "raw": "moved: small saucepan\nmoved: soy sauce bottle\nmoved: chef's knife\nmoved: carving knife",
+    "pred": [
+     {
+      "type": "moved",
+      "object": "small saucepan"
+     },
+     {
+      "type": "moved",
+      "object": "soy sauce bottle"
+     },
+     {
+      "type": "moved",
+      "object": "chef's knife"
+     },
+     {
+      "type": "moved",
+      "object": "carving knife"
+     }
+    ],
+    "s": 160.2,
+    "calls": 1,
+    "match": {
+     "0": 2,
+     "1": 1,
+     "2": 0
+    }
+   },
+   "b": {
+    "n_inv": [
+     21,
+     28
+    ],
+    "pred": [
+     {
+      "type": "moved",
+      "object": "silver metal pot (on the countertop to the left of the stove)"
+     },
+     {
+      "type": "moved",
+      "object": "silver metal steamer basket (stacked on top of the silver pot on the countertop to the left of the stove)"
+     },
+     {
+      "type": "removed",
+      "object": "silver metal pot lid (resting against the wall behind the steamer pot on the countertop to the left of the stove)"
+     },
+     {
+      "type": "removed",
+      "object": "small red plastic packet (on the countertop to the left of the stove, near the front edge)"
+     },
+     {
+      "type": "moved",
+      "object": "dark brown sauce bottle with yellow cap (on the countertop to the left of the stove)"
+     },
+     {
+      "type": "moved",
+      "object": "small silver saucepan with black handle (on the front-left burner of the stove)"
+     },
+     {
+      "type": "moved",
+      "object": "sauce bottle with yellow cap and red-and-white label (on the countertop to the right of the stove, near the back wall)"
+     },
+     {
+      "type": "moved",
+      "object": "tall spice grinder with black cap (on the countertop to the right of the stove)"
+     },
+     {
+      "type": "moved",
+      "object": "medium-large silver kitchen knife with black handle (attached to the black magnetic knife stand, fourth from the left)"
+     },
+     {
+      "type": "moved",
+      "object": "large silver chef's knife with black handle (attached to the black magnetic knife stand, fifth from the left)"
+     },
+     {
+      "type": "moved",
+      "object": "large silver slicing knife with black handle (attached to the right side of the black magnetic knife stand, sixth from the left)"
+     },
+     {
+      "type": "added",
+      "object": "brown cardboard box (on the floor to the right of the white cabinet)"
+     },
+     {
+      "type": "added",
+      "object": "small silver knife with black handle (fifth from right on the black knife holder in front of the window blinds)"
+     },
+     {
+      "type": "added",
+      "object": "clear glass pot lid with silver handle (leaning on the counter against the wall to the left of the stove)"
+     },
+     {
+      "type": "added",
+      "object": "large clear plastic water jug with blue cap (on the counter to the left of the stove, beside the saucepan)"
+     },
+     {
+      "type": "added",
+      "object": "clear bottle with red cap (on the far left of the counter behind the water jug)"
+     }
+    ],
+    "s": 85.64,
+    "calls": 4,
+    "inv_s": [
+     81.07,
+     45.64
+    ],
+    "d1_s": [
+     0.89,
+     0.82
+    ],
+    "n_questions": 70,
+    "match": {
+     "0": 8,
+     "1": 4,
+     "2": 0
+    }
+   },
+   "b_rc": {
+    "pred": [
+     {
+      "type": "moved",
+      "object": "dark brown sauce bottle with yellow cap (on the countertop to the left of the stove)"
+     },
+     {
+      "type": "moved",
+      "object": "small silver saucepan with black handle (on the front-left burner of the stove)"
+     },
+     {
+      "type": "moved",
+      "object": "large silver chef's knife with black handle (attached to the black magnetic knife stand, fifth from the left)"
+     },
+     {
+      "type": "moved",
+      "object": "large silver slicing knife with black handle (attached to the right side of the black magnetic knife stand, sixth from the left)"
+     },
+     {
+      "type": "added",
+      "object": "brown cardboard box (on the floor to the right of the white cabinet)"
+     },
+     {
+      "type": "added",
+      "object": "clear glass pot lid with silver handle (leaning on the counter against the wall to the left of the stove)"
+     },
+     {
+      "type": "added",
+      "object": "large clear plastic water jug with blue cap (on the counter to the left of the stove, beside the saucepan)"
+     }
+    ],
+    "s": 245.23,
+    "calls": 5,
+    "n_rechecked": 30,
+    "n_flipped": 10,
+    "match": {
+     "0": 2,
+     "1": 0,
+     "2": 1
+    }
+   },
+   "items": [
+    {
+     "src": "A",
+     "object": "silver metal pot",
+     "location": "on the countertop to the left of the stove",
+     "p_present": 0.519,
+     "p_same": 0.28,
+     "conf": 0.519,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "silver metal steamer basket",
+     "location": "stacked on top of the silver pot on the countertop to the left of the stove",
+     "p_present": 0.607,
+     "p_same": 0.383,
+     "conf": 0.607,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "silver metal pot lid",
+     "location": "resting against the wall behind the steamer pot on the countertop to the left of the stove",
+     "p_present": 0.334,
+     "p_same": 0.349,
+     "conf": 0.666,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "small red plastic packet",
+     "location": "on the countertop to the left of the stove, near the front edge",
+     "p_present": 0.282,
+     "p_same": 0.269,
+     "conf": 0.718,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "dark brown sauce bottle with yellow cap",
+     "location": "on the countertop to the left of the stove",
+     "p_present": 0.57,
+     "p_same": 0.28,
+     "conf": 0.57,
+     "verdict": "moved",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "A",
+     "object": "small silver saucepan with black handle",
+     "location": "on the front-left burner of the stove",
+     "p_present": 0.604,
+     "p_same": 0.291,
+     "conf": 0.604,
+     "verdict": "moved",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "A",
+     "object": "large silver stockpot",
+     "location": "on the back-left burner of the stove",
+     "p_present": 0.698,
+     "p_same": 0.555,
+     "conf": 0.555,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "large black wok",
+     "location": "on the front-right burner of the stove",
+     "p_present": 0.854,
+     "p_same": 0.836,
+     "conf": 0.836,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "sauce bottle with yellow cap and red-and-white label",
+     "location": "on the countertop to the right of the stove, near the back wall",
+     "p_present": 0.599,
+     "p_same": 0.415,
+     "conf": 0.585,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "tall spice grinder with black cap",
+     "location": "on the countertop to the right of the stove",
+     "p_present": 0.623,
+     "p_same": 0.476,
+     "conf": 0.524,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "short spice grinder with black cap",
+     "location": "on the countertop to the right of the stove, in front of the taller grinder",
+     "p_present": 0.67,
+     "p_same": 0.529,
+     "conf": 0.529,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "brown wooden cutting board",
+     "location": "on the countertop to the right of the stove",
+     "p_present": 0.829,
+     "p_same": 0.828,
+     "conf": 0.828,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "small grey-and-red rectangular spice box",
+     "location": "on the left side of the wooden cutting board on the right countertop",
+     "p_present": 0.666,
+     "p_same": 0.641,
+     "conf": 0.641,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "orange-and-white food package in clear plastic bag",
+     "location": "on the right side of the wooden cutting board on the right countertop",
+     "p_present": 0.648,
+     "p_same": 0.577,
+     "conf": 0.577,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black magnetic knife stand",
+     "location": "on the countertop to the right of the stove, behind the wooden cutting board",
+     "p_present": 0.893,
+     "p_same": 0.871,
+     "conf": 0.871,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "small silver paring knife with black handle",
+     "location": "attached to the far left of the black magnetic knife stand behind the cutting board",
+     "p_present": 0.649,
+     "p_same": 0.574,
+     "conf": 0.574,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "small silver utility knife with black handle",
+     "location": "attached to the left side of the black magnetic knife stand, second from the left",
+     "p_present": 0.663,
+     "p_same": 0.506,
+     "conf": 0.506,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "medium silver kitchen knife with black handle",
+     "location": "attached to the black magnetic knife stand, third from the left",
+     "p_present": 0.802,
+     "p_same": 0.53,
+     "conf": 0.53,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "medium-large silver kitchen knife with black handle",
+     "location": "attached to the black magnetic knife stand, fourth from the left",
+     "p_present": 0.797,
+     "p_same": 0.469,
+     "conf": 0.531,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "large silver chef's knife with black handle",
+     "location": "attached to the black magnetic knife stand, fifth from the left",
+     "p_present": 0.683,
+     "p_same": 0.382,
+     "conf": 0.618,
+     "verdict": "moved",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "A",
+     "object": "large silver slicing knife with black handle",
+     "location": "attached to the right side of the black magnetic knife stand, sixth from the left",
+     "p_present": 0.633,
+     "p_same": 0.429,
+     "conf": 0.571,
+     "verdict": "moved",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "B",
+     "object": "brown cardboard box",
+     "location": "on the floor to the right of the white cabinet",
+     "p_present": 0.156,
+     "conf": 0.844,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "silver metal pot",
+     "location": "on the floor to the right of the white cabinet, in front of the cardboard box",
+     "p_present": 0.867,
+     "conf": 0.867,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "brown wooden cutting board",
+     "location": "on top of the white cabinet to the right of the stove",
+     "p_present": 0.873,
+     "conf": 0.873,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark brown sauce bottle with yellow cap",
+     "location": "on the wooden cutting board on the white cabinet to the right of the stove",
+     "p_present": 0.872,
+     "conf": 0.872,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "orange carrots in clear plastic bag",
+     "location": "on the wooden cutting board to the right of the stove",
+     "p_present": 0.664,
+     "conf": 0.664,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white and red rectangular spice tin",
+     "location": "on the left edge of the wooden cutting board to the right of the stove",
+     "p_present": 0.586,
+     "conf": 0.586,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black knife holder",
+     "location": "on the counter behind the wooden cutting board in front of the window blinds",
+     "p_present": 0.885,
+     "conf": 0.885,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "large silver chef knife with black handle",
+     "location": "far right on the black knife holder in front of the window blinds",
+     "p_present": 0.838,
+     "conf": 0.838,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "large silver chef knife with black handle",
+     "location": "second from right on the black knife holder in front of the window blinds",
+     "p_present": 0.799,
+     "conf": 0.799,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "medium silver knife with black handle",
+     "location": "third from right on the black knife holder in front of the window blinds",
+     "p_present": 0.715,
+     "conf": 0.715,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "medium silver knife with black handle",
+     "location": "fourth from right on the black knife holder in front of the window blinds",
+     "p_present": 0.691,
+     "conf": 0.691,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "small silver knife with black handle",
+     "location": "fifth from right on the black knife holder in front of the window blinds",
+     "p_present": 0.375,
+     "conf": 0.625,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "small silver knife with black handle",
+     "location": "far left on the black knife holder in front of the window blinds",
+     "p_present": 0.314,
+     "conf": 0.686,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear bottle with yellow cap",
+     "location": "on the counter between the back right side of the stove and the window wall",
+     "p_present": 0.799,
+     "conf": 0.799,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear spice grinder with black cap",
+     "location": "on the counter next to the right side of the stove, in front of the yellow-capped bottle",
+     "p_present": 0.754,
+     "conf": 0.754,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear spice jar with black cap",
+     "location": "on the counter next to the right side of the stove, in front of the spice grinder",
+     "p_present": 0.766,
+     "conf": 0.766,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black wok with black handle",
+     "location": "on the front right burner of the stove",
+     "p_present": 0.922,
+     "conf": 0.922,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "silver stainless steel stockpot",
+     "location": "on the back left burner of the stove",
+     "p_present": 0.886,
+     "conf": 0.886,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear glass pot lid with silver handle",
+     "location": "leaning on the counter against the wall to the left of the stove",
+     "p_present": 0.167,
+     "conf": 0.833,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "red seasoning packet",
+     "location": "on the counter immediately to the left of the stove",
+     "p_present": 0.672,
+     "conf": 0.672,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "silver saucepan with black handle",
+     "location": "on the front of the counter to the left of the stove",
+     "p_present": 0.854,
+     "conf": 0.854,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "silver metal steamer pot with black handles",
+     "location": "on the counter to the left of the stove, below the wall outlet",
+     "p_present": 0.622,
+     "conf": 0.622,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "silver metal steamer tier with black handles",
+     "location": "stacked on top of the steamer pot on the counter to the left of the stove",
+     "p_present": 0.584,
+     "conf": 0.584,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "large clear plastic water jug with blue cap",
+     "location": "on the counter to the left of the stove, beside the saucepan",
+     "p_present": 0.125,
+     "conf": 0.875,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "small bottle with black cap",
+     "location": "on the back of the counter below the wall outlet to the left of the stove",
+     "p_present": 0.616,
+     "conf": 0.616,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear bottle with yellow cap",
+     "location": "on the back of the counter to the left of the wall outlet",
+     "p_present": 0.764,
+     "conf": 0.764,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark grey cylindrical bottle",
+     "location": "on the back of the counter behind the water jug to the left of the wall outlet",
+     "p_present": 0.51,
+     "conf": 0.51,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear bottle with red cap",
+     "location": "on the far left of the counter behind the water jug",
+     "p_present": 0.473,
+     "conf": 0.527,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    }
+   ]
+  },
+  {
+   "pair": "living_room_17_living_room_18",
+   "gold": [
+    {
+     "id": "0",
+     "label": "stool_1",
+     "type": "removed",
+     "deformability": "rigid"
+    },
+    {
+     "id": "1",
+     "label": "coat_1",
+     "type": "removed",
+     "deformability": "rigid"
+    },
+    {
+     "id": "2",
+     "label": "bread_1",
+     "type": "added",
+     "deformability": "rigid"
+    },
+    {
+     "id": "3",
+     "label": "tissue_box_1",
+     "type": "added",
+     "deformability": "rigid"
+    },
+    {
+     "id": "4",
+     "label": "pillow_1",
+     "type": "moved",
+     "deformability": "deformable"
+    },
+    {
+     "id": "5",
+     "label": "controller_1",
+     "type": "moved",
+     "deformability": "rigid"
+    },
+    {
+     "id": "6",
+     "label": "bag_1",
+     "type": "moved",
+     "deformability": "deformable"
+    }
+   ],
+   "upload_s": 3.89,
+   "a": {
+    "raw": "added: bag of bread\nadded: tissue box\nremoved: beige throw blanket\nremoved: white step stool\nmoved: patterned throw pillow\nmoved: tote bag\nmoved: remote control",
+    "pred": [
+     {
+      "type": "added",
+      "object": "bag of bread"
+     },
+     {
+      "type": "added",
+      "object": "tissue box"
+     },
+     {
+      "type": "removed",
+      "object": "beige throw blanket"
+     },
+     {
+      "type": "removed",
+      "object": "white step stool"
+     },
+     {
+      "type": "moved",
+      "object": "patterned throw pillow"
+     },
+     {
+      "type": "moved",
+      "object": "tote bag"
+     },
+     {
+      "type": "moved",
+      "object": "remote control"
+     }
+    ],
+    "s": 154.93,
+    "calls": 1,
+    "match": {
+     "0": 3,
+     "2": 0,
+     "3": 1,
+     "4": 4,
+     "5": 6,
+     "6": 5
+    }
+   },
+   "b": {
+    "n_inv": [
+     11,
+     11
+    ],
+    "pred": [
+     {
+      "type": "removed",
+      "object": "white plastic step stool (on the wooden floor in front of the inner corner of the grey sectional sofa)"
+     },
+     {
+      "type": "moved",
+      "object": "brown round coaster (on the white coffee table near the front edge beside the remote control)"
+     },
+     {
+      "type": "removed",
+      "object": "beige throw blanket (draped over the left backrest of the grey sectional sofa)"
+     },
+     {
+      "type": "removed",
+      "object": "cream and black patterned tote bag (on the inner corner seat cushion of the grey sectional sofa)"
+     },
+     {
+      "type": "moved",
+      "object": "grey and blue patterned throw pillow (propped upright against the middle-right backrest of the grey sectional sofa)"
+     },
+     {
+      "type": "moved",
+      "object": "decorated green Christmas tree (standing on the wooden floor beside the right armrest of the grey sectional sofa)"
+     },
+     {
+      "type": "removed",
+      "object": "small white bottle (inside a cubby of the white shelf unit behind the left side of the grey sectional sofa)"
+     },
+     {
+      "type": "added",
+      "object": "beige upholstered ottoman (on the wooden floor beside the left side of the sectional sofa)"
+     },
+     {
+      "type": "added",
+      "object": "bagged loaf of brown sliced bread (on the round placemat on top of the white coffee table)"
+     },
+     {
+      "type": "added",
+      "object": "red and white floral tissue box (near the front left corner of the white coffee table)"
+     },
+     {
+      "type": "added",
+      "object": "black and red upright vacuum cleaner (on the floor behind the left end of the sofa, near the glass door)"
+     },
+     {
+      "type": "added",
+      "object": "dark grey slipper (on the floor next to the vacuum cleaner behind the left end of the sofa)"
+     }
+    ],
+    "s": 85.6,
+    "calls": 4,
+    "inv_s": [
+     40.58,
+     80.68
+    ],
+    "d1_s": [
+     0.74,
+     1.03
+    ],
+    "n_questions": 33,
+    "match": {
+     "0": 0,
+     "2": 8,
+     "3": 9,
+     "4": 4
+    }
+   },
+   "b_rc": {
+    "pred": [
+     {
+      "type": "removed",
+      "object": "white plastic step stool (on the wooden floor in front of the inner corner of the grey sectional sofa)"
+     },
+     {
+      "type": "moved",
+      "object": "black remote control (on the white coffee table in front of the placemat)"
+     },
+     {
+      "type": "removed",
+      "object": "brown round coaster (on the white coffee table near the front edge beside the remote control)"
+     },
+     {
+      "type": "removed",
+      "object": "beige throw blanket (draped over the left backrest of the grey sectional sofa)"
+     },
+     {
+      "type": "moved",
+      "object": "cream and black patterned tote bag (on the inner corner seat cushion of the grey sectional sofa)"
+     },
+     {
+      "type": "moved",
+      "object": "grey and blue patterned throw pillow (propped upright against the middle-right backrest of the grey sectional sofa)"
+     },
+     {
+      "type": "added",
+      "object": "bagged loaf of brown sliced bread (on the round placemat on top of the white coffee table)"
+     },
+     {
+      "type": "added",
+      "object": "red and white floral tissue box (near the front left corner of the white coffee table)"
+     },
+     {
+      "type": "added",
+      "object": "black and red upright vacuum cleaner (on the floor behind the left end of the sofa, near the glass door)"
+     }
+    ],
+    "s": 315.66,
+    "calls": 5,
+    "n_rechecked": 13,
+    "n_flipped": 8,
+    "match": {
+     "0": 0,
+     "2": 6,
+     "3": 7,
+     "4": 5,
+     "5": 1,
+     "6": 4
+    }
+   },
+   "items": [
+    {
+     "src": "A",
+     "object": "white plastic step stool",
+     "location": "on the wooden floor in front of the inner corner of the grey sectional sofa",
+     "p_present": 0.214,
+     "p_same": 0.195,
+     "conf": 0.786,
+     "verdict": "removed",
+     "verdict_rc": "removed"
+    },
+    {
+     "src": "A",
+     "object": "beige round woven placemat",
+     "location": "on the white coffee table",
+     "p_present": 0.712,
+     "p_same": 0.611,
+     "conf": 0.611,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black remote control",
+     "location": "on the white coffee table in front of the placemat",
+     "p_present": 0.834,
+     "p_same": 0.544,
+     "conf": 0.544,
+     "verdict": "unchanged",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "A",
+     "object": "brown round coaster",
+     "location": "on the white coffee table near the front edge beside the remote control",
+     "p_present": 0.661,
+     "p_same": 0.374,
+     "conf": 0.626,
+     "verdict": "moved",
+     "verdict_rc": "removed"
+    },
+    {
+     "src": "A",
+     "object": "beige throw blanket",
+     "location": "draped over the left backrest of the grey sectional sofa",
+     "p_present": 0.244,
+     "p_same": 0.217,
+     "conf": 0.756,
+     "verdict": "removed",
+     "verdict_rc": "removed"
+    },
+    {
+     "src": "A",
+     "object": "cream and black patterned tote bag",
+     "location": "on the inner corner seat cushion of the grey sectional sofa",
+     "p_present": 0.305,
+     "p_same": 0.204,
+     "conf": 0.695,
+     "verdict": "removed",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "A",
+     "object": "grey and blue patterned throw pillow",
+     "location": "propped upright against the middle-right backrest of the grey sectional sofa",
+     "p_present": 0.747,
+     "p_same": 0.234,
+     "conf": 0.747,
+     "verdict": "moved",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "A",
+     "object": "grey and blue patterned throw pillow",
+     "location": "lying on the right seat cushion next to the right armrest of the grey sectional sofa",
+     "p_present": 0.911,
+     "p_same": 0.56,
+     "conf": 0.56,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "decorated green Christmas tree",
+     "location": "standing on the wooden floor beside the right armrest of the grey sectional sofa",
+     "p_present": 0.61,
+     "p_same": 0.409,
+     "conf": 0.591,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "light brown cardboard box",
+     "location": "behind the back-left corner of the grey sectional sofa",
+     "p_present": 0.72,
+     "p_same": 0.53,
+     "conf": 0.53,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "small white bottle",
+     "location": "inside a cubby of the white shelf unit behind the left side of the grey sectional sofa",
+     "p_present": 0.335,
+     "p_same": 0.379,
+     "conf": 0.665,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "grey and white patterned throw pillow",
+     "location": "on the right seat cushion of the beige sectional sofa, next to the right armrest",
+     "p_present": 0.908,
+     "conf": 0.908,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "grey and white patterned throw pillow",
+     "location": "on the left section of the beige sectional sofa, leaning against the left back cushion",
+     "p_present": 0.906,
+     "conf": 0.906,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "beige upholstered ottoman",
+     "location": "on the wooden floor beside the left side of the sectional sofa",
+     "p_present": 0.306,
+     "conf": 0.694,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black remote control",
+     "location": "near the back edge of the white coffee table in front of the sofa",
+     "p_present": 0.57,
+     "conf": 0.57,
+     "verdict": "unchanged",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "B",
+     "object": "bagged loaf of brown sliced bread",
+     "location": "on the round placemat on top of the white coffee table",
+     "p_present": 0.157,
+     "conf": 0.843,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "round beige placemat",
+     "location": "on the white coffee table underneath the loaf of bread",
+     "p_present": 0.735,
+     "conf": 0.735,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "red and white floral tissue box",
+     "location": "near the front left corner of the white coffee table",
+     "p_present": 0.167,
+     "conf": 0.833,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "cream canvas tote bag",
+     "location": "on the white coffee table next to the placemat and tissue box",
+     "p_present": 0.81,
+     "conf": 0.81,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "green artificial Christmas tree",
+     "location": "in the far right corner of the room next to the right end of the sofa",
+     "p_present": 0.864,
+     "conf": 0.864,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black and red upright vacuum cleaner",
+     "location": "on the floor behind the left end of the sofa, near the glass door",
+     "p_present": 0.139,
+     "conf": 0.861,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "dark grey slipper",
+     "location": "on the floor next to the vacuum cleaner behind the left end of the sofa",
+     "p_present": 0.262,
+     "conf": 0.738,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    }
+   ]
+  },
+  {
+   "pair": "living_room_41_living_room_42",
+   "gold": [
+    {
+     "id": "0",
+     "label": "tissue_1",
+     "type": "removed",
+     "deformability": "rigid"
+    },
+    {
+     "id": "1",
+     "label": "purple_bottle_1",
+     "type": "removed",
+     "deformability": "rigid"
+    },
+    {
+     "id": "2",
+     "label": "blue_bottle_1",
+     "type": "moved",
+     "deformability": "rigid"
+    },
+    {
+     "id": "3",
+     "label": "flower_1",
+     "type": "added",
+     "deformability": "rigid"
+    },
+    {
+     "id": "4",
+     "label": "hat_1",
+     "type": "added",
+     "deformability": "rigid"
+    }
+   ],
+   "upload_s": 3.46,
+   "a": {
+    "raw": "added: vase of flowers\nadded: white cylindrical bottle\nadded: dark blue clothing\nremoved: small purple-labeled bottle\nremoved: crumpled white tissue",
+    "pred": [
+     {
+      "type": "added",
+      "object": "vase of flowers"
+     },
+     {
+      "type": "added",
+      "object": "white cylindrical bottle"
+     },
+     {
+      "type": "added",
+      "object": "dark blue clothing"
+     },
+     {
+      "type": "removed",
+      "object": "small purple-labeled bottle"
+     },
+     {
+      "type": "removed",
+      "object": "crumpled white tissue"
+     }
+    ],
+    "s": 158.98,
+    "calls": 1
+   },
+   "b": {
+    "n_inv": [
+     32,
+     30
+    ],
+    "pred": [
+     {
+      "type": "moved",
+      "object": "grey and white patterned throw pillow (on the left seat of the sofa)"
+     },
+     {
+      "type": "removed",
+      "object": "dark grey garment (draped over the front left edge of the sofa beneath the pillow)"
+     },
+     {
+      "type": "removed",
+      "object": "light blue denim garment (on the left armrest of the sofa)"
+     },
+     {
+      "type": "moved",
+      "object": "black folded garment (on the left seat of the sofa next to the armrest)"
+     },
+     {
+      "type": "moved",
+      "object": "cream sweatshirt (on the corner seat of the sofa next to the black parka)"
+     },
+     {
+      "type": "moved",
+      "object": "white crumpled garment (on the right seat of the sofa under the black coat)"
+     },
+     {
+      "type": "moved",
+      "object": "black leather backpack (on the right end of the sofa against the armrest)"
+     },
+     {
+      "type": "removed",
+      "object": "clear bottle with purple liquid (on the left side of the white coffee table)"
+     },
+     {
+      "type": "removed",
+      "object": "white bottle cap (on the white coffee table behind the bottle)"
+     },
+     {
+      "type": "moved",
+      "object": "black remote control (on the left side of the white coffee table in front of the bottle)"
+     },
+     {
+      "type": "removed",
+      "object": "white crumpled tissue (on the white coffee table near the black remote control)"
+     },
+     {
+      "type": "removed",
+      "object": "pink floral tissue box (on the center of the white coffee table)"
+     },
+     {
+      "type": "removed",
+      "object": "white round placemat (on the white coffee table underneath the tissue box)"
+     },
+     {
+      "type": "removed",
+      "object": "beige round plate (on the right side of the white coffee table)"
+     },
+     {
+      "type": "moved",
+      "object": "purple dried flowers (in the white vase on the left side of the yellow TV stand)"
+     },
+     {
+      "type": "removed",
+      "object": "black remote control (on the left side of the yellow TV stand in front of the television)"
+     },
+     {
+      "type": "removed",
+      "object": "red and white round container (on the upper middle shelf of the yellow TV stand)"
+     },
+     {
+      "type": "removed",
+      "object": "white box with red markings (on the lower middle shelf of the yellow TV stand)"
+     },
+     {
+      "type": "removed",
+      "object": "brown wooden coat rack (standing on the floor to the far right of the yellow TV stand)"
+     },
+     {
+      "type": "removed",
+      "object": "cream coat (hanging on the wooden coat rack to the far right of the TV stand)"
+     },
+     {
+      "type": "added",
+      "object": "blue rectangular card (on the right front corner of the yellow TV stand)"
+     },
+     {
+      "type": "added",
+      "object": "red pouch (on top of the yellow TV stand under the television)"
+     },
+     {
+      "type": "added",
+      "object": "small black cap (on the left side of the yellow TV stand near the television leg)"
+     },
+     {
+      "type": "added",
+      "object": "small white round lid (inside the upper open shelf of the yellow TV stand)"
+     },
+     {
+      "type": "added",
+      "object": "white crumpled tissue (inside the lower open shelf of the yellow TV stand)"
+     },
+     {
+      "type": "added",
+      "object": "dark blue smartphone (flat on the grey sofa seat to the left of the patterned throw pillow)"
+     },
+     {
+      "type": "added",
+      "object": "blue folded cloth (on the corner seat of the grey sofa beneath the window)"
+     },
+     {
+      "type": "added",
+      "object": "black fur-hooded winter parka (piled on the left section of the grey sofa)"
+     },
+     {
+      "type": "added",
+      "object": "blue and black framed picture (on top of the white cabinet in the back-left corner)"
+     },
+     {
+      "type": "added",
+      "object": "small white ornament (on top of the white cabinet to the right of the framed picture)"
+     },
+     {
+      "type": "added",
+      "object": "white round placemat (on the back-right corner of the white coffee table beneath the tissue box)"
+     },
+     {
+      "type": "added",
+      "object": "small clear plastic cap (on the back-right corner of the white coffee table behind the tissue box)"
+     }
+    ],
+    "s": 64.36,
+    "calls": 4,
+    "inv_s": [
+     48.94,
+     59.94
+    ],
+    "d1_s": [
+     0.68,
+     0.96
+    ],
+    "n_questions": 94
+   },
+   "error": "APITimeoutError: Request timed out. This is a client-side timeout. You can increase the timeout by setting the `timeout` argument on your request or in the client http options."
+  },
+  {
+   "pair": "lounge_1_lounge_2",
+   "gold": [
+    {
+     "id": "0",
+     "label": "wipe_1",
+     "type": "removed",
+     "deformability": null
+    },
+    {
+     "id": "1",
+     "label": "spray_1",
+     "type": "added",
+     "deformability": null
+    },
+    {
+     "id": "2",
+     "label": "ottoman_1",
+     "type": "moved",
+     "deformability": null
+    }
+   ],
+   "upload_s": 3.46,
+   "a": {
+    "raw": "added: spray bottle\nremoved: disinfecting wipes container\nmoved: ottoman",
+    "pred": [
+     {
+      "type": "added",
+      "object": "spray bottle"
+     },
+     {
+      "type": "removed",
+      "object": "disinfecting wipes container"
+     },
+     {
+      "type": "moved",
+      "object": "ottoman"
+     }
+    ],
+    "s": 69.02,
+    "calls": 1,
+    "match": {
+     "0": 1,
+     "1": 0,
+     "2": 2
+    }
+   },
+   "b": {
+    "n_inv": [
+     21,
+     20
+    ],
+    "pred": [
+     {
+      "type": "moved",
+      "object": "white hand sanitizer pump bottle (on the front-left of the C-shaped side table near the back wall)"
+     },
+     {
+      "type": "removed",
+      "object": "white and green wipes canister (at the back of the C-shaped side table near the back wall)"
+     },
+     {
+      "type": "removed",
+      "object": "blue pen (on the dark brown side table top, next to the yellow breast pump beneath the wall outlets)"
+     },
+     {
+      "type": "moved",
+      "object": "beige masking tape roll (inside the front-left of the wire basket on the dark brown side table against the right wall)"
+     },
+     {
+      "type": "moved",
+      "object": "black and white informational card (on the front-right edge of the dark brown side table top near the right wall)"
+     },
+     {
+      "type": "moved",
+      "object": "white and black leaflet (on the right side of the lower shelf of the dark brown side table against the right wall)"
+     },
+     {
+      "type": "removed",
+      "object": "white and yellow brochure (on the left side of the lower shelf of the dark brown side table against the right wall)"
+     },
+     {
+      "type": "added",
+      "object": "silver floor lamp with white shade (standing on the carpeted floor in the back-right corner, plugged into the outlet on the right wall)"
+     },
+     {
+      "type": "added",
+      "object": "blue pen (lying on the top surface of the black side table against the back wall, between the pump and the basket)"
+     },
+     {
+      "type": "added",
+      "object": "silver wire basket (on the back-right top surface of the black side table against the back wall)"
+     },
+     {
+      "type": "added",
+      "object": "beige roll of tape (inside the front of the silver wire basket on the black side table against the back wall)"
+     },
+     {
+      "type": "added",
+      "object": "white-and-yellow booklet (on the left side of the lower shelf of the black side table against the back wall, partially under the black folder)"
+     }
+    ],
+    "s": 48.02,
+    "calls": 4,
+    "inv_s": [
+     43.38,
+     42.6
+    ],
+    "d1_s": [
+     1.02,
+     1.18
+    ],
+    "n_questions": 62,
+    "match": {
+     "0": 1
+    }
+   },
+   "b_rc": {
+    "pred": [
+     {
+      "type": "removed",
+      "object": "white and green wipes canister (at the back of the C-shaped side table near the back wall)"
+     },
+     {
+      "type": "added",
+      "object": "silver floor lamp with white shade (standing on the carpeted floor in the back-right corner, plugged into the outlet on the right wall)"
+     },
+     {
+      "type": "added",
+      "object": "white small spray bottle (on the center-front top surface of the black side table against the back wall)"
+     },
+     {
+      "type": "added",
+      "object": "blue pen (lying on the top surface of the black side table against the back wall, between the pump and the basket)"
+     },
+     {
+      "type": "added",
+      "object": "beige roll of tape (inside the front of the silver wire basket on the black side table against the back wall)"
+     }
+    ],
+    "s": 94.91,
+    "calls": 5,
+    "n_rechecked": 22,
+    "n_flipped": 9,
+    "match": {
+     "0": 0,
+     "1": 2
+    }
+   },
+   "items": [
+    {
+     "src": "A",
+     "object": "green trash bin",
+     "location": "on the carpeted floor beside the left curtain, at the front of the row of bins",
+     "p_present": 0.88,
+     "p_same": 0.826,
+     "conf": 0.826,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "blue trash bin",
+     "location": "on the carpeted floor beside the left curtain, in the middle of the row of bins",
+     "p_present": 0.865,
+     "p_same": 0.808,
+     "conf": 0.808,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black trash bin",
+     "location": "on the carpeted floor against the back wall beside the left curtain",
+     "p_present": 0.844,
+     "p_same": 0.761,
+     "conf": 0.761,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "dark grey C-shaped side table",
+     "location": "on the carpeted floor near the back wall, to the right of the trash bins",
+     "p_present": 0.856,
+     "p_same": 0.793,
+     "conf": 0.793,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white hand sanitizer pump bottle",
+     "location": "on the front-left of the C-shaped side table near the back wall",
+     "p_present": 0.591,
+     "p_same": 0.413,
+     "conf": 0.587,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "blue tissue box",
+     "location": "in the center of the C-shaped side table near the back wall",
+     "p_present": 0.832,
+     "p_same": 0.696,
+     "conf": 0.696,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white and green wipes canister",
+     "location": "at the back of the C-shaped side table near the back wall",
+     "p_present": 0.412,
+     "p_same": 0.333,
+     "conf": 0.588,
+     "verdict": "removed",
+     "verdict_rc": "removed"
+    },
+    {
+     "src": "A",
+     "object": "orange-tan armchair",
+     "location": "on the carpeted floor in the back corner where the back and right walls meet",
+     "p_present": 0.882,
+     "p_same": 0.586,
+     "conf": 0.586,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "orange-tan square ottoman",
+     "location": "on the carpeted floor in front of the corner armchair",
+     "p_present": 0.884,
+     "p_same": 0.834,
+     "conf": 0.834,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "dark brown square side table",
+     "location": "on the carpeted floor against the right wall, beneath the wall outlets",
+     "p_present": 0.645,
+     "p_same": 0.526,
+     "conf": 0.526,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "yellow breast pump",
+     "location": "on the back-left of the dark brown side table top, beneath the wall outlets",
+     "p_present": 0.892,
+     "p_same": 0.859,
+     "conf": 0.859,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "blue pen",
+     "location": "on the dark brown side table top, next to the yellow breast pump beneath the wall outlets",
+     "p_present": 0.272,
+     "p_same": 0.239,
+     "conf": 0.728,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "silver wire basket",
+     "location": "on the back-right of the dark brown side table top against the right wall",
+     "p_present": 0.816,
+     "p_same": 0.653,
+     "conf": 0.653,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "beige masking tape roll",
+     "location": "inside the front-left of the wire basket on the dark brown side table against the right wall",
+     "p_present": 0.574,
+     "p_same": 0.49,
+     "conf": 0.51,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "pink-and-white patterned package",
+     "location": "inside the back of the wire basket on the dark brown side table against the right wall",
+     "p_present": 0.683,
+     "p_same": 0.659,
+     "conf": 0.659,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white circular pack",
+     "location": "inside the wire basket behind the masking tape on the dark brown side table against the right wall",
+     "p_present": 0.542,
+     "p_same": 0.521,
+     "conf": 0.521,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black and white informational card",
+     "location": "on the front-right edge of the dark brown side table top near the right wall",
+     "p_present": 0.509,
+     "p_same": 0.41,
+     "conf": 0.509,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black and white booklet",
+     "location": "on the lower shelf of the dark brown side table against the right wall",
+     "p_present": 0.645,
+     "p_same": 0.577,
+     "conf": 0.577,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white and black leaflet",
+     "location": "on the right side of the lower shelf of the dark brown side table against the right wall",
+     "p_present": 0.543,
+     "p_same": 0.372,
+     "conf": 0.543,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white and yellow brochure",
+     "location": "on the left side of the lower shelf of the dark brown side table against the right wall",
+     "p_present": 0.497,
+     "p_same": 0.397,
+     "conf": 0.503,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "silver floor lamp",
+     "location": "on the carpeted floor in the far-right corner, plugged into the right wall outlet",
+     "p_present": 0.896,
+     "p_same": 0.662,
+     "conf": 0.662,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "silver floor lamp with white shade",
+     "location": "standing on the carpeted floor in the back-right corner, plugged into the outlet on the right wall",
+     "p_present": 0.183,
+     "conf": 0.817,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "black square side table",
+     "location": "standing on the carpeted floor against the back wall, directly beneath the wall outlets",
+     "p_present": 0.817,
+     "conf": 0.817,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "yellow breast pump",
+     "location": "on the back-left top surface of the black side table against the back wall",
+     "p_present": 0.855,
+     "conf": 0.855,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white small spray bottle",
+     "location": "on the center-front top surface of the black side table against the back wall",
+     "p_present": 0.682,
+     "conf": 0.682,
+     "verdict": "unchanged",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "blue pen",
+     "location": "lying on the top surface of the black side table against the back wall, between the pump and the basket",
+     "p_present": 0.19,
+     "conf": 0.81,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "silver wire basket",
+     "location": "on the back-right top surface of the black side table against the back wall",
+     "p_present": 0.281,
+     "conf": 0.719,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "beige roll of tape",
+     "location": "inside the front of the silver wire basket on the black side table against the back wall",
+     "p_present": 0.22,
+     "conf": 0.78,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "pink-and-white patterned supply pack",
+     "location": "inside the back of the silver wire basket on the black side table against the back wall",
+     "p_present": 0.72,
+     "conf": 0.72,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black tabletop sign card",
+     "location": "on the front-right top surface of the black side table against the back wall",
+     "p_present": 0.8,
+     "conf": 0.8,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black printed folder",
+     "location": "on the lower shelf of the black side table against the back wall",
+     "p_present": 0.615,
+     "conf": 0.615,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white-and-yellow booklet",
+     "location": "on the left side of the lower shelf of the black side table against the back wall, partially under the black folder",
+     "p_present": 0.341,
+     "conf": 0.659,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white paper brochure",
+     "location": "on the right side of the lower shelf of the black side table against the back wall, partially under the black folder",
+     "p_present": 0.51,
+     "conf": 0.51,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "tan leather armchair",
+     "location": "on the carpeted floor against the back wall, to the left of the wall outlets",
+     "p_present": 0.914,
+     "conf": 0.914,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "tan leather ottoman",
+     "location": "on the carpeted floor in front of the armchair toward the center of the room",
+     "p_present": 0.919,
+     "conf": 0.919,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark grey C-shaped side table",
+     "location": "standing on the carpeted floor near the back wall, to the left of the armchair",
+     "p_present": 0.81,
+     "conf": 0.81,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "blue tissue box",
+     "location": "on the back of the dark grey C-shaped side table near the back wall",
+     "p_present": 0.788,
+     "conf": 0.788,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white hand sanitizer bottle",
+     "location": "on the front of the dark grey C-shaped side table near the back wall",
+     "p_present": 0.716,
+     "conf": 0.716,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black trash bin",
+     "location": "on the carpeted floor in the back-left corner against the back and left walls",
+     "p_present": 0.89,
+     "conf": 0.89,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "blue recycling bin",
+     "location": "on the carpeted floor against the left wall, just in front of the back-left corner",
+     "p_present": 0.891,
+     "conf": 0.891,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark green trash bin",
+     "location": "on the carpeted floor against the left wall, beside the hanging grey curtain",
+     "p_present": 0.867,
+     "conf": 0.867,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    }
+   ]
+  },
+  {
+   "pair": "office_13_office_14",
+   "gold": [],
+   "upload_s": 3.42,
+   "a": {
+    "raw": "none",
+    "pred": [],
+    "s": 250.94,
+    "calls": 1
+   },
+   "b": {
+    "n_inv": [
+     12,
+     12
+    ],
+    "pred": [
+     {
+      "type": "moved",
+      "object": "clear plastic water bottle with blue label (on the left side of the desk near the left cubicle wall)"
+     },
+     {
+      "type": "moved",
+      "object": "black hair tie (on the front-left surface of the desk near the left edge)"
+     },
+     {
+      "type": "removed",
+      "object": "white charging cable (running across the left side of the desk to the front-left edge)"
+     },
+     {
+      "type": "removed",
+      "object": "white coiled charger cable (on the back-left corner of the desk near the cubicle walls)"
+     },
+     {
+      "type": "removed",
+      "object": "black computer monitor with silver stand (on the back-center of the desk in front of the back cubicle wall)"
+     },
+     {
+      "type": "removed",
+      "object": "grey trash bin with white plastic liner (on the floor under the front-right edge of the desk next to the under-desk cabinet)"
+     }
+    ],
+    "s": 38.06,
+    "calls": 4,
+    "inv_s": [
+     33.72,
+     25.09
+    ],
+    "d1_s": [
+     0.92,
+     0.92
+    ],
+    "n_questions": 36
+   },
+   "error": "APITimeoutError: Request timed out. This is a client-side timeout. You can increase the timeout by setting the `timeout` argument on your request or in the client http options."
+  },
+  {
+   "pair": "store_11_store_12",
+   "gold": [
+    {
+     "id": "0",
+     "label": "lemonade_1",
+     "type": "moved",
+     "deformability": "rigid"
+    }
+   ],
+   "upload_s": 5.5,
+   "error": "APITimeoutError: Request timed out. This is a client-side timeout. You can increase the timeout by setting the `timeout` argument on your request or in the client http options."
+  },
+  {
+   "pair": "store_7_store_8",
+   "gold": [
+    {
+     "id": "0",
+     "label": "paper_bag_1",
+     "type": "removed",
+     "deformability": null
+    },
+    {
+     "id": "1",
+     "label": "popcorn_snack_1",
+     "type": "removed",
+     "deformability": null
+    }
+   ],
+   "upload_s": 3.62,
+   "a": {
+    "raw": "removed: brown paper bag",
+    "pred": [
+     {
+      "type": "removed",
+      "object": "brown paper bag"
+     }
+    ],
+    "s": 105.44,
+    "calls": 1,
+    "match": {
+     "0": 0
+    }
+   },
+   "b": {
+    "n_inv": [
+     40,
+     40
+    ],
+    "pred": [
+     {
+      "type": "moved",
+      "object": "clear and blue water bottle (middle shelf on the left side of the first beverage cooler)"
+     },
+     {
+      "type": "removed",
+      "object": "red plastic beverage bottle (fourth shelf down on the left side of the first beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "green glass beverage bottle (fourth shelf down in the middle of the first beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "green plastic soda bottle (second shelf from the top on the right side of the first beverage cooler)"
+     },
+     {
+      "type": "removed",
+      "object": "blue plastic soda bottle (third shelf from the top on the right side of the first beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "white plastic beverage bottle (bottom shelf in the middle of the first beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "white and pink popcorn bag (middle basket on the top shelf of the black snack rack)"
+     },
+     {
+      "type": "moved",
+      "object": "white and orange popcorn bag (right basket on the top shelf of the black snack rack)"
+     },
+     {
+      "type": "moved",
+      "object": "black and yellow popcorn bag (left side of the middle basket on the bottom shelf of the black snack rack)"
+     },
+     {
+      "type": "removed",
+      "object": "black and yellow popcorn bag (right side of the middle basket on the bottom shelf of the black snack rack)"
+     },
+     {
+      "type": "removed",
+      "object": "white and blue snack bag (left side of the right basket on the bottom shelf of the black snack rack)"
+     },
+     {
+      "type": "removed",
+      "object": "brown paper shopping bag (inside the metal holder on the right side of the black snack rack)"
+     },
+     {
+      "type": "moved",
+      "object": "red Coca-Cola soda carton (left-middle of the top shelf of the second beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "blue and white beverage pack (middle of the top shelf of the second beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "white wrapped water bottle pack (right-middle of the top shelf of the second beverage cooler)"
+     },
+     {
+      "type": "removed",
+      "object": "silver Diet Coke soda carton (left end of the second shelf of the second beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "maroon Dr Pepper soda carton (middle of the second shelf of the second beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "green Sprite soda carton (center-right of the third shelf of the second beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "blue wrapped water bottle pack (right side of the third shelf of the second beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "green Canada Dry soda carton (middle of the bottom shelf of the second beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "orange Fanta soda carton (center-right of the bottom shelf of the second beverage cooler)"
+     },
+     {
+      "type": "moved",
+      "object": "large clear plastic water bottle (right side of the bottom shelf of the second beverage cooler)"
+     },
+     {
+      "type": "removed",
+      "object": "white paper cup (in the top dispenser slot on the wall to the right of the red soda machine)"
+     },
+     {
+      "type": "added",
+      "object": "clear plastic cup lid (in the top right slot of the wall dispenser next to the red drink machine)"
+     },
+     {
+      "type": "added",
+      "object": "white wrapped straw (in the bottom right slot of the wall dispenser above the counter)"
+     },
+     {
+      "type": "added",
+      "object": "black rubber floor mat (on the floor in front of the red drink machine and beverage shelf)"
+     },
+     {
+      "type": "added",
+      "object": "white cardboard drink box (on the top shelf of the beverage rack near the center)"
+     },
+     {
+      "type": "added",
+      "object": "blue and white soda pack (on the top shelf of the beverage rack left of center)"
+     },
+     {
+      "type": "added",
+      "object": "white and green popcorn bag (in the left wire basket on the top shelf of the black snack rack)"
+     },
+     {
+      "type": "added",
+      "object": "white and orange popcorn bag (in the right wire basket on the top shelf of the black snack rack)"
+     },
+     {
+      "type": "added",
+      "object": "blue and white snack bag (on the right tray on the bottom shelf of the black snack rack)"
+     },
+     {
+      "type": "added",
+      "object": "red plastic soda bottle (on the third shelf from the top of the open cooler wall on the right)"
+     },
+     {
+      "type": "added",
+      "object": "green glass bottle (on the second shelf from the bottom of the open cooler wall right of center)"
+     },
+     {
+      "type": "added",
+      "object": "blue square Fiji water bottle (on the second shelf from the bottom of the open cooler wall left of center)"
+     },
+     {
+      "type": "added",
+      "object": "orange juice bottle (on the third shelf from the top of the open cooler wall on the far left)"
+     }
+    ],
+    "s": 47.29,
+    "calls": 4,
+    "inv_s": [
+     42.85,
+     40.41
+    ],
+    "d1_s": [
+     0.7,
+     0.82
+    ],
+    "n_questions": 120,
+    "match": {
+     "0": 11,
+     "1": 9
+    }
+   },
+   "b_rc": {
+    "pred": [
+     {
+      "type": "removed",
+      "object": "brown paper shopping bag (inside the metal holder on the right side of the black snack rack)"
+     },
+     {
+      "type": "added",
+      "object": "blue and white snack bag (on the right tray on the bottom shelf of the black snack rack)"
+     }
+    ],
+    "s": 282.2,
+    "calls": 5,
+    "n_rechecked": 63,
+    "n_flipped": 43,
+    "match": {
+     "0": 0
+    }
+   },
+   "items": [
+    {
+     "src": "A",
+     "object": "clear and blue water bottle",
+     "location": "middle shelf on the left side of the first beverage cooler",
+     "p_present": 0.564,
+     "p_same": 0.33,
+     "conf": 0.564,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "red plastic beverage bottle",
+     "location": "fourth shelf down on the left side of the first beverage cooler",
+     "p_present": 0.454,
+     "p_same": 0.297,
+     "conf": 0.546,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "green glass beverage bottle",
+     "location": "fourth shelf down in the middle of the first beverage cooler",
+     "p_present": 0.65,
+     "p_same": 0.292,
+     "conf": 0.65,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "green plastic soda bottle",
+     "location": "second shelf from the top on the right side of the first beverage cooler",
+     "p_present": 0.556,
+     "p_same": 0.34,
+     "conf": 0.556,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "blue plastic soda bottle",
+     "location": "third shelf from the top on the right side of the first beverage cooler",
+     "p_present": 0.433,
+     "p_same": 0.357,
+     "conf": 0.567,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white plastic beverage bottle",
+     "location": "bottom shelf in the middle of the first beverage cooler",
+     "p_present": 0.508,
+     "p_same": 0.344,
+     "conf": 0.508,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white and green popcorn bag",
+     "location": "left basket on the top shelf of the black snack rack",
+     "p_present": 0.861,
+     "p_same": 0.647,
+     "conf": 0.647,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white and pink popcorn bag",
+     "location": "middle basket on the top shelf of the black snack rack",
+     "p_present": 0.831,
+     "p_same": 0.394,
+     "conf": 0.606,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white and orange popcorn bag",
+     "location": "right basket on the top shelf of the black snack rack",
+     "p_present": 0.594,
+     "p_same": 0.416,
+     "conf": 0.584,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "orange popcorn bag",
+     "location": "left basket on the middle shelf of the black snack rack",
+     "p_present": 0.852,
+     "p_same": 0.711,
+     "conf": 0.711,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white and pink popcorn bag",
+     "location": "middle basket on the middle shelf of the black snack rack",
+     "p_present": 0.881,
+     "p_same": 0.568,
+     "conf": 0.568,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white and orange popcorn bag",
+     "location": "right basket on the middle shelf of the black snack rack",
+     "p_present": 0.603,
+     "p_same": 0.446,
+     "conf": 0.554,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black and yellow popcorn bag",
+     "location": "left side of the middle basket on the bottom shelf of the black snack rack",
+     "p_present": 0.655,
+     "p_same": 0.4,
+     "conf": 0.6,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black and yellow popcorn bag",
+     "location": "right side of the middle basket on the bottom shelf of the black snack rack",
+     "p_present": 0.497,
+     "p_same": 0.322,
+     "conf": 0.503,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white and blue snack bag",
+     "location": "left side of the right basket on the bottom shelf of the black snack rack",
+     "p_present": 0.31,
+     "p_same": 0.295,
+     "conf": 0.69,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white and blue snack bag",
+     "location": "right side of the right basket on the bottom shelf of the black snack rack",
+     "p_present": 0.398,
+     "p_same": 0.371,
+     "conf": 0.602,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "brown paper shopping bag",
+     "location": "inside the metal holder on the right side of the black snack rack",
+     "p_present": 0.283,
+     "p_same": 0.278,
+     "conf": 0.717,
+     "verdict": "removed",
+     "verdict_rc": "removed"
+    },
+    {
+     "src": "A",
+     "object": "red Coca-Cola soda carton",
+     "location": "left end of the top shelf of the second beverage cooler",
+     "p_present": 0.697,
+     "p_same": 0.517,
+     "conf": 0.517,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "red Coca-Cola soda carton",
+     "location": "left-middle of the top shelf of the second beverage cooler",
+     "p_present": 0.689,
+     "p_same": 0.372,
+     "conf": 0.628,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "blue and white beverage pack",
+     "location": "middle of the top shelf of the second beverage cooler",
+     "p_present": 0.672,
+     "p_same": 0.41,
+     "conf": 0.59,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white wrapped water bottle pack",
+     "location": "right-middle of the top shelf of the second beverage cooler",
+     "p_present": 0.637,
+     "p_same": 0.433,
+     "conf": 0.567,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white wrapped water bottle pack",
+     "location": "right end of the top shelf of the second beverage cooler",
+     "p_present": 0.584,
+     "p_same": 0.406,
+     "conf": 0.584,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "silver Diet Coke soda carton",
+     "location": "left end of the second shelf of the second beverage cooler",
+     "p_present": 0.435,
+     "p_same": 0.363,
+     "conf": 0.565,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "silver Diet Coke soda carton",
+     "location": "left-middle of the second shelf of the second beverage cooler",
+     "p_present": 0.399,
+     "p_same": 0.381,
+     "conf": 0.601,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "maroon Dr Pepper soda carton",
+     "location": "middle of the second shelf of the second beverage cooler",
+     "p_present": 0.717,
+     "p_same": 0.422,
+     "conf": 0.578,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white wrapped water bottle pack",
+     "location": "right side of the second shelf of the second beverage cooler",
+     "p_present": 0.666,
+     "p_same": 0.55,
+     "conf": 0.55,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "silver Diet Coke soda carton",
+     "location": "left end of the third shelf of the second beverage cooler",
+     "p_present": 0.43,
+     "p_same": 0.333,
+     "conf": 0.57,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "silver Diet Coke soda carton",
+     "location": "left-middle of the third shelf of the second beverage cooler",
+     "p_present": 0.415,
+     "p_same": 0.307,
+     "conf": 0.585,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "green Sprite soda carton",
+     "location": "middle of the third shelf of the second beverage cooler",
+     "p_present": 0.865,
+     "p_same": 0.505,
+     "conf": 0.505,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "green Sprite soda carton",
+     "location": "center-right of the third shelf of the second beverage cooler",
+     "p_present": 0.75,
+     "p_same": 0.466,
+     "conf": 0.534,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "blue wrapped water bottle pack",
+     "location": "right side of the third shelf of the second beverage cooler",
+     "p_present": 0.807,
+     "p_same": 0.496,
+     "conf": 0.504,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "red Coca-Cola soda carton",
+     "location": "left end of the bottom shelf of the second beverage cooler",
+     "p_present": 0.689,
+     "p_same": 0.441,
+     "conf": 0.559,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "green Canada Dry soda carton",
+     "location": "middle of the bottom shelf of the second beverage cooler",
+     "p_present": 0.775,
+     "p_same": 0.437,
+     "conf": 0.563,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "orange Fanta soda carton",
+     "location": "center-right of the bottom shelf of the second beverage cooler",
+     "p_present": 0.879,
+     "p_same": 0.339,
+     "conf": 0.661,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "large clear plastic water bottle",
+     "location": "right side of the bottom shelf of the second beverage cooler",
+     "p_present": 0.534,
+     "p_same": 0.379,
+     "conf": 0.534,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black rubber floor mat",
+     "location": "on the floor in front of the red soda fountain machine",
+     "p_present": 0.615,
+     "p_same": 0.598,
+     "conf": 0.598,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white paper cup",
+     "location": "in the top dispenser slot on the wall to the right of the red soda machine",
+     "p_present": 0.489,
+     "p_same": 0.486,
+     "conf": 0.511,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white paper cup",
+     "location": "in the second dispenser slot from the top on the wall to the right of the red soda machine",
+     "p_present": 0.582,
+     "p_same": 0.545,
+     "conf": 0.545,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white paper cup",
+     "location": "in the third dispenser slot from the top on the wall to the right of the red soda machine",
+     "p_present": 0.701,
+     "p_same": 0.546,
+     "conf": 0.546,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white paper cup",
+     "location": "in the bottom dispenser slot on the wall to the right of the red soda machine",
+     "p_present": 0.316,
+     "p_same": 0.414,
+     "conf": 0.684,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white paper cup",
+     "location": "in the top left circular slot of the wall dispenser next to the red drink machine",
+     "p_present": 0.922,
+     "conf": 0.922,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white paper cup",
+     "location": "in the second left circular slot of the wall dispenser next to the red drink machine",
+     "p_present": 0.91,
+     "conf": 0.91,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white paper cup",
+     "location": "in the third left circular slot of the wall dispenser next to the red drink machine",
+     "p_present": 0.915,
+     "conf": 0.915,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white paper cup",
+     "location": "in the bottom left circular slot of the wall dispenser next to the red drink machine",
+     "p_present": 0.881,
+     "conf": 0.881,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear plastic cup lid",
+     "location": "in the top right slot of the wall dispenser next to the red drink machine",
+     "p_present": 0.358,
+     "conf": 0.642,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear plastic cup lid",
+     "location": "in the second right slot of the wall dispenser next to the red drink machine",
+     "p_present": 0.386,
+     "conf": 0.614,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white wrapped straw",
+     "location": "in the bottom right slot of the wall dispenser above the counter",
+     "p_present": 0.275,
+     "conf": 0.725,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black rubber floor mat",
+     "location": "on the floor in front of the red drink machine and beverage shelf",
+     "p_present": 0.409,
+     "conf": 0.591,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear plastic water bottle",
+     "location": "on the bottom shelf of the beverage rack at the far right",
+     "p_present": 0.866,
+     "conf": 0.866,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear plastic water bottle",
+     "location": "on the bottom shelf of the beverage rack second from the right",
+     "p_present": 0.853,
+     "conf": 0.853,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "blue Smartwater bottle pack",
+     "location": "on the third shelf from the top of the beverage rack at the right end",
+     "p_present": 0.677,
+     "conf": 0.677,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white-labelled water bottle pack",
+     "location": "on the second shelf from the top of the beverage rack at the right end",
+     "p_present": 0.724,
+     "conf": 0.724,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white-labelled water bottle pack",
+     "location": "on the top shelf of the beverage rack at the right end",
+     "p_present": 0.718,
+     "conf": 0.718,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "orange Fanta cardboard case",
+     "location": "on the bottom shelf of the beverage rack near the center",
+     "p_present": 0.903,
+     "conf": 0.903,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "green Sprite cardboard case",
+     "location": "on the third shelf from the top of the beverage rack near the center",
+     "p_present": 0.851,
+     "conf": 0.851,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "maroon Dr Pepper cardboard case",
+     "location": "on the second shelf from the top of the beverage rack near the center",
+     "p_present": 0.876,
+     "conf": 0.876,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white cardboard drink box",
+     "location": "on the top shelf of the beverage rack near the center",
+     "p_present": 0.385,
+     "conf": 0.615,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "blue and white soda pack",
+     "location": "on the top shelf of the beverage rack left of center",
+     "p_present": 0.495,
+     "conf": 0.505,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "green Canada Dry cardboard case",
+     "location": "on the bottom shelf of the beverage rack left of center",
+     "p_present": 0.748,
+     "conf": 0.748,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "red Coca-Cola cardboard case",
+     "location": "on the bottom shelf of the beverage rack on the left side",
+     "p_present": 0.879,
+     "conf": 0.879,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "silver Diet Coke cardboard case",
+     "location": "on the third shelf from the top of the beverage rack on the left side",
+     "p_present": 0.622,
+     "conf": 0.622,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "silver Diet Coke cardboard case",
+     "location": "on the second shelf from the top of the beverage rack on the left side",
+     "p_present": 0.535,
+     "conf": 0.535,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "red Coca-Cola cardboard case",
+     "location": "on the top shelf of the beverage rack on the left side",
+     "p_present": 0.874,
+     "conf": 0.874,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white and green popcorn bag",
+     "location": "in the left wire basket on the top shelf of the black snack rack",
+     "p_present": 0.482,
+     "conf": 0.518,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white and pink popcorn bag",
+     "location": "in the middle wire basket on the top shelf of the black snack rack",
+     "p_present": 0.892,
+     "conf": 0.892,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white and orange popcorn bag",
+     "location": "in the right wire basket on the top shelf of the black snack rack",
+     "p_present": 0.473,
+     "conf": 0.527,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "orange Cretors popcorn bag",
+     "location": "in the left wire basket on the middle shelf of the black snack rack",
+     "p_present": 0.88,
+     "conf": 0.88,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white and pink popcorn bag",
+     "location": "in the middle wire basket on the middle shelf of the black snack rack",
+     "p_present": 0.905,
+     "conf": 0.905,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white and orange popcorn bag",
+     "location": "in the right wire basket on the middle shelf of the black snack rack",
+     "p_present": 0.441,
+     "conf": 0.559,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black Smartfood popcorn bag",
+     "location": "on the middle tray on the bottom shelf of the black snack rack",
+     "p_present": 0.521,
+     "conf": 0.521,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "blue and white snack bag",
+     "location": "on the right tray on the bottom shelf of the black snack rack",
+     "p_present": 0.222,
+     "conf": 0.778,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "green Sprite plastic bottle",
+     "location": "on the second shelf from the top of the open cooler wall on the right",
+     "p_present": 0.581,
+     "conf": 0.581,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "red plastic soda bottle",
+     "location": "on the third shelf from the top of the open cooler wall on the right",
+     "p_present": 0.298,
+     "conf": 0.702,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark soda bottle",
+     "location": "on the bottom shelf of the open cooler wall on the right",
+     "p_present": 0.683,
+     "conf": 0.683,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "green glass bottle",
+     "location": "on the second shelf from the bottom of the open cooler wall right of center",
+     "p_present": 0.479,
+     "conf": 0.521,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white bottle with green cap",
+     "location": "on the bottom shelf of the open cooler wall right of center",
+     "p_present": 0.534,
+     "conf": 0.534,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "blue square Fiji water bottle",
+     "location": "on the second shelf from the bottom of the open cooler wall left of center",
+     "p_present": 0.29,
+     "conf": 0.71,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear plastic water bottle",
+     "location": "on the second shelf from the top of the open cooler wall left of center",
+     "p_present": 0.883,
+     "conf": 0.883,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "pink beverage bottle",
+     "location": "on the top shelf of the open cooler wall right of center",
+     "p_present": 0.79,
+     "conf": 0.79,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "orange juice bottle",
+     "location": "on the third shelf from the top of the open cooler wall on the far left",
+     "p_present": 0.304,
+     "conf": 0.696,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    }
+   ]
+  },
+  {
+   "pair": "table_1_table_3",
+   "gold": [
+    {
+     "id": "0",
+     "label": "earphone_1",
+     "type": "removed",
+     "deformability": null
+    },
+    {
+     "id": "1",
+     "label": "coke_1",
+     "type": "removed",
+     "deformability": null
+    },
+    {
+     "id": "2",
+     "label": "coke_2",
+     "type": "removed",
+     "deformability": null
+    },
+    {
+     "id": "3",
+     "label": "bottle_1",
+     "type": "removed",
+     "deformability": null
+    },
+    {
+     "id": "4",
+     "label": "laptop_1",
+     "type": "added",
+     "deformability": null
+    },
+    {
+     "id": "5",
+     "label": "mouse_1",
+     "type": "added",
+     "deformability": null
+    }
+   ],
+   "upload_s": 3.3,
+   "a": {
+    "raw": "added: laptop\nadded: wireless mouse\nremoved: headphones\nremoved: plastic water bottle\nremoved: Coca-Cola can (left)\nremoved: Coca-Cola can (right)",
+    "pred": [
+     {
+      "type": "added",
+      "object": "laptop"
+     },
+     {
+      "type": "added",
+      "object": "wireless mouse"
+     },
+     {
+      "type": "removed",
+      "object": "headphones"
+     },
+     {
+      "type": "removed",
+      "object": "plastic water bottle"
+     },
+     {
+      "type": "removed",
+      "object": "Coca-Cola can (left)"
+     },
+     {
+      "type": "removed",
+      "object": "Coca-Cola can (right)"
+     }
+    ],
+    "s": 38.64,
+    "calls": 1,
+    "match": {
+     "0": 2,
+     "1": 4,
+     "2": 5,
+     "3": 3,
+     "4": 0,
+     "5": 1
+    }
+   },
+   "b": {
+    "n_inv": [
+     17,
+     21
+    ],
+    "pred": [
+     {
+      "type": "removed",
+      "object": "black fan (on the floor outside the left side of the desk)"
+     },
+     {
+      "type": "removed",
+      "object": "white cardboard box (on the floor beside the left desk leg)"
+     },
+     {
+      "type": "removed",
+      "object": "grey headphones (on the center of the desk)"
+     },
+     {
+      "type": "removed",
+      "object": "clear plastic water bottle (on the right side of the desk)"
+     },
+     {
+      "type": "removed",
+      "object": "red soda can (on the back right side of the desk near the cable grommet)"
+     },
+     {
+      "type": "removed",
+      "object": "silver key with white tag (in the lock of the filing cabinet under the right side of the desk)"
+     },
+     {
+      "type": "removed",
+      "object": "dark blue recycling bin (on the floor outside the cubicle past the right partition)"
+     },
+     {
+      "type": "removed",
+      "object": "white crumpled paper (inside the bin on the floor outside the right cubicle partition)"
+     },
+     {
+      "type": "moved",
+      "object": "black office chair (behind the cubicle partition in the neighboring workspace)"
+     },
+     {
+      "type": "added",
+      "object": "dark blue laptop (on the center of the desk)"
+     },
+     {
+      "type": "added",
+      "object": "grey wireless mouse (on the right side of the desk)"
+     },
+     {
+      "type": "added",
+      "object": "black power brick (on the carpeted floor under the left side of the desk)"
+     },
+     {
+      "type": "added",
+      "object": "black portable fan (on the floor outside the left edge of the desk)"
+     },
+     {
+      "type": "added",
+      "object": "white and red cardboard box (on the floor outside the left side of the desk behind the fan)"
+     },
+     {
+      "type": "added",
+      "object": "clear plastic bag (tucked into the top drawer of the filing cabinet under the right side of the desk)"
+     },
+     {
+      "type": "added",
+      "object": "silver key (in the lock of the middle drawer of the filing cabinet under the right side of the desk)"
+     },
+     {
+      "type": "added",
+      "object": "white computer monitor (on the adjacent desk across the cubicle divider)"
+     },
+     {
+      "type": "added",
+      "object": "clear pump bottle (on the desk in the background cubicle to the upper left)"
+     },
+     {
+      "type": "added",
+      "object": "grey office chair (in the adjacent cubicle behind the cubicle divider)"
+     },
+     {
+      "type": "added",
+      "object": "grey plastic storage bin with lid (stacked on another bin beyond the right cubicle wall)"
+     },
+     {
+      "type": "added",
+      "object": "brown cardboard box (on the floor next to a desk in the background behind the cubicle divider)"
+     }
+    ],
+    "s": 71.52,
+    "calls": 4,
+    "inv_s": [
+     44.88,
+     67.18
+    ],
+    "d1_s": [
+     0.8,
+     1.04
+    ],
+    "n_questions": 55,
+    "match": {
+     "0": 2,
+     "1": 4,
+     "3": 3,
+     "4": 9,
+     "5": 10
+    }
+   },
+   "b_rc": {
+    "pred": [
+     {
+      "type": "removed",
+      "object": "grey headphones (on the center of the desk)"
+     },
+     {
+      "type": "removed",
+      "object": "clear plastic water bottle (on the right side of the desk)"
+     },
+     {
+      "type": "removed",
+      "object": "red soda can (on the back right side of the desk near the cable grommet)"
+     },
+     {
+      "type": "added",
+      "object": "dark blue laptop (on the center of the desk)"
+     },
+     {
+      "type": "added",
+      "object": "grey wireless mouse (on the right side of the desk)"
+     },
+     {
+      "type": "added",
+      "object": "black portable fan (on the floor outside the left edge of the desk)"
+     },
+     {
+      "type": "added",
+      "object": "white and red cardboard box (on the floor outside the left side of the desk behind the fan)"
+     },
+     {
+      "type": "added",
+      "object": "silver key (in the lock of the middle drawer of the filing cabinet under the right side of the desk)"
+     },
+     {
+      "type": "added",
+      "object": "white computer monitor (on the adjacent desk across the cubicle divider)"
+     },
+     {
+      "type": "added",
+      "object": "clear pump bottle (on the desk in the background cubicle to the upper left)"
+     },
+     {
+      "type": "added",
+      "object": "grey office chair (in the adjacent cubicle behind the cubicle divider)"
+     },
+     {
+      "type": "added",
+      "object": "brown cardboard box (on the floor next to a desk in the background behind the cubicle divider)"
+     }
+    ],
+    "s": 173.22,
+    "calls": 5,
+    "n_rechecked": 23,
+    "n_flipped": 9,
+    "match": {
+     "0": 0,
+     "1": 2,
+     "3": 1,
+     "4": 3,
+     "5": 4
+    }
+   },
+   "items": [
+    {
+     "src": "A",
+     "object": "black fan",
+     "location": "on the floor outside the left side of the desk",
+     "p_present": 0.332,
+     "p_same": 0.314,
+     "conf": 0.668,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white cardboard box",
+     "location": "on the floor beside the left desk leg",
+     "p_present": 0.29,
+     "p_same": 0.311,
+     "conf": 0.71,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "grey power strip",
+     "location": "on the floor against the left leg under the desk",
+     "p_present": 0.665,
+     "p_same": 0.527,
+     "conf": 0.527,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black cable",
+     "location": "on the carpet under the left side of the desk",
+     "p_present": 0.823,
+     "p_same": 0.608,
+     "conf": 0.608,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "light blue pack of wipes",
+     "location": "on the left side of the desk next to the cubicle wall",
+     "p_present": 0.789,
+     "p_same": 0.783,
+     "conf": 0.783,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white power strip",
+     "location": "on the back left of the desk near the cubicle wall",
+     "p_present": 0.68,
+     "p_same": 0.699,
+     "conf": 0.68,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white charging cable",
+     "location": "on the left side of the desk surface",
+     "p_present": 0.743,
+     "p_same": 0.502,
+     "conf": 0.502,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black computer monitor",
+     "location": "on the back center-left of the desk",
+     "p_present": 0.884,
+     "p_same": 0.728,
+     "conf": 0.728,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "grey headphones",
+     "location": "on the center of the desk",
+     "p_present": 0.208,
+     "p_same": 0.23,
+     "conf": 0.792,
+     "verdict": "removed",
+     "verdict_rc": "removed"
+    },
+    {
+     "src": "A",
+     "object": "clear plastic water bottle",
+     "location": "on the right side of the desk",
+     "p_present": 0.174,
+     "p_same": 0.198,
+     "conf": 0.826,
+     "verdict": "removed",
+     "verdict_rc": "removed"
+    },
+    {
+     "src": "A",
+     "object": "red soda can",
+     "location": "on the back right side of the desk near the cable grommet",
+     "p_present": 0.267,
+     "p_same": 0.188,
+     "conf": 0.733,
+     "verdict": "removed",
+     "verdict_rc": "removed"
+    },
+    {
+     "src": "A",
+     "object": "red soda can",
+     "location": "on the far right side of the desk",
+     "p_present": 0.193,
+     "p_same": 0.172,
+     "conf": 0.807,
+     "verdict": "removed",
+     "verdict_rc": "removed"
+    },
+    {
+     "src": "A",
+     "object": "clear plastic bag",
+     "location": "tucked above the top drawer of the filing cabinet under the right side of the desk",
+     "p_present": 0.653,
+     "p_same": 0.58,
+     "conf": 0.58,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "silver key with white tag",
+     "location": "in the lock of the filing cabinet under the right side of the desk",
+     "p_present": 0.279,
+     "p_same": 0.289,
+     "conf": 0.721,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "dark blue recycling bin",
+     "location": "on the floor outside the cubicle past the right partition",
+     "p_present": 0.438,
+     "p_same": 0.478,
+     "conf": 0.562,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white crumpled paper",
+     "location": "inside the bin on the floor outside the right cubicle partition",
+     "p_present": 0.306,
+     "p_same": 0.318,
+     "conf": 0.694,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black office chair",
+     "location": "behind the cubicle partition in the neighboring workspace",
+     "p_present": 0.613,
+     "p_same": 0.395,
+     "conf": 0.605,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black computer monitor with silver stand",
+     "location": "on the back center of the desk",
+     "p_present": 0.923,
+     "conf": 0.923,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark blue laptop",
+     "location": "on the center of the desk",
+     "p_present": 0.126,
+     "conf": 0.874,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "grey wireless mouse",
+     "location": "on the right side of the desk",
+     "p_present": 0.164,
+     "conf": 0.836,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "light blue and white pack of wipes",
+     "location": "on the left side of the desk near the cubicle wall",
+     "p_present": 0.674,
+     "conf": 0.674,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white power adapter",
+     "location": "on the back left of the desk behind the monitor stand",
+     "p_present": 0.606,
+     "conf": 0.606,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white USB cable",
+     "location": "on the desk to the left of the laptop",
+     "p_present": 0.555,
+     "conf": 0.555,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white power strip",
+     "location": "under the desk against the lower left cubicle panel",
+     "p_present": 0.723,
+     "conf": 0.723,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black power brick",
+     "location": "on the carpeted floor under the left side of the desk",
+     "p_present": 0.332,
+     "conf": 0.668,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black portable fan",
+     "location": "on the floor outside the left edge of the desk",
+     "p_present": 0.148,
+     "conf": 0.852,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "white and red cardboard box",
+     "location": "on the floor outside the left side of the desk behind the fan",
+     "p_present": 0.18,
+     "conf": 0.82,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "clear plastic bag",
+     "location": "tucked into the top drawer of the filing cabinet under the right side of the desk",
+     "p_present": 0.283,
+     "conf": 0.717,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "silver key",
+     "location": "in the lock of the middle drawer of the filing cabinet under the right side of the desk",
+     "p_present": 0.145,
+     "conf": 0.855,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "white computer monitor",
+     "location": "on the adjacent desk across the cubicle divider",
+     "p_present": 0.136,
+     "conf": 0.864,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "clear pump bottle",
+     "location": "on the desk in the background cubicle to the upper left",
+     "p_present": 0.135,
+     "conf": 0.865,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "grey office chair",
+     "location": "in the adjacent cubicle behind the cubicle divider",
+     "p_present": 0.13,
+     "conf": 0.87,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "black computer monitor",
+     "location": "on a desk in the background cubicle to the upper left",
+     "p_present": 0.914,
+     "conf": 0.914,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "grey plastic storage bin with lid",
+     "location": "stacked on another bin beyond the right cubicle wall",
+     "p_present": 0.384,
+     "conf": 0.616,
+     "verdict": "added",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark grey plastic storage bin",
+     "location": "on the floor beneath the grey storage bin beyond the right cubicle wall",
+     "p_present": 0.711,
+     "conf": 0.711,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "blue plastic bin",
+     "location": "on the floor beside the stacked grey bins beyond the right cubicle wall",
+     "p_present": 0.672,
+     "conf": 0.672,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "blue plastic recycling bin with white papers",
+     "location": "on the floor next to the other blue bin beyond the right cubicle wall",
+     "p_present": 0.63,
+     "conf": 0.63,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "brown cardboard box",
+     "location": "on the floor next to a desk in the background behind the cubicle divider",
+     "p_present": 0.116,
+     "conf": 0.884,
+     "verdict": "added",
+     "verdict_rc": "added"
+    }
+   ]
+  },
+  {
+   "pair": "table_5_table_6",
+   "gold": [
+    {
+     "id": "0",
+     "label": "left_pen_1",
+     "type": "removed",
+     "deformability": null
+    },
+    {
+     "id": "1",
+     "label": "wrapped_candy_1",
+     "type": "added",
+     "deformability": null
+    },
+    {
+     "id": "2",
+     "label": "glass_1",
+     "type": "moved",
+     "deformability": null
+    }
+   ],
+   "upload_s": 3.77,
+   "a": {
+    "raw": "added: blue wrapped candy\nremoved: black pen\nmoved: glass with white cover",
+    "pred": [
+     {
+      "type": "added",
+      "object": "blue wrapped candy"
+     },
+     {
+      "type": "removed",
+      "object": "black pen"
+     },
+     {
+      "type": "moved",
+      "object": "glass with white cover"
+     }
+    ],
+    "s": 46.34,
+    "calls": 1,
+    "match": {
+     "0": 1,
+     "1": 0,
+     "2": 2
+    }
+   },
+   "b": {
+    "n_inv": [
+     13,
+     17
+    ],
+    "pred": [
+     {
+      "type": "moved",
+      "object": "white and blue water carton (on the right side of the red-covered table, above the right pen)"
+     },
+     {
+      "type": "removed",
+      "object": "black pen (on the right side of the red-covered table, below the right water carton)"
+     },
+     {
+      "type": "moved",
+      "object": "clear glass (on the right side of the red-covered table, to the left of the right water carton)"
+     },
+     {
+      "type": "moved",
+      "object": "white paper glass cover (on top of the clear glass on the right side of the table)"
+     },
+     {
+      "type": "moved",
+      "object": "white lined notepad (on the right-center of the red-covered table)"
+     },
+     {
+      "type": "moved",
+      "object": "blue candy wrapper (on the center of the red-covered table, between the two notepads, upper right of the pair)"
+     },
+     {
+      "type": "removed",
+      "object": "clear glass (on the left side of the red-covered table, to the left of the left water carton)"
+     },
+     {
+      "type": "removed",
+      "object": "white cloth-covered chair (behind the left side of the red-covered table)"
+     },
+     {
+      "type": "added",
+      "object": "dark grey bowl (on the far right edge of the table)"
+     }
+    ],
+    "s": 45.28,
+    "calls": 4,
+    "inv_s": [
+     26.92,
+     39.86
+    ],
+    "d1_s": [
+     1.02,
+     1.65
+    ],
+    "n_questions": 43,
+    "match": {
+     "2": 2
+    }
+   },
+   "b_rc": {
+    "pred": [
+     {
+      "type": "moved",
+      "object": "clear glass (on the right side of the red-covered table, to the left of the right water carton)"
+     },
+     {
+      "type": "moved",
+      "object": "white paper glass cover (on top of the clear glass on the right side of the table)"
+     },
+     {
+      "type": "removed",
+      "object": "black pen (resting on top of the white lined notepad on the left side of the table)"
+     },
+     {
+      "type": "added",
+      "object": "dark grey bowl (on the far right edge of the table)"
+     }
+    ],
+    "s": 137.51,
+    "calls": 5,
+    "n_rechecked": 16,
+    "n_flipped": 8,
+    "match": {
+     "0": 2,
+     "2": 0
+    }
+   },
+   "items": [
+    {
+     "src": "A",
+     "object": "white and blue water carton",
+     "location": "on the right side of the red-covered table, above the right pen",
+     "p_present": 0.516,
+     "p_same": 0.247,
+     "conf": 0.516,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black pen",
+     "location": "on the right side of the red-covered table, below the right water carton",
+     "p_present": 0.32,
+     "p_same": 0.252,
+     "conf": 0.68,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "clear glass",
+     "location": "on the right side of the red-covered table, to the left of the right water carton",
+     "p_present": 0.546,
+     "p_same": 0.308,
+     "conf": 0.546,
+     "verdict": "moved",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "A",
+     "object": "white paper glass cover",
+     "location": "on top of the clear glass on the right side of the table",
+     "p_present": 0.772,
+     "p_same": 0.445,
+     "conf": 0.555,
+     "verdict": "moved",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "A",
+     "object": "white lined notepad",
+     "location": "on the right-center of the red-covered table",
+     "p_present": 0.709,
+     "p_same": 0.46,
+     "conf": 0.54,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "blue candy wrapper",
+     "location": "on the center of the red-covered table, between the two notepads, upper right of the pair",
+     "p_present": 0.855,
+     "p_same": 0.271,
+     "conf": 0.729,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "blue candy wrapper",
+     "location": "on the center of the red-covered table, between the two notepads, lower left of the pair",
+     "p_present": 0.783,
+     "p_same": 0.508,
+     "conf": 0.508,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white lined notepad",
+     "location": "on the left side of the red-covered table",
+     "p_present": 0.818,
+     "p_same": 0.56,
+     "conf": 0.56,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "black pen",
+     "location": "resting on top of the white lined notepad on the left side of the table",
+     "p_present": 0.372,
+     "p_same": 0.172,
+     "conf": 0.628,
+     "verdict": "removed",
+     "verdict_rc": "removed"
+    },
+    {
+     "src": "A",
+     "object": "white and blue water carton",
+     "location": "on the left side of the red-covered table, above the left notepad",
+     "p_present": 0.657,
+     "p_same": 0.33,
+     "conf": 0.657,
+     "verdict": "moved",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "clear glass",
+     "location": "on the left side of the red-covered table, to the left of the left water carton",
+     "p_present": 0.452,
+     "p_same": 0.282,
+     "conf": 0.548,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white cloth-covered chair",
+     "location": "behind the right side of the red-covered table",
+     "p_present": 0.597,
+     "p_same": 0.501,
+     "conf": 0.501,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "A",
+     "object": "white cloth-covered chair",
+     "location": "behind the left side of the red-covered table",
+     "p_present": 0.402,
+     "p_same": 0.357,
+     "conf": 0.598,
+     "verdict": "removed",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "dark grey bowl",
+     "location": "on the far right edge of the table",
+     "p_present": 0.121,
+     "conf": 0.879,
+     "verdict": "added",
+     "verdict_rc": "added"
+    },
+    {
+     "src": "B",
+     "object": "blue wrapped candies",
+     "location": "inside the dark grey bowl on the far right edge of the table",
+     "p_present": 0.905,
+     "conf": 0.905,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white water carton",
+     "location": "on the right side of the table, near the back edge",
+     "p_present": 0.886,
+     "conf": 0.886,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "black pen",
+     "location": "on the right side of the table, in front of the right water carton",
+     "p_present": 0.894,
+     "conf": 0.894,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white lined notepad",
+     "location": "on the right-center of the table, near the front edge",
+     "p_present": 0.883,
+     "conf": 0.883,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "blue candy wrapper",
+     "location": "on the center of the table, to the left of the right notepad",
+     "p_present": 0.879,
+     "conf": 0.879,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "blue wrapped candy",
+     "location": "on the center of the table, between the two notepads",
+     "p_present": 0.902,
+     "conf": 0.902,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "blue candy wrapper",
+     "location": "on the center of the table, below the blue wrapped candy between the two notepads",
+     "p_present": 0.871,
+     "conf": 0.871,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear glass goblet",
+     "location": "on the center of the table, near the back edge between the two notepads",
+     "p_present": 0.848,
+     "conf": 0.848,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white paper glass cover",
+     "location": "on top of the clear glass goblet at the center of the table",
+     "p_present": 0.74,
+     "conf": 0.74,
+     "verdict": "unchanged",
+     "verdict_rc": "moved"
+    },
+    {
+     "src": "B",
+     "object": "white lined notepad",
+     "location": "on the left side of the table, near the front edge",
+     "p_present": 0.867,
+     "conf": 0.867,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "white water carton",
+     "location": "on the left side of the table, near the back edge above the left notepad",
+     "p_present": 0.897,
+     "conf": 0.897,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "clear glass goblet",
+     "location": "on the far left side of the table, near the back edge",
+     "p_present": 0.861,
+     "conf": 0.861,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "red tablecloth",
+     "location": "draped over the table",
+     "p_present": 0.858,
+     "conf": 0.858,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "grey fabric-covered chair",
+     "location": "on the floor behind the right side of the table",
+     "p_present": 0.761,
+     "conf": 0.761,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "grey fabric-covered chair",
+     "location": "on the floor behind the center of the table",
+     "p_present": 0.736,
+     "conf": 0.736,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    },
+    {
+     "src": "B",
+     "object": "grey fabric-covered chair",
+     "location": "on the floor behind the left side of the table",
+     "p_present": 0.712,
+     "conf": 0.712,
+     "verdict": "unchanged",
+     "verdict_rc": "unchanged"
+    }
+   ]
+  }
+ ]
+}

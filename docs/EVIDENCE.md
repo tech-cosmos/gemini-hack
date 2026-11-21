@@ -8,6 +8,11 @@ the slides or the talk.
 -
 
 ## Along the way (spikes, pilots, things that failed)
+- **0.92 vs 0.24285714285714285** · overall F1 on added/removed/moved objects, one Neon agentic call with both videos vs Neon inventories + Decision 1 checks, 7 indoor SceneDiff pairs (25 gold objects; 12 chosen by rule, 5 lost to Neon timeouts); **spike killed, the system arm lost to the baseline** · `results/s4_beforeafter.json` · `.venv/bin/python -I spikes/s4_fetch.py && .venv/bin/python spikes/s4_beforeafter.py` (12:24)
+- 0.5882352941176471 · same system arm after a Neon recheck of the 176 items with Decision 1 confidence < 0.75 (94 verdicts flipped) · same file
+- 115 / 43 / 25 · changes predicted by system / system+recheck / baseline for 25 real ones (precision 0.14782608695652175 / 0.46511627906976744 / 0.92) · same file
+- 69.02 s / 53.79 s / 245.23 s · p50 end-to-end latency per pair incl. upload, baseline / system / system+recheck (max 160.2 / 85.64 / 315.66 s), 4 pairs running at once · same file
+- 0.855 s · Decision 1 p50 per call on a 5–15 s 360p clip with 5–80 yes/no questions (402 questions in 22 calls) · same file
 - **3 of 10** · wrong clips the online Tripwire flagged before the clip ended (Decision 1 per 2 s prefix, flag at p ≥ 0.75), 20 held-out ego2act clips, tasks at ranks 30–39; **spike failed its pass mark of 8/10** · `results/s3_tripwire.json` · `.venv/bin/python spikes/s3_tripwire.py` (11:55)
 - 0 of 10 · false alarms on the correct clips, same run · same file
 - 2.042 s · median lead time before clip end over the 3 flagged wrong clips (leads 1.667, 8.542, 2.042) · same file
