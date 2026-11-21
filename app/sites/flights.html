@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Skylane Flights · NYC to Lisbon</title><style>
+*{box-sizing:border-box}html,body{margin:0;height:800px;overflow:hidden}
+body{font:14px/1.45 "Circular",-apple-system,"Helvetica Neue",Arial,sans-serif;color:#222;background:#fff}
+.hdr{height:72px;display:flex;align-items:center;gap:36px;padding:0 48px;border-bottom:1px solid #ebebeb}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;color:#c2255c;letter-spacing:-.3px}
+.nav{display:flex;gap:26px;color:#555;font-weight:500}.nav b{color:#222;border-bottom:2px solid #222;padding-bottom:4px}
+.acct{margin-left:auto;display:flex;align-items:center;gap:10px;color:#555}.av{width:32px;height:32px;border-radius:50%;background:#222;color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.search{margin:18px auto 0;width:860px;height:60px;border:1px solid #ddd;border-radius:32px;box-shadow:0 3px 12px rgba(0,0,0,.08);display:flex;align-items:center;padding:0 8px 0 28px;gap:0}
+.search div:not(.go){flex:1;padding:0 18px;border-right:1px solid #eee}.search div:nth-of-type(4){border:0}.search small{display:block;font-size:11px;font-weight:700;color:#222}.search span{color:#717171}
+.go{flex:none;width:44px;height:44px;border-radius:50%;background:#c2255c;display:grid;place-items:center}
+.wrap{width:1184px;margin:18px auto 0;display:grid;grid-template-columns:1fr 340px;gap:28px}
+h1{font-size:22px;margin:0 0 2px;letter-spacing:-.3px}.sub{color:#717171;margin-bottom:12px}
+.chips{display:flex;gap:8px;margin-bottom:12px}.chip{border:1px solid #ddd;border-radius:18px;padding:5px 13px;font-size:13px}.chip.on{border-color:#222;background:#f7f7f7;font-weight:600}
+.fl{border:1px solid #ebebeb;border-radius:14px;padding:13px 18px;margin-bottom:9px;display:grid;grid-template-columns:44px 1fr 120px;align-items:center;gap:16px}
+.fl.sel{border:2px solid #222;padding:12px 17px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.al{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px}
+.tm{font-size:16px;font-weight:600}.tm em{font-style:normal;color:#717171;font-weight:400;font-size:13px;margin-left:8px}
+.meta{color:#717171;font-size:13px}.pr{text-align:right;font-size:18px;font-weight:700}.pr small{display:block;font-size:12px;color:#717171;font-weight:400}
+.tag{display:inline-block;background:#fff0f5;color:#c2255c;font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;margin-left:8px;vertical-align:2px}
+#main-card .actions{margin-top:12px;display:flex;gap:10px}
+.side{border:1px solid #ebebeb;border-radius:14px;padding:18px 20px;box-shadow:0 6px 16px rgba(0,0,0,.06)}
+.side h2{font-size:17px;margin:0 0 10px}.li{display:flex;justify-content:space-between;padding:6px 0;color:#444}.li.t{border-top:1px solid #ebebeb;margin-top:6px;padding-top:10px;font-weight:700;color:#222}
+.tips{margin-top:16px}.tips h3{font-size:14px;margin:0 0 6px}.tip{font-size:13px;color:#555;padding:4px 0}.tip b{color:#222;margin-right:6px}
+.foot{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:12px;color:#999}
+/* classes injected by app/page.py */
+.btn{display:inline-block;border:0;border-radius:10px;padding:11px 20px;font:600 14px/1 inherit;cursor:pointer;background:linear-gradient(90deg,#d6336c,#c2255c);color:#fff}
+.btn.sec{background:#fff;color:#222;border:1px solid #222}
+.btn.alt{background:#222;color:#fff;border-radius:8px;padding:9px 16px;font-size:13px}
+.banner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 48px;font-size:13.5px;background:#f7f7f7;border-bottom:1px solid #ebebeb}
+.banner.warn{background:#fff8e6;border-bottom:1px solid #f5d77a;color:#5c4400}
+.banner b{margin-right:6px}
+.dim{position:fixed;inset:0;background:rgba(34,34,34,.55)}
+.modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:460px;background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.modal h3{margin:0 0 8px;font-size:19px;letter-spacing:-.2px}.modal p{margin:0 0 18px;color:#444;line-height:1.5}.modal .btn{margin-right:8px}
+</style></head><body><!--TOP-->
+<div class="hdr"><div class="logo"><svg width="30" height="30" viewBox="0 0 32 32"><path d="M3 18l26-10-8 18-5-7z" fill="#c2255c"/><path d="M16 19l-3 7 8-7z" fill="#8f1a44"/></svg>skylane</div>
+<div class="nav"><b>Flights</b><span>Hotels</span><span>My trips</span><span>Check-in</span></div>
+<div class="acct">Help · USD<div class="av">DL</div></div></div>
+<div class="search"><div><small>From</small><span>New York (JFK)</span></div><div><small>To</small><span>Lisbon (LIS)</span></div><div><small>Depart</small><span>Fri 12 Mar</span></div><div><small>Travellers</small><span>1 adult · Economy</span></div>
+<div class="go"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7" stroke="#fff" stroke-width="3" fill="none"/><path d="M15 15l6 6" stroke="#fff" stroke-width="3"/></svg></div></div>
+<div class="wrap"><div>
+<h1>NYC → Lisbon · Fri 12 Mar · 1 adult</h1><div class="sub">3 flights · prices include taxes and fees</div>
+<div class="chips"><span class="chip on">Nonstop</span><span class="chip">Under $450</span><span class="chip">Evening departure</span><span class="chip">Carry-on included</span></div>
+<div id="main-card">
+<div class="fl sel"><div class="al" style="background:#2e7d32">TP</div><div><div class="tm">18:40 → 06:35<em>+1 · 6h 55m</em><span class="tag">Best value</span></div><div class="meta">TAP 202 · nonstop · JFK → LIS · Airbus A330neo</div>
+<div class="actions"><button class="btn" id="primary">Select TAP 202</button><button class="btn sec" id="secondary">Change dates</button></div></div><div class="pr">$412<small>round trip</small></div></div>
+<div class="fl"><div class="al" style="background:#1b3a8c">UA</div><div><div class="tm">21:10 → 09:20<em>+1 · 7h 10m</em></div><div class="meta">United 64 · nonstop · EWR → LIS</div></div><div class="pr">$455<small>round trip</small></div></div>
+<div class="fl"><div class="al" style="background:#c62828">IB</div><div><div class="tm">17:05 → 09:55<em>+1 · 11h 50m</em></div><div class="meta">Iberia 6250 · 1 stop (MAD) · JFK → LIS</div></div><div class="pr">$389<small>round trip</small></div></div>
+</div></div>
+<div><div class="side"><h2>Trip summary</h2><div class="li"><span>TAP 202 · Economy</span><span>$412.00</span></div><div class="li"><span>Seat selection</span><span>Free</span></div><div class="li"><span>Carry-on bag</span><span>Included</span></div>
+<div class="li t"><span>Total</span><span>$412.00</span></div><div class="li"><span>Pay with</span><span>Visa ending 4421</span></div></div>
+<div class="tips"><h3>Traveller tips</h3><div class="tip"><b>rosa_t</b>Terminal B security is slow on Fridays.</div><div class="tip"><b>kenji</b>Seat 23A has extra legroom on TAP.</div></div></div></div>
+<div class="foot">© 2026 Skylane Flights · Terms · Privacy · Contact</div>
+<!--MODAL--><!--ACTIONS--></body></html>

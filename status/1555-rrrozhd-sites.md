@@ -1,0 +1,1 @@
+done: 3 victim sites (app/sites flights/shop/bank) checked in 4 modes: fit 1280x800, ids hit-test, done state in #main-card; flights search-button fix; inline SVG only (Codex down) / next: #39 budgeted re-test (needs Dan's OK) / blocked: none
