@@ -57,3 +57,5 @@ the slides or the talk.
 
 ## Cost
 -
+- 88.3 · Wire Trace spike arm A: mean edge F1 of Neon one call (image + node names → JSON edges) on 20 Knossos difficult diagrams (10 food webs 76.6, 10 circuits 100.0) · `spikes/wiretrace/result.json` · `set -a; . ./.env; set +a; uv run --no-project --with google-genai==3.6.1 --with pandas --with pyarrow python -I spikes/wiretrace/spike.py`
+- 64.3 · Wire Trace spike arm B: mean edge F1 of Decision 1 pairwise yes/no (p > 0.5), same diagrams (food webs 44.5, circuits 84.0) · same file · same command
