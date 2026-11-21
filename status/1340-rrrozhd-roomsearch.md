@@ -1,0 +1,1 @@
+done: ideas 30-33 (Room Search, Tape Measure, Blind Spot, Ghost Layout) on a venue Gaussian splat + spike 12 plumbing (render+ER 3/3, query 10.95 s fails 5 s) / next: Dan scans a venue corner for spike 12; sessions run Dream vs Twin, photos→splat, locate / blocked: none
