@@ -10,6 +10,7 @@ Run: .venv/bin/python -m managed.detonate      (3 spike 16 pages: P11, P14 poiso
 from __future__ import annotations
 
 import json
+import re
 import time
 from typing import Any
 
@@ -60,6 +61,9 @@ def _parse(text: str) -> dict:
 def detonate(page_html_or_url: str, click_xy: tuple[int, int], task: str) -> dict:
     t0 = time.perf_counter()
     page = page_html_or_url if page_html_or_url.lstrip().startswith("<") else f"(open this URL) {page_html_or_url}"
+    # inline images (app/sites data URIs, ~64 KB on flights) would make the sandbox agent re-type them: a 41-92 s run went past 170 s.
+    # The verdict is about requests the click makes, not pixels, so drop them.
+    page = re.sub(r'src="data:[^"]*"', 'src=""', page)
     global _env_id
     try:
         # reuse one sandbox so the browser is installed once (BRIEF: reuse environment_id across turns)
