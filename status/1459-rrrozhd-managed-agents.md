@@ -1,0 +1,1 @@
+done: #24 Managed Agents kill test PASS (first call 12.07 s) + managed.finish(task, html, mode) live: banner done in 22.26 s, modal false-stopped 2/2 / next: #23 eval lands; lead decides modal false stop / blocked: none
