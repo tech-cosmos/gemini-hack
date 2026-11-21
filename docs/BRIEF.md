@@ -66,6 +66,33 @@ anything where a dashboard is the main feature · sports analyzers or coaches.
 - Shopify: shop.dev; Solutions Engineers on site and in Discord.
 - Discord: #announcements, #rules, #questions (ping @CV).
 
+## Builder guide (the organizers' PDF, read 11:25; the lead has the file)
+**What they call a strong project (four tests):** a concrete problem for a person or role you can name;
+work that needed Gemini 4 reasoning, calibrated multimodal routing or sandboxed verification; people
+stay in control when an action touches external systems, money or private data; runs live on real
+inputs in under three minutes, on code written today. "Focus your scope on one end-to-end workflow."
+- **Roles:** Carbon = deepest reasoning (3 thinking levels, medium default). Neon = fast frontier coding and
+  analysis (4 levels, high default). Hydrogen = fast workhorse, interactive apps, *agentic video inspection*,
+  parallel worker subagents (free tier). Decision 1 = calibrated yes/no, choice, rubric; guide claims
+  150–250 ms, $0.10 paid, free in AI Studio. "Most winning teams combine two or three models in one loop:
+  Decision 1 gates inputs, Neon or Carbon reasons, Hydrogen runs parallel subagents."
+- **Managed Agents:** `antigravity-preview-09-2026`, `environment="remote"`; `agent_config={"type":
+  "antigravity", "model": "gemini-4-neon"|"gemini-4-carbon"|"gemini-4-hydrogen", "max_total_tokens": N}`;
+  reuse `environment_id` across turns. Self-hosted sandboxes (Docker, E2B, Modal, Daytona, Vercel Sandbox,
+  Cloud Run...) for GPUs, physics or robotics simulators. Credentials API for third-party keys.
+- **Agentic video understanding:** `{"type": "video", "uri": file.uri, "processing": "agentic"}` makes the
+  model scrub timestamps and zoom into frames. Default is static frame sampling.
+- **Other models:** `gemini-3.8-live` (two-way voice + video over WebSockets), `gemini-3.5-transcribe(-live)`,
+  `gemini-3.8-flash-tts`, `gemini-nano-banana-2.1` (images), `gemini-omni-1.2-flash` (video with sound),
+  `lyria-3.5`, Deep Research agent, Gemma 4. These don't count toward "two Gemini 4 models".
+- **Clients:** `genai.Client()` (v1) for model calls; `genai.Client(http_options={"api_version": "v1beta"})`
+  for Managed Agents and Decisions. SDK `google-genai>=3.2.0`.
+- **Don't:** pass temperature/top-p/top-k or thinking budgets to Gemini 4; pass `minimal` thinking to Neon
+  or Hydrogen (validation error); call manual context caching; run self-hosted agent workers on a laptop
+  without a container; ask for raw JSON in plain text (use tools, structured output or Decisions); ship
+  mocked responses or pre-written code.
+- Google mentors on site review architecture, the verification gate and the 3-minute demo flow. Go early.
+
 ## Model notes (public sources, verify against the builder guide)
 Hydrogen: fastest and cheapest, everyday coding and agent loops. Neon: high-performance coding and
 multi-step reasoning at low latency. Carbon, Argon: frontier models for the hardest work.
@@ -77,6 +104,4 @@ remote MCP, custom functions, hooks, budgets, scheduled triggers.
 -
 
 ## Questions still open
-1. Decisions API: what exactly does it return, latency, and limits? (builder guide)
-2. Which Gemini 4 models can Managed Agents run on?
 3. Live demo: is there a projector, and can we use the venue Wi-Fi for real-time video?

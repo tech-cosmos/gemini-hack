@@ -1,0 +1,15 @@
+{
+  "sample_low": "The frame contains blueberry scones, two cups of coffee, a bowl of blueberries, a spoon, pink peonie",
+  "low": {
+    "n": 10,
+    "p50_s": 3.92,
+    "max_s": 10.14
+  },
+  "sample_medium": "The image shows blueberry scones on stained parchment paper alongside two mugs of coffee, a bowl of ",
+  "medium": {
+    "n": 10,
+    "p50_s": 4.19,
+    "max_s": 5.83
+  },
+  "pass": false
+}
