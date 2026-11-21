@@ -1,0 +1,40 @@
+id,task,policy,success,pA,pB
+armnetbench/ring_insert/smolvla/eval_debug_task_cell_1_10h35m_24-jun-2026/ep000014/front,Insert the colourful ring into the central wooden peg,smolvla,True,0.8730501110194854,0.8190141843154308
+armnetbench/ring_insert/act/eval_debug_task_cell_1_12h18m_26-jun-2026/ep000001/front,Insert the colourful ring into the central wooden peg,act,True,0.8861516999470277,0.8254593244572662
+armnetbench/ring_insert/grootn1.7/eval_debug_task_cell_1_16h34m_27-jun-2026/ep000013/front,Insert the colourful ring into the central wooden peg,grootn1.7,True,0.8666426747010154,0.6752093531684292
+armnetbench/tool_insert/pi0/eval_debug_task_cell_1_14h26m_29-jun-2026/ep000017/front,Insert the missing tool into the empty slot on the toolbox,pi0,True,0.48848123934326004,0.3343098365084672
+armnetbench/ring_insert/molmoact2/eval_ring_insert_15h18m_08-jul-2026/ep000021/front,Insert the colourful ring into the central wooden peg,molmoact2,True,0.8728310883533364,0.6474419732126327
+armnetbench/tool_insert/diffusion/eval_debug_task_cell_1_08h49m_25-jun-2026/ep000016/front,Insert the missing tool into the empty slot on the toolbox,diffusion,True,0.7629627826981624,0.42447558003160646
+armnetbench/ring_insert/smolvla/eval_debug_task_cell_1_10h35m_24-jun-2026/ep000002/front,Insert the colourful ring into the central wooden peg,smolvla,True,0.8277185217113087,0.6419014599529381
+armnetbench/ring_insert/grootn1.7/eval_debug_task_cell_1_16h34m_27-jun-2026/ep000006/front,Insert the colourful ring into the central wooden peg,grootn1.7,True,0.8693128053128627,0.6485243562862372
+armnetbench/ring_insert/grootn1.7/eval_debug_task_cell_1_16h34m_27-jun-2026/ep000000/front,Insert the colourful ring into the central wooden peg,grootn1.7,True,0.8763126075573072,0.6501350083656677
+armnetbench/ring_insert/smolvla/eval_debug_task_cell_1_10h35m_24-jun-2026/ep000007/front,Insert the colourful ring into the central wooden peg,smolvla,True,0.8684796169156704,0.5634808169686002
+armnetbench/eye_drops_to_shelf/pi0.5/eval_debug_task_cell_3_14h36m_29-jun-2026/ep000002/front,Put the eye drops on the shelf,pi0.5,True,0.8893389326458024,0.6624081093853564
+armnetbench/cable_unclip/smolvla/eval_debug_task_cell_3_10h33m_24-jun-2026/ep000005/front,Remove the power cable from cable holder,smolvla,True,0.21596313781887552,0.26996976784046134
+armnetbench/eye_drops_to_basket/pi0.5/eval_debug_task_cell_3_15h21m_29-jun-2026/ep000010/front,Put the eye drops into the basket,pi0.5,True,0.44859697713804203,0.3930037201754208
+armnetbench/eye_drops_to_basket/pi0.5/eval_debug_task_cell_3_15h21m_29-jun-2026/ep000005/front,Put the eye drops into the basket,pi0.5,True,0.36014228703158296,0.3280839186783547
+armnetbench/eye_drops_to_basket/molmoact2/eval_eye_drops_to_basket_13h39m_08-jul-2026/ep000012/front,Put the eye drops into the basket,molmoact2,True,0.7083600921986007,0.7204664654275829
+armnetbench/tool_removal/grootn1.7/eval_debug_task_cell_1_13h20m_27-jun-2026/ep000022/front,Remove the small middle tool (3/8 Extension Bar 75mm) from the toolbox,grootn1.7,True,0.8047238327380289,0.488882045827143
+armnetbench/cable_unclip/pi0.5/eval_debug_task_cell_3_08h29m_30-jun-2026/ep000004/front,Remove the power cable from cable holder,pi0.5,True,0.25945999866699027,0.2986263272166468
+armnetbench/tool_removal/molmoact2/eval_debug_task_cell_1_12h08m_27-jun-2026/ep000001/front,Remove the small middle tool (3/8 Extension Bar 75mm) from the toolbox,molmoact2,True,0.7844951402397967,0.5965658336690656
+armnetbench/eye_drops_to_basket/diffusion/eval_debug_task_cell_3_14h59m_25-jun-2026/ep000021/front,Put the eye drops into the basket,diffusion,True,0.5070662510481113,0.3269128047832065
+armnetbench/tool_removal/diffusion/eval_debug_task_cell_1_14h59m_25-jun-2026/ep000014/front,Remove the small middle tool (3/8 Extension Bar 75mm) from the toolbox,diffusion,True,0.8076403418609773,0.7918691473212058
+armnetbench/tool_insert/act/eval_debug_task_cell_1_15h22m_26-jun-2026/ep000025/front,Insert the missing tool into the empty slot on the toolbox,act,False,0.27329746342166467,0.34711688673444957
+armnetbench/tool_insert/diffusion/eval_debug_task_cell_1_08h49m_25-jun-2026/ep000024/front,Insert the missing tool into the empty slot on the toolbox,diffusion,False,0.37191508602279494,0.2902542269282767
+armnetbench/ring_insert/diffusion/eval_debug_task_cell_1_09h36m_24-jun-2026/ep000013/front,Insert the colourful ring into the central wooden peg,diffusion,False,0.14691482404248787,0.20110772318289338
+armnetbench/tool_insert/diffusion/eval_debug_task_cell_1_08h49m_25-jun-2026/ep000006/front,Insert the missing tool into the empty slot on the toolbox,diffusion,False,0.15259440683830575,0.2121336436391531
+armnetbench/ring_insert/pi0/eval_debug_task_cell_1_09h09m_30-jun-2026/ep000011/front,Insert the colourful ring into the central wooden peg,pi0,False,0.1383270955525583,0.13893112403523786
+armnetbench/tool_insert/act/eval_debug_task_cell_1_15h22m_26-jun-2026/ep000022/front,Insert the missing tool into the empty slot on the toolbox,act,False,0.21983348935124683,0.2589204799933185
+armnetbench/tool_insert/act/eval_debug_task_cell_1_15h22m_26-jun-2026/ep000023/front,Insert the missing tool into the empty slot on the toolbox,act,False,0.26698524094252013,0.3211695349122591
+armnetbench/tool_insert/smolvla/eval_debug_task_cell_1_14h07m_24-jun-2026/ep000003/front,Insert the missing tool into the empty slot on the toolbox,smolvla,False,0.34138042501974475,0.3660694949640062
+armnetbench/tool_insert/molmoact2/eval_tool_insert_13h21m_08-jul-2026/ep000020/front,Insert the missing tool into the empty slot on the toolbox,molmoact2,False,0.28647992628491814,0.3480970446963647
+armnetbench/cable_clip/molmoact2/eval_cable_clip_14h44m_08-jul-2026/ep000020/front,Push the Displayport cable into the cable holder on the white block,molmoact2,False,0.16513674116859842,0.14266590212881972
+armnetbench/eye_drops_to_shelf/molmoact2/eval_eye_drops_to_shelf_13h01m_08-jul-2026/ep000012/front,Put the eye drops on the shelf,molmoact2,False,0.20435474373792661,0.21947934967164717
+armnetbench/block_stack/molmoact2/eval_debug_task_cell_1_13h52m_27-jun-2026/ep000007/front,Stack the colouful blocks on top of each other,molmoact2,False,0.21258150314061394,0.21683642013987922
+armnetbench/cable_clip/act/eval_debug_task_cell_3_12h09m_26-jun-2026/ep000029/front,Push the Displayport cable into the cable holder on the white block,act,False,0.2694085658102256,0.30491628235464574
+armnetbench/cable_unclip/grootn1.7/eval_debug_task_cell_3_12h33m_27-jun-2026/ep000025/front,Remove the power cable from cable holder,grootn1.7,False,0.20278697724571623,0.24551423658512692
+armnetbench/cable_clip/pi0.5/eval_debug_task_cell_3_09h18m_30-jun-2026/ep000003/front,Push the Displayport cable into the cable holder on the white block,pi0.5,False,0.4226782666793126,0.4117110869281569
+armnetbench/block_stack/act/eval_debug_task_cell_1_12h03m_26-jun-2026/ep000007/front,Stack the colouful blocks on top of each other,act,False,0.14823717877512324,0.21766043958310397
+armnetbench/eye_drops_to_shelf/smolvla/eval_debug_task_cell_3_14h07m_24-jun-2026/ep000001/front,Put the eye drops on the shelf,smolvla,False,0.20684730304922297,0.1970822415724874
+armnetbench/eye_drops_to_shelf/pi0.5/eval_debug_task_cell_3_14h49m_29-jun-2026/ep000010/front,Put the eye drops on the shelf,pi0.5,False,0.24248842723889374,0.2160712240300732
+armnetbench/cable_clip/molmoact2/eval_cable_clip_14h44m_08-jul-2026/ep000000/front,Push the Displayport cable into the cable holder on the white block,molmoact2,False,0.23796391799293368,0.2044251604456152
