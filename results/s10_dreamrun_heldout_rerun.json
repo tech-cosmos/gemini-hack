@@ -1,0 +1,572 @@
+{
+ "summary": {
+  "n_seeds": 6,
+  "n_scored": 6,
+  "turn_pulse_s": 0.15,
+  "parallel_sessions": 3,
+  "arrival_rule": "Decision 1 'arrived' on 2 consecutive ticks, else stop at 15 s",
+  "auto_success": 2,
+  "er_central": 2,
+  "noul_large_ge_0.75": 6,
+  "arrived_2_consecutive": 1,
+  "time_to_arrive_s": [
+   1.77
+  ],
+  "time_to_arrive_median_s": 1.77,
+  "auto_retained_after_lookback": 5,
+  "ticks": 36,
+  "d1_tick_p50_s": 1.759,
+  "d1_tick_max_s": 4.108,
+  "er_call_s": [
+   3.36,
+   6.73,
+   6.97,
+   7.48,
+   6.36,
+   3.62
+  ],
+  "retried": [],
+  "crashed_after_retry": [],
+  "first_frame_s": [
+   4.81,
+   6.42,
+   4.96,
+   6.31,
+   8.04,
+   10.84
+  ],
+  "stream_fps": [
+   19.3,
+   1.2,
+   14.5,
+   1.4,
+   14.8,
+   1.1
+  ],
+  "genie_frames_total": 1644,
+  "pass": false,
+  "eye_check": {
+   "viewer": "the agent (Fable), one pass over .context/s10/_rerun/sheet.png",
+   "status": "after the fact, NOT registered; run once to see whether the slow stream was transient",
+   "agrees_with_auto": "partly",
+   "approach_ok_by_eye": 0,
+   "auto_success": 2,
+   "why": "3 sessions streamed at 14.5-19.3 fps and moved, 3 stayed at ~1 fps and did not. Of the 3 that moved none approached its target: double_shoe_box panned until the stool was centred (auto-success, same size, Genie invented a bare leg and a second shoe); pantry_jar_sachet walked forward until the mug slid to the bottom edge (auto-fail, correct); racket_table_floor tapped left 5 times and the table is still upper-left (auto-fail, correct)",
+   "retention_by_eye": 5,
+   "retention_note": "pantry mug gone after look-back (camera now faces the back shelf); stool is there and much larger after look-back; the 3 slow sessions show the unchanged scene"
+  }
+ },
+ "seeds": [
+  {
+   "case": "double_shoe_box",
+   "target": "the blue plastic stool",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 19,
+     "choice": "left",
+     "conf": 0.822,
+     "d1_s": 1.198
+    },
+    {
+     "t": 1.6,
+     "frame": 48,
+     "choice": "left",
+     "conf": 0.895,
+     "d1_s": 2.111
+    },
+    {
+     "t": 4.11,
+     "frame": 64,
+     "choice": "left",
+     "conf": 0.626,
+     "d1_s": 0.795
+    },
+    {
+     "t": 5.31,
+     "frame": 92,
+     "choice": "forward",
+     "conf": 0.55,
+     "d1_s": 1.788
+    },
+    {
+     "t": 7.1,
+     "frame": 109,
+     "choice": "left",
+     "conf": 0.777,
+     "d1_s": 1.772
+    },
+    {
+     "t": 9.27,
+     "frame": 123,
+     "choice": "forward",
+     "conf": 0.488,
+     "d1_s": 1.498
+    },
+    {
+     "t": 10.77,
+     "frame": 137,
+     "choice": "forward",
+     "conf": 0.526,
+     "d1_s": 2.224
+    },
+    {
+     "t": 12.99,
+     "frame": 172,
+     "choice": "forward",
+     "conf": 0.521,
+     "d1_s": 2.818
+    }
+   ],
+   "first_frame_s": 4.81,
+   "frame_t0": 1,
+   "arrived": false,
+   "approach_s": 15.81,
+   "frame_end": 182,
+   "frame_away": 265,
+   "frame_back": 383,
+   "connect_s": 1.39,
+   "frames": 572,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1,
+    "step.stop": 1
+   },
+   "stream_fps": 19.3,
+   "er_end": {
+    "s": 3.36,
+    "point_yx": [
+     374,
+     592
+    ],
+    "raw": "```json\n[\n  {\"point\": [374, 592], \"label\": \"blue plastic stool\"}\n]\n```"
+   },
+   "er_central": true,
+   "noul_large_end": 0.846,
+   "auto_success": true,
+   "vis_t0": 0.917,
+   "vis_end": 0.898,
+   "vis_back": 0.89,
+   "auto_retained": true,
+   "er_back": {
+    "s": 3.65,
+    "point_yx": [
+     521,
+     743
+    ],
+    "raw": "```json\n[\n  {\"point\": [521, 743], \"label\": \"blue plastic stool\"}\n]\n```"
+   }
+  },
+  {
+   "case": "lava_toast_microwave",
+   "target": "the white microwave oven",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 2,
+     "choice": "arrived",
+     "conf": 0.895,
+     "d1_s": 0.876
+    },
+    {
+     "t": 0.88,
+     "frame": 3,
+     "choice": "arrived",
+     "conf": 0.8,
+     "d1_s": 0.897
+    }
+   ],
+   "first_frame_s": 6.42,
+   "frame_t0": 1,
+   "arrived": true,
+   "approach_s": 1.77,
+   "frame_end": 3,
+   "frame_away": 7,
+   "frame_back": 10,
+   "connect_s": 1.02,
+   "frames": 23,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1
+   },
+   "stream_fps": 1.2,
+   "er_end": {
+    "s": 6.73,
+    "point_yx": [
+     290,
+     502
+    ],
+    "raw": "```json\n[\n  {\"point\": [290, 502], \"label\": \"white microwave oven\"}\n]\n```"
+   },
+   "er_central": false,
+   "noul_large_end": 0.903,
+   "auto_success": false,
+   "vis_t0": 0.911,
+   "vis_end": 0.924,
+   "vis_back": 0.903,
+   "auto_retained": true,
+   "er_back": {
+    "s": 6.49,
+    "point_yx": [
+     294,
+     503
+    ],
+    "raw": "```json\n[\n  {\"point\": [294, 503], \"label\": \"microwave\"}\n]\n```"
+   }
+  },
+  {
+   "case": "pantry_jar_sachet",
+   "target": "the dark teal mug",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 18,
+     "choice": "forward",
+     "conf": 0.543,
+     "d1_s": 1.856
+    },
+    {
+     "t": 1.86,
+     "frame": 26,
+     "choice": "forward",
+     "conf": 0.563,
+     "d1_s": 1.075
+    },
+    {
+     "t": 2.93,
+     "frame": 38,
+     "choice": "forward",
+     "conf": 0.576,
+     "d1_s": 1.664
+    },
+    {
+     "t": 4.6,
+     "frame": 58,
+     "choice": "forward",
+     "conf": 0.587,
+     "d1_s": 2.438
+    },
+    {
+     "t": 7.03,
+     "frame": 68,
+     "choice": "forward",
+     "conf": 0.763,
+     "d1_s": 1.586
+    },
+    {
+     "t": 8.62,
+     "frame": 77,
+     "choice": "forward",
+     "conf": 0.587,
+     "d1_s": 1.397
+    },
+    {
+     "t": 10.02,
+     "frame": 85,
+     "choice": "forward",
+     "conf": 0.574,
+     "d1_s": 1.694
+    },
+    {
+     "t": 11.71,
+     "frame": 93,
+     "choice": "right",
+     "conf": 0.601,
+     "d1_s": 1.659
+    },
+    {
+     "t": 13.77,
+     "frame": 104,
+     "choice": "right",
+     "conf": 0.692,
+     "d1_s": 1.218
+    }
+   ],
+   "first_frame_s": 4.96,
+   "frame_t0": 1,
+   "arrived": false,
+   "approach_s": 15.39,
+   "frame_end": 118,
+   "frame_away": 183,
+   "frame_back": 244,
+   "connect_s": 0.97,
+   "frames": 472,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1
+   },
+   "stream_fps": 14.5,
+   "er_end": {
+    "s": 6.97,
+    "point_yx": [
+     874,
+     658
+    ],
+    "raw": "```json\n[\n  {\"point\": [874, 658], \"label\": \"dark teal mug\"}\n]\n```"
+   },
+   "er_central": false,
+   "noul_large_end": 0.781,
+   "auto_success": false,
+   "vis_t0": 0.881,
+   "vis_end": 0.898,
+   "vis_back": 0.404,
+   "auto_retained": false,
+   "er_back": {
+    "s": 7.28,
+    "point_yx": [
+     121,
+     601
+    ],
+    "raw": "```json\n[\n  {\"point\": [121, 601], \"label\": \"dark teal mug\"}\n]\n```"
+   }
+  },
+  {
+   "case": "plastic_trash_bin",
+   "target": "the orange trash bin",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 2,
+     "choice": "left",
+     "conf": 0.937,
+     "d1_s": 3.321
+    },
+    {
+     "t": 3.72,
+     "frame": 4,
+     "choice": "left",
+     "conf": 0.919,
+     "d1_s": 3.12
+    },
+    {
+     "t": 7.24,
+     "frame": 6,
+     "choice": "left",
+     "conf": 0.929,
+     "d1_s": 2.853
+    },
+    {
+     "t": 10.5,
+     "frame": 9,
+     "choice": "left",
+     "conf": 0.961,
+     "d1_s": 2.704
+    },
+    {
+     "t": 13.61,
+     "frame": 12,
+     "choice": "left",
+     "conf": 0.928,
+     "d1_s": 1.745
+    }
+   ],
+   "first_frame_s": 6.31,
+   "frame_t0": 1,
+   "arrived": false,
+   "approach_s": 15.76,
+   "frame_end": 13,
+   "frame_away": 16,
+   "frame_back": 19,
+   "connect_s": 1.05,
+   "frames": 46,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1
+   },
+   "stream_fps": 1.4,
+   "er_end": {
+    "s": 7.48,
+    "point_yx": [
+     428,
+     332
+    ],
+    "raw": "```json\n[\n  {\"point\": [428, 332], \"label\": \"orange trash bin\"}\n]\n```"
+   },
+   "er_central": true,
+   "noul_large_end": 0.892,
+   "auto_success": true,
+   "vis_t0": 0.932,
+   "vis_end": 0.915,
+   "vis_back": 0.932,
+   "auto_retained": true,
+   "er_back": {
+    "s": 5.23,
+    "point_yx": [
+     440,
+     340
+    ],
+    "raw": "```json\n[\n  {\"point\": [440, 340], \"label\": \"orange trash bin\"}\n]\n```"
+   }
+  },
+  {
+   "case": "racket_table_floor",
+   "target": "the orange folding table",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 25,
+     "choice": "left",
+     "conf": 0.882,
+     "d1_s": 3.783
+    },
+    {
+     "t": 4.18,
+     "frame": 47,
+     "choice": "left",
+     "conf": 0.887,
+     "d1_s": 2.231
+    },
+    {
+     "t": 6.82,
+     "frame": 66,
+     "choice": "left",
+     "conf": 0.902,
+     "d1_s": 1.406
+    },
+    {
+     "t": 8.62,
+     "frame": 83,
+     "choice": "left",
+     "conf": 0.884,
+     "d1_s": 3.05
+    },
+    {
+     "t": 12.08,
+     "frame": 112,
+     "choice": "left",
+     "conf": 0.906,
+     "d1_s": 4.108
+    }
+   ],
+   "first_frame_s": 8.04,
+   "frame_t0": 1,
+   "arrived": false,
+   "approach_s": 16.59,
+   "frame_end": 119,
+   "frame_away": 162,
+   "frame_back": 253,
+   "connect_s": 1.92,
+   "frames": 498,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1
+   },
+   "stream_fps": 14.8,
+   "er_end": {
+    "s": 6.36,
+    "point_yx": [
+     316,
+     178
+    ],
+    "raw": "```json\n[\n  {\"point\": [316, 178], \"label\": \"orange folding table\"}\n]\n```"
+   },
+   "er_central": false,
+   "noul_large_end": 0.861,
+   "auto_success": false,
+   "vis_t0": 0.9,
+   "vis_end": 0.914,
+   "vis_back": 0.925,
+   "auto_retained": true,
+   "er_back": {
+    "s": 6.04,
+    "point_yx": [
+     287,
+     280
+    ],
+    "raw": "```json\n[\n  {\"point\": [287, 280], \"label\": \"orange folding table\"}\n]\n```"
+   }
+  },
+  {
+   "case": "remote_marker_stand",
+   "target": "the red stationery case",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 1,
+     "choice": "right",
+     "conf": 0.541,
+     "d1_s": 2.188
+    },
+    {
+     "t": 2.59,
+     "frame": 2,
+     "choice": "right",
+     "conf": 0.541,
+     "d1_s": 1.275
+    },
+    {
+     "t": 4.27,
+     "frame": 3,
+     "choice": "right",
+     "conf": 0.532,
+     "d1_s": 2.531
+    },
+    {
+     "t": 7.2,
+     "frame": 5,
+     "choice": "right",
+     "conf": 0.577,
+     "d1_s": 2.393
+    },
+    {
+     "t": 9.99,
+     "frame": 7,
+     "choice": "right",
+     "conf": 0.583,
+     "d1_s": 1.567
+    },
+    {
+     "t": 11.96,
+     "frame": 8,
+     "choice": "right",
+     "conf": 0.589,
+     "d1_s": 1.42
+    },
+    {
+     "t": 13.79,
+     "frame": 10,
+     "choice": "right",
+     "conf": 0.705,
+     "d1_s": 1.532
+    }
+   ],
+   "first_frame_s": 10.84,
+   "frame_t0": 1,
+   "arrived": false,
+   "approach_s": 15.72,
+   "frame_end": 11,
+   "frame_away": 13,
+   "frame_back": 15,
+   "connect_s": 1.54,
+   "frames": 33,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1
+   },
+   "stream_fps": 1.1,
+   "er_end": {
+    "s": 3.62,
+    "point_yx": [
+     294,
+     665
+    ],
+    "raw": "```json\n[\n  {\"point\": [294, 665], \"label\": \"red stationery case\"}\n]\n```"
+   },
+   "er_central": false,
+   "noul_large_end": 0.865,
+   "auto_success": false,
+   "vis_t0": 0.914,
+   "vis_end": 0.889,
+   "vis_back": 0.932,
+   "auto_retained": true,
+   "er_back": {
+    "s": 5.53,
+    "point_yx": [
+     319,
+     649
+    ],
+    "raw": "```json\n[\n  {\"point\": [319, 649], \"label\": \"red stationery case\"}\n]\n```"
+   }
+  }
+ ]
+}

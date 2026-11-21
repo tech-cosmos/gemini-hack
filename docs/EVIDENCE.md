@@ -55,6 +55,10 @@ the slides or the talk.
 - 1/5 · target still visible after look away 3 s and back, registered run (by eye; auto 1/5) · `results/s9_genie_loop.json` · same command (12:54)
 - 4/5 by eye (3 clear, 1 marginal; auto 4/5), **after the fact, not registered** · same loop with turn keys tapped 0.15 s, same 5 seeds, one run; tick p50 0.786 s (max 1.263), 65 ticks; look-back 2/5 by eye (auto 3/5) · `results/s9_genie_loop_v2.json` · `S9_PULSE=0.15 .venv/bin/python spikes/s9_genie_loop.py` (12:56)
 - 3.45–4.5 s to first frame, 8.0–23.9 fps received · Genie 4 image-seeded, 5 sessions at once, both runs (9 sessions with frames) · `results/s9_genie_loop.json`, `results/s9_genie_loop_v2.json` · same commands
+- 4/6 auto, **0/6 by eye** · spike 10 registered run: Dream Run held out, 6 fresh ego2act seeds, spike 9 v2 controller, success = ER 2 point in the central 40% and Decision 1 noul "visible and large" ≥ 0.75; the camera barely moved (Genie sent 0.5–3.7 fps), the auto-successes were already central in the seed · `results/s10_dreamrun_heldout.json` · `.venv/bin/python spikes/s10_dreamrun_heldout.py` (13:25)
+- 1.554 s p50 (max 4.273), 37 ticks · Decision 1 `choice` per Genie frame, spike 10 registered run; pass mark was ≤ 1.2 s: **fail** · `results/s10_dreamrun_heldout.json` · same command (13:25)
+- 1/6 · seeds that reached "arrived" on 2 consecutive ticks within 15 s (3.98 s, no camera motion); 6/6 target visible after look-back (auto and eye, view never left); 0 crashes, 0 retries, 3 sessions at once · `results/s10_dreamrun_heldout.json` · same command (13:25)
+- 2/6 auto, 0/6 by eye, tick p50 1.759 s, **after the fact, not registered** · one repeat of spike 10; 3 sessions at 14.5–19.3 fps moved without approaching, 3 stayed near 1 fps; look-back auto 5/6 · `results/s10_dreamrun_heldout_rerun.json` · `S10_TAG=_rerun .venv/bin/python spikes/s10_dreamrun_heldout.py` (13:27)
 
 ## Cost
 -
