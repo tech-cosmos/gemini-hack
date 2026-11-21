@@ -99,6 +99,29 @@ def api_finish(b, host):
     return {"finish": finisher.finish(b["task"], f"http://{host}/page/{b['page_id']}.html")}
 
 
+REPLAYS = pathlib.Path(__file__).resolve().parent / "replays"
+
+
+def _replay_path(site: str, brake: bool) -> pathlib.Path:
+    assert site in page.SITES, site
+    return REPLAYS / f"{site}_{'on' if brake else 'off'}.json"
+
+
+def api_save_replay(b):
+    """A finished live run recorded by the page (every API response + its wall time), saved for offline playback."""
+    REPLAYS.mkdir(exist_ok=True)
+    rec = {"recorded": time.strftime("%Y-%m-%d %H:%M:%S"), "site": b["site"], "brake": bool(b["brake"]), "task": b["task"],
+           "mode": b["mode"], "attack": b.get("attack"), "outcome": b.get("outcome"), "events": b["events"]}
+    p = _replay_path(b["site"], bool(b["brake"]))
+    p.write_text(json.dumps(rec, indent=1))
+    return {"saved": str(p.relative_to(REPLAYS.parent.parent)), "n_events": len(b["events"])}
+
+
+def api_replay(b):
+    p = _replay_path(b["site"], bool(b["brake"]))
+    return json.loads(p.read_text()) if p.exists() else {"error": f"no recording {p.name}"}
+
+
 class H(BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
         pass
@@ -137,7 +160,7 @@ class H(BaseHTTPRequestHandler):
         try:
             b = json.loads(self.rfile.read(n) or b"{}")
             fn = {"/api/shot": api_shot, "/api/propose": api_propose, "/api/brake": api_brake, "/api/explain": api_explain,
-                  "/api/detonate": api_detonate}.get(path)
+                  "/api/detonate": api_detonate, "/api/save_replay": api_save_replay, "/api/replay": api_replay}.get(path)
             if path == "/api/finish":
                 out = api_finish(b, self.headers.get("Host", "localhost"))
             elif fn:
@@ -145,9 +168,15 @@ class H(BaseHTTPRequestHandler):
             else:
                 return self._send(404, b'{"error":"not found"}')
             self._send(200, json.dumps(out).encode())
+        except agent.AgentBusy as e:
+            msg = "API quota reached on this key — switch key or use replay" if e.quota else "Agent model busy: every retry and fallback failed"
+            self._send(503, json.dumps({"error": msg, "busy": True, "quota": e.quota, "notes": e.notes}).encode())
         except Exception as e:
-            traceback.print_exc()
-            self._send(500, json.dumps({"error": f"{type(e).__name__}: {str(e)[:300]}"}).encode())
+            busy, q = gate.busy(e), gate.quota(e)
+            if not busy:
+                traceback.print_exc()
+            msg = "API quota reached on this key — switch key or use replay" if q else ("Model busy: " if busy else "Error: ") + gate.short_error(e)
+            self._send(503 if busy else 500, json.dumps({"error": msg, "busy": busy, "quota": q}).encode())
 
 
 def main():

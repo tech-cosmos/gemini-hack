@@ -1,0 +1,1 @@
+done: retries (503/504/timeouts, 1 s then 2 s), Hydrogen->Carbon->Argon fallback, 429 = quota card with replay offer + optional GEMINI_API_KEY_ALT, Replay (offline) mode, 1280x720 layout; next: Carbon reason, ER2 circle (MOCK only until a working key); blocked: key on free-tier 20/day/model quota (#29)

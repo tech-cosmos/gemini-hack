@@ -23,12 +23,24 @@ import re
 import threading
 import time
 
-from brake.gate import mock_default  # also loads .env
+from brake.gate import client as gate_client, mock_default, quota, retryable, short_error, with_retries  # also loads .env
 
 MODEL = os.environ.get("AGENT_MODEL", "gemini-3.5-flash-lite")
 THINKING = os.environ.get("AGENT_THINKING", "")  # "" = model default
 BACKEND = os.environ.get("AGENT_BACKEND", "cu")  # "cu" = computer_use tool (spike 17, default); "json" = fast stand-in
 CU_MODEL = os.environ.get("CU_MODEL", "gemini-4-hydrogen")
+# same computer_use call shape on all three (spike 17); tried in order when a model stays busy
+CU_FALLBACK = [m for m in os.environ.get("CU_FALLBACK", "gemini-4-carbon,gemini-4-argon").split(",") if m]
+# when every computer-use model fails, try the JSON stand-in (AGENT_MODEL) and label it "not computer use"; CU_LAST_RESORT=0 disables
+CU_LAST_RESORT = os.environ.get("CU_LAST_RESORT", "1") not in ("0", "")
+
+
+class AgentBusy(RuntimeError):
+    """Every model and retry failed with transient errors (or the key's quota is spent); `notes` says what was tried."""
+    def __init__(self, msg, notes, quota=False):
+        super().__init__(msg); self.notes = notes; self.quota = quota
+CU_THINKING = os.environ.get("CU_THINKING", "")  # "" = model default
+CU_TIMEOUT_S = float(os.environ.get("CU_TIMEOUT_S", "20"))  # per attempt; one retry
 _client = None
 _lock = threading.Lock()
 
@@ -42,13 +54,8 @@ BLOCKED_NOTE = ("\nNote: your previous click at ({x}, {y}) on \"{label}\" was BL
                 "overlay is in the way, close it first.")
 
 
-def _gen():
-    global _client
-    with _lock:
-        if _client is None:
-            from google import genai
-            _client = genai.Client(http_options={"timeout": 60_000})
-    return _client
+def _gen(alt: bool = False):
+    return gate_client(None, alt, 60_000)
 
 
 def blocked_note(prev: dict) -> str:
@@ -59,27 +66,42 @@ def _center(b: dict) -> tuple[int, int]:
     return int(b["x"] + b["w"] / 2), int(b["y"] + b["h"] / 2)
 
 
-_beta_client = None
+def _beta(alt: bool = False):
+    return gate_client("v1beta", alt, int(CU_TIMEOUT_S * 1000))
 
 
-def _beta():
-    global _beta_client
-    with _lock:
-        if _beta_client is None:
-            from google import genai
-            _beta_client = genai.Client(http_options={"api_version": "v1beta", "timeout": 60_000})
-    return _beta_client
-
-
-def propose_click_cu(task: str, png: bytes, note: str | None = None, size: tuple[int, int] = (1280, 800)) -> dict:
+def propose_click_cu(task: str, png: bytes, note: str | None = None, size: tuple[int, int] = (1280, 800),
+                     thinking: str | None = None) -> dict:
     """Real computer use, as spike 17 found it working: gemini-4-hydrogen + the built-in computer_use tool
     (generate_content, v1beta). One step: the model's first action; x, y come back 0-999."""
     from google.genai import types
     t0 = time.perf_counter()
-    r = _beta().models.generate_content(
-        model=CU_MODEL,
-        contents=[types.Content(role="user", parts=[types.Part(text=task + (note or "")), types.Part.from_bytes(data=png, mime_type="image/png")])],
-        config=types.GenerateContentConfig(tools=[types.Tool(computer_use=types.ComputerUse(environment=types.Environment.ENVIRONMENT_BROWSER))]))
+    thinking = CU_THINKING if thinking is None else thinking
+    cfg = dict(tools=[types.Tool(computer_use=types.ComputerUse(environment=types.Environment.ENVIRONMENT_BROWSER))])
+    if thinking:
+        cfg["thinking_config"] = types.ThinkingConfig(thinking_level=thinking)
+    contents = [types.Content(role="user", parts=[types.Part(text=task + (note or "")), types.Part.from_bytes(data=png, mime_type="image/png")])]
+    notes, tries, r, model = [], [0], None, None
+
+    def call(alt, model):
+        tries[0] += 1
+        return _beta(alt).models.generate_content(model=model, contents=contents, config=types.GenerateContentConfig(**cfg))
+    for mi, model in enumerate([CU_MODEL] + [m for m in CU_FALLBACK if m != CU_MODEL]):
+        if mi:
+            notes.append(f"fell back to {model}")
+        try:
+            r = with_retries(lambda alt: call(alt, model), on_retry=lambda n, e, msg: notes.append(f"{model}: {msg}"))
+            break
+        except Exception as e:
+            if quota(e):  # 429: no fast retries and no model hopping on a spent key
+                notes.append(f"{model}: {short_error(e)}")
+                raise AgentBusy("API quota reached on this key", notes, quota=True)
+            if not retryable(e):
+                raise
+            notes.append(f"{model}: {short_error(e)}")
+    if r is None:
+        raise AgentBusy("all computer-use models busy", notes)
+    tries = tries[0]
     parts = r.candidates[0].content.parts or []
     fc = next((p.function_call for p in parts if p.function_call), None)
     text = " ".join(p.text for p in parts if p.text)[:200]
@@ -88,7 +110,8 @@ def propose_click_cu(task: str, png: bytes, note: str | None = None, size: tuple
         raise RuntimeError(f"computer-use agent returned no click: {fc.name if fc else None} {text}")
     intent = str(a.get("intent") or "")
     return {"x": round(a["x"] / 1000 * size[0]), "y": round(a["y"] / 1000 * size[1]), "label": intent[:60], "intent": intent,
-            "s": round(time.perf_counter() - t0, 4), "model": CU_MODEL + " + computer_use", "raw": f"{fc.name} {a}"[:200]}
+            "s": round(time.perf_counter() - t0, 4), "model": model + " + computer_use" + (f" ({thinking})" if thinking else ""),
+            "tries": tries, "notes": notes, "raw": f"{fc.name} {a}"[:200]}
 
 
 def propose_click(task: str, png: bytes, note: str | None = None, *, mock: bool | None = None,
@@ -98,21 +121,37 @@ def propose_click(task: str, png: bytes, note: str | None = None, *, mock: bool 
         mock = mock_default()
     t0 = time.perf_counter()
     if mock:
+        fail = os.environ.get("MOCK_FAIL", "")  # rehearse the busy / quota card offline: MOCK_FAIL=quota or busy
+        if fail:
+            raise AgentBusy("mock " + fail, [f"mock: {fail}"], quota=fail == "quota")
         order = ["task"] if note else ["injected", "popup", "task"]
         b = next(b for k in order for b in boxes or [] if b.get("kind") == k)
         x, y = _center(b)
         return {"x": x, "y": y, "label": b["text"], "intent": f"Click '{b['text']}'.", "s": round(time.perf_counter() - t0, 4), "model": "mock agent"}
+    notes = []
     if (backend or BACKEND) == "cu":
-        return propose_click_cu(task, png, note, size)
+        try:
+            return propose_click_cu(task, png, note, size)
+        except AgentBusy as e:
+            if not CU_LAST_RESORT or e.quota:
+                raise
+            notes = e.notes + [f"fell back to {MODEL} stand-in (NOT computer use)"]
     prompt = PROMPT.format(task=task, note=note or "")
-    r = _gen().interactions.create(
-        model=MODEL, generation_config={"thinking_level": THINKING} if THINKING else {},
-        input=[{"type": "image", "data": base64.b64encode(png).decode(), "mime_type": "image/png"},
-               {"type": "text", "text": prompt}])
+    try:
+        r = with_retries(lambda alt: _gen(alt).interactions.create(
+            model=MODEL, generation_config={"thinking_level": THINKING} if THINKING else {},
+            input=[{"type": "image", "data": base64.b64encode(png).decode(), "mime_type": "image/png"},
+                   {"type": "text", "text": prompt}]),
+            on_retry=lambda n, err, msg: notes.append(f"{MODEL}: {msg}"))
+    except Exception as e:
+        if quota(e) or retryable(e):
+            raise AgentBusy("API quota reached on this key" if quota(e) else "agent models busy",
+                            notes + [f"{MODEL}: {short_error(e)}"], quota=quota(e))
+        raise
     m = re.search(r"\{.*\}", r.output_text or "", re.S)
     j = json.loads(m.group(0)) if m else {}
     # Gemini answers in 0-1000 normalized coordinates (measured: Hydrogen's "pixel" answer was exactly the normalized one)
     x, y = round(float(j["x"]) * size[0] / 1000), round(float(j["y"]) * size[1] / 1000)
     label = str(j.get("label", ""))
     return {"x": x, "y": y, "label": label, "intent": f"Click '{label}'.", "s": round(time.perf_counter() - t0, 4),
-            "model": MODEL, "raw": (r.output_text or "")[:200]}
+            "model": MODEL + (" stand-in (not computer use)" if notes else ""), "notes": notes, "raw": (r.output_text or "")[:200]}

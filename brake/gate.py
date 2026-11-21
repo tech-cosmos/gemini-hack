@@ -71,17 +71,94 @@ def _load_env() -> None:
 
 
 _load_env()
-_client = None
 _lock = threading.Lock()
+_clients: dict = {}
+ALT_KEY_ENV = "GEMINI_API_KEY_ALT"  # optional second key, used once when the main key returns 429 (never printed or logged)
 
 
-def _beta():
-    global _client
+def client(api_version: str | None = "v1beta", alt: bool = False, timeout_ms: int = 20_000):
+    """Cached genai.Client. alt=True uses GEMINI_API_KEY_ALT. SDK retries off: retries happen in with_retries()."""
+    key = (api_version, alt, timeout_ms)
     with _lock:
-        if _client is None:
+        if key not in _clients:
             from google import genai
-            _client = genai.Client(http_options={"api_version": "v1beta", "timeout": 60_000})
-    return _client
+            http = {"timeout": timeout_ms, "retry_options": {"attempts": 1}}
+            if api_version:
+                http["api_version"] = api_version
+            kw = {"api_key": os.environ[ALT_KEY_ENV]} if alt else {}
+            _clients[key] = genai.Client(http_options=http, **kw)
+    return _clients[key]
+
+
+def _beta(alt: bool = False):
+    return client("v1beta", alt)
+
+
+RETRY_DELAYS = (1.0, 2.0)  # up to 2 retries after the first try (503 / 504 / timeouts / connection errors)
+
+
+def quota(e: Exception) -> bool:
+    """429 RESOURCE_EXHAUSTED: the key's quota is spent; fast retries can't help."""
+    t = f"{type(e).__name__} {e}"
+    return "429" in t or "RESOURCE_EXHAUSTED" in t
+
+
+def retryable(e: Exception) -> bool:
+    """Transient venue-load errors worth retrying: 503 / 504 / timeouts / dropped connections (not 429, see quota())."""
+    t = f"{type(e).__name__} {e}"
+    return not quota(e) and any(k in t for k in ("503", "504", "UNAVAILABLE", "DEADLINE_EXCEEDED", "Timeout", "timed out", "Connection"))
+
+
+def busy(e: Exception) -> bool:
+    """Shown to the user as 'busy / quota' (with the replay offer) instead of an error."""
+    return quota(e) or retryable(e)
+
+
+def daily_quota(e: Exception) -> bool:
+    return quota(e) and "PerDay" in str(e)
+
+
+def short_error(e: Exception) -> str:
+    """One readable line (no traceback, no JSON dump, no key) for the UI."""
+    t = f"{type(e).__name__} {e}"
+    if quota(e):
+        return "API quota reached on this key (429)" + (" — daily free-tier limit" if daily_quota(e) else "")
+    for code, msg in (("503", "model busy (503)"), ("504", "deadline exceeded (504)")):
+        if code in t:
+            return msg
+    if "imeout" in t or "timed out" in t:
+        return "timed out"
+    if "Connection" in t:
+        return "connection dropped"
+    return type(e).__name__
+
+
+def has_alt_key() -> bool:
+    return bool(os.environ.get(ALT_KEY_ENV))
+
+
+def with_retries(fn, on_retry=None):
+    """fn(alt: bool) with up to 2 retries (1 s, then 2 s) on 503 / 504 / timeouts / connection errors.
+    On 429: no fast retry; if GEMINI_API_KEY_ALT is set, one immediate retry with it, else raise.
+    on_retry(n, err, note) is told about each retry."""
+    alt, n = False, 0
+    while True:
+        try:
+            return fn(alt)
+        except Exception as e:
+            if quota(e):
+                if not alt and has_alt_key():
+                    alt = True
+                    if on_retry:
+                        on_retry(n, e, "quota on main key, trying the alternate key")
+                    continue
+                raise
+            if not retryable(e) or n >= len(RETRY_DELAYS):
+                raise
+            if on_retry:
+                on_retry(n + 1, e, f"{short_error(e)}, retrying… ({n + 1})")
+            time.sleep(RETRY_DELAYS[n])
+            n += 1
 
 
 def mock_default() -> bool:
@@ -134,8 +211,8 @@ def check(task: str, png: bytes, click: tuple[int, int], crop: bytes | None = No
     parts = [{"type": "text", "text": ctx2({"task": task, "click": [int(click[0]), int(click[1])], "intent": intent})},
              {"type": "image", "data": b64(view), "mime_type": "image/png"},
              {"type": "image", "data": b64(crop), "mime_type": "image/png"}]
-    r = _beta().decisions.create(model=MODEL, input=parts,
-                                 questions={"on_task": {"type": "noul", "instructions": ON_A}, "injected": {"type": "noul", "instructions": INJ_Q}})
+    r = with_retries(lambda alt: _beta(alt).decisions.create(
+        model=MODEL, input=parts, questions={"on_task": {"type": "noul", "instructions": ON_A}, "injected": {"type": "noul", "instructions": INJ_Q}}))
     a_on, a_inj = r.answers["on_task"], r.answers["injected"]
     on, inj = a_on.noul, a_inj.noul
     conf = getattr(a_on if route(on, inj) == "PASS" else a_inj, "confidence", None)
