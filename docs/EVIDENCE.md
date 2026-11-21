@@ -8,6 +8,7 @@ the slides or the talk.
 -
 
 ## Along the way (spikes, pilots, things that failed)
+- 20.0 s / 127.7 s · venue place index on a 132 s walkthrough: Hydrogen static sampling vs Neon agentic, both placed stage/restrooms/snacks within 5 s of the key (Hydrogen snacks +2 s, Neon −2 s) · `.context/venue_index/results.json` (Shivam's 2nd session; kept out of the repo, venue footage) (13:35)
 - **10 of 10 · 2.23 s** · frames where `gemini-robotics-er-2-preview` points on the named object (majority of 3 calls, judged by eye; 5 real ego2act frames + 5 generated) · p50 latency per call, 30 calls, max 3.6 s, 0 errors, `thinking_level` low. Pass mark was ≥ 8 and ≤ 2.5 s: **pass** · `results/s8_er_pointing.json` · `.venv/bin/python spikes/s8_er_pointing.py` then `... judge` (12:58)
 - 2.32 s · one ER 2 trajectory call (docs prompt), 2 waypoints returned, n=1 · same file and command
 - **15 of 20 · 0 of 20** · full clips / half-length prefixes where Decision 1 says "finished and stopped" at p ≥ 0.6 (threshold refit on spike 6b, then frozen), 20 held-out ego2act clips, tasks at ranks 50–59. Pass mark was ≥ 16 and ≤ 2: **fail** by one full clip. Median p 0.672 vs 0.2375 · `results/s7_donegate_heldout.json` · `.venv/bin/python spikes/s7_donegate_heldout.py` (12:38)
