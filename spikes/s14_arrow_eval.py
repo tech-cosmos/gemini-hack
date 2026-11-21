@@ -78,8 +78,10 @@ FMT = (' The answer should follow the json format: [{{"point": <point>, "label":
 PRED = "Point to the spot where {o} should be placed to achieve: {g}. Return exactly one point." + FMT
 TRUTH = "Point to {o}." + FMT
 # by-eye lists, filled in after looking at .context/s14/sheet.png (judge mode); empty during the run
-DROP = {}    # case -> why the truth point is wrong
-SHIFT = []   # cases with a big first->last camera shift
+DROP = {"cutlery_sorting": "truth is ambiguous: several cutlery pieces go to several compartments, ER 2 picked one piece"}  # case -> why the truth point is unusable
+SHIFT = ["figurine_toy_box", "desk_mat_tablet", "controller_watch_ring", "paper_binder_book", "racket_backpack"]  # big first->last camera shift, by eye
+# AFTER THE FACT, not part of the mark: by eye on the first frame, is the predicted point on the named destination as it is NOW?
+EYE_DEST_MISS = {"er": ["controller_watch_ring", "screwdriver_wrench"], "hy": ["figurine_toy_box", "controller_watch_ring", "screwdriver_wrench"]}
 
 CJ = D / "cache.json"; cache = json.loads(CJ.read_text()) if CJ.exists() else {}
 def call(key, model, img, prompt):
@@ -108,32 +110,27 @@ if MODE == "run":
             cache[k] = r; print(k, r.get("s"), r.get("point"), r.get("error", ""), flush=True)
     CJ.write_text(json.dumps(cache, indent=1))
 
-from PIL import Image, ImageDraw
-def dot(dr, im, pt, col):
-    if not pt: return
-    y, x = pt[0] * im.height / 1000, pt[1] * im.width / 1000
-    dr.ellipse([x - 14, y - 14, x + 14, y + 14], outline=col, width=5); dr.ellipse([x - 4, y - 4, x + 4, y + 4], fill=col)
+def boxes(pts):  # [(point, colour)] -> ffmpeg drawbox chain (no PIL in the venv)
+    return ",".join(f"drawbox=x=iw*{p[1]}/1000-12:y=ih*{p[0]}/1000-12:w=24:h=24:color={c}:t=5,"
+                    f"drawbox=x=iw*{p[1]}/1000-3:y=ih*{p[0]}/1000-3:w=6:h=6:color={c}:t=fill" for p, c in pts if p) or "null"
 def dist(a, b): return round(math.hypot(a[0] - b[0], a[1] - b[1]), 1) if a and b else None
-per, tiles = [], []
+per = []
 for i, c in enumerate(tasks):
     o, dest, tr, kind = TARGETS[c]; e, h, t = (cache.get(f"{c}|{k}", {}) for k in ("er_pred", "hy_pred", "truth"))
     r = {"rank": START + i, "case": c, "goal": goals[c], "object": o, "destination": dest, "truth_target": tr, "kind": kind,
          "er_pred": e, "hy_pred": h, "truth": t, "er_err": dist(e.get("point"), t.get("point")), "hy_err": dist(h.get("point"), t.get("point")),
          "truth_dropped": DROP.get(c), "camera_shift": c in SHIFT}
     per.append(r)
-    a = Image.open(D / f"{c}_first.png").convert("RGB"); b = Image.open(D / f"{c}_last.png").convert("RGB")
-    da, db = ImageDraw.Draw(a), ImageDraw.Draw(b)
-    dot(da, a, t.get("point"), "lime"); dot(da, a, h.get("point"), "yellow"); dot(da, a, e.get("point"), "red"); dot(db, b, t.get("point"), "lime")
-    a.save(D / f"ann_{c}_first.png")
-    W = 480; a = a.resize((W, W * a.height // a.width)); b = b.resize((W, W * b.height // b.width))
-    tile = Image.new("RGB", (2 * W, a.height + 34), "black"); tile.paste(a, (0, 34)); tile.paste(b, (W, 34))
-    ImageDraw.Draw(tile).text((4, 2), f"{START+i} {c}: {o} -> {dest}\nred=ER2 {r['er_err']}  yellow=Hydrogen {r['hy_err']}  lime=truth ({tr}, last frame at right)"
-                              + ("  DROPPED" if c in DROP else "") + ("  SHIFT" if c in SHIFT else ""), fill="white")
-    tiles.append(tile)
-th = max(t.height for t in tiles); sheet = Image.new("RGB", (1920, th * 10), "black")
-for i, t in enumerate(tiles): sheet.paste(t, ((i % 2) * 960, (i // 2) * th))
-sheet.save(D / "sheet.png")
-for k in range(4): sheet.crop((0, k * th * 10 // 4, 1920, (k + 1) * th * 10 // 4)).save(D / f"sheet_part{k}.png")
+    # first frame: red = ER 2 prediction, yellow = Hydrogen prediction, lime = truth (ER 2 on the last frame); last frame: lime = truth
+    fa = boxes([(t.get("point"), "lime"), (h.get("point"), "yellow"), (e.get("point"), "red")])
+    subprocess.run([FF, "-loglevel", "error", "-y", "-i", str(D / f"{c}_first.png"), "-vf", fa, str(D / f"ann_{c}_first.png")], check=True, timeout=60)
+    subprocess.run([FF, "-loglevel", "error", "-y", "-i", str(D / f"{c}_first.png"), "-i", str(D / f"{c}_last.png"), "-filter_complex",
+        f"[0]{fa},scale=476:268,pad=480:272:2:2:white[a];[1]{boxes([(t.get('point'), 'lime')])},scale=476:268,pad=480:272:2:2:gray[b];[a][b]hstack",
+        str(D / f"tile_{i:02d}.png")], check=True, timeout=60)
+# sheet: 2 tasks per row, rank order row-major; each task = first frame (white border) | last frame (grey border)
+subprocess.run([FF, "-loglevel", "error", "-y", "-i", str(D / "tile_%02d.png"), "-vf", "tile=2x10", "-frames:v", "1", "-update", "1", str(D / "sheet.png")], check=True, timeout=60)
+for k in range(4):
+    subprocess.run([FF, "-loglevel", "error", "-y", "-i", str(D / "sheet.png"), "-vf", f"crop=1920:680:0:{k * 680}", "-update", "1", str(D / f"sheet_part{k}.png")], check=True, timeout=60)
 
 def score(rs):
     o = {"n": len(rs)}
@@ -150,7 +147,8 @@ S = {"hit_threshold": HIT, "n_tasks": len(per), "n_dropped": len(per) - len(kept
      "visible_no_shift": score([r for r in kept if r["kind"] == "visible" and not r["camera_shift"]]),
      "latency_s": {k: {"n": len(lat(k)), "p50": statistics.median(lat(k)), "min": min(lat(k)), "max": max(lat(k))} for k in ("er_pred", "hy_pred", "truth") if lat(k)},
      "errors": {k: sum("error" in r[k] for r in per) for k in ("er_pred", "hy_pred", "truth")},
-     "judged_by_eye": MODE == "judge", "models": {"er": ER, "baseline": HY}, "thinking_level": "low", "tasks": tasks}
+     "judged_by_eye": MODE == "judge",
+     "after_the_fact_by_eye_point_on_destination_in_first_frame": {m: {"on_destination": len(per) - len(v), "of": len(per), "misses": v} for m, v in EYE_DEST_MISS.items()}, "models": {"er": ER, "baseline": HY}, "thinking_level": "low", "tasks": tasks}
 a = S["all_kept"]; er, hy = a["er"]["hit_rate"], a["hy"]["hit_rate"]
 S["pass"] = bool(er >= 0.65 and er - hy >= 0.15 and S["latency_s"]["er_pred"]["p50"] <= 3); S["kill"] = bool(er <= hy)
 pathlib.Path("results/s14_arrow_eval.json").write_text(json.dumps({"summary": S, "tasks": per}, indent=1))

@@ -78,3 +78,9 @@ the slides or the talk.
 -
 - 88.3 · Wire Trace spike arm A: mean edge F1 of Neon one call (image + node names → JSON edges) on 20 Knossos difficult diagrams (10 food webs 76.6, 10 circuits 100.0) · `spikes/wiretrace/result.json` · `set -a; . ./.env; set +a; uv run --no-project --with google-genai==3.6.1 --with pandas --with pyarrow python -I spikes/wiretrace/spike.py`
 - 64.3 · Wire Trace spike arm B: mean edge F1 of Decision 1 pairwise yes/no (p > 0.5), same diagrams (food webs 44.5, circuits 84.0) · same file · same command
+- 0.47368421052631576 · Spike 14 arrow eval: Robotics-ER 2 hit rate (9/19, error ≤ 120 of 1000) predicting on the first frame where the item ends up, 19 ego2act tasks (1 of 20 dropped), truth = ER 2 point on the last frame · `results/s14_arrow_eval.json` · `.venv/bin/python spikes/s14_arrow_eval.py` then `... judge` (13:54)
+- 0.42105263157894735 · Spike 14: Hydrogen baseline hit rate, same tasks and prompt (8/19) · `results/s14_arrow_eval.json` · `.venv/bin/python spikes/s14_arrow_eval.py` then `... judge` (13:54)
+- 140.6 / 155.7 · Spike 14: median error ER 2 / Hydrogen, 0–1000 units, n = 19 · `results/s14_arrow_eval.json` · `.venv/bin/python spikes/s14_arrow_eval.py` then `... judge` (13:54)
+- 0.6428571428571429 / 0.5714285714285714 · Spike 14: hit rate ER 2 / Hydrogen without the 5 big-camera-shift tasks (9/14, 8/14; shift judged by eye) · `results/s14_arrow_eval.json` · `.venv/bin/python spikes/s14_arrow_eval.py` then `... judge` (13:54)
+- 4.365 s / 4.51 s · Spike 14: prediction latency p50 ER 2 / Hydrogen, 20 calls each, 4 at once, `thinking_level` low · `results/s14_arrow_eval.json` · `.venv/bin/python spikes/s14_arrow_eval.py` then `... judge` (13:54)
+- 18/20 / 17/20 · Spike 14, after the fact and by eye (one agent, one look): predicted point lies on the named destination in the first frame, ER 2 / Hydrogen · `results/s14_arrow_eval.json` · `.venv/bin/python spikes/s14_arrow_eval.py` then `... judge` (13:54)

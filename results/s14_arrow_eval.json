@@ -1,0 +1,893 @@
+{
+ "summary": {
+  "hit_threshold": 120,
+  "n_tasks": 20,
+  "n_dropped": 1,
+  "dropped": {
+   "cutlery_sorting": "truth is ambiguous: several cutlery pieces go to several compartments, ER 2 picked one piece"
+  },
+  "camera_shift_cases": [
+   "figurine_toy_box",
+   "desk_mat_tablet",
+   "controller_watch_ring",
+   "paper_binder_book",
+   "racket_backpack"
+  ],
+  "all_kept": {
+   "n": 19,
+   "er": {
+    "n_scored": 19,
+    "hits": 9,
+    "hit_rate": 0.47368421052631576,
+    "median_err": 140.6
+   },
+   "hy": {
+    "n_scored": 19,
+    "hits": 8,
+    "hit_rate": 0.42105263157894735,
+    "median_err": 155.7
+   }
+  },
+  "no_camera_shift": {
+   "n": 14,
+   "er": {
+    "n_scored": 14,
+    "hits": 9,
+    "hit_rate": 0.6428571428571429,
+    "median_err": 108.69999999999999
+   },
+   "hy": {
+    "n_scored": 14,
+    "hits": 8,
+    "hit_rate": 0.5714285714285714,
+    "median_err": 84.44999999999999
+   }
+  },
+  "visible_truth_only": {
+   "n": 12,
+   "er": {
+    "n_scored": 12,
+    "hits": 4,
+    "hit_rate": 0.3333333333333333,
+    "median_err": 216.54999999999998
+   },
+   "hy": {
+    "n_scored": 12,
+    "hits": 4,
+    "hit_rate": 0.3333333333333333,
+    "median_err": 275.75
+   }
+  },
+  "visible_no_shift": {
+   "n": 7,
+   "er": {
+    "n_scored": 7,
+    "hits": 4,
+    "hit_rate": 0.5714285714285714,
+    "median_err": 117.5
+   },
+   "hy": {
+    "n_scored": 7,
+    "hits": 4,
+    "hit_rate": 0.5714285714285714,
+    "median_err": 86.8
+   }
+  },
+  "latency_s": {
+   "er_pred": {
+    "n": 20,
+    "p50": 4.365,
+    "min": 2.86,
+    "max": 7.97
+   },
+   "hy_pred": {
+    "n": 20,
+    "p50": 4.51,
+    "min": 2.99,
+    "max": 9.57
+   },
+   "truth": {
+    "n": 20,
+    "p50": 3.085,
+    "min": 2.11,
+    "max": 8.28
+   }
+  },
+  "errors": {
+   "er_pred": 0,
+   "hy_pred": 0,
+   "truth": 0
+  },
+  "judged_by_eye": true,
+  "after_the_fact_by_eye_point_on_destination_in_first_frame": {
+   "er": {
+    "on_destination": 18,
+    "of": 20,
+    "misses": [
+     "controller_watch_ring",
+     "screwdriver_wrench"
+    ]
+   },
+   "hy": {
+    "on_destination": 17,
+    "of": 20,
+    "misses": [
+     "figurine_toy_box",
+     "controller_watch_ring",
+     "screwdriver_wrench"
+    ]
+   }
+  },
+  "models": {
+   "er": "gemini-robotics-er-2-preview",
+   "baseline": "gemini-4-hydrogen"
+  },
+  "thinking_level": "low",
+  "tasks": [
+   "sanitary_face_wash",
+   "mug_kitchen",
+   "pour_milk",
+   "figurine_toy_box",
+   "desk_mat_tablet",
+   "controller_watch_ring",
+   "air_freshener_dispenser",
+   "toiletries_container",
+   "paper_binder_book",
+   "trophy_luggage",
+   "racket_backpack",
+   "sauce_tissue",
+   "three_caps",
+   "toothbrush_trimmer",
+   "egg_candy_air_fryer",
+   "cutlery_sorting",
+   "hanger_grouping",
+   "hat_sorting",
+   "coffee_beans",
+   "screwdriver_wrench"
+  ],
+  "pass": false,
+  "kill": false
+ },
+ "tasks": [
+  {
+   "rank": 60,
+   "case": "sanitary_face_wash",
+   "goal": "White tube, orange bottle, dark bottle, and their loose caps stored inside the closed pink pouch.",
+   "object": "the white tube",
+   "destination": "inside the pink pouch",
+   "truth_target": "the pink pouch",
+   "kind": "proxy",
+   "er_pred": {
+    "s": 4.18,
+    "point": [
+     530,
+     268
+    ],
+    "raw": "```json\n[\n  {\"point\": [530, 268], \"label\": \"pink pouch\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 4.53,
+    "point": [
+     530,
+     270
+    ],
+    "raw": "```json\n[\n  {\"point\": [530, 270], \"label\": \"spot where the white tube should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 3.48,
+    "point": [
+     490,
+     310
+    ],
+    "raw": "```json\n[\n  {\"point\": [490, 310], \"label\": \"pink pouch\"}\n]\n```"
+   },
+   "er_err": 58.0,
+   "hy_err": 56.6,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 61,
+   "case": "mug_kitchen",
+   "goal": "The water fully poured half to the metal pot and half to the yellow mug, and the yellow mug is covered with its metal lid.",
+   "object": "the metal lid",
+   "destination": "on the yellow mug",
+   "truth_target": "the metal lid",
+   "kind": "visible",
+   "er_pred": {
+    "s": 3.76,
+    "point": [
+     551,
+     332
+    ],
+    "raw": "```json\n[\n  {\"point\": [551, 332], \"label\": \"mug opening\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 3.55,
+    "point": [
+     560,
+     334
+    ],
+    "raw": "```json\n[\n  {\"point\": [560, 334], \"label\": \"spot where the metal lid should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 2.75,
+    "point": [
+     515,
+     308
+    ],
+    "raw": "```json\n[\n  {\"point\": [515, 308], \"label\": \"metal lid\"}\n]\n```"
+   },
+   "er_err": 43.3,
+   "hy_err": 52.0,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 62,
+   "case": "pour_milk",
+   "goal": "The cup contains some milk from the sealed milk box.",
+   "object": "the milk",
+   "destination": "into the cup",
+   "truth_target": "the cup",
+   "kind": "proxy",
+   "er_pred": {
+    "s": 4.74,
+    "point": [
+     356,
+     381
+    ],
+    "raw": "```json\n[\n  {\"point\": [356, 381], \"label\": \"cup\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 3.32,
+    "point": [
+     410,
+     380
+    ],
+    "raw": "```json\n[\n  {\"point\": [410, 380], \"label\": \"spot where the milk should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 2.4,
+    "point": [
+     447,
+     381
+    ],
+    "raw": "```json\n[\n  {\"point\": [447, 381], \"label\": \"cup\"}\n]\n```"
+   },
+   "er_err": 91.0,
+   "hy_err": 37.0,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 63,
+   "case": "figurine_toy_box",
+   "goal": "Toy cars inside the closed green box, with the AC remote and bowl on top of the box and the cat figurine on top of the bowl.",
+   "object": "the cat figurine",
+   "destination": "on top of the bowl",
+   "truth_target": "the cat figurine",
+   "kind": "visible",
+   "er_pred": {
+    "s": 4.71,
+    "point": [
+     845,
+     185
+    ],
+    "raw": "```json\n[\n  {\"point\": [845, 185], \"label\": \"bowl\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 5.03,
+    "point": [
+     550,
+     530
+    ],
+    "raw": "```json\n[\n  {\"point\": [550, 530], \"label\": \"spot where the cat figurine should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 3.36,
+    "point": [
+     194,
+     355
+    ],
+    "raw": "```json\n[\n  {\"point\": [194, 355], \"label\": \"cat figurine\"}\n]\n```"
+   },
+   "er_err": 672.8,
+   "hy_err": 396.7,
+   "truth_dropped": null,
+   "camera_shift": true
+  },
+  {
+   "rank": 64,
+   "case": "desk_mat_tablet",
+   "goal": "Rolled-up desk mat to the left of the tablet, with the book on top of the tablet.",
+   "object": "the book",
+   "destination": "on top of the tablet",
+   "truth_target": "the book",
+   "kind": "visible",
+   "er_pred": {
+    "s": 3.12,
+    "point": [
+     730,
+     470
+    ],
+    "raw": "```json\n[\n  {\"point\": [730, 470], \"label\": \"tablet\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 3.65,
+    "point": [
+     735,
+     465
+    ],
+    "raw": "```json\n[\n  {\"point\": [735, 465], \"label\": \"book placement spot\"}\n]\n```"
+   },
+   "truth": {
+    "s": 2.11,
+    "point": [
+     608,
+     755
+    ],
+    "raw": "```json\n[\n  {\"point\": [608, 755], \"label\": \"book\"}\n]\n```"
+   },
+   "er_err": 310.0,
+   "hy_err": 316.6,
+   "truth_dropped": null,
+   "camera_shift": true
+  },
+  {
+   "rank": 65,
+   "case": "controller_watch_ring",
+   "goal": "Closed aqua green container with all items placed on top and arranged from largest to smallest, from left to right.",
+   "object": "the game controller",
+   "destination": "on top of the closed aqua green container",
+   "truth_target": "the game controller",
+   "kind": "visible",
+   "er_pred": {
+    "s": 3.64,
+    "point": [
+     720,
+     380
+    ],
+    "raw": "```json\n[\n  {\"point\": [720, 380], \"label\": \"game controller\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 3.88,
+    "point": [
+     680,
+     400
+    ],
+    "raw": "```json\n[\n  {\"point\": [680, 400], \"label\": \"game controller\"}\n]\n```"
+   },
+   "truth": {
+    "s": 3.05,
+    "point": [
+     453,
+     412
+    ],
+    "raw": "```json\n[\n  {\"point\": [453, 412], \"label\": \"game controller\"}\n]\n```"
+   },
+   "er_err": 268.9,
+   "hy_err": 227.3,
+   "truth_dropped": null,
+   "camera_shift": true
+  },
+  {
+   "rank": 66,
+   "case": "air_freshener_dispenser",
+   "goal": "The green air freshener is installed in the automatic dispenser, and the white air freshener and green cap are inside the green tote bag.",
+   "object": "the green air freshener",
+   "destination": "in the automatic dispenser",
+   "truth_target": "the automatic dispenser",
+   "kind": "proxy",
+   "er_pred": {
+    "s": 2.86,
+    "point": [
+     470,
+     290
+    ],
+    "raw": "```json\n[\n  {\"point\": [470, 290], \"label\": \"canister holder in dispenser\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 9.57,
+    "point": [
+     475,
+     285
+    ],
+    "raw": "```json\n[\n  {\"point\": [475, 285], \"label\": \"spot where the green air freshener should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 7.26,
+    "point": [
+     468,
+     273
+    ],
+    "raw": "```json\n[\n  {\"point\": [468, 273], \"label\": \"automatic dispenser\"}\n]\n```"
+   },
+   "er_err": 17.1,
+   "hy_err": 13.9,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 67,
+   "case": "toiletries_container",
+   "goal": "The closed shampoo bottle and soap are in the right compartment of the grey container, and the toothbrush and toothpaste are secured under the elastic strap in the left compartment; the container is closed.",
+   "object": "the toothbrush",
+   "destination": "left compartment of the grey container",
+   "truth_target": "the grey container",
+   "kind": "proxy",
+   "er_pred": {
+    "s": 7.97,
+    "point": [
+     223,
+     396
+    ],
+    "raw": "```json\n[\n  {\"point\": [223, 396], \"label\": \"toothbrush\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 7.96,
+    "point": [
+     240,
+     395
+    ],
+    "raw": "```json\n[{\"point\": [240, 395], \"label\": \"spot where the toothbrush should be placed\"}]\n```"
+   },
+   "truth": {
+    "s": 2.93,
+    "point": [
+     367,
+     485
+    ],
+    "raw": "```json\n[\n  {\"point\": [367, 485], \"label\": \"grey container\"}\n]\n```"
+   },
+   "er_err": 169.3,
+   "hy_err": 155.7,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 68,
+   "case": "paper_binder_book",
+   "goal": "Blank loose-leaf paper attached to the ring binder, with the scissors inside the closed red book resting on top of the closed ring binder.",
+   "object": "the red book",
+   "destination": "on top of the closed ring binder",
+   "truth_target": "the red book",
+   "kind": "visible",
+   "er_pred": {
+    "s": 3.83,
+    "point": [
+     700,
+     628
+    ],
+    "raw": "```json\n[\n  {\"point\": [700, 628], \"label\": \"book\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 5.65,
+    "point": [
+     700,
+     500
+    ],
+    "raw": "```json\n[\n  {\"point\": [700, 500], \"label\": \"spot where the red book should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 2.81,
+    "point": [
+     411,
+     513
+    ],
+    "raw": "```json\n[\n  {\"point\": [411, 513], \"label\": \"red book\"}\n]\n```"
+   },
+   "er_err": 311.0,
+   "hy_err": 289.3,
+   "truth_dropped": null,
+   "camera_shift": true
+  },
+  {
+   "rank": 69,
+   "case": "trophy_luggage",
+   "goal": "stand the golden trophy up to the right side of the silver trophy then put the racket on top of the piano table and put the luggage and blue bag to the floor right side of the black piano chair",
+   "object": "the racket",
+   "destination": "on top of the piano table",
+   "truth_target": "the racket",
+   "kind": "visible",
+   "er_pred": {
+    "s": 6.43,
+    "point": [
+     520,
+     442
+    ],
+    "raw": "```json\n[\n  {\"point\": [520, 442], \"label\": \"racket\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 5.32,
+    "point": [
+     500,
+     600
+    ],
+    "raw": "```json\n[\n  {\"point\": [500, 600], \"label\": \"spot where the racket should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 3.44,
+    "point": [
+     399,
+     331
+    ],
+    "raw": "```json\n[\n  {\"point\": [399, 331], \"label\": \"racket\"}\n]\n```"
+   },
+   "er_err": 164.2,
+   "hy_err": 287.3,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 70,
+   "case": "racket_backpack",
+   "goal": "Tennis racket inside the front backpack compartment, with the tie and cap inside the main compartment.",
+   "object": "the tennis racket",
+   "destination": "inside the front backpack compartment",
+   "truth_target": "the tennis racket",
+   "kind": "visible",
+   "er_pred": {
+    "s": 5.44,
+    "point": [
+     485,
+     360
+    ],
+    "raw": "```json\n[\n  {\"point\": [485, 360], \"label\": \"tennis racket\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 5.75,
+    "point": [
+     560,
+     410
+    ],
+    "raw": "```json\n[\n  {\"point\": [560, 410], \"label\": \"front backpack compartment\"}\n]\n```"
+   },
+   "truth": {
+    "s": 8.28,
+    "point": [
+     182,
+     630
+    ],
+    "raw": "```json\n[\n  {\"point\": [182, 630], \"label\": \"tennis racket\"}\n]\n```"
+   },
+   "er_err": 405.8,
+   "hy_err": 437.4,
+   "truth_dropped": null,
+   "camera_shift": true
+  },
+  {
+   "rank": 71,
+   "case": "sauce_tissue",
+   "goal": "Chili sauce on the plate, with the fork and spoon on the plate, the closed chili sauce bottle on the table, and the knife covered with a tissue on the table.",
+   "object": "the fork",
+   "destination": "on the plate",
+   "truth_target": "the fork",
+   "kind": "visible",
+   "er_pred": {
+    "s": 7.45,
+    "point": [
+     673,
+     583
+    ],
+    "raw": "```json\n[\n  {\"point\": [673, 583], \"label\": \"fork\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 7.09,
+    "point": [
+     700,
+     720
+    ],
+    "raw": "```json\n[\n  {\"point\": [700, 720], \"label\": \"spot where the fork should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 3.91,
+    "point": [
+     618,
+     723
+    ],
+    "raw": "```json\n[\n  {\"point\": [618, 723], \"label\": \"fork\"}\n]\n```"
+   },
+   "er_err": 150.4,
+   "hy_err": 82.1,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 72,
+   "case": "three_caps",
+   "goal": "Each marker is fitted with its matching color cap.",
+   "object": "the loose marker caps",
+   "destination": "on the markers",
+   "truth_target": "the markers",
+   "kind": "proxy",
+   "er_pred": {
+    "s": 7.12,
+    "point": [
+     598,
+     493
+    ],
+    "raw": "```json\n[\n  {\"point\": [598, 493], \"label\": \"tip of the red marker\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 5.03,
+    "point": [
+     635,
+     242
+    ],
+    "raw": "```json\n[\n  {\"point\": [635, 242], \"label\": \"spot where the loose marker caps should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 3.35,
+    "point": [
+     531,
+     586
+    ],
+    "raw": "```json\n[\n  {\"point\": [531, 586], \"label\": \"marker\"},\n  {\"point\": [521, 613], \"label\": \"marker\"},\n  {\"point\": [551, 667], \"label\": \"marker\"}\n]\n```"
+   },
+   "er_err": 114.6,
+   "hy_err": 359.4,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 73,
+   "case": "toothbrush_trimmer",
+   "goal": "Toothbrush and toothpaste inside the white basket, with the trimmer closed and placed beside the metal basket",
+   "object": "the toothbrush",
+   "destination": "inside the white basket",
+   "truth_target": "the toothbrush",
+   "kind": "visible",
+   "er_pred": {
+    "s": 4.0,
+    "point": [
+     262,
+     312
+    ],
+    "raw": "```json\n[\n  {\"point\": [262, 312], \"label\": \"toothbrush\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 7.2,
+    "point": [
+     236,
+     305
+    ],
+    "raw": "```json\n[\n  {\"point\": [236, 305], \"label\": \"toothbrush_placement\"}\n]\n```"
+   },
+   "truth": {
+    "s": 4.78,
+    "point": [
+     273,
+     278
+    ],
+    "raw": "```json\n[\n  {\"point\": [273, 278], \"label\": \"toothbrush\"}\n]\n```"
+   },
+   "er_err": 35.7,
+   "hy_err": 45.8,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 74,
+   "case": "egg_candy_air_fryer",
+   "goal": "Egg and candy placed inside the bowl, with the bowl stored inside the closed air fryer and the black electrical plug connected to the white outlet.",
+   "object": "the bowl",
+   "destination": "inside the air fryer",
+   "truth_target": "the air fryer",
+   "kind": "proxy",
+   "er_pred": {
+    "s": 3.64,
+    "point": [
+     574,
+     361
+    ],
+    "raw": "```json\n[\n  {\"point\": [574, 361], \"label\": \"bowl\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 4.49,
+    "point": [
+     580,
+     360
+    ],
+    "raw": "```json\n[\n  {\"point\": [580, 360], \"label\": \"spot where the bowl should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 3.05,
+    "point": [
+     445,
+     305
+    ],
+    "raw": "```json\n[\n  {\"point\": [445, 305], \"label\": \"air fryer\"}\n]\n```"
+   },
+   "er_err": 140.6,
+   "hy_err": 145.8,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 75,
+   "case": "cutlery_sorting",
+   "goal": "Cutlery from inside the container is placed in the outside compartments with matching cutlery, with the container lid closed.",
+   "object": "the cutlery from inside the container",
+   "destination": "the outside compartments",
+   "truth_target": "the cutlery in the outside compartments",
+   "kind": "proxy",
+   "er_pred": {
+    "s": 5.71,
+    "point": [
+     321,
+     696
+    ],
+    "raw": "```json\n[\n  {\"point\": [321, 696], \"label\": \"fork compartment\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 4.42,
+    "point": [
+     450,
+     690
+    ],
+    "raw": "```json\n[\n  {\"point\": [450, 690], \"label\": \"spot where cutlery should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 5.69,
+    "point": [
+     520,
+     553
+    ],
+    "raw": "```json\n[\n  {\"point\": [520, 553], \"label\": \"cutlery in the outside compartments\"},\n  {\"point\": [565, 532], \"label\": \"cutlery in the outside compartments\"},\n  {\"point\": [395, 755], \"label\": \"cutlery in the outside compartments\"}\n]\n```"
+   },
+   "er_err": 245.1,
+   "hy_err": 153.8,
+   "truth_dropped": "truth is ambiguous: several cutlery pieces go to several compartments, ER 2 picked one piece",
+   "camera_shift": false
+  },
+  {
+   "rank": 76,
+   "case": "hanger_grouping",
+   "goal": "All wooden hangers grouped together on the left side of the pole and all black hangers grouped together on the right side, with the middle section left empty.",
+   "object": "the black hangers",
+   "destination": "right side of the pole",
+   "truth_target": "the group of black hangers",
+   "kind": "visible",
+   "er_pred": {
+    "s": 3.85,
+    "point": [
+     308,
+     725
+    ],
+    "raw": "```json\n[\n  {\"point\": [308, 725], \"label\": \"spot\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 3.97,
+    "point": [
+     300,
+     780
+    ],
+    "raw": "```json\n[\n  {\"point\": [300, 780], \"label\": \"spot where the black hangers should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 3.12,
+    "point": [
+     386,
+     792
+    ],
+    "raw": "```json\n[\n  {\"point\": [386, 792], \"label\": \"group of black hangers\"}\n]\n```"
+   },
+   "er_err": 102.8,
+   "hy_err": 86.8,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 77,
+   "case": "hat_sorting",
+   "goal": "Black, white, and green hats placed on the hooks from left to right in that order, with the rightmost hook empty.",
+   "object": "the green hat",
+   "destination": "third hook from the left",
+   "truth_target": "the green hat",
+   "kind": "visible",
+   "er_pred": {
+    "s": 4.83,
+    "point": [
+     223,
+     638
+    ],
+    "raw": "```json\n[\n  {\"point\": [223, 638], \"label\": \"hook\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 3.36,
+    "point": [
+     210,
+     640
+    ],
+    "raw": "```json\n[\n  {\"point\": [210, 640], \"label\": \"spot where the green hat should be placed\"}\n]\n```"
+   },
+   "truth": {
+    "s": 2.32,
+    "point": [
+     521,
+     597
+    ],
+    "raw": "```json\n[\n  {\"point\": [521, 597], \"label\": \"green hat\"}\n]\n```"
+   },
+   "er_err": 300.8,
+   "hy_err": 314.0,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 78,
+   "case": "coffee_beans",
+   "goal": "Some coffee beans transferred from inside transparent jar into inside orange jar, with no beans spilled outside either jar.",
+   "object": "the coffee beans",
+   "destination": "inside the orange jar",
+   "truth_target": "the orange jar",
+   "kind": "proxy",
+   "er_pred": {
+    "s": 3.4,
+    "point": [
+     374,
+     305
+    ],
+    "raw": "```json\n[\n  {\"point\": [374, 305], \"label\": \"orange jar\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 2.99,
+    "point": [
+     360,
+     295
+    ],
+    "raw": "```json\n[\n  {\"point\": [360, 295], \"label\": \"inside orange jar\"}\n]\n```"
+   },
+   "truth": {
+    "s": 2.62,
+    "point": [
+     391,
+     254
+    ],
+    "raw": "```json\n[\n  {\"point\": [391, 254], \"label\": \"orange jar\"}\n]\n```"
+   },
+   "er_err": 53.8,
+   "hy_err": 51.4,
+   "truth_dropped": null,
+   "camera_shift": false
+  },
+  {
+   "rank": 79,
+   "case": "screwdriver_wrench",
+   "goal": "All of appliances are inside the closed green container, with the orange glove placed on top of the closed container.",
+   "object": "the orange glove",
+   "destination": "on top of the closed green container",
+   "truth_target": "the orange glove",
+   "kind": "visible",
+   "er_pred": {
+    "s": 4.55,
+    "point": [
+     281,
+     408
+    ],
+    "raw": "```json\n[\n  {\"point\": [281, 408], \"label\": \"orange glove\"}\n]\n```"
+   },
+   "hy_pred": {
+    "s": 4.48,
+    "point": [
+     650,
+     405
+    ],
+    "raw": "```json\n[\n  {\"point\": [650, 405], \"label\": \"on top of the closed container\"}\n]\n```"
+   },
+   "truth": {
+    "s": 2.13,
+    "point": [
+     390,
+     452
+    ],
+    "raw": "```json\n[\n  {\"point\": [390, 452], \"label\": \"orange glove\"}\n]\n```"
+   },
+   "er_err": 117.5,
+   "hy_err": 264.2,
+   "truth_dropped": null,
+   "camera_shift": false
+  }
+ ]
+}
