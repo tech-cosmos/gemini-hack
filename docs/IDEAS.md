@@ -79,6 +79,16 @@ Fable's plan: spike Robotics-ER 2 pointing (gates Ghost Hands and Dream Run's po
 | 37 | **Tap X-Ray** · Neon | Knock on a closed object; audio + video infer what's inside and paint a cutaway | 15 Greatest Hits clips audio vs muted + 5 live taps; kill if audio doesn't win by ≥ 20% |
 | 38 | **Shelf Shock** · Neon | 500 synthetic shoppers price an object in one Decision 1 call; restage with Nano Banana/Omni until willingness-to-pay jumps; Managed Agent lists it on Shopify | Kill if predicted price doesn't separate amateur vs studio photos by ≥ 20% |
 | 39 | **Shred or Stop** · Neon | Recycling-belt guard: Decision 1 clears safe trash, stops on a battery, ER 2 crosshairs it, Neon checks unsure items | 30 clutter + 15 battery frames; kill if recall < 0.90 or false stops > 25% |
+**Round 4b, straight from Gemini 4 Carbon (thinking medium, 1000.74 s). Raw: `.context/gemini_ideas/carbon_ideas_medium.md`.**
+| # | Idea | One line (Carbon's) | Kill test (Carbon's) |
+|---|---|---|---|
+| 40 | **Seven Seconds** · Carbon (its pick) | 6 s live broadcast delay: Decision 1 gates each 1 s chunk, ER 2 points at the card or logo, Nano Banana patches it, Lyria swaps copyrighted music | 15 webcam chunks (5 with a real card); kill or widen to 7 s if p90 on flagged chunks > 5.8 s |
+| 41 | **Sonic X-Ray** · Carbon | Tap a closed container at 5 ER 2 stations; sound + video give a cutaway with the fill line | 10 taps up a half-full bottle; kill if probabilities don't step at the waterline on 8/10 |
+| 42 | **Bayesian Loupe** · Carbon | Recommerce grading: Decision 1 posterior over SKU and grade, Carbon picks the next view, ER 2 reticle, Managed Agents lists on Shopify | 25 ABO objects; kill if picked second views don't beat random by ≥ 15% top-1 |
+| 43 | **Foley Stage** · Carbon | Decision 1 locks contact frames; the judge performs desk-object foley to a cue bar; Omni + Lyria finish | 10 Greatest Hits clips; kill if peak misses onset by > 2 frames on > 3/10 |
+| 44 | **Swipe Zero** · Carbon | 500 viewer personas per shot in one Decision 1 call; recut the weak shot; A/B test on Shopify | 30 Memento10k clips; kill if gain over Hydrogen < 0.08 Spearman |
+| 45 | **Proof of Flesh** · Carbon | Active liveness: physical challenge + Decision 1 occlusion checks beat an Omni impostor, gating a mock wire | 5 Omni + 5 real + 5 replays; kill if < 13/15 separated |
+Carbon and Neon converged on three ideas: broadcast delay (35/40), tap X-ray (37/41), foley (34/43).
 Neon's xhigh reply (not summarised) proposes ClearCut, ProxyStage, BinHawk, WalkTest, BrakeCheck, EchoSight.
 
 **Licence check for ideas 10–17 (Fable, 11:58; nothing downloaded):** all 13 named datasets exist. Usable for an eval: AMI (CC BY 4.0, has room-view video), GenEval and T2I-CompBench (MIT, prompts only). Non-commercial (fine for eval, flag it): QVHighlights, LongVideoBench (gated), ESC-50, Charades videos, 100DOH, some FSD50K clips. Unknown or custom terms: EgoHands, VL-CMU-CD, Charades-STA annotations, AgentRewardBench (custom "fair use"; per-step screenshots, no recordings), Spot-the-Diff images (and it is outdoor).
