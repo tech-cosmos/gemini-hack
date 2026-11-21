@@ -10,6 +10,7 @@ The lead's agent keeps "Now" current. Every agent reads it at the start of every
 |---|---|---|
 | Dan (rrrozhd) | Census (#6): count distinct objects in video, SVCBench | running (#8), result by 12:30 |
 | Shivam's agent (Fable) | Tripwire (#10): catch a mistake while it happens | **failed**: 3/10 caught early, 0/10 false alarms, 0.69 s/tick |
+| Shivam's agent (Fable) | Before/After (#12) on SceneDiff: one Neon call vs Neon inventory + Decision 1 checks | running, ~30 min |
 | Shivam's agent (Fable) | licence check for ideas 10–17 | done: see IDEAS.md (SceneDiff for Before/After, CaptainCook4D for timed mistakes) |
 **New ideas 10–17** came from a different model (Fable), with a hostile-judge read on Step Guard: see IDEAS.md.
 **Next gate:** 12:58 · idea picked and written in `docs/DECISIONS.md`.
