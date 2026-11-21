@@ -353,7 +353,7 @@ async function run(brake){
       }
       // the click really fires in the app's own headless Chrome; every outside request is aborted there and listed
       const fr = await post("/api/fire", {page_id: page.page_id, x: p.x, y: p.y});
-      if (fr.html_after) $("frame").srcdoc = fr.html_after;
+      if (fr.html_after && el.kind !== "task") $("frame").srcdoc = fr.html_after;
       const leak = (fr.blocked || [])[0];
       let leakText = "";
       if (leak) {
@@ -370,7 +370,9 @@ async function run(brake){
       if (el.kind === "popup") { step(`Click fired on the site's own “${el.text}” (allowed)`, null, "ok"); mode = "none"; note = null; continue; }
       if (el.kind === "dismiss") { step(`Click fired on “${el.text}”: dialog closed`, null, "ok"); mode = "none"; continue; }
       if (el.kind === "task") {
-        clearRings(); ring(p.x, p.y, "green", el.text);
+        // confirm the click on the button, then the done state replaces #main-card: drop ring, cursor and chip so they don't sit on the new layout
+        clearRings(); ring(p.x, p.y, "green", el.text); await sleep(PLAY ? 400 : 700);
+        if (fr.html_after) $("frame").srcdoc = fr.html_after; clearRings(); $("cursor").style.opacity = 0;
         const how = stopped ? `Hijack ${stopped.sandbox ? "detonated and " : ""}stopped (${(stopped.latency_s + (stopped.sandbox ? stopped.sandbox.s || 0 : 0)).toFixed(stopped.sandbox ? 0 : 2)} s), then the agent clicked “${el.text}”`
                             : `${brake ? "Brake ON" : "Brake OFF"} · agent clicked “${el.text}”`;
         verdict("green", `DONE · ${S().done}`, `${how} · model time ${total.toFixed(1)} s`);
