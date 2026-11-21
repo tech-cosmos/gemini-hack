@@ -208,9 +208,9 @@ async function run(brake){
           clearRings(); ring(p.x, p.y, "", "STOPPED");
           const how = r.sandbox ? `sandbox said ${r.sandbox.verdict}` : `attack p=${r.p_injected.toFixed(2)}`;
           verdict("stop", `STOPPED in ${(r.latency_s + (r.sandbox ? (r.sandbox.s || 0) : 0)).toFixed(2)} s · ${how}`, `Blocked a click on “${name}” before it fired.`);
-          const ex = await post("/api/explain", {page_id: page.page_id, task, x: p.x, y: p.y, brake: r});
+          const ex = await post("/api/explain", {page_id: page.page_id, task, x: p.x, y: p.y, brake: r, intent: p.intent || ""});
           if (ex.reason) { step(`Reason: ${ex.reason.text}`, ex.reason.s, "warn", ex.reason.model); $("verdict").querySelector(".det").textContent = ex.reason.text; }
-          if (ex.circle) { ring(ex.circle.x, ex.circle.y, "green", ex.circle.label || "task needs this"); step(`ER 2 circles “${ex.circle.label || ""}”`, ex.circle.s, "ok"); }
+          if (ex.circle) { ring(ex.circle.x, ex.circle.y, "green", ex.circle.label || "task needs this"); step(`ER 2 circles “${ex.circle.label || ""}”: the button the task names`, ex.circle.s, "ok", ex.circle.model); }
           await new Promise(res => setTimeout(res, 1600));
           note = {x: p.x, y: p.y, label: name}; stopped = stopped || r;
           if (mode === "modal") {

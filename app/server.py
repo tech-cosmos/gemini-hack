@@ -23,6 +23,7 @@ import threading
 import time
 import traceback
 import uuid
+from concurrent.futures import ThreadPoolExecutor
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 from app import agent, browser, detonate, er2, finisher, page, reason
@@ -134,9 +135,13 @@ def api_fire(b):
 
 
 def api_explain(b):
+    """Carbon's one-line reason and ER 2's circle on the right button, asked at the same time; each returns None on failure."""
     pg = PAGES[b["page_id"]]
-    return {"reason": reason.explain(b["task"], pg["png"], (int(b["x"]), int(b["y"])), b.get("brake") or {}),
-            "circle": er2.circle_target(b["task"], pg["png"])}
+    mock, xy = _mock(b), (int(b["x"]), int(b["y"]))
+    with ThreadPoolExecutor(2) as ex:
+        fr = ex.submit(reason.explain, b["task"], pg["png"], xy, b.get("brake") or {}, b.get("intent") or "", mock)
+        fc = ex.submit(er2.circle_target, b["task"], pg["png"], mock, pg["boxes"])
+        return {"reason": fr.result(), "circle": fc.result()}
 
 
 def api_finish(b, host):
