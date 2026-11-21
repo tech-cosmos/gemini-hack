@@ -1,0 +1,222 @@
+[
+ {
+  "id": "foodweb_test_difficult_000001",
+  "domain": "foodweb",
+  "nodes": 17,
+  "edges": 20,
+  "A_f1": 92.3,
+  "B_f1": 48.9,
+  "A_pred": 19,
+  "B_pred": 25,
+  "B_questions": 272
+ },
+ {
+  "id": "foodweb_test_difficult_000002",
+  "domain": "foodweb",
+  "nodes": 16,
+  "edges": 19,
+  "A_f1": 97.3,
+  "B_f1": 48.8,
+  "A_pred": 18,
+  "B_pred": 22,
+  "B_questions": 240
+ },
+ {
+  "id": "foodweb_test_difficult_000003",
+  "domain": "foodweb",
+  "nodes": 17,
+  "edges": 22,
+  "A_f1": 100.0,
+  "B_f1": 47.6,
+  "A_pred": 22,
+  "B_pred": 20,
+  "B_questions": 272
+ },
+ {
+  "id": "foodweb_test_difficult_000004",
+  "domain": "foodweb",
+  "nodes": 17,
+  "edges": 22,
+  "A_f1": 93.0,
+  "B_f1": 36.7,
+  "A_pred": 21,
+  "B_pred": 27,
+  "B_questions": 272
+ },
+ {
+  "id": "foodweb_test_difficult_000005",
+  "domain": "foodweb",
+  "nodes": 17,
+  "edges": 22,
+  "A_f1": 97.7,
+  "B_f1": 62.2,
+  "A_pred": 21,
+  "B_pred": 23,
+  "B_questions": 272
+ },
+ {
+  "id": "foodweb_test_difficult_000006",
+  "domain": "foodweb",
+  "nodes": 17,
+  "edges": 22,
+  "A_f1": 100.0,
+  "B_f1": 42.1,
+  "A_pred": 22,
+  "B_pred": 16,
+  "B_questions": 272
+ },
+ {
+  "id": "foodweb_test_difficult_000007",
+  "domain": "foodweb",
+  "nodes": 16,
+  "edges": 20,
+  "A_f1": 0.0,
+  "B_f1": 50.0,
+  "A_pred": 0,
+  "B_pred": 20,
+  "B_questions": 240
+ },
+ {
+  "id": "foodweb_test_difficult_000008",
+  "domain": "foodweb",
+  "nodes": 16,
+  "edges": 18,
+  "A_f1": 0.0,
+  "B_f1": 35.0,
+  "A_pred": 0,
+  "B_pred": 22,
+  "B_questions": 240
+ },
+ {
+  "id": "foodweb_test_difficult_000009",
+  "domain": "foodweb",
+  "nodes": 17,
+  "edges": 18,
+  "A_f1": 85.7,
+  "B_f1": 31.1,
+  "A_pred": 17,
+  "B_pred": 27,
+  "B_questions": 272
+ },
+ {
+  "id": "foodweb_test_difficult_000010",
+  "domain": "foodweb",
+  "nodes": 17,
+  "edges": 20,
+  "A_f1": 100.0,
+  "B_f1": 43.1,
+  "A_pred": 20,
+  "B_pred": 31,
+  "B_questions": 272
+ },
+ {
+  "id": "circuit_test_difficult_000002",
+  "domain": "circuit",
+  "nodes": 19,
+  "edges": 26,
+  "A_f1": 100.0,
+  "B_f1": 73.2,
+  "A_pred": 26,
+  "B_pred": 15,
+  "B_questions": 171
+ },
+ {
+  "id": "circuit_test_difficult_000003",
+  "domain": "circuit",
+  "nodes": 18,
+  "edges": 23,
+  "A_f1": 100.0,
+  "B_f1": 93.0,
+  "A_pred": 23,
+  "B_pred": 20,
+  "B_questions": 153
+ },
+ {
+  "id": "circuit_test_difficult_000008",
+  "domain": "circuit",
+  "nodes": 19,
+  "edges": 23,
+  "A_f1": 100.0,
+  "B_f1": 95.5,
+  "A_pred": 23,
+  "B_pred": 21,
+  "B_questions": 171
+ },
+ {
+  "id": "circuit_test_difficult_000010",
+  "domain": "circuit",
+  "nodes": 17,
+  "edges": 22,
+  "A_f1": 100.0,
+  "B_f1": 97.8,
+  "A_pred": 22,
+  "B_pred": 23,
+  "B_questions": 136
+ },
+ {
+  "id": "circuit_test_difficult_000018",
+  "domain": "circuit",
+  "nodes": 19,
+  "edges": 25,
+  "A_f1": 100.0,
+  "B_f1": 75.6,
+  "A_pred": 25,
+  "B_pred": 20,
+  "B_questions": 171
+ },
+ {
+  "id": "circuit_test_difficult_000020",
+  "domain": "circuit",
+  "nodes": 18,
+  "edges": 23,
+  "A_f1": 100.0,
+  "B_f1": 87.8,
+  "A_pred": 23,
+  "B_pred": 18,
+  "B_questions": 153
+ },
+ {
+  "id": "circuit_test_difficult_000022",
+  "domain": "circuit",
+  "nodes": 21,
+  "edges": 25,
+  "A_f1": 100.0,
+  "B_f1": 71.4,
+  "A_pred": 25,
+  "B_pred": 17,
+  "B_questions": 210
+ },
+ {
+  "id": "circuit_test_difficult_000025",
+  "domain": "circuit",
+  "nodes": 19,
+  "edges": 22,
+  "A_f1": 100.0,
+  "B_f1": 87.8,
+  "A_pred": 22,
+  "B_pred": 19,
+  "B_questions": 171
+ },
+ {
+  "id": "circuit_test_difficult_000027",
+  "domain": "circuit",
+  "nodes": 23,
+  "edges": 28,
+  "A_f1": 100.0,
+  "B_f1": 68.0,
+  "A_pred": 28,
+  "B_pred": 22,
+  "B_questions": 253
+ },
+ {
+  "id": "circuit_test_difficult_000040",
+  "domain": "circuit",
+  "nodes": 21,
+  "edges": 26,
+  "A_f1": 100.0,
+  "B_f1": 89.8,
+  "A_pred": 26,
+  "B_pred": 23,
+  "B_questions": 210
+ }
+]

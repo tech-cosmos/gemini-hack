@@ -1,0 +1,13 @@
+{
+ "n": 20,
+ "A_neon_one_call_edge_f1": {
+  "all": 88.3,
+  "foodweb": 76.6,
+  "circuit": 100.0
+ },
+ "B_decision_pairwise_edge_f1": {
+  "all": 64.3,
+  "foodweb": 44.5,
+  "circuit": 84.0
+ }
+}
