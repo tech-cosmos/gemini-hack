@@ -1,0 +1,203 @@
+{
+ "model": "gemini-4-hydrogen",
+ "note": "spike 12c registered (hydrogen)",
+ "grid40": [
+  {
+   "q": "q0.jpg",
+   "s": 23.19,
+   "raw": "```json\n{\"nearest\": 5, \"turn_right_deg\": 12}\n```",
+   "pred_view": "v0_225.jpg",
+   "heading_err": 7.3,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q1.jpg",
+   "s": 36.79,
+   "raw": "{\"nearest\": 19, \"turn_right_deg\": 15}",
+   "pred_view": "v2_135.jpg",
+   "heading_err": 2.0,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q2.jpg",
+   "s": 29.37,
+   "raw": "```json\n{\"nearest\": 3, \"turn_right_deg\": 15}\n```",
+   "pred_view": "v0_135.jpg",
+   "heading_err": 17.9,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q3.jpg",
+   "s": 20.56,
+   "raw": "```json\n{\"nearest\": 16, \"turn_right_deg\": -9}\n```",
+   "pred_view": "v2_000.jpg",
+   "heading_err": 6.9,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q4.jpg",
+   "s": 34.37,
+   "raw": "```json\n{\"nearest\": 4, \"turn_right_deg\": -12}\n```",
+   "pred_view": "v0_180.jpg",
+   "heading_err": 5.6,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q5.jpg",
+   "s": 34.63,
+   "raw": "{\"nearest\": 0, \"turn_right_deg\": -6}",
+   "pred_view": "v0_000.jpg",
+   "heading_err": 7.3,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q6.jpg",
+   "s": 33.93,
+   "raw": "{\"nearest\": 0, \"turn_right_deg\": 18}",
+   "pred_view": "v0_000.jpg",
+   "heading_err": 13.3,
+   "exact_pos": false,
+   "ok": false
+  },
+  {
+   "q": "q7.jpg",
+   "s": 39.25,
+   "raw": "{\"nearest\": 39, \"turn_right_deg\": -18}",
+   "pred_view": "v4_315.jpg",
+   "heading_err": 16.4,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q8.jpg",
+   "s": 25.45,
+   "raw": "```json\n{\"nearest\": 15, \"turn_right_deg\": -15}\n```",
+   "pred_view": "v1_315.jpg",
+   "heading_err": 92.2,
+   "exact_pos": false,
+   "ok": false
+  },
+  {
+   "q": "q9.jpg",
+   "s": 28.84,
+   "raw": "```json\n{\"nearest\": 0, \"turn_right_deg\": 5}\n```",
+   "pred_view": "v0_000.jpg",
+   "heading_err": 20.7,
+   "exact_pos": false,
+   "ok": true
+  }
+ ],
+ "grid40_summary": {
+  "pass_n": 8,
+  "n": 10,
+  "p50_s": 31.65,
+  "max_s": 39.25,
+  "exact_pos_n": 7,
+  "PASS": false
+ },
+ "sheet": [
+  {
+   "q": "q0.jpg",
+   "s": 8.25,
+   "raw": "```json\n{\"nearest\": 5, \"turn_right_deg\": 12}\n```",
+   "pred_view": "v0_225.jpg",
+   "heading_err": 7.3,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q1.jpg",
+   "s": 20.02,
+   "raw": "```json\n{\"nearest\": 19, \"turn_right_deg\": 12}\n```",
+   "pred_view": "v2_135.jpg",
+   "heading_err": 5.0,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q2.jpg",
+   "s": 9.77,
+   "raw": "{\"nearest\": 3, \"turn_right_deg\": 12}",
+   "pred_view": "v0_135.jpg",
+   "heading_err": 20.9,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q3.jpg",
+   "s": 11.67,
+   "raw": "{\"nearest\": 16, \"turn_right_deg\": -15}",
+   "pred_view": "v2_000.jpg",
+   "heading_err": 0.9,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q4.jpg",
+   "s": 27.82,
+   "raw": "{\"nearest\": 4, \"turn_right_deg\": -12}",
+   "pred_view": "v0_180.jpg",
+   "heading_err": 5.6,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q5.jpg",
+   "s": 17.93,
+   "raw": "{\"nearest\": 0, \"turn_right_deg\": -10}",
+   "pred_view": "v0_000.jpg",
+   "heading_err": 3.3,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q6.jpg",
+   "s": 11.02,
+   "raw": "{\"nearest\": 7, \"turn_right_deg\": -18}",
+   "pred_view": "v0_315.jpg",
+   "heading_err": 4.3,
+   "exact_pos": false,
+   "ok": true
+  },
+  {
+   "q": "q7.jpg",
+   "s": 9.41,
+   "raw": "```json\n{\"nearest\": 32, \"turn_right_deg\": 11}\n```",
+   "pred_view": "v4_000.jpg",
+   "heading_err": 0.4,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q8.jpg",
+   "s": 8.61,
+   "raw": "```json\n{\"nearest\": 14, \"turn_right_deg\": -20}\n```",
+   "pred_view": "v1_270.jpg",
+   "heading_err": 52.2,
+   "exact_pos": false,
+   "ok": false
+  },
+  {
+   "q": "q9.jpg",
+   "s": 9.52,
+   "raw": "```json\n{\"nearest\": 0, \"turn_right_deg\": 12}\n```",
+   "pred_view": "v0_000.jpg",
+   "heading_err": 27.7,
+   "exact_pos": false,
+   "ok": true
+  }
+ ],
+ "sheet_summary": {
+  "pass_n": 9,
+  "n": 10,
+  "p50_s": 10.395,
+  "max_s": 27.82,
+  "exact_pos_n": 7
+ }
+}

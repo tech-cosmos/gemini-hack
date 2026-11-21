@@ -1,0 +1,110 @@
+{
+ "note": "after the fact, not registered; thinking low; same scoring as locate.py",
+ "solo_40img_q0": {
+  "s": 22.38,
+  "raw": "```json\n{\"nearest\": 5, \"turn_right_deg\": 12}\n```",
+  "pred_view": "v0_225.jpg",
+  "heading_err": 7.3,
+  "exact_pos": true,
+  "ok": true
+ },
+ "sheet": [
+  {
+   "q": "q0.jpg",
+   "s": 17.99,
+   "raw": "```json\n{\"nearest\": 5, \"turn_right_deg\": 15}\n```",
+   "pred_view": "v0_225.jpg",
+   "heading_err": 4.3,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q1.jpg",
+   "s": 16.01,
+   "raw": "```json\n{\"nearest\": 19, \"turn_right_deg\": 15}\n```",
+   "pred_view": "v2_135.jpg",
+   "heading_err": 2.0,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q2.jpg",
+   "s": 26.09,
+   "raw": "```json\n{\"nearest\": 3, \"turn_right_deg\": 18}\n```",
+   "pred_view": "v0_135.jpg",
+   "heading_err": 14.9,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q3.jpg",
+   "s": 18.07,
+   "raw": "```json\n{\"nearest\": 16, \"turn_right_deg\": -13}\n```",
+   "pred_view": "v2_000.jpg",
+   "heading_err": 2.9,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q4.jpg",
+   "s": 17.82,
+   "raw": "```json\n{\"nearest\": 4, \"turn_right_deg\": -10}\n```",
+   "pred_view": "v0_180.jpg",
+   "heading_err": 7.6,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q5.jpg",
+   "s": 13.49,
+   "raw": "```json\n{\"nearest\": 0, \"turn_right_deg\": -10}\n```",
+   "pred_view": "v0_000.jpg",
+   "heading_err": 3.3,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q6.jpg",
+   "s": 17.5,
+   "raw": "```json\n{\"nearest\": 7, \"turn_right_deg\": -12}\n```",
+   "pred_view": "v0_315.jpg",
+   "heading_err": 1.7,
+   "exact_pos": false,
+   "ok": true
+  },
+  {
+   "q": "q7.jpg",
+   "s": 18.35,
+   "raw": "```json\n{\"nearest\": 39, \"turn_right_deg\": -13}\n```",
+   "pred_view": "v4_315.jpg",
+   "heading_err": 21.4,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q8.jpg",
+   "s": 23.2,
+   "raw": "```json\n{\"nearest\": 14, \"turn_right_deg\": -10}\n```",
+   "pred_view": "v1_270.jpg",
+   "heading_err": 42.2,
+   "exact_pos": false,
+   "ok": false
+  },
+  {
+   "q": "q9.jpg",
+   "s": 18.95,
+   "raw": "```json\n{\"nearest\": 0, \"turn_right_deg\": 12}\n```",
+   "pred_view": "v0_000.jpg",
+   "heading_err": 27.7,
+   "exact_pos": false,
+   "ok": true
+  }
+ ],
+ "sheet_summary": {
+  "pass_n": 9,
+  "n": 10,
+  "p50_s": 18.03,
+  "max_s": 26.09,
+  "exact_pos_n": 7
+ }
+}

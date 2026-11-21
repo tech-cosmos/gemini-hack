@@ -1,0 +1,358 @@
+{
+ "scene": "room.splat",
+ "scale": "p5-p95 horizontal extent = 5.0 m (assumed), step = 0.7 m",
+ "models": {
+  "locate": "gemini-4-neon",
+  "directions": "gemini-4-hydrogen",
+  "baseline": "gemini-4-hydrogen",
+  "point": "gemini-robotics-er-2-preview"
+ },
+ "thinking": "low",
+ "queries": [
+  {
+   "q": "q0.jpg",
+   "pos": [
+    1.2166714511997212,
+    0.5778111537616242,
+    -1.059888298008897
+   ],
+   "yaw": 205.7,
+   "pitch": 5.01,
+   "true_pi": 0,
+   "true_gyaw": 225,
+   "raw": "```json\n{\"nearest\": 5, \"turn_right_deg\": 12}\n```",
+   "s": 57.8,
+   "cached": false,
+   "pred_view": "v0_225.jpg",
+   "pred_pi": 0,
+   "pred_yaw": 213.0,
+   "heading_err": 7.3,
+   "view_ok": true,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q1.jpg",
+   "pos": [
+    0.7372957820580884,
+    0.7590627100585645,
+    3.1394238666158554
+   ],
+   "yaw": 118.0,
+   "pitch": -7.29,
+   "true_pi": 2,
+   "true_gyaw": 135,
+   "raw": "```json\n{\"nearest\": 19, \"turn_right_deg\": 16}\n```",
+   "s": 50.86,
+   "cached": false,
+   "pred_view": "v2_135.jpg",
+   "pred_pi": 2,
+   "pred_yaw": 119.0,
+   "heading_err": 1.0,
+   "view_ok": true,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q2.jpg",
+   "pos": [
+    1.8760776763069524,
+    0.519158661249198,
+    1.488853985333784
+   ],
+   "yaw": 102.1,
+   "pitch": 2.59,
+   "true_pi": 0,
+   "true_gyaw": 90,
+   "raw": "```json\n{\"nearest\": 3, \"turn_right_deg\": 18}\n```",
+   "s": 48.81,
+   "cached": false,
+   "pred_view": "v0_135.jpg",
+   "pred_pi": 0,
+   "pred_yaw": 117.0,
+   "heading_err": 14.9,
+   "view_ok": true,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q3.jpg",
+   "pos": [
+    0.07824933161198255,
+    0.3629947193822617,
+    2.8442894105403687
+   ],
+   "yaw": 15.93,
+   "pitch": -3.15,
+   "true_pi": 2,
+   "true_gyaw": 0,
+   "raw": "```json\n{\"nearest\": 16, \"turn_right_deg\": -12}\n```",
+   "s": 49.43,
+   "cached": false,
+   "pred_view": "v2_000.jpg",
+   "pred_pi": 2,
+   "pred_yaw": 12.0,
+   "heading_err": 3.9,
+   "view_ok": true,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q4.jpg",
+   "pos": [
+    1.23580951925839,
+    0.3296304838238565,
+    0.950616667791504
+   ],
+   "yaw": 197.63,
+   "pitch": 5.51,
+   "true_pi": 0,
+   "true_gyaw": 180,
+   "raw": "```json\n{\"nearest\": 4, \"turn_right_deg\": -12}\n```",
+   "s": 42.71,
+   "cached": false,
+   "pred_view": "v0_180.jpg",
+   "pred_pi": 0,
+   "pred_yaw": 192.0,
+   "heading_err": 5.6,
+   "view_ok": true,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q5.jpg",
+   "pos": [
+    1.3981250001990315,
+    0.6938446413593717,
+    1.3402604559077669
+   ],
+   "yaw": 13.29,
+   "pitch": 0.54,
+   "true_pi": 0,
+   "true_gyaw": 0,
+   "raw": "```json\n{\"nearest\": 0, \"turn_right_deg\": -8}\n```",
+   "s": 40.87,
+   "cached": false,
+   "pred_view": "v0_000.jpg",
+   "pred_pi": 0,
+   "pred_yaw": 8.0,
+   "heading_err": 5.3,
+   "view_ok": true,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q6.jpg",
+   "pos": [
+    0.468429274841333,
+    0.7643734628670168,
+    1.952511114166814
+   ],
+   "yaw": 328.67,
+   "pitch": -0.94,
+   "true_pi": 2,
+   "true_gyaw": 315,
+   "raw": "```json\n{\"nearest\": 0, \"turn_right_deg\": 20}\n```",
+   "s": 54.38,
+   "cached": false,
+   "pred_view": "v0_000.jpg",
+   "pred_pi": 0,
+   "pred_yaw": 340.0,
+   "heading_err": 11.3,
+   "view_ok": false,
+   "exact_pos": false,
+   "ok": false
+  },
+  {
+   "q": "q7.jpg",
+   "pos": [
+    1.261471041548082,
+    0.6274854236439612,
+    -1.3923712030674866
+   ],
+   "yaw": 349.38,
+   "pitch": 0.35,
+   "true_pi": 4,
+   "true_gyaw": 0,
+   "raw": "```json\n{\"nearest\": 39, \"turn_right_deg\": -12}\n```",
+   "s": 53.82,
+   "cached": false,
+   "pred_view": "v4_315.jpg",
+   "pred_pi": 4,
+   "pred_yaw": 327.0,
+   "heading_err": 22.4,
+   "view_ok": true,
+   "exact_pos": true,
+   "ok": true
+  },
+  {
+   "q": "q8.jpg",
+   "pos": [
+    2.5943964124087997,
+    0.38250463036748544,
+    -1.2193100094742433
+   ],
+   "yaw": 237.75,
+   "pitch": 4.37,
+   "true_pi": 3,
+   "true_gyaw": 225,
+   "raw": "```json\n{\"nearest\": 15, \"turn_right_deg\": -20}\n```",
+   "s": 50.73,
+   "cached": false,
+   "pred_view": "v1_315.jpg",
+   "pred_pi": 1,
+   "pred_yaw": 335.0,
+   "heading_err": 97.2,
+   "view_ok": false,
+   "exact_pos": false,
+   "ok": false
+  },
+  {
+   "q": "q9.jpg",
+   "pos": [
+    2.4708652096778483,
+    0.41554786540572874,
+    -0.7641464867234447
+   ],
+   "yaw": 15.72,
+   "pitch": -1.52,
+   "true_pi": 3,
+   "true_gyaw": 0,
+   "raw": "```json\n{\"nearest\": 0, \"turn_right_deg\": 5}\n```",
+   "s": 47.29,
+   "cached": false,
+   "pred_view": "v0_000.jpg",
+   "pred_pi": 0,
+   "pred_yaw": 355.0,
+   "heading_err": 20.7,
+   "view_ok": true,
+   "exact_pos": false,
+   "ok": true
+  }
+ ],
+ "locate": {
+  "pass_n": 8,
+  "n": 10,
+  "neon_p50_s": 50.08,
+  "neon_max_s": 57.8,
+  "exact_pos_n": 7,
+  "heading_err_p50": 9.3,
+  "PASS": false
+ },
+ "directions": [
+  {
+   "obj": "the piano",
+   "target_view": "v0_135",
+   "er_point_yx": [
+    495,
+    290
+   ],
+   "er_s": 2.5,
+   "hit": [
+    -0.4519338429190132,
+    0.5872802579175098,
+    7.349040980743384,
+    7.095633029937744
+   ],
+   "from_query": "q0.jpg",
+   "true_m": 3.23,
+   "true_bearing": 36.9,
+   "pred_m": 2.67,
+   "pred_bearing": 48.2,
+   "dist_err_m": 0.56,
+   "bearing_err": 11.3,
+   "facts": "Target: the the piano. From where the person stands it is 48 degrees to their right (turn right), about 4 steps away (~2.7 m).",
+   "sentence": "Turn right and walk about four steps to the piano, right next to the window.",
+   "hydrogen_s": 9.01
+  },
+  {
+   "obj": "the potted plant",
+   "target_view": "v2_270",
+   "er_point_yx": [
+    548,
+    546
+   ],
+   "er_s": 2.45,
+   "hit": [
+    1.9080139263429567,
+    0.4044519333577127,
+    3.3887151378442737,
+    1.860018253326416
+   ],
+   "from_query": "q1.jpg",
+   "true_m": 0.45,
+   "true_bearing": -140.0,
+   "pred_m": 0.7,
+   "pred_bearing": -143.8,
+   "dist_err_m": 0.25,
+   "bearing_err": 3.9,
+   "facts": "Target: the the potted plant. From where the person stands it is 144 degrees to their left (turn left), about 1 steps away (~0.7 m).",
+   "sentence": "Turn left about 144 degrees and take one step to reach the potted plant, right next to the black speaker.",
+   "hydrogen_s": 3.26
+  },
+  {
+   "obj": "the window",
+   "target_view": "v2_225",
+   "er_point_yx": [
+    270,
+    830
+   ],
+   "er_s": 1.98,
+   "hit": [
+    0.5490363709446091,
+    2.9523043464793117,
+    12.341059089058025,
+    9.50709342956543
+   ],
+   "from_query": "q2.jpg",
+   "true_m": 4.12,
+   "true_bearing": -70.9,
+   "pred_m": 4.47,
+   "pred_bearing": -58.9,
+   "dist_err_m": 0.35,
+   "bearing_err": 12.1,
+   "facts": "Target: the the window. From where the person stands it is 59 degrees to their left (turn left), about 6 steps away (~4.5 m).",
+   "sentence": "Turn left and walk about 6 steps to the window right behind the piano.",
+   "hydrogen_s": 3.77
+  }
+ ],
+ "baseline": [
+  {
+   "obj": "the piano",
+   "from": 5,
+   "out": {
+    "image": 20,
+    "directions": "Walk straight ahead past the speaker and the potted plant, and you will reach the piano near the window."
+   },
+   "raw": "{\"image\": 20, \"directions\": \"Walk straight ahead past the speaker and the potted plant, and you will reach the piano near the window.\"}",
+   "s": 20.86,
+   "cached": false,
+   "image_file": "v2_180.jpg"
+  },
+  {
+   "obj": "the potted plant",
+   "from": 19,
+   "out": {
+    "image": 22,
+    "directions": "Turn left and walk forward a few steps to reach the potted plant next to the bookshelf and speaker."
+   },
+   "raw": "{\"image\": 22, \"directions\": \"Turn left and walk forward a few steps to reach the potted plant next to the bookshelf and speaker.\"}",
+   "s": 21.46,
+   "cached": false,
+   "image_file": "v2_270.jpg"
+  },
+  {
+   "obj": "the window",
+   "from": 2,
+   "out": {
+    "image": 32,
+    "directions": "Turn slightly right and walk straight past the end of the sofa to reach the window."
+   },
+   "raw": "{\"image\": 32, \"directions\": \"Turn slightly right and walk straight past the end of the sofa to reach the window.\"}",
+   "s": 10.2,
+   "cached": false,
+   "image_file": "v4_000.jpg"
+  }
+ ],
+ "total_s": 107.0
+}
