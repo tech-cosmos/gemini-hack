@@ -5,7 +5,7 @@ empty row until it is filled. The most expensive late surprise is a missing team
 
 | Fact | Value |
 |---|---|
-| Team name | (decide later, needed before 17:00) |
+| Team name | Wait a Second |
 | Where to submit (link) | Cerebral Valley submission form (linked in the participant guide, section 7) |
 | Exact file or repo name | Public GitHub repo + demo video link |
 | Deadline to the minute | 2026-11-21 17:00 EST |
