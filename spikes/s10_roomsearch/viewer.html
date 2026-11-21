@@ -1,0 +1,46 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>body{margin:0;background:#000}</style>
+<script type="importmap">
+{"imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/",
+  "@sparkjsdev/spark": "https://sparkjs.dev/releases/spark/2.4.0/spark.module.js"
+}}
+</script>
+<script type="module">
+// Spike 10 renderer: loads a splat from ?url=, exposes window.info (bounds) and window.shot(pos, yawDeg, pitchDeg) -> JPEG data URL.
+import * as THREE from "three";
+import { SparkRenderer, SplatMesh } from "@sparkjsdev/spark";
+const q = new URLSearchParams(location.search);
+const W = +(q.get("w") || 960), H = +(q.get("h") || 540);
+const renderer = new THREE.WebGLRenderer({ preserveDrawingBuffer: true });
+renderer.setSize(W, H); document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(+(q.get("fov") || 75), W / H, 0.01, 1000);
+scene.add(new SparkRenderer({ renderer }));
+const splat = new SplatMesh({ url: q.get("url") });
+if (q.get("flip") !== "0") splat.quaternion.set(1, 0, 0, 0);  // most 3DGS exports are y-down
+scene.add(splat);
+await splat.initialized;
+scene.updateMatrixWorld(true);
+const pts = [], v = new THREE.Vector3();
+let n = 0;
+splat.forEachSplat((i, center) => { n++; if (i % 25 === 0) { v.copy(center).applyMatrix4(splat.matrixWorld); pts.push([v.x, v.y, v.z]); } });
+const pct = (k, p) => { const a = pts.map(t => t[k]).sort((x, y) => x - y); return a[Math.floor(p * (a.length - 1))]; };
+window.info = { n, p5: [0, 1, 2].map(k => pct(k, 0.05)), p50: [0, 1, 2].map(k => pct(k, 0.5)), p95: [0, 1, 2].map(k => pct(k, 0.95)) };
+const frame = () => new Promise(r => requestAnimationFrame(r));
+window.shot = async (pos, yaw, pitch = 0, settle = 12) => {
+  camera.position.set(...pos);
+  camera.rotation.set(THREE.MathUtils.degToRad(pitch), THREE.MathUtils.degToRad(yaw), 0, "YXZ");
+  for (let i = 0; i < settle; i++) { renderer.render(scene, camera); await frame(); }  // let the async splat sort catch up
+  return renderer.domElement.toDataURL("image/jpeg", 0.9);
+};
+// Ray from the last shot's camera through normalized image point (x, y in 0..1) to the splat surface, or null.
+window.ray = (x, y) => {
+  const rc = new THREE.Raycaster(); rc.setFromCamera(new THREE.Vector2(x * 2 - 1, 1 - y * 2), camera);
+  try { const h = rc.intersectObject(splat, true)[0]; return h ? [h.point.x, h.point.y, h.point.z, h.distance] : null; }
+  catch (e) { return "error: " + e.message; }
+};
+window.ready = true;
+</script>

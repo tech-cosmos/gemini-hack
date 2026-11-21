@@ -1,0 +1,77 @@
+{
+ "the piano": {
+  "s": 22.78,
+  "top3": [
+   [
+    0.896,
+    "v2_180.jpg"
+   ],
+   [
+    0.887,
+    "v2_225.jpg"
+   ],
+   [
+    0.869,
+    "v0_135.jpg"
+   ]
+  ],
+  "fanout_top5": [
+   "v0_135.jpg",
+   "v2_180.jpg",
+   "v4_135.jpg",
+   "v0_180.jpg",
+   "v2_135.jpg"
+  ],
+  "top1_in_fanout_top5": true
+ },
+ "the potted plant": {
+  "s": 10.39,
+  "top3": [
+   [
+    0.89,
+    "v0_135.jpg"
+   ],
+   [
+    0.87,
+    "v0_180.jpg"
+   ],
+   [
+    0.867,
+    "v4_180.jpg"
+   ]
+  ],
+  "fanout_top5": [
+   "v2_270.jpg",
+   "v4_180.jpg",
+   "v0_135.jpg",
+   "v0_180.jpg",
+   "v2_225.jpg"
+  ],
+  "top1_in_fanout_top5": true
+ },
+ "the window": {
+  "s": 7.73,
+  "top3": [
+   [
+    0.87,
+    "v4_000.jpg"
+   ],
+   [
+    0.833,
+    "v4_135.jpg"
+   ],
+   [
+    0.83,
+    "v2_315.jpg"
+   ]
+  ],
+  "fanout_top5": [
+   "v2_225.jpg",
+   "v4_135.jpg",
+   "v4_225.jpg",
+   "v2_315.jpg",
+   "v4_180.jpg"
+  ],
+  "top1_in_fanout_top5": false
+ }
+}
