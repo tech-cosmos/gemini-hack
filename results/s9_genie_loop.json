@@ -1,0 +1,538 @@
+{
+ "summary": {
+  "n_seeds": 5,
+  "n_scored": 4,
+  "parallel_sessions": 5,
+  "auto_approach_ok": 1,
+  "auto_lookback_ok": 1,
+  "arrived": 1,
+  "ticks": 51,
+  "d1_tick_p50_s": 0.791,
+  "d1_tick_max_s": 3.042,
+  "first_frame_s": [
+   3.66,
+   null,
+   4.17,
+   3.45,
+   3.82
+  ],
+  "stream_fps": [
+   18.9,
+   null,
+   18.1,
+   19.7,
+   20.8
+  ],
+  "eye_check": {
+   "viewer": "the agent (Fable), one pass over sheet.png",
+   "approach_ok": 0,
+   "lookback_target_visible": 1,
+   "per_seed": {
+    "stack_blocks": "scene coherent; turn overshoot, block same size at the right edge, not larger; after look-back only a sliver of the block",
+    "book_miniature": "Genie session returned 'Internal error encountered.' before the first frame; no frames",
+    "kendama_can": "walked past the yellow can to the red can (wrong object, coherent and sharp); yellow can out of view at end and after look-back",
+    "bag_shoe_rack": "Decision 1 said 'arrived' on tick 1, so no approach: same size; rack still there after look-back",
+    "three_cups_and_water": "turn overshoot: mugs out of view, camera faces an invented chair and office; after look-back a different (cream) mug at the edge"
+   },
+   "coherence": "no melting in any frame; Genie invents plausible surroundings. Failures are control (held turn keys overshoot at ~0.8 s per tick), not world quality"
+  },
+  "genie_frames_total": 1912
+ },
+ "seeds": [
+  {
+   "case": "stack_blocks",
+   "target": "the yellow toy block",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 26,
+     "choice": "left",
+     "conf": 0.929,
+     "d1_s": 1.045
+    },
+    {
+     "t": 1.04,
+     "frame": 40,
+     "choice": "left",
+     "conf": 0.928,
+     "d1_s": 0.512
+    },
+    {
+     "t": 1.57,
+     "frame": 57,
+     "choice": "left",
+     "conf": 0.87,
+     "d1_s": 0.733
+    },
+    {
+     "t": 2.3,
+     "frame": 71,
+     "choice": "right",
+     "conf": 0.839,
+     "d1_s": 0.563
+    },
+    {
+     "t": 2.86,
+     "frame": 82,
+     "choice": "right",
+     "conf": 0.941,
+     "d1_s": 0.469
+    },
+    {
+     "t": 3.36,
+     "frame": 95,
+     "choice": "right",
+     "conf": 0.968,
+     "d1_s": 0.52
+    },
+    {
+     "t": 3.89,
+     "frame": 108,
+     "choice": "right",
+     "conf": 0.863,
+     "d1_s": 0.543
+    },
+    {
+     "t": 4.43,
+     "frame": 122,
+     "choice": "left",
+     "conf": 0.894,
+     "d1_s": 0.593
+    },
+    {
+     "t": 5.02,
+     "frame": 129,
+     "choice": "left",
+     "conf": 0.941,
+     "d1_s": 0.443
+    },
+    {
+     "t": 5.52,
+     "frame": 137,
+     "choice": "left",
+     "conf": 0.947,
+     "d1_s": 0.595
+    },
+    {
+     "t": 6.12,
+     "frame": 150,
+     "choice": "left",
+     "conf": 0.922,
+     "d1_s": 0.886
+    },
+    {
+     "t": 7.0,
+     "frame": 167,
+     "choice": "left",
+     "conf": 0.905,
+     "d1_s": 0.652
+    },
+    {
+     "t": 7.66,
+     "frame": 183,
+     "choice": "forward",
+     "conf": 0.377,
+     "d1_s": 0.88
+    },
+    {
+     "t": 8.54,
+     "frame": 205,
+     "choice": "right",
+     "conf": 0.902,
+     "d1_s": 1.044
+    },
+    {
+     "t": 9.58,
+     "frame": 226,
+     "choice": "right",
+     "conf": 0.969,
+     "d1_s": 0.629
+    },
+    {
+     "t": 10.21,
+     "frame": 250,
+     "choice": "other",
+     "conf": 0.861,
+     "d1_s": 0.795
+    },
+    {
+     "t": 11.01,
+     "frame": 278,
+     "choice": "right",
+     "conf": 0.958,
+     "d1_s": 1.223
+    },
+    {
+     "t": 12.75,
+     "frame": 299,
+     "choice": "left",
+     "conf": 0.92,
+     "d1_s": 0.5
+    },
+    {
+     "t": 13.25,
+     "frame": 313,
+     "choice": "left",
+     "conf": 0.932,
+     "d1_s": 0.558
+    },
+    {
+     "t": 13.82,
+     "frame": 324,
+     "choice": "left",
+     "conf": 0.895,
+     "d1_s": 0.665
+    },
+    {
+     "t": 14.48,
+     "frame": 382,
+     "choice": "left",
+     "conf": 0.933,
+     "d1_s": 2.79
+    }
+   ],
+   "first_frame_s": 3.66,
+   "frame_t0": 1,
+   "approach_s": 17.27,
+   "arrived": false,
+   "frame_end": 392,
+   "frame_away": 453,
+   "frame_back": 490,
+   "connect_s": 0.78,
+   "frames": 596,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1,
+    "step.stop": 1,
+    "interaction.completed": 1
+   },
+   "stream_fps": 18.9,
+   "vis_t0": 0.908,
+   "vis_end": 0.876,
+   "vis_back": 0.48,
+   "size_end_vs_t0": "larger",
+   "size_conf": 0.358,
+   "size_back_vs_t0": "smaller",
+   "size_back_conf": 0.685,
+   "auto_approach_ok": true,
+   "auto_lookback_ok": false
+  },
+  {
+   "case": "book_miniature",
+   "target": "the blue-grey book standing on the right",
+   "ticks": [],
+   "error": "TimeoutError: ",
+   "connect_s": 0.39,
+   "frames": 0,
+   "events": {
+    "interaction.connected": 1,
+    "error": 1,
+    "detail": "error=Error(code='api_error', message='Internal error encountered.') event_id=None event_type='error'"
+   },
+   "stream_fps": null
+  },
+  {
+   "case": "kendama_can",
+   "target": "the yellow drink can lying on the table",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 18,
+     "choice": "forward",
+     "conf": 0.689,
+     "d1_s": 1.013
+    },
+    {
+     "t": 1.02,
+     "frame": 25,
+     "choice": "forward",
+     "conf": 0.681,
+     "d1_s": 0.59
+    },
+    {
+     "t": 1.61,
+     "frame": 45,
+     "choice": "forward",
+     "conf": 0.757,
+     "d1_s": 1.433
+    },
+    {
+     "t": 3.04,
+     "frame": 62,
+     "choice": "forward",
+     "conf": 0.729,
+     "d1_s": 1.159
+    },
+    {
+     "t": 4.2,
+     "frame": 86,
+     "choice": "forward",
+     "conf": 0.664,
+     "d1_s": 1.4
+    },
+    {
+     "t": 5.61,
+     "frame": 107,
+     "choice": "forward",
+     "conf": 0.726,
+     "d1_s": 1.265
+    },
+    {
+     "t": 6.87,
+     "frame": 153,
+     "choice": "forward",
+     "conf": 0.564,
+     "d1_s": 3.042
+    },
+    {
+     "t": 9.92,
+     "frame": 179,
+     "choice": "forward",
+     "conf": 0.378,
+     "d1_s": 1.018
+    },
+    {
+     "t": 10.93,
+     "frame": 214,
+     "choice": "other",
+     "conf": 0.673,
+     "d1_s": 2.025
+    },
+    {
+     "t": 12.96,
+     "frame": 240,
+     "choice": "other",
+     "conf": 0.684,
+     "d1_s": 1.584
+    },
+    {
+     "t": 14.55,
+     "frame": 259,
+     "choice": "other",
+     "conf": 0.661,
+     "d1_s": 1.375
+    }
+   ],
+   "first_frame_s": 4.17,
+   "frame_t0": 1,
+   "approach_s": 15.92,
+   "arrived": false,
+   "frame_end": 264,
+   "frame_away": 341,
+   "frame_back": 425,
+   "connect_s": 0.39,
+   "frames": 560,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1,
+    "step.stop": 1,
+    "interaction.completed": 1
+   },
+   "stream_fps": 18.1,
+   "vis_t0": 0.915,
+   "vis_end": 0.075,
+   "vis_back": 0.127,
+   "size_end_vs_t0": "gone",
+   "size_conf": 0.994,
+   "size_back_vs_t0": "gone",
+   "size_back_conf": 0.981,
+   "auto_approach_ok": false,
+   "auto_lookback_ok": false
+  },
+  {
+   "case": "bag_shoe_rack",
+   "target": "the black shoe rack",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 16,
+     "choice": "arrived",
+     "conf": 0.765,
+     "d1_s": 0.589
+    }
+   ],
+   "first_frame_s": 3.45,
+   "frame_t0": 1,
+   "approach_s": 0.59,
+   "arrived": true,
+   "frame_end": 20,
+   "frame_away": 89,
+   "frame_back": 149,
+   "connect_s": 0.58,
+   "frames": 192,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1,
+    "step.stop": 1,
+    "interaction.completed": 1
+   },
+   "stream_fps": 19.7,
+   "vis_t0": 0.902,
+   "vis_end": 0.882,
+   "vis_back": 0.889,
+   "size_end_vs_t0": "same",
+   "size_conf": 0.88,
+   "size_back_vs_t0": "smaller",
+   "size_back_conf": 0.862,
+   "auto_approach_ok": false,
+   "auto_lookback_ok": true
+  },
+  {
+   "case": "three_cups_and_water",
+   "target": "the green mug",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 21,
+     "choice": "right",
+     "conf": 0.762,
+     "d1_s": 0.832
+    },
+    {
+     "t": 0.83,
+     "frame": 38,
+     "choice": "right",
+     "conf": 0.781,
+     "d1_s": 0.791
+    },
+    {
+     "t": 1.63,
+     "frame": 63,
+     "choice": "right",
+     "conf": 0.666,
+     "d1_s": 1.022
+    },
+    {
+     "t": 2.65,
+     "frame": 78,
+     "choice": "left",
+     "conf": 0.741,
+     "d1_s": 0.752
+    },
+    {
+     "t": 3.41,
+     "frame": 87,
+     "choice": "left",
+     "conf": 0.843,
+     "d1_s": 0.515
+    },
+    {
+     "t": 3.93,
+     "frame": 106,
+     "choice": "left",
+     "conf": 0.855,
+     "d1_s": 0.657
+    },
+    {
+     "t": 4.58,
+     "frame": 116,
+     "choice": "left",
+     "conf": 0.557,
+     "d1_s": 0.669
+    },
+    {
+     "t": 5.26,
+     "frame": 136,
+     "choice": "forward",
+     "conf": 0.562,
+     "d1_s": 0.804
+    },
+    {
+     "t": 6.06,
+     "frame": 153,
+     "choice": "right",
+     "conf": 0.741,
+     "d1_s": 0.975
+    },
+    {
+     "t": 7.04,
+     "frame": 173,
+     "choice": "right",
+     "conf": 0.888,
+     "d1_s": 0.691
+    },
+    {
+     "t": 7.73,
+     "frame": 186,
+     "choice": "other",
+     "conf": 0.692,
+     "d1_s": 0.664
+    },
+    {
+     "t": 8.4,
+     "frame": 237,
+     "choice": "right",
+     "conf": 0.427,
+     "d1_s": 2.084
+    },
+    {
+     "t": 10.48,
+     "frame": 256,
+     "choice": "forward",
+     "conf": 0.697,
+     "d1_s": 1.102
+    },
+    {
+     "t": 11.58,
+     "frame": 269,
+     "choice": "forward",
+     "conf": 0.822,
+     "d1_s": 0.728
+    },
+    {
+     "t": 12.82,
+     "frame": 294,
+     "choice": "forward",
+     "conf": 0.76,
+     "d1_s": 0.617
+    },
+    {
+     "t": 13.44,
+     "frame": 315,
+     "choice": "left",
+     "conf": 0.882,
+     "d1_s": 1.007
+    },
+    {
+     "t": 14.45,
+     "frame": 324,
+     "choice": "left",
+     "conf": 0.931,
+     "d1_s": 0.526
+    },
+    {
+     "t": 14.98,
+     "frame": 344,
+     "choice": "left",
+     "conf": 0.937,
+     "d1_s": 1.03
+    }
+   ],
+   "first_frame_s": 3.82,
+   "frame_t0": 1,
+   "approach_s": 16.01,
+   "arrived": false,
+   "frame_end": 354,
+   "frame_away": 412,
+   "frame_back": 473,
+   "connect_s": 0.39,
+   "frames": 564,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1,
+    "step.stop": 1,
+    "interaction.completed": 1
+   },
+   "stream_fps": 20.8,
+   "vis_t0": 0.919,
+   "vis_end": 0.123,
+   "vis_back": 0.158,
+   "size_end_vs_t0": "gone",
+   "size_conf": 0.969,
+   "size_back_vs_t0": "gone",
+   "size_back_conf": 0.945,
+   "auto_approach_ok": false,
+   "auto_lookback_ok": false
+  }
+ ]
+}

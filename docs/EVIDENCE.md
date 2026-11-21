@@ -49,6 +49,11 @@ the slides or the talk.
 - 20.75 s · Neon agentic p50 latency per clip incl. upload (max 238.2 s), n=20 · same file
 - 0.90 at 1.17 s p50 · cascade replay (Decision 1 when p ≤ 0.25 or ≥ 0.75, else Neon), 8/20 escalated, **not held out** · `results/s1d_cascade.json` · `.venv/bin/python spikes/s1d_cascade.py`
 - 20.7 s · one Managed Agent run (remote sandbox, write + run a script, correct answer) · `results/s0b_managed_agent.json` · `.venv/bin/python spikes/s0b_managed_agent.py` (11:21)
+- 0/5 by eye (auto 1/5) · spike 9 registered run: Genie 4 closed loop, target recognisable and larger after the approach, turn key held per tick; 1 session errored · `results/s9_genie_loop.json` · `.venv/bin/python spikes/s9_genie_loop.py` (12:54)
+- 0.791 s p50 (max 3.042), 51 ticks · Decision 1 `choice` per Genie frame, registered run · `results/s9_genie_loop.json` · same command (12:54)
+- 1/5 · target still visible after look away 3 s and back, registered run (by eye; auto 1/5) · `results/s9_genie_loop.json` · same command (12:54)
+- 4/5 by eye (3 clear, 1 marginal; auto 4/5), **after the fact, not registered** · same loop with turn keys tapped 0.15 s, same 5 seeds, one run; tick p50 0.786 s (max 1.263), 65 ticks; look-back 2/5 by eye (auto 3/5) · `results/s9_genie_loop_v2.json` · `S9_PULSE=0.15 .venv/bin/python spikes/s9_genie_loop.py` (12:56)
+- 3.45–4.5 s to first frame, 8.0–23.9 fps received · Genie 4 image-seeded, 5 sessions at once, both runs (9 sessions with frames) · `results/s9_genie_loop.json`, `results/s9_genie_loop_v2.json` · same commands
 
 ## Cost
 -

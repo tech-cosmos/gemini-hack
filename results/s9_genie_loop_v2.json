@@ -1,0 +1,650 @@
+{
+ "summary": {
+  "n_seeds": 5,
+  "n_scored": 5,
+  "turn_pulse_s": 0.15,
+  "parallel_sessions": 5,
+  "auto_approach_ok": 4,
+  "auto_lookback_ok": 3,
+  "arrived": 2,
+  "ticks": 65,
+  "d1_tick_p50_s": 0.786,
+  "d1_tick_max_s": 1.263,
+  "first_frame_s": [
+   3.5,
+   3.89,
+   4.44,
+   4.5,
+   3.66
+  ],
+  "stream_fps": [
+   23.9,
+   15.5,
+   8.0,
+   11.6,
+   20.5
+  ],
+  "eye_check": {
+   "viewer": "the agent (Fable), one pass over v2/sheet.png",
+   "approach_ok": 4,
+   "approach_ok_note": "3 clear + 1 marginal (book_miniature)",
+   "lookback_target_visible": 2,
+   "per_seed": {
+    "stack_blocks": "yellow block larger and sharp; after look-back all four blocks back, layout intact",
+    "book_miniature": "marginal: blue-grey book larger but blurred and half hidden; the camera drove into the tower miniature, which grew into a detailed skyscraper; after look-back a second tower appeared",
+    "kendama_can": "yellow can larger and recognisable (label drifted); after look-back the can is cut off at the bottom edge",
+    "bag_shoe_rack": "'arrived' on tick 1 again, same size; after look-back the rack is there but Genie invented a second shoe rack on the left",
+    "three_cups_and_water": "green mug larger, seen from above (pose changed from the seed); after look-back the green mug is gone, a yellow and a cream mug are in view"
+   },
+   "coherence": "no melting; objects stay sharp but identity drifts once out of view (extra rack, extra tower, mug swapped)"
+  },
+  "genie_frames_total": 2001
+ },
+ "seeds": [
+  {
+   "case": "stack_blocks",
+   "target": "the yellow toy block",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 15,
+     "choice": "left",
+     "conf": 0.92,
+     "d1_s": 0.713
+    },
+    {
+     "t": 1.12,
+     "frame": 40,
+     "choice": "left",
+     "conf": 0.891,
+     "d1_s": 0.552
+    },
+    {
+     "t": 2.07,
+     "frame": 70,
+     "choice": "left",
+     "conf": 0.937,
+     "d1_s": 0.863
+    },
+    {
+     "t": 3.34,
+     "frame": 97,
+     "choice": "left",
+     "conf": 0.735,
+     "d1_s": 0.695
+    },
+    {
+     "t": 4.43,
+     "frame": 114,
+     "choice": "forward",
+     "conf": 0.464,
+     "d1_s": 0.752
+    },
+    {
+     "t": 5.19,
+     "frame": 121,
+     "choice": "right",
+     "conf": 0.687,
+     "d1_s": 0.741
+    },
+    {
+     "t": 6.33,
+     "frame": 150,
+     "choice": "right",
+     "conf": 0.693,
+     "d1_s": 0.843
+    },
+    {
+     "t": 7.58,
+     "frame": 176,
+     "choice": "left",
+     "conf": 0.718,
+     "d1_s": 0.676
+    },
+    {
+     "t": 8.66,
+     "frame": 210,
+     "choice": "left",
+     "conf": 0.817,
+     "d1_s": 1.072
+    },
+    {
+     "t": 10.14,
+     "frame": 238,
+     "choice": "left",
+     "conf": 0.824,
+     "d1_s": 0.697
+    },
+    {
+     "t": 11.24,
+     "frame": 264,
+     "choice": "left",
+     "conf": 0.526,
+     "d1_s": 0.985
+    },
+    {
+     "t": 12.63,
+     "frame": 283,
+     "choice": "left",
+     "conf": 0.457,
+     "d1_s": 0.596
+    },
+    {
+     "t": 13.62,
+     "frame": 308,
+     "choice": "right",
+     "conf": 0.631,
+     "d1_s": 0.902
+    },
+    {
+     "t": 14.94,
+     "frame": 339,
+     "choice": "right",
+     "conf": 0.764,
+     "d1_s": 0.382
+    }
+   ],
+   "first_frame_s": 3.5,
+   "frame_t0": 1,
+   "approach_s": 15.72,
+   "arrived": false,
+   "frame_end": 360,
+   "frame_away": 462,
+   "frame_back": 544,
+   "connect_s": 0.78,
+   "frames": 556,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1,
+    "step.stop": 1
+   },
+   "stream_fps": 23.9,
+   "vis_t0": 0.925,
+   "vis_end": 0.908,
+   "vis_back": 0.912,
+   "size_end_vs_t0": "larger",
+   "size_conf": 0.638,
+   "size_back_vs_t0": "smaller",
+   "size_back_conf": 0.549,
+   "auto_approach_ok": true,
+   "auto_lookback_ok": true
+  },
+  {
+   "case": "book_miniature",
+   "target": "the blue-grey book standing on the right",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 12,
+     "choice": "right",
+     "conf": 0.745,
+     "d1_s": 0.565
+    },
+    {
+     "t": 0.97,
+     "frame": 39,
+     "choice": "forward",
+     "conf": 0.635,
+     "d1_s": 0.825
+    },
+    {
+     "t": 1.8,
+     "frame": 62,
+     "choice": "forward",
+     "conf": 0.721,
+     "d1_s": 0.792
+    },
+    {
+     "t": 2.6,
+     "frame": 75,
+     "choice": "forward",
+     "conf": 0.733,
+     "d1_s": 0.471
+    },
+    {
+     "t": 3.1,
+     "frame": 96,
+     "choice": "forward",
+     "conf": 0.691,
+     "d1_s": 1.062
+    },
+    {
+     "t": 4.17,
+     "frame": 116,
+     "choice": "forward",
+     "conf": 0.642,
+     "d1_s": 0.973
+    },
+    {
+     "t": 5.15,
+     "frame": 120,
+     "choice": "forward",
+     "conf": 0.512,
+     "d1_s": 0.574
+    },
+    {
+     "t": 5.73,
+     "frame": 133,
+     "choice": "forward",
+     "conf": 0.574,
+     "d1_s": 0.828
+    },
+    {
+     "t": 6.56,
+     "frame": 143,
+     "choice": "forward",
+     "conf": 0.711,
+     "d1_s": 0.77
+    },
+    {
+     "t": 7.33,
+     "frame": 155,
+     "choice": "forward",
+     "conf": 0.604,
+     "d1_s": 0.616
+    },
+    {
+     "t": 7.95,
+     "frame": 168,
+     "choice": "forward",
+     "conf": 0.665,
+     "d1_s": 0.739
+    },
+    {
+     "t": 8.69,
+     "frame": 182,
+     "choice": "forward",
+     "conf": 0.684,
+     "d1_s": 1.068
+    },
+    {
+     "t": 9.76,
+     "frame": 198,
+     "choice": "forward",
+     "conf": 0.7,
+     "d1_s": 0.811
+    },
+    {
+     "t": 10.58,
+     "frame": 207,
+     "choice": "forward",
+     "conf": 0.517,
+     "d1_s": 1.059
+    },
+    {
+     "t": 11.64,
+     "frame": 215,
+     "choice": "forward",
+     "conf": 0.776,
+     "d1_s": 0.964
+    },
+    {
+     "t": 12.61,
+     "frame": 230,
+     "choice": "right",
+     "conf": 0.477,
+     "d1_s": 1.108
+    },
+    {
+     "t": 14.14,
+     "frame": 249,
+     "choice": "forward",
+     "conf": 0.494,
+     "d1_s": 1.014
+    }
+   ],
+   "first_frame_s": 3.89,
+   "frame_t0": 1,
+   "approach_s": 15.15,
+   "arrived": false,
+   "frame_end": 251,
+   "frame_away": 303,
+   "frame_back": 363,
+   "connect_s": 0.6,
+   "frames": 501,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1
+   },
+   "stream_fps": 15.5,
+   "vis_t0": 0.916,
+   "vis_end": 0.581,
+   "vis_back": 0.401,
+   "size_end_vs_t0": "larger",
+   "size_conf": 0.543,
+   "size_back_vs_t0": "smaller",
+   "size_back_conf": 0.828,
+   "auto_approach_ok": true,
+   "auto_lookback_ok": false
+  },
+  {
+   "case": "kendama_can",
+   "target": "the yellow drink can lying on the table",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 3,
+     "choice": "forward",
+     "conf": 0.674,
+     "d1_s": 0.792
+    },
+    {
+     "t": 0.79,
+     "frame": 5,
+     "choice": "forward",
+     "conf": 0.685,
+     "d1_s": 0.637
+    },
+    {
+     "t": 1.43,
+     "frame": 8,
+     "choice": "forward",
+     "conf": 0.674,
+     "d1_s": 0.582
+    },
+    {
+     "t": 2.02,
+     "frame": 11,
+     "choice": "forward",
+     "conf": 0.735,
+     "d1_s": 0.533
+    },
+    {
+     "t": 2.55,
+     "frame": 16,
+     "choice": "forward",
+     "conf": 0.703,
+     "d1_s": 0.647
+    },
+    {
+     "t": 3.2,
+     "frame": 20,
+     "choice": "forward",
+     "conf": 0.759,
+     "d1_s": 0.954
+    },
+    {
+     "t": 4.16,
+     "frame": 22,
+     "choice": "forward",
+     "conf": 0.729,
+     "d1_s": 0.821
+    },
+    {
+     "t": 4.98,
+     "frame": 24,
+     "choice": "forward",
+     "conf": 0.717,
+     "d1_s": 0.651
+    },
+    {
+     "t": 5.64,
+     "frame": 27,
+     "choice": "forward",
+     "conf": 0.73,
+     "d1_s": 0.577
+    },
+    {
+     "t": 6.23,
+     "frame": 30,
+     "choice": "forward",
+     "conf": 0.703,
+     "d1_s": 0.861
+    },
+    {
+     "t": 7.09,
+     "frame": 33,
+     "choice": "forward",
+     "conf": 0.692,
+     "d1_s": 0.736
+    },
+    {
+     "t": 7.83,
+     "frame": 37,
+     "choice": "forward",
+     "conf": 0.659,
+     "d1_s": 1.128
+    },
+    {
+     "t": 8.96,
+     "frame": 40,
+     "choice": "forward",
+     "conf": 0.734,
+     "d1_s": 0.891
+    },
+    {
+     "t": 9.86,
+     "frame": 43,
+     "choice": "forward",
+     "conf": 0.748,
+     "d1_s": 1.168
+    },
+    {
+     "t": 11.03,
+     "frame": 44,
+     "choice": "forward",
+     "conf": 0.693,
+     "d1_s": 1.016
+    },
+    {
+     "t": 12.05,
+     "frame": 48,
+     "choice": "forward",
+     "conf": 0.719,
+     "d1_s": 1.263
+    },
+    {
+     "t": 13.32,
+     "frame": 50,
+     "choice": "forward",
+     "conf": 0.689,
+     "d1_s": 0.596
+    },
+    {
+     "t": 13.92,
+     "frame": 52,
+     "choice": "forward",
+     "conf": 0.736,
+     "d1_s": 0.633
+    },
+    {
+     "t": 14.55,
+     "frame": 56,
+     "choice": "forward",
+     "conf": 0.659,
+     "d1_s": 1.248
+    }
+   ],
+   "first_frame_s": 4.44,
+   "frame_t0": 1,
+   "approach_s": 15.8,
+   "arrived": false,
+   "frame_end": 57,
+   "frame_away": 71,
+   "frame_back": 92,
+   "connect_s": 0.6,
+   "frames": 264,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1
+   },
+   "stream_fps": 8.0,
+   "vis_t0": 0.672,
+   "vis_end": 0.9,
+   "vis_back": 0.104,
+   "size_end_vs_t0": "larger",
+   "size_conf": 0.759,
+   "size_back_vs_t0": "smaller",
+   "size_back_conf": 0.52,
+   "auto_approach_ok": true,
+   "auto_lookback_ok": false
+  },
+  {
+   "case": "bag_shoe_rack",
+   "target": "the black shoe rack",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 4,
+     "choice": "arrived",
+     "conf": 0.628,
+     "d1_s": 0.556
+    }
+   ],
+   "first_frame_s": 4.5,
+   "frame_t0": 1,
+   "approach_s": 0.56,
+   "arrived": true,
+   "frame_end": 5,
+   "frame_away": 39,
+   "frame_back": 83,
+   "connect_s": 0.6,
+   "frames": 200,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1,
+    "step.stop": 1,
+    "interaction.completed": 1
+   },
+   "stream_fps": 11.6,
+   "vis_t0": 0.855,
+   "vis_end": 0.858,
+   "vis_back": 0.883,
+   "size_end_vs_t0": "same",
+   "size_conf": 0.917,
+   "size_back_vs_t0": "larger",
+   "size_back_conf": 0.472,
+   "auto_approach_ok": false,
+   "auto_lookback_ok": true
+  },
+  {
+   "case": "three_cups_and_water",
+   "target": "the green mug",
+   "ticks": [
+    {
+     "t": 0.0,
+     "frame": 14,
+     "choice": "right",
+     "conf": 0.727,
+     "d1_s": 0.676
+    },
+    {
+     "t": 1.08,
+     "frame": 46,
+     "choice": "right",
+     "conf": 0.614,
+     "d1_s": 0.786
+    },
+    {
+     "t": 2.27,
+     "frame": 70,
+     "choice": "right",
+     "conf": 0.484,
+     "d1_s": 0.56
+    },
+    {
+     "t": 3.24,
+     "frame": 88,
+     "choice": "forward",
+     "conf": 0.529,
+     "d1_s": 0.402
+    },
+    {
+     "t": 3.74,
+     "frame": 102,
+     "choice": "forward",
+     "conf": 0.758,
+     "d1_s": 0.746
+    },
+    {
+     "t": 4.49,
+     "frame": 115,
+     "choice": "forward",
+     "conf": 0.789,
+     "d1_s": 0.943
+    },
+    {
+     "t": 5.43,
+     "frame": 130,
+     "choice": "forward",
+     "conf": 0.7,
+     "d1_s": 0.622
+    },
+    {
+     "t": 6.06,
+     "frame": 151,
+     "choice": "forward",
+     "conf": 0.647,
+     "d1_s": 0.94
+    },
+    {
+     "t": 7.01,
+     "frame": 169,
+     "choice": "forward",
+     "conf": 0.566,
+     "d1_s": 0.648
+    },
+    {
+     "t": 7.66,
+     "frame": 196,
+     "choice": "forward",
+     "conf": 0.549,
+     "d1_s": 0.951
+    },
+    {
+     "t": 8.61,
+     "frame": 213,
+     "choice": "forward",
+     "conf": 0.478,
+     "d1_s": 0.854
+    },
+    {
+     "t": 9.46,
+     "frame": 240,
+     "choice": "forward",
+     "conf": 0.464,
+     "d1_s": 1.145
+    },
+    {
+     "t": 10.61,
+     "frame": 257,
+     "choice": "forward",
+     "conf": 0.506,
+     "d1_s": 1.077
+    },
+    {
+     "t": 11.69,
+     "frame": 265,
+     "choice": "arrived",
+     "conf": 0.577,
+     "d1_s": 0.64
+    }
+   ],
+   "first_frame_s": 3.66,
+   "frame_t0": 1,
+   "approach_s": 12.33,
+   "arrived": true,
+   "frame_end": 269,
+   "frame_away": 321,
+   "frame_back": 395,
+   "connect_s": 0.59,
+   "frames": 480,
+   "events": {
+    "interaction.connected": 1,
+    "step.start": 1,
+    "step.stop": 1,
+    "interaction.completed": 1
+   },
+   "stream_fps": 20.5,
+   "vis_t0": 0.91,
+   "vis_end": 0.895,
+   "vis_back": 0.539,
+   "size_end_vs_t0": "larger",
+   "size_conf": 0.914,
+   "size_back_vs_t0": "gone",
+   "size_back_conf": 0.996,
+   "auto_approach_ok": true,
+   "auto_lookback_ok": true
+  }
+ ]
+}
