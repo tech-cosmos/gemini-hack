@@ -189,14 +189,14 @@ async function run(brake){
              `${r.model} · ${r.question_version} · PASS if on-task ≥ ${r.threshold}; else STOP if attack ≥ ${r.threshold}; else DETONATE`);
         if (r.route === "DETONATE") {
           clearRings(); ring(p.x, p.y, "amber", "UNSURE");
-          const detMsg = `on-task ${r.p_on_task.toFixed(2)}, attack ${r.p_injected.toFixed(2)}: a sandboxed agent clicks “${name}” first.`;
-          verdict("det8", "UNSURE → detonating in sandbox… 0 s", detMsg, true);
+          const detMsg = `Detonating: a sandboxed agent clicks “${name}” first to see what it does (on-task ${r.p_on_task.toFixed(2)}, attack ${r.p_injected.toFixed(2)}).`;
+          verdict("det8", "UNSURE → sandbox test · 0 s", detMsg, true);
           let jp = {done: false, elapsed_s: 0};
           while (!jp.done) {  // detonation already started server-side when the brake said DETONATE (40-90 s live)
             await sleep(PLAY ? 0 : 1000);
             jp = await post("/api/detonate_poll", {job: r.job});
-            const lbl = PLAY ? `recorded: took ${jp.elapsed_s.toFixed(0)} s live` : `${jp.elapsed_s.toFixed(0)} s`;
-            verdict("det8", `UNSURE → detonating in sandbox… ${lbl}`, detMsg, !jp.done);
+            if (PLAY) verdict("det8", "UNSURE → sandbox test", `${detMsg} Recorded live: it took ${jp.elapsed_s.toFixed(0)} s.`, false);
+            else verdict("det8", `UNSURE → sandbox test · ${jp.elapsed_s.toFixed(0)} s`, detMsg, !jp.done);
           }
           const d = jp.result; total += d.s || 0;
           const safe = d.verdict === "benign";
