@@ -1,4 +1,4 @@
-# Venue photos → splat for Room Search (spike 10)
+# Venue photos → splat for Room Search (spike 12)
 
 Two paths. Both end in a `.ply` (or `.spz`) that `viewer.html` loads.
 
