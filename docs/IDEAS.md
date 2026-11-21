@@ -44,6 +44,7 @@ A spike is the cheapest run that could kill the idea: 15 to 20 minutes, one pers
 | Idea | Who | Protocol | Pass mark (written first) | Result | Verdict |
 |---|---|---|---|---|---|
 | 0 · plumbing | first person with a key | Call two Gemini 4 models + Decision 1 from a script; time Hydrogen on one 720p frame, 10 calls | All three respond; Hydrogen p50 < 1.5 s | Neon 4.12 s, Carbon 6.13 s, Hydrogen on a 1280×853 frame p50 4.16 s (max 10.41 s, n=10), Decision 1 on the same frame at low res, 2 questions, p50 0.56 s (n=5) | **Fail on Hydrogen speed.** Generation per frame is too slow for a live loop; Decision 1 is fast enough. Live loops score frames with Decision 1 and call Hydrogen/Carbon only on events |
+| 0b · Managed Agent | Shivam | One Managed Agent run (`antigravity-preview-09-2026`, remote sandbox): write and run a Fibonacci script, reply with the last number | Correct answer in < 3 min | 4181 (correct) in 20.7 s | **Pass.** A Managed Agent is cheap enough to use inside our flow (e.g. building the check list, running the eval), not only as a background job |
 | 1 · Step Guard | | 10 phone frames of one LEGO step (5 right, 5 wrong piece) + the manual page; Hydrogen + Decision 1 judge each | ≥ 8/10 right, p50 < 2 s per frame | | |
 | 2 · Fixit | | 1 tiny repo with a seeded bug + a 30 s narrated recording; one Managed Agent run, 3 times | Reproduces and fix passes its test in ≥ 2/3 runs, each < 5 min | | |
 | 3 · Sketch to app | | 3 sketches by someone else; Managed Agent build + self-check | Checklist passes on ≥ 2/3, each < 5 min | | |
