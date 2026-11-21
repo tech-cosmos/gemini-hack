@@ -1,0 +1,174 @@
+{
+  "summary": {
+    "balanced_acc": 0.9,
+    "tpr": 0.9,
+    "tnr": 0.9,
+    "false_success": 1,
+    "n": 20,
+    "errors": 0,
+    "latency_s": [
+      10.6,
+      14.4,
+      14.7,
+      14.9,
+      15.7,
+      15.7,
+      16.0,
+      16.7,
+      18.9,
+      20.5,
+      21.0,
+      24.6,
+      27.0,
+      43.5,
+      48.4,
+      64.1,
+      89.1,
+      107.4,
+      141.6,
+      238.2
+    ]
+  },
+  "clips": [
+    {
+      "case": "eggs_and_egg_tray",
+      "label": "correct",
+      "s": 238.2,
+      "success": true,
+      "answer": "YES\nThe person moves one egg from the left-hand clear tray and places it into an open spot in the middle row of the right-hand black tray that continues its alternating checkerboard pattern."
+    },
+    {
+      "case": "eggs_and_egg_tray",
+      "label": "wrong",
+      "s": 24.6,
+      "success": false,
+      "answer": "NO\nAlthough an egg was moved from the clear tray to the black tray, it was placed in the bottom row between two existing eggs instead of the empty slot on the middle-right that completes the alternati"
+    },
+    {
+      "case": "four_in_a_row",
+      "label": "correct",
+      "s": 48.4,
+      "success": true,
+      "answer": "YES\nThe player drops the red piece into the fourth column, completing a diagonal line of four red pieces to win the game."
+    },
+    {
+      "case": "four_in_a_row",
+      "label": "wrong",
+      "s": 107.4,
+      "success": false,
+      "answer": "NO\nThe player drops the yellow piece into the second column, which does not complete a line of four in a row for either yellow or red, so neither side wins the Connect Four game."
+    },
+    {
+      "case": "stack_book_pen",
+      "label": "correct",
+      "s": 16.7,
+      "success": true,
+      "answer": "YES\nBy the end of the video, the person has moved the pen aside, placed the book on top of the sheet of paper, and finally placed the pen on top of the book."
+    },
+    {
+      "case": "stack_book_pen",
+      "label": "wrong",
+      "s": 10.6,
+      "success": false,
+      "answer": "NO\nThe paper is placed on top of both the book and the pen, instead of the book being stacked on top of the paper with the pen on top of the book."
+    },
+    {
+      "case": "stack_cap_bottle",
+      "label": "correct",
+      "s": 14.9,
+      "success": true,
+      "answer": "YES\nAll paper cups from both bottles have been removed, nested together into a single stack, and flipped upright on the table with their openings facing upward."
+    },
+    {
+      "case": "stack_cap_bottle",
+      "label": "wrong",
+      "s": 43.5,
+      "success": false,
+      "answer": "NO\nAlthough the paper cups from both bottles are placed upright on the table with their openings facing upward, they remain in two separate positions rather than being nested together into a single st"
+    },
+    {
+      "case": "laptop_open",
+      "label": "correct",
+      "s": 14.7,
+      "success": true,
+      "answer": "YES\nBy the end of the video, the laptop lid is completely open and both the key and the pen are placed next to each other on the table to the left of the laptop."
+    },
+    {
+      "case": "laptop_open",
+      "label": "wrong",
+      "s": 20.5,
+      "success": false,
+      "answer": "NO\nAlthough the laptop lid is open and the key and pen are placed together, they are positioned on the right side of the laptop instead of the left side."
+    },
+    {
+      "case": "stack_book_laptop",
+      "label": "correct",
+      "s": 21.0,
+      "success": true,
+      "answer": "YES\nThe person closes both the notebook and the laptop, then places the closed notebook squarely on top of the closed laptop where it remains until the end of the video."
+    },
+    {
+      "case": "stack_book_laptop",
+      "label": "wrong",
+      "s": 15.7,
+      "success": false,
+      "answer": "NO\nThe closed book is left sandwiched between the laptop's keyboard and screen, preventing the laptop from closing fully rather than being stacked on top of the closed laptop."
+    },
+    {
+      "case": "tea_bags_and_cups",
+      "label": "correct",
+      "s": 141.6,
+      "success": true,
+      "answer": "YES\nBy the end of the video, all three tea bags (red, yellow, and green) have been placed inside their matching-colored cups (pink/light red, yellow, and green)."
+    },
+    {
+      "case": "tea_bags_and_cups",
+      "label": "wrong",
+      "s": 64.1,
+      "success": true,
+      "answer": "YES\nBy the end of the video, all three tea bags have been placed inside their matching colored cups\u2014the green tea bag in the green cup, the yellow tea bag in the yellow cup, and the red tea bag in the"
+    },
+    {
+      "case": "toothpaste_water",
+      "label": "correct",
+      "s": 89.1,
+      "success": false,
+      "answer": "NO\nAlthough the toothpaste tube is closed and the toothbrush is rinsed, rinsing the toothbrush directly under the strong stream of running water after applying the toothpaste washes it off, leaving no"
+    },
+    {
+      "case": "toothpaste_water",
+      "label": "wrong",
+      "s": 27.0,
+      "success": false,
+      "answer": "NO\nThe toothpaste tube is never opened and no toothpaste is applied to the toothbrush, leaving the rinsed toothbrush bare at the end."
+    },
+    {
+      "case": "erase_whiteboard",
+      "label": "correct",
+      "s": 14.4,
+      "success": true,
+      "answer": "YES\nBy the end of the video, the word \"Hello\" has been completely erased from the whiteboard and the red marker has been placed inside the slot of the blue eraser sitting on the whiteboard shelf."
+    },
+    {
+      "case": "erase_whiteboard",
+      "label": "wrong",
+      "s": 15.7,
+      "success": false,
+      "answer": "NO\nThe whiteboard is only partially erased with \"He\" still written on it, and the red marker remains on the shelf next to the eraser rather than inside it."
+    },
+    {
+      "case": "coffee_plate_bottle",
+      "label": "correct",
+      "s": 18.9,
+      "success": true,
+      "answer": "YES\nThe fork and spoon are moved off the upright plate onto the table, the coffee container is securely closed with its lid, and both the closed coffee container and the water bottle are placed on the"
+    },
+    {
+      "case": "coffee_plate_bottle",
+      "label": "wrong",
+      "s": 16.0,
+      "success": false,
+      "answer": "NO\nThe coffee container is not closed with its lid, as the lid is instead placed next to the open container on the plate."
+    }
+  ]
+}

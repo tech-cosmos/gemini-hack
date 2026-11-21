@@ -1,0 +1,152 @@
+{
+  "balanced_acc": 0.9,
+  "tpr": 0.9,
+  "tnr": 0.9,
+  "escalated": 8,
+  "n": 20,
+  "p50_latency_s": 1.17,
+  "neon_alone_p50_latency_s": 20.75,
+  "decided_under_2s": 12,
+  "rows": [
+    {
+      "case": "eggs_and_egg_tray",
+      "label": "correct",
+      "escalated": true,
+      "pred_success": true,
+      "latency_s": 239.0
+    },
+    {
+      "case": "eggs_and_egg_tray",
+      "label": "wrong",
+      "escalated": true,
+      "pred_success": false,
+      "latency_s": 25.51
+    },
+    {
+      "case": "four_in_a_row",
+      "label": "correct",
+      "escalated": true,
+      "pred_success": true,
+      "latency_s": 49.44
+    },
+    {
+      "case": "four_in_a_row",
+      "label": "wrong",
+      "escalated": true,
+      "pred_success": false,
+      "latency_s": 108.44
+    },
+    {
+      "case": "stack_book_pen",
+      "label": "correct",
+      "escalated": false,
+      "pred_success": true,
+      "latency_s": 1.17
+    },
+    {
+      "case": "stack_book_pen",
+      "label": "wrong",
+      "escalated": false,
+      "pred_success": false,
+      "latency_s": 0.79
+    },
+    {
+      "case": "stack_cap_bottle",
+      "label": "correct",
+      "escalated": true,
+      "pred_success": true,
+      "latency_s": 15.84
+    },
+    {
+      "case": "stack_cap_bottle",
+      "label": "wrong",
+      "escalated": false,
+      "pred_success": false,
+      "latency_s": 0.76
+    },
+    {
+      "case": "laptop_open",
+      "label": "correct",
+      "escalated": false,
+      "pred_success": true,
+      "latency_s": 0.88
+    },
+    {
+      "case": "laptop_open",
+      "label": "wrong",
+      "escalated": false,
+      "pred_success": false,
+      "latency_s": 0.8
+    },
+    {
+      "case": "stack_book_laptop",
+      "label": "correct",
+      "escalated": false,
+      "pred_success": true,
+      "latency_s": 1.57
+    },
+    {
+      "case": "stack_book_laptop",
+      "label": "wrong",
+      "escalated": false,
+      "pred_success": false,
+      "latency_s": 0.81
+    },
+    {
+      "case": "tea_bags_and_cups",
+      "label": "correct",
+      "escalated": true,
+      "pred_success": true,
+      "latency_s": 142.37
+    },
+    {
+      "case": "tea_bags_and_cups",
+      "label": "wrong",
+      "escalated": true,
+      "pred_success": true,
+      "latency_s": 64.91
+    },
+    {
+      "case": "toothpaste_water",
+      "label": "correct",
+      "escalated": false,
+      "pred_success": false,
+      "latency_s": 1.17
+    },
+    {
+      "case": "toothpaste_water",
+      "label": "wrong",
+      "escalated": false,
+      "pred_success": false,
+      "latency_s": 0.71
+    },
+    {
+      "case": "erase_whiteboard",
+      "label": "correct",
+      "escalated": false,
+      "pred_success": true,
+      "latency_s": 0.82
+    },
+    {
+      "case": "erase_whiteboard",
+      "label": "wrong",
+      "escalated": false,
+      "pred_success": false,
+      "latency_s": 0.82
+    },
+    {
+      "case": "coffee_plate_bottle",
+      "label": "correct",
+      "escalated": false,
+      "pred_success": true,
+      "latency_s": 0.91
+    },
+    {
+      "case": "coffee_plate_bottle",
+      "label": "wrong",
+      "escalated": true,
+      "pred_success": false,
+      "latency_s": 16.64
+    }
+  ]
+}
