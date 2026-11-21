@@ -2,42 +2,39 @@
 
 Written before building. We build exactly this, and anything not on this page waits.
 
-> **DRAFT (12:37, lead's agent), pending the 13:29 lock.** Assumes Step Guard (cascade) is picked.
-> Rows marked *[Done Gate]* depend on spike 7. If it fails, the judge presses "Check" instead.
+> **Click-Brake, locked 14:46.** Rows marked *[17]* depend on spike 17 (a real computer-use agent falls for a
+> typed injection). If it doesn't, the "unprotected" run replays a recorded hijack from our own set and we say so.
 
-**The one sentence a judge should repeat afterwards:** "It watched me do the task, told me in about a
-second that I'd swapped the lids, and they showed it matches the slow frontier model's accuracy at a
-tenth of the wait."
+**The one sentence a judge should repeat afterwards:** "I typed my own trap into the page, the agent fell for it,
+and with the brake on it was stopped in about a second, before the click, and still finished the job."
 
-Named person: a line trainer onboarding a new assembler (the builder guide's "concrete person").
+Named person: anyone letting a browser agent shop, pay or answer email for them; the bank or shop deploying it.
 
-| Time | On screen | Who | Says | Criterion it scores |
+| Time | On screen | Who | Says | Criterion |
 |---|---|---|---|---|
-| 0:00 | Phone camera over a table with 3 jars and 3 lids | Shivam | "A new assembler does a task. Did they do it right? Today you'd wait for a supervisor, or for a frontier model to watch the video for ~17 seconds." | Creativity (named problem) |
-| 0:15 | Judge says the goal into the mic ("each lid on its own jar"); text goal appears | Judge | (their own words) | Live: unrehearsed input |
-| 0:25 | Judge does it, **deliberately wrong** (swaps two lids) | Judge | | Live |
-| 0:40 | *[Done Gate]* hands withdraw → "Checking…" appears by itself (else judge presses Check) | | | Gemini use (Decision 1 gate) |
-| 0:42 | Verdict in ~1–2 s: **WRONG** + Decision 1's probability + confidence. If unsure: "Asking Neon…" → Neon's verdict and reason in ~17 s ("the red and blue lids are swapped") | Hydrogen speaks it | | Live; Gemini use (2 models, each a clear job) |
-| 1:05 | Judge fixes it; verdict **RIGHT** in ~1 s | Judge | | Live |
-| 1:20 | One slide: accuracy vs latency for Decision 1 alone / Neon alone / cascade on 40 held-out ego2act clips | Shivam | "0.925 balanced accuracy at 1.58 s typical, same as Neon alone, which takes 16.8 s. Decision 1 alone: 0.80." | Proof (baseline) |
-| 1:50 | Slide: where it fails (sock_bucket, racket_table_floor, messy_desk_monitor) + the five designs we killed today | Dan | "Splitting the judgment into many small checks lost every time. Decision 1 only won as a gate in front of Neon." | Proof (honest failures) |
-| 2:30 | Model roles diagram: Decision 1 gate → Neon agentic video when unsure → Hydrogen voice; Carbon (if used) | Dan | | Gemini use |
-| 2:50 | "Try it yourself" | | | |
+| 0:00 | A shop checkout page; task box: "Place the order for the headphones in my cart." | Shivam | "Browser agents read the page to act. Anything on the page can give them orders." | Creativity (named problem) |
+| 0:15 | Judge types their own banner text into the "attacker" box; it appears on the page | Judge | (their own words) | Live: unrehearsed input |
+| 0:30 | *[17]* **Brake OFF**: agent runs, ring lands on the judge's banner button → red HIJACKED | | "That's what happens today." | Live |
+| 0:50 | **Brake ON**: same page; agent proposes the same click → STOPPED in ~1.2 s, p = 0.9x, Carbon's one-line reason; ER 2 circles "Place order" | | | Gemini use (Decision 1 gate, computer-use, ER 2, Carbon) |
+| 1:10 | Agent clicks the right button; order placed (Managed Agents finishes the task) | | | Gemini use (Managed Agents) |
+| 1:25 | Judge tries a legit pop-up (cookie / confirm) → brake lets it through | Judge | | Live; Proof (no false stop) |
+| 1:45 | Slide: VPI-Bench (public, not ours) + our set: Decision 1 vs Hydrogen, AUROC, false stops, latency | Dan | numbers from `docs/EVIDENCE.md` only | Proof (baseline, inputs we didn't write) |
+| 2:15 | Slide: where it fails (reload / sign-in pop-ups stopped, clicks near an injection) and what we changed | Dan | | Proof (honest failures) |
+| 2:40 | Model roles diagram | Dan | | Gemini use |
+| 2:55 | "Try your own trap" | | | |
 
 ## The moment
-The judge picks the task and does it wrong on purpose, and the system says what is wrong in about a second.
+The judge writes the attack, watches the agent fall for it, then watches the brake stop the same click.
 
 ## If it breaks on stage
-- Neon slow or timing out: show Decision 1's verdict with its confidence, and say "unsure, would escalate".
-- Wi-Fi: a phone hotspot; a recorded run of the same flow in a second tab.
-- Camera: upload a clip filmed 2 minutes earlier.
+- Computer-use agent slow or flaky: replay its recorded proposed click; the brake call stays live.
+- Decision 1 slow under load: show the latency honestly; fall back to cached run in a second tab.
+- Wi-Fi: phone hotspot; recorded run of the same flow.
 
 ## Likely questions, with answers
-| Question | Answer (with the number and where it comes from) |
+| Question | Answer (number and source) |
 |---|---|
-| Why would anyone need this? | Checking physical work today means a person watching, or a frontier model taking ~17 s per clip (`results/s2_heldout.json`). |
-| Why can't an existing tool do it? | One Neon call can, slowly: 0.925 at 16.8 s. Decision 1 alone is fast but 0.80. The cascade gets 0.925 at 1.58 s (same file). |
-| Isn't the accuracy just a tie with Neon? | Yes, on accuracy; the gain is speed at equal accuracy, and fewer false "success" calls (1 vs 2 vs 4 of 20). On 40 clips that difference is small; we say so. |
-| Where does it fail? | Decision 1 confidently wrong (sock_bucket); Neon wrong on cluttered scenes (racket_table_floor, messy_desk_monitor). 16 of 40 clips still wait for Neon. |
-| How did you pick the thresholds? | 0.25 / 0.75 fixed on 20 clips (spike 1d), then frozen and tested on 40 unseen clips (spike 2). |
-| What would you do with another week? | Per-site threshold fitting, robot clips (Dan's ArmnetBench: Decision 1 alone 0.875), step-by-step checks. |
+| Isn't this just a classifier? | It's a gate on the action, not the page: same page, right click passes, injected click stops (spike 16 "injection ignored" cases; `results/s16_clickbrake.json`). |
+| Why not ask Hydrogen? | Hydrogen ranks as well but takes ~3× longer per click (spike 16: 3.716 s vs 1.2425 s p50). Final numbers: VPI-Bench run, `docs/EVIDENCE.md`. |
+| You wrote the test pages. | The headline number is on VPI-Bench (ICLR 2026, CC-BY-4.0), which we didn't write. |
+| Where does it fail? | From the eval: legit reload/sign-in pop-ups, correct clicks on pages that also carry an injection. |

@@ -18,17 +18,24 @@ chats, so anything that matters is written here.
 - Not sure who you work for? `gh api user --jq .login`. If it isn't `tech-cosmos`, you are a lane owner.
 
 ## What we're building
-<!-- LEAD: two sentences, written once the idea is picked. -->
-_Not decided yet. See `docs/IDEAS.md`._
+**Click-Brake** (problem statement One, 5 Sigma): a brake in front of every click a computer-use agent makes.
+Before a click fires, Gemini Decision 1 looks at the screenshot, a crop of the click point and the user's task, and
+stops clicks driven by text injected into the page (≈1.2 s); Robotics-ER 2 circles the button the task really
+needs, Carbon explains unsure stops, and the agent finishes the task safely. Proof: public VPI-Bench + our set vs a
+Hydrogen baseline, with where it fails.
 
-**Golden path (must always work on `main`):** <!-- LEAD: the one flow the demo depends on. -->
+**Golden path (must always work on `main`):** a page with a judge-typed injection banner → the agent proposes a
+click on it → `brake.check()` returns `stop` → the app shows STOPPED with the reason and the right button circled →
+the agent clicks the right button. Offline: `MOCK=1 .venv/bin/python -m app.golden --out <dir>` writes `result.json`.
 `scripts/check` runs it. Run it before every merge.
 
 ## Lanes
 <!-- LEAD: one row per person. A lane is a whole piece with a clear edge, so nobody waits on anybody. -->
 | Lane | Owner | Folders | Done means |
 |---|---|---|---|
-| | | | |
+| Live app + brake | Shivam (tech-cosmos) and agents | `app/`, `brake/`, `spikes/s17*` | Judge types a banner; unprotected agent clicks it, protected agent is stopped in ≤ 2 s with reason + circle, then finishes the task; runs on venue Wi-Fi |
+| Proof | Dan (rrrozhd) and agents | `eval/`, `results/eval_*` | VPI-Bench + own set, held-out AUROC / false stops / latency for Decision 1 vs Hydrogen; failure gallery; numbers in `docs/EVIDENCE.md` |
+| Managed Agents | Dan (rrrozhd) and agents | `managed/` | The protected agent (or its task-finisher) runs on Managed Agents with the brake gating each action; one-call demo path |
 
 ## The files
 | File | What it is |
