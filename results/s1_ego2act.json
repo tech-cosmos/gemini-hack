@@ -1,0 +1,425 @@
+{
+  "summary": {
+    "a_one_question": {
+      "balanced_acc": 0.7,
+      "tpr": 0.6,
+      "tnr": 0.8,
+      "false_success": 2,
+      "n_correct": 10,
+      "n_wrong": 10
+    },
+    "b_failure_first_checks": {
+      "balanced_acc": 0.55,
+      "tpr": 0.1,
+      "tnr": 1.0,
+      "false_success": 0,
+      "n_correct": 10,
+      "n_wrong": 10
+    },
+    "errors": [],
+    "decision_latency_s": [
+      0.64,
+      0.71,
+      0.76,
+      0.77,
+      0.79,
+      0.8,
+      0.8,
+      0.81,
+      0.81,
+      0.82,
+      0.82,
+      0.88,
+      0.91,
+      0.91,
+      0.94,
+      1.04,
+      1.04,
+      1.17,
+      1.17,
+      1.57
+    ],
+    "video_accepted": true,
+    "pass": true
+  },
+  "clips": [
+    {
+      "case": "eggs_and_egg_tray",
+      "label": "correct",
+      "s": 0.8,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.333,
+      "p_checks": [
+        0.375,
+        0.396,
+        0.442,
+        0.656,
+        0.48,
+        0.412,
+        0.541
+      ],
+      "min_check": 0.375,
+      "conf_goal": 0.667
+    },
+    {
+      "case": "eggs_and_egg_tray",
+      "label": "wrong",
+      "s": 0.91,
+      "a_success": true,
+      "b_success": false,
+      "p_goal": 0.545,
+      "p_checks": [
+        0.522,
+        0.388,
+        0.611,
+        0.649,
+        0.683,
+        0.493,
+        0.474
+      ],
+      "min_check": 0.388,
+      "conf_goal": 0.545
+    },
+    {
+      "case": "four_in_a_row",
+      "label": "correct",
+      "s": 1.04,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.474,
+      "p_checks": [
+        0.9,
+        0.447,
+        0.795,
+        0.758,
+        0.865,
+        0.859,
+        0.494
+      ],
+      "min_check": 0.447,
+      "conf_goal": 0.526
+    },
+    {
+      "case": "four_in_a_row",
+      "label": "wrong",
+      "s": 1.04,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.476,
+      "p_checks": [
+        0.867,
+        0.826,
+        0.428,
+        0.878,
+        0.757,
+        0.49,
+        0.917
+      ],
+      "min_check": 0.428,
+      "conf_goal": 0.524
+    },
+    {
+      "case": "stack_book_pen",
+      "label": "correct",
+      "s": 1.17,
+      "a_success": true,
+      "b_success": true,
+      "p_goal": 0.939,
+      "p_checks": [
+        0.867,
+        0.916,
+        0.562,
+        0.883,
+        0.77,
+        0.806,
+        0.861
+      ],
+      "min_check": 0.562,
+      "conf_goal": 0.939
+    },
+    {
+      "case": "stack_book_pen",
+      "label": "wrong",
+      "s": 0.79,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.096,
+      "p_checks": [
+        0.418,
+        0.448,
+        0.684,
+        0.584,
+        0.152,
+        0.753,
+        0.746
+      ],
+      "min_check": 0.152,
+      "conf_goal": 0.904
+    },
+    {
+      "case": "stack_cap_bottle",
+      "label": "correct",
+      "s": 0.94,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.485,
+      "p_checks": [
+        0.762,
+        0.443,
+        0.734,
+        0.794,
+        0.747,
+        0.907,
+        0.604
+      ],
+      "min_check": 0.443,
+      "conf_goal": 0.515
+    },
+    {
+      "case": "stack_cap_bottle",
+      "label": "wrong",
+      "s": 0.76,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.146,
+      "p_checks": [
+        0.8,
+        0.564,
+        0.222,
+        0.777,
+        0.773,
+        0.289,
+        0.845
+      ],
+      "min_check": 0.222,
+      "conf_goal": 0.854
+    },
+    {
+      "case": "laptop_open",
+      "label": "correct",
+      "s": 0.88,
+      "a_success": true,
+      "b_success": false,
+      "p_goal": 0.881,
+      "p_checks": [
+        0.698,
+        0.383,
+        0.6,
+        0.896,
+        0.849,
+        0.765,
+        0.868
+      ],
+      "min_check": 0.383,
+      "conf_goal": 0.881
+    },
+    {
+      "case": "laptop_open",
+      "label": "wrong",
+      "s": 0.8,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.109,
+      "p_checks": [
+        0.833,
+        0.213,
+        0.546,
+        0.555,
+        0.734,
+        0.128,
+        0.829
+      ],
+      "min_check": 0.128,
+      "conf_goal": 0.891
+    },
+    {
+      "case": "stack_book_laptop",
+      "label": "correct",
+      "s": 1.57,
+      "a_success": true,
+      "b_success": false,
+      "p_goal": 0.921,
+      "p_checks": [
+        0.867,
+        0.776,
+        0.846,
+        0.725,
+        0.841,
+        0.631,
+        0.409
+      ],
+      "min_check": 0.409,
+      "conf_goal": 0.921
+    },
+    {
+      "case": "stack_book_laptop",
+      "label": "wrong",
+      "s": 0.81,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.16,
+      "p_checks": [
+        0.714,
+        0.713,
+        0.355,
+        0.69,
+        0.149,
+        0.298,
+        0.171
+      ],
+      "min_check": 0.149,
+      "conf_goal": 0.84
+    },
+    {
+      "case": "tea_bags_and_cups",
+      "label": "correct",
+      "s": 0.77,
+      "a_success": true,
+      "b_success": false,
+      "p_goal": 0.566,
+      "p_checks": [
+        0.569,
+        0.423,
+        0.873,
+        0.596,
+        0.544,
+        0.431
+      ],
+      "min_check": 0.423,
+      "conf_goal": 0.566
+    },
+    {
+      "case": "tea_bags_and_cups",
+      "label": "wrong",
+      "s": 0.81,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.349,
+      "p_checks": [
+        0.815,
+        0.548,
+        0.5,
+        0.427,
+        0.365,
+        0.352
+      ],
+      "min_check": 0.352,
+      "conf_goal": 0.651
+    },
+    {
+      "case": "toothpaste_water",
+      "label": "correct",
+      "s": 1.17,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.235,
+      "p_checks": [
+        0.667,
+        0.871,
+        0.417,
+        0.386,
+        0.558,
+        0.337,
+        0.436
+      ],
+      "min_check": 0.337,
+      "conf_goal": 0.765
+    },
+    {
+      "case": "toothpaste_water",
+      "label": "wrong",
+      "s": 0.71,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.189,
+      "p_checks": [
+        0.441,
+        0.493,
+        0.425,
+        0.779,
+        0.308,
+        0.393,
+        0.876
+      ],
+      "min_check": 0.308,
+      "conf_goal": 0.811
+    },
+    {
+      "case": "erase_whiteboard",
+      "label": "correct",
+      "s": 0.82,
+      "a_success": true,
+      "b_success": false,
+      "p_goal": 0.783,
+      "p_checks": [
+        0.615,
+        0.894,
+        0.393,
+        0.41,
+        0.766,
+        0.227,
+        0.884
+      ],
+      "min_check": 0.227,
+      "conf_goal": 0.783
+    },
+    {
+      "case": "erase_whiteboard",
+      "label": "wrong",
+      "s": 0.82,
+      "a_success": false,
+      "b_success": false,
+      "p_goal": 0.107,
+      "p_checks": [
+        0.246,
+        0.684,
+        0.12,
+        0.885,
+        0.886,
+        0.33,
+        0.888
+      ],
+      "min_check": 0.12,
+      "conf_goal": 0.893
+    },
+    {
+      "case": "coffee_plate_bottle",
+      "label": "correct",
+      "s": 0.91,
+      "a_success": true,
+      "b_success": false,
+      "p_goal": 0.787,
+      "p_checks": [
+        0.886,
+        0.608,
+        0.517,
+        0.743,
+        0.833,
+        0.781,
+        0.471
+      ],
+      "min_check": 0.471,
+      "conf_goal": 0.787
+    },
+    {
+      "case": "coffee_plate_bottle",
+      "label": "wrong",
+      "s": 0.64,
+      "a_success": true,
+      "b_success": false,
+      "p_goal": 0.678,
+      "p_checks": [
+        0.458,
+        0.165,
+        0.642,
+        0.771,
+        0.64,
+        0.406,
+        0.535
+      ],
+      "min_check": 0.165,
+      "conf_goal": 0.678
+    }
+  ]
+}

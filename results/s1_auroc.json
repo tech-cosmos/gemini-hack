@@ -1,0 +1,14 @@
+{
+  "p_goal": {
+    "auroc": 0.86,
+    "pair_wins": "8/10"
+  },
+  "min_check": {
+    "auroc": 0.87,
+    "pair_wins": "9/10"
+  },
+  "mean_check": {
+    "auroc": 0.74,
+    "pair_wins": "7/10"
+  }
+}

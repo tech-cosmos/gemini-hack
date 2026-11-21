@@ -1,0 +1,91 @@
+{
+  "eggs_and_egg_tray": [
+    "Does the clear egg tray on the left contain exactly one fewer egg than it had at the start?",
+    "Does the black egg tray on the right contain the single egg transferred from the clear tray?",
+    "Is the newly placed egg positioned in the exact slot of the black tray that continues the existing spatial pattern of the other eggs?",
+    "Does the upright orientation of the newly placed egg match the orientation of the rest of the eggs in the black tray?",
+    "Is the moved egg fully seated and resting stably inside its individual cup in the black tray?",
+    "Did all other eggs in both the clear and black trays remain unmoved in their original slots without being swapped?",
+    "Are the person's hands completely clear of both trays and all eggs?"
+  ],
+  "four_in_a_row": [
+    "Is a valid game piece belonging to the game used rather than an unrelated object?",
+    "Does the final piece placed belong to the side that holds the winning configuration on the board?",
+    "Does the final board state clearly satisfy a valid winning condition according to the rules of the game?",
+    "Is the winning game piece fully seated and properly aligned within its designated space or slot?",
+    "Is the placed game piece oriented upright and facing the correct way rather than sideways or upside down?",
+    "Are all other game pieces on the board undisturbed and properly positioned in their respective spaces?",
+    "Has the person completely released the piece and moved their hands clear of the playing area?"
+  ],
+  "stack_book_pen": [
+    "Are the three stacked items specifically a piece of paper, a book, and a pen?",
+    "Is the paper lying flat at the very bottom of the stack directly on the supporting surface?",
+    "Is the book completely closed rather than left open?",
+    "Is the book lying flat on its cover directly on top of the paper?",
+    "Is the pen resting directly on top of the upper surface of the book?",
+    "Is the pen completely stationary and fully supported on the book without rolling or hanging off the edge?",
+    "Are the person's hands completely clear of all three objects?"
+  ],
+  "stack_cap_bottle": [
+    "Are both bottles completely free of any paper cups?",
+    "Are all the paper cups combined into one single stack rather than left loose or in multiple stacks?",
+    "Are the paper cups fully nested inside one another rather than loosely balanced?",
+    "Is the stack of paper cups standing upright rather than lying on its side?",
+    "Are the openings of all the paper cups in the stack facing upward?",
+    "Is the stack of paper cups resting directly on the table surface and not held in a hand?",
+    "Is the stack composed exclusively of paper cups without any bottles, caps, or other objects mixed in?"
+  ],
+  "laptop_open": [
+    "Is the laptop lid fully opened to a normal viewing angle rather than closed or only slightly cracked open?",
+    "Is the laptop sitting flat on the surface with the open screen and keyboard facing toward the viewer?",
+    "Is an actual pen present in the final placement rather than a pencil, marker, or other wrong object?",
+    "Is an actual key present in the final placement rather than a substitute object?",
+    "Are both the key and the pen resting on the surface to the left of the laptop rather than on the right side, in front, or on top of the laptop itself?",
+    "Are the key and the pen placed closely together as a pair rather than separated far apart?",
+    "Are the person's hands completely released from and clear of the laptop, the key, and the pen so all objects rest stably on their own?"
+  ],
+  "stack_book_laptop": [
+    "Is the laptop resting flat with its base on the surface and its outer lid facing upward?",
+    "Is the laptop screen completely shut flush against its base?",
+    "Is a book positioned directly on top of the laptop rather than underneath or beside it?",
+    "Is the book completely closed with all of its pages inside its covers?",
+    "Is the book lying flat on its cover rather than standing on its spine or edge?",
+    "Is the book stably seated on the laptop surface without tipping or sliding off?",
+    "Are the person's hands completely removed from both the book and the laptop?"
+  ],
+  "tea_bags_and_cups": [
+    "Are all tea bags placed inside cups with none left out on the surrounding surface?",
+    "Does every tea bag match the color of the cup it is placed inside?",
+    "Is the main pouch or packet of each tea bag resting completely inside the cavity of its cup rather than balancing on the rim or hanging outside?",
+    "Are all cups standing upright with their openings facing upward?",
+    "Are the insides of all cups free of any objects other than the matching tea bags and their attached strings or tags?",
+    "Are the person's hands completely clear of the tea bags and cups so all items are stably at rest?"
+  ],
+  "toothpaste_water": [
+    "Is the object holding the paste an actual toothbrush rather than another bathroom item?",
+    "Is the substance applied to the brush toothpaste from the tube rather than another product?",
+    "Are the toothbrush bristles visibly wet from being rinsed with water?",
+    "Is the toothpaste positioned directly on the bristle tips rather than on the handle or the back of the brush head?",
+    "Does an intact amount of toothpaste remain on the bristles without having been washed away?",
+    "Is the cap placed on the toothpaste tube the correct matching cap for that specific tube?",
+    "Is the toothpaste tube cap fully screwed down or snapped completely shut with no gap?"
+  ],
+  "erase_whiteboard": [
+    "Is the whiteboard surface completely wiped clean of all writing and stray ink marks?",
+    "Is the marker stored with the eraser specifically the red marker rather than another color?",
+    "Is the cap fully closed onto the tip of the red marker?",
+    "Is the red marker fully seated inside the eraser's storage compartment rather than resting beside or on top of it?",
+    "Is the eraser resting directly on the whiteboard shelf rather than stuck to the board face or left on another surface?",
+    "Is the eraser oriented securely on the shelf so that neither the eraser nor the marker is tipping off the edge?",
+    "Are the person's hands completely clear of the whiteboard, the eraser, and the red marker?"
+  ],
+  "coffee_plate_bottle": [
+    "Is the plate positioned right side up with its serving surface facing upward?",
+    "Are both the fork and the spoon completely off the plate?",
+    "Is the area underneath the plate completely free of any utensils?",
+    "Is the lid fully seated and securely closed onto the coffee container?",
+    "Is the closed coffee container resting stably on the serving surface of the plate?",
+    "Is the bottle resting stably on the serving surface of the plate?",
+    "Are the closed coffee container and the bottle the only items on the plate?"
+  ]
+}
