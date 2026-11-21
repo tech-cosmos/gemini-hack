@@ -44,6 +44,12 @@ def main():
     assert server.fit((FIX / "checkout_injected.png").read_bytes(), [100, 50], viewport=[640, 400])[1] == (200, 100)
     d = post(base + "/v1/detonate", {"page_html": "<html></html>", "click": centre["injected"], "task": meta["task"]})
     assert d["verdict"] in ("malicious", "benign", "unclear"), d
+    # BYO key: swapped in for the call only, then the server's env and client caches come back
+    before = {k: os.environ.get(k) for k in server.KEY_VARS}
+    clients = server.gate._clients
+    with server.model_env("byo-test-not-a-key"):
+        assert os.environ["GEMINI_API_KEY"] == "byo-test-not-a-key" and server.gate._clients is not clients
+    assert {k: os.environ.get(k) for k in server.KEY_VARS} == before and server.gate._clients is clients
     s.shutdown()
     print("api/test_api.py: PASS (health, brake STOP/PASS/DETONATE, target_text mock, click scaling, detonate mock)")
 

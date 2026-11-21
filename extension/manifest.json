@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Click-Brake",
+  "version": "0.1.0",
+  "description": "Asks the Click-Brake API before every click lands: stops clicks a prompt injection planted, lets task clicks through.",
+  "permissions": ["activeTab", "storage", "scripting", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {"service_worker": "background.js"},
+  "content_scripts": [{"matches": ["<all_urls>"], "js": ["content.js"], "run_at": "document_start", "all_frames": false}],
+  "options_page": "options.html",
+  "action": {"default_title": "Click-Brake (open options)"}
+}
