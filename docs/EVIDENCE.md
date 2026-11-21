@@ -8,6 +8,9 @@ the slides or the talk.
 -
 
 ## Along the way (spikes, pilots, things that failed)
+- **0.8 · 0 of 10** · AUROC of the frozen Decision 1 goal question between Omni 1.2 RIGHT and WRONG generations (10 fresh ego2act tasks, 20 clips) · RIGHT clips at p ≥ 0.75. Pass mark was ≥ 0.85 and ≥ 7/10: **fail** · `results/s6_genjudge.json` · `.venv/bin/python spikes/s6_genjudge.py` (12:35)
+- 26.8 s (max 30.1) · Omni 1.2 Flash image→video, 6 s 720p clip, wall time p50, n=20, 20/20 returned, no refusals · same file and command
+- **11 of 20 · 0 of 20** · full clips / half-length prefixes where Decision 1 says "finished and stopped" at p ≥ 0.75 (20 spike 3 clips). Pass mark was ≥ 16 and ≤ 2: **fail**. Median p 0.784 vs 0.22; p50 0.735 s per call · `results/s6_donegate.json` · `.venv/bin/python spikes/s6_donegate.py` (12:35)
 - **0.92 vs 0.24285714285714285** · overall F1 on added/removed/moved objects, one Neon agentic call with both videos vs Neon inventories + Decision 1 checks, 7 indoor SceneDiff pairs (25 gold objects; 12 chosen by rule, 5 lost to Neon timeouts); **spike killed, the system arm lost to the baseline** · `results/s4_beforeafter.json` · `.venv/bin/python -I spikes/s4_fetch.py && .venv/bin/python spikes/s4_beforeafter.py` (12:24)
 - 0.5882352941176471 · same system arm after a Neon recheck of the 176 items with Decision 1 confidence < 0.75 (94 verdicts flipped) · same file
 - 115 / 43 / 25 · changes predicted by system / system+recheck / baseline for 25 real ones (precision 0.14782608695652175 / 0.46511627906976744 / 0.92) · same file

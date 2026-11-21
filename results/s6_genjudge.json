@@ -1,0 +1,435 @@
+{
+  "summary": {
+    "auroc_right_vs_wrong": 0.8,
+    "right_n": 10,
+    "wrong_n": 10,
+    "right_at_or_above_0.75": 0,
+    "wrong_at_or_above_0.75": 0,
+    "wrong_at_or_below_0.25": 6,
+    "pairs_right_above_wrong": 8,
+    "p_by_task": {
+      "matryoshka": {
+        "right": 0.33,
+        "wrong": 0.245
+      },
+      "toothbrush_case": {
+        "right": 0.604,
+        "wrong": 0.194
+      },
+      "eyedrop_chapstick": {
+        "right": 0.739,
+        "wrong": 0.321
+      },
+      "banknote_card_coin": {
+        "right": 0.314,
+        "wrong": 0.087
+      },
+      "prepare_camera_power_storage": {
+        "right": 0.36,
+        "wrong": 0.08
+      },
+      "headphone_mouse_book": {
+        "right": 0.218,
+        "wrong": 0.378
+      },
+      "eyeshadow_palette": {
+        "right": 0.161,
+        "wrong": 0.12
+      },
+      "toilet_broom_towel": {
+        "right": 0.489,
+        "wrong": 0.124
+      },
+      "remote_marker_stand": {
+        "right": 0.735,
+        "wrong": 0.304
+      },
+      "makeup_red_container": {
+        "right": 0.415,
+        "wrong": 0.601
+      }
+    },
+    "gen_ok": 20,
+    "gen_planned": 20,
+    "gen_failures": [],
+    "gen_s_p50": 26.8,
+    "gen_s_max": 30.1,
+    "d1_s_p50": 1.4249999999999998,
+    "d1_errors": 0,
+    "tasks": [
+      "matryoshka",
+      "toothbrush_case",
+      "eyedrop_chapstick",
+      "banknote_card_coin",
+      "prepare_camera_power_storage",
+      "headphone_mouse_book",
+      "eyeshadow_palette",
+      "toilet_broom_towel",
+      "remote_marker_stand",
+      "makeup_red_container"
+    ],
+    "pass": false
+  },
+  "clips": [
+    {
+      "case": "matryoshka",
+      "kind": "right",
+      "prompt": "Continue from this exact scene, first-person view, one hand: The four matryoshka dolls are nested inside one another. Finish with the goal fully achieved.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 28.4,
+        "status": "completed",
+        "bytes": 2498308,
+        "mp4": ".context/s6_gen/matryoshka__right.mp4"
+      },
+      "d1": {
+        "p": 0.33,
+        "conf": 0.67,
+        "s": 1.45,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "matryoshka",
+      "kind": "wrong",
+      "prompt": "Continue from this exact scene, first-person view, one hand: nest the three larger matryoshka dolls inside one another, but leave the smallest doll standing outside on the table. Finish with the scene left exactly like that.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 27.3,
+        "status": "completed",
+        "bytes": 2314012,
+        "mp4": ".context/s6_gen/matryoshka__wrong.mp4"
+      },
+      "d1": {
+        "p": 0.245,
+        "conf": 0.755,
+        "s": 1.21,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "toothbrush_case",
+      "kind": "right",
+      "prompt": "Continue from this exact scene, first-person view, one hand: Closed toothpaste and folded toothbrush stored inside the closed travel case. Finish with the goal fully achieved.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 26.8,
+        "status": "completed",
+        "bytes": 2693196,
+        "mp4": ".context/s6_gen/toothbrush_case__right.mp4"
+      },
+      "d1": {
+        "p": 0.604,
+        "conf": 0.604,
+        "s": 1.46,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "toothbrush_case",
+      "kind": "wrong",
+      "prompt": "Continue from this exact scene, first-person view, one hand: put the folded toothbrush inside the travel case and close the case, but leave the toothpaste outside on the table. Finish with the scene left exactly like that.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 26.3,
+        "status": "completed",
+        "bytes": 2512739,
+        "mp4": ".context/s6_gen/toothbrush_case__wrong.mp4"
+      },
+      "d1": {
+        "p": 0.194,
+        "conf": 0.806,
+        "s": 1.56,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "eyedrop_chapstick",
+      "kind": "right",
+      "prompt": "Continue from this exact scene, first-person view, one hand: The closed eye drops, bandage, and chapstick are inside the blue bag. Finish with the goal fully achieved.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 25.3,
+        "status": "completed",
+        "bytes": 3107570,
+        "mp4": ".context/s6_gen/eyedrop_chapstick__right.mp4"
+      },
+      "d1": {
+        "p": 0.739,
+        "conf": 0.739,
+        "s": 0.93,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "eyedrop_chapstick",
+      "kind": "wrong",
+      "prompt": "Continue from this exact scene, first-person view, one hand: put the eye drops and the bandage inside the blue bag, but leave the chapstick outside on the table. Finish with the scene left exactly like that.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 27.3,
+        "status": "completed",
+        "bytes": 2864611,
+        "mp4": ".context/s6_gen/eyedrop_chapstick__wrong.mp4"
+      },
+      "d1": {
+        "p": 0.321,
+        "conf": 0.679,
+        "s": 1.05,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "banknote_card_coin",
+      "kind": "right",
+      "prompt": "Continue from this exact scene, first-person view, one hand: Banknote and card in the wallet's visible bill and card compartments, with the coin in the small bowl. Finish with the goal fully achieved.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 28.8,
+        "status": "completed",
+        "bytes": 3633843,
+        "mp4": ".context/s6_gen/banknote_card_coin__right.mp4"
+      },
+      "d1": {
+        "p": 0.314,
+        "conf": 0.686,
+        "s": 1.7,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "banknote_card_coin",
+      "kind": "wrong",
+      "prompt": "Continue from this exact scene, first-person view, one hand: put the coin inside the wallet and the banknote in the small bowl (swapped), with the card in the wallet's card compartment. Finish with the scene left exactly like that.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 26.6,
+        "status": "completed",
+        "bytes": 3440427,
+        "mp4": ".context/s6_gen/banknote_card_coin__wrong.mp4"
+      },
+      "d1": {
+        "p": 0.087,
+        "conf": 0.913,
+        "s": 1.64,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "prepare_camera_power_storage",
+      "kind": "right",
+      "prompt": "Continue from this exact scene, first-person view, one hand: The SD card and battery are installed inside the camera, and the camera battery compartment is closed. Finish with the goal fully achieved.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 27.8,
+        "status": "completed",
+        "bytes": 3403935,
+        "mp4": ".context/s6_gen/prepare_camera_power_storage__right.mp4"
+      },
+      "d1": {
+        "p": 0.36,
+        "conf": 0.64,
+        "s": 1.24,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "prepare_camera_power_storage",
+      "kind": "wrong",
+      "prompt": "Continue from this exact scene, first-person view, one hand: install the SD card in the camera, but leave the battery on the table and the battery compartment open. Finish with the scene left exactly like that.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 24.2,
+        "status": "completed",
+        "bytes": 2410388,
+        "mp4": ".context/s6_gen/prepare_camera_power_storage__wrong.mp4"
+      },
+      "d1": {
+        "p": 0.08,
+        "conf": 0.92,
+        "s": 1.1,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "headphone_mouse_book",
+      "kind": "right",
+      "prompt": "Continue from this exact scene, first-person view, one hand: Cable-connected headphones hanging on the headphone stand, with the other headphones placed on top of the cleared yellow notebook. Finish with the goal fully achieved.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 28.0,
+        "status": "completed",
+        "bytes": 3541831,
+        "mp4": ".context/s6_gen/headphone_mouse_book__right.mp4"
+      },
+      "d1": {
+        "p": 0.218,
+        "conf": 0.782,
+        "s": 2.78,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "headphone_mouse_book",
+      "kind": "wrong",
+      "prompt": "Continue from this exact scene, first-person view, one hand: hang the cable-connected headphones on the headphone stand, but put the other headphones on the table next to the yellow notebook, not on top of it. Finish with the scene left exactly like that.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 30.1,
+        "status": "completed",
+        "bytes": 3823144,
+        "mp4": ".context/s6_gen/headphone_mouse_book__wrong.mp4"
+      },
+      "d1": {
+        "p": 0.378,
+        "conf": 0.622,
+        "s": 1.68,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "eyeshadow_palette",
+      "kind": "right",
+      "prompt": "Continue from this exact scene, first-person view, one hand: All makeup items properly closed, with the palette stored inside the white pouch, and all items neatly stored inside the large black pouch on the left. Finish with the goal fully achieved.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 25.8,
+        "status": "completed",
+        "bytes": 2829971,
+        "mp4": ".context/s6_gen/eyeshadow_palette__right.mp4"
+      },
+      "d1": {
+        "p": 0.161,
+        "conf": 0.839,
+        "s": 1.64,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "eyeshadow_palette",
+      "kind": "wrong",
+      "prompt": "Continue from this exact scene, first-person view, one hand: put the makeup items inside the large black pouch on the left, but leave the palette open on the table outside both pouches. Finish with the scene left exactly like that.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 26.8,
+        "status": "completed",
+        "bytes": 2360677,
+        "mp4": ".context/s6_gen/eyeshadow_palette__wrong.mp4"
+      },
+      "d1": {
+        "p": 0.12,
+        "conf": 0.88,
+        "s": 1.34,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "toilet_broom_towel",
+      "kind": "right",
+      "prompt": "Continue from this exact scene, first-person view, one hand: Place the orange towel on the metal toilet tissue holder, and position the broom beside the standing wiper. Finish with the goal fully achieved.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 26.3,
+        "status": "completed",
+        "bytes": 3523971,
+        "mp4": ".context/s6_gen/toilet_broom_towel__right.mp4"
+      },
+      "d1": {
+        "p": 0.489,
+        "conf": 0.511,
+        "s": 1.21,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "toilet_broom_towel",
+      "kind": "wrong",
+      "prompt": "Continue from this exact scene, first-person view, one hand: position the broom beside the standing wiper, but drop the orange towel on the floor instead of on the metal toilet tissue holder. Finish with the scene left exactly like that.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 23.2,
+        "status": "completed",
+        "bytes": 3114804,
+        "mp4": ".context/s6_gen/toilet_broom_towel__wrong.mp4"
+      },
+      "d1": {
+        "p": 0.124,
+        "conf": 0.876,
+        "s": 1.41,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "remote_marker_stand",
+      "kind": "right",
+      "prompt": "Continue from this exact scene, first-person view, one hand: The marker is inside the red stationery case, the white AC remote is inside the standing remote holder, and the green notebook is on the laptop stand. Finish with the goal fully achieved.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 27.0,
+        "status": "completed",
+        "bytes": 3652500,
+        "mp4": ".context/s6_gen/remote_marker_stand__right.mp4"
+      },
+      "d1": {
+        "p": 0.735,
+        "conf": 0.735,
+        "s": 1.44,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "remote_marker_stand",
+      "kind": "wrong",
+      "prompt": "Continue from this exact scene, first-person view, one hand: put the marker inside the standing remote holder and the white AC remote inside the red stationery case (swapped), with the green notebook on the laptop stand. Finish with the scene left exactly like that.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 29.1,
+        "status": "completed",
+        "bytes": 3662526,
+        "mp4": ".context/s6_gen/remote_marker_stand__wrong.mp4"
+      },
+      "d1": {
+        "p": 0.304,
+        "conf": 0.696,
+        "s": 1.24,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "makeup_red_container",
+      "kind": "right",
+      "prompt": "Continue from this exact scene, first-person view, one hand: All well-closed visible cosmetic items are inside the red container. Finish with the goal fully achieved.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 26.0,
+        "status": "completed",
+        "bytes": 2411099,
+        "mp4": ".context/s6_gen/makeup_red_container__right.mp4"
+      },
+      "d1": {
+        "p": 0.415,
+        "conf": 0.585,
+        "s": 2.26,
+        "attempts": 1
+      }
+    },
+    {
+      "case": "makeup_red_container",
+      "kind": "wrong",
+      "prompt": "Continue from this exact scene, first-person view, one hand: put the cosmetic items inside the red container, but leave one cosmetic item outside on the table. Finish with the scene left exactly like that.",
+      "gen": {
+        "gen_ok": true,
+        "gen_s": 26.0,
+        "status": "completed",
+        "bytes": 2342458,
+        "mp4": ".context/s6_gen/makeup_red_container__wrong.mp4"
+      },
+      "d1": {
+        "p": 0.601,
+        "conf": 0.601,
+        "s": 0.97,
+        "attempts": 1
+      }
+    }
+  ]
+}
