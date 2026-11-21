@@ -1,0 +1,162 @@
+[
+ {
+  "vid": "v01",
+  "job": "14_object",
+  "task": "Put the eye drops on the shelf",
+  "eye_true": true,
+  "p": 0.8493160886751918,
+  "blocked": false
+ },
+ {
+  "vid": "v02",
+  "job": "02_scene",
+  "task": "Put the eye drops into the basket",
+  "eye_true": true,
+  "p": 0.44683462675907376,
+  "blocked": false
+ },
+ {
+  "vid": "v03",
+  "job": "13_object",
+  "task": "Put the eye drops on the shelf",
+  "eye_true": true,
+  "p": 0.8470743698399513,
+  "blocked": false
+ },
+ {
+  "vid": "v04",
+  "job": "04_scene",
+  "task": "Put the eye drops into the basket",
+  "eye_true": true,
+  "p": 0.31432847051033075,
+  "blocked": false
+ },
+ {
+  "vid": "v05",
+  "job": "03_object",
+  "task": "Put the eye drops into the basket",
+  "eye_true": true,
+  "p": 0.8741546658897447,
+  "blocked": false
+ },
+ {
+  "vid": "v06",
+  "job": "04_object",
+  "task": "Put the eye drops into the basket",
+  "eye_true": true,
+  "p": 0.5348045248888195,
+  "blocked": false
+ },
+ {
+  "vid": "v07",
+  "job": "10_object",
+  "task": "Put the eye drops on the shelf",
+  "eye_true": true,
+  "p": 0.8170142113348794,
+  "blocked": false
+ },
+ {
+  "vid": "v08",
+  "job": "11_object",
+  "task": "Put the eye drops on the shelf",
+  "eye_true": true,
+  "p": 0.8461130492916243,
+  "blocked": false
+ },
+ {
+  "vid": "v09",
+  "job": "12_object",
+  "task": "Put the eye drops on the shelf",
+  "eye_true": true,
+  "p": 0.5974207617462491,
+  "blocked": false
+ },
+ {
+  "vid": "v10",
+  "job": "01_scene",
+  "task": "Put the eye drops into the basket",
+  "eye_true": true,
+  "p": 0.5507030562150269,
+  "blocked": false
+ },
+ {
+  "vid": "v11",
+  "job": "10_scene",
+  "task": "Put the eye drops on the shelf",
+  "eye_true": true,
+  "p": 0.84092850348674,
+  "blocked": false
+ },
+ {
+  "vid": "v12",
+  "job": "11_scene",
+  "task": "Put the eye drops on the shelf",
+  "eye_true": true,
+  "p": 0.8198035934403994,
+  "blocked": false
+ },
+ {
+  "vid": "v13",
+  "job": "14_scene",
+  "task": "Put the eye drops on the shelf",
+  "eye_true": true,
+  "p": 0.6102275558887271,
+  "blocked": false
+ },
+ {
+  "vid": "v14",
+  "job": "01_object",
+  "task": "Put the eye drops into the basket",
+  "eye_true": true,
+  "p": 0.3832453976703205,
+  "blocked": false
+ },
+ {
+  "vid": "v15",
+  "job": "12_scene",
+  "task": "Put the eye drops on the shelf",
+  "eye_true": true,
+  "p": 0.5689067971058575,
+  "blocked": false
+ },
+ {
+  "vid": "v16",
+  "job": "02_object",
+  "task": "Put the eye drops into the basket",
+  "eye_true": true,
+  "p": 0.3923077179561034,
+  "blocked": false
+ },
+ {
+  "vid": "v17",
+  "job": "00_object",
+  "task": "Put the eye drops into the basket",
+  "eye_true": true,
+  "p": 0.47300649264124406,
+  "blocked": false
+ },
+ {
+  "vid": "v18",
+  "job": "13_scene",
+  "task": "Put the eye drops on the shelf",
+  "eye_true": true,
+  "p": 0.8282381192024524,
+  "blocked": false
+ },
+ {
+  "vid": "v19",
+  "job": "00_scene",
+  "task": "Put the eye drops into the basket",
+  "eye_true": true,
+  "p": 0.39452987254408173,
+  "blocked": false
+ },
+ {
+  "vid": "v20",
+  "job": "03_scene",
+  "task": "Put the eye drops into the basket",
+  "eye_true": true,
+  "p": 0.8182801190145439,
+  "blocked": false
+ }
+]
