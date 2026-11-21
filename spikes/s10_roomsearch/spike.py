@@ -38,7 +38,7 @@ url = f"http://127.0.0.1:{httpd.server_port}/viewer.html?url={scene_name}&flip={
 res = {"scene": SCENE.name, "tag": TAG, "objects": OBJECTS, "headed": HEADED, "views": [], "queries": {}}
 t0 = time.perf_counter()
 with sync_playwright() as p:
-    b = p.chromium.launch(headless=not HEADED, args=["--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"])
+    b = p.chromium.launch(channel="chrome", headless=not HEADED, args=["--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"])
     pg = b.new_page(viewport={"width": 960, "height": 540})
     pg.on("console", lambda m: m.type == "error" and print("console:", m.text[:200]))
     pg.goto(url); pg.wait_for_function("window.ready === true", timeout=300_000)
