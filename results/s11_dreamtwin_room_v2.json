@@ -1,0 +1,792 @@
+{
+ "scene": "room.splat",
+ "tag": "room_v2",
+ "pass_mark_written": "13:13",
+ "info": {
+  "n": 1130125,
+  "p5": [
+   -2.849609375,
+   -1.4013671875,
+   -5.171875
+  ],
+  "p50": [
+   1.4072265625,
+   0.5400390625,
+   0.50146484375
+  ],
+  "p95": [
+   3.849609375,
+   3.435546875,
+   8.109375
+  ]
+ },
+ "poses": [
+  {
+   "i": 0,
+   "pos": [
+    -0.83984375,
+    0.5400390625,
+    0.140625
+   ],
+   "h": 0
+  },
+  {
+   "i": 1,
+   "pos": [
+    -0.169921875,
+    0.5400390625,
+    0.140625
+   ],
+   "h": 36
+  },
+  {
+   "i": 2,
+   "pos": [
+    0.5,
+    0.5400390625,
+    0.140625
+   ],
+   "h": 72
+  },
+  {
+   "i": 3,
+   "pos": [
+    1.169921875,
+    0.5400390625,
+    0.140625
+   ],
+   "h": 108
+  },
+  {
+   "i": 4,
+   "pos": [
+    1.83984375,
+    0.5400390625,
+    0.140625
+   ],
+   "h": 144
+  },
+  {
+   "i": 5,
+   "pos": [
+    -0.83984375,
+    0.5400390625,
+    2.796875
+   ],
+   "h": 180
+  },
+  {
+   "i": 6,
+   "pos": [
+    -0.169921875,
+    0.5400390625,
+    2.796875
+   ],
+   "h": 216
+  },
+  {
+   "i": 7,
+   "pos": [
+    0.5,
+    0.5400390625,
+    2.796875
+   ],
+   "h": 252
+  },
+  {
+   "i": 8,
+   "pos": [
+    1.169921875,
+    0.5400390625,
+    2.796875
+   ],
+   "h": 288
+  },
+  {
+   "i": 9,
+   "pos": [
+    1.83984375,
+    0.5400390625,
+    2.796875
+   ],
+   "h": 324
+  }
+ ],
+ "calib_pose": {
+  "pos": [
+   1.4072265625,
+   0.5400390625,
+   0.50146484375
+  ],
+  "h": 90
+ },
+ "genie_runs": [
+  {
+   "name": "calib",
+   "first_frame_s": 10.17,
+   "hold_s": 15.01,
+   "frames_during_hold": 8,
+   "frames": 15,
+   "wall_s": 41.61,
+   "ok": true
+  },
+  {
+   "name": "p0",
+   "first_frame_s": 9.47,
+   "hold_s": 3.4,
+   "frames_during_hold": 60,
+   "frames": 144,
+   "wall_s": 16.29,
+   "ok": true
+  },
+  {
+   "name": "p1",
+   "first_frame_s": 15.53,
+   "hold_s": 9.04,
+   "frames_during_hold": 48,
+   "frames": 212,
+   "wall_s": 44.87,
+   "ok": true
+  },
+  {
+   "name": "p2",
+   "first_frame_s": 6.95,
+   "hold_s": 15.01,
+   "frames_during_hold": 14,
+   "frames": 34,
+   "wall_s": 35.88,
+   "ok": true
+  },
+  {
+   "name": "p3",
+   "first_frame_s": 8.3,
+   "hold_s": 3.37,
+   "frames_during_hold": 60,
+   "frames": 144,
+   "wall_s": 16.94,
+   "ok": true
+  },
+  {
+   "name": "p4",
+   "first_frame_s": 7.07,
+   "hold_s": 11.66,
+   "frames_during_hold": 49,
+   "frames": 120,
+   "wall_s": 30.04,
+   "ok": true
+  },
+  {
+   "name": "p5",
+   "first_frame_s": 8.31,
+   "hold_s": 3.37,
+   "frames_during_hold": 56,
+   "frames": 132,
+   "wall_s": 19.36,
+   "ok": true
+  },
+  {
+   "name": "p6",
+   "first_frame_s": 6.24,
+   "hold_s": 4.68,
+   "frames_during_hold": 48,
+   "frames": 136,
+   "wall_s": 17.81,
+   "ok": true
+  },
+  {
+   "name": "p7",
+   "first_frame_s": 8.27,
+   "hold_s": 15.01,
+   "frames_during_hold": 15,
+   "frames": 33,
+   "wall_s": 37.29,
+   "ok": true
+  },
+  {
+   "name": "p8",
+   "first_frame_s": 8.28,
+   "hold_s": 15.0,
+   "frames_during_hold": 20,
+   "frames": 41,
+   "wall_s": 43.59,
+   "ok": true
+  },
+  {
+   "name": "p9",
+   "first_frame_s": 9.83,
+   "hold_s": 15.0,
+   "frames_during_hold": 10,
+   "frames": 19,
+   "wall_s": 38.0,
+   "ok": true
+  },
+  {
+   "name": "calib",
+   "first_frame_s": 5.58,
+   "hold_s": 1.94,
+   "frames_during_hold": 51,
+   "frames": 52,
+   "wall_s": 8.37,
+   "ok": true
+  }
+ ],
+ "genie_wall_s": 8.4,
+ "calibration": {
+  "reply": "30",
+  "s": 22.5
+ },
+ "angle": 30,
+ "banana": [
+  {
+   "file": "p0_banana.jpg",
+   "ok": true,
+   "mime": "image/jpeg",
+   "s": 13.2
+  },
+  {
+   "file": "p1_banana.jpg",
+   "ok": true,
+   "mime": "image/jpeg",
+   "s": 15.5
+  },
+  {
+   "file": "p2_banana.jpg",
+   "ok": true,
+   "mime": "image/jpeg",
+   "s": 18.7
+  },
+  {
+   "file": "p3_banana.jpg",
+   "ok": true,
+   "mime": "image/jpeg",
+   "s": 18.9
+  },
+  {
+   "file": "p4_banana.jpg",
+   "ok": true,
+   "mime": "image/jpeg",
+   "s": 18.4
+  },
+  {
+   "file": "p5_banana.jpg",
+   "ok": true,
+   "mime": "image/jpeg",
+   "s": 14.2
+  },
+  {
+   "file": "p6_banana.jpg",
+   "ok": true,
+   "mime": "image/jpeg",
+   "s": 15.4
+  },
+  {
+   "file": "p7_banana.jpg",
+   "ok": true,
+   "mime": "image/jpeg",
+   "s": 17.6
+  },
+  {
+   "file": "p8_banana.jpg",
+   "ok": true,
+   "mime": "image/jpeg",
+   "s": 17.7
+  },
+  {
+   "file": "p9_banana.jpg",
+   "ok": true,
+   "mime": "image/jpeg",
+   "s": 15.2
+  }
+ ],
+ "judge": [
+  {
+   "arm": "genie",
+   "i": 0,
+   "a": "p0_truth.jpg",
+   "b": "p0_genie.jpg",
+   "same": true,
+   "reply": "**Yes** \u2014 both images show the same corner of the same room with the same unchanged objects in the overlapping area (the grey sofa, floral-patterned pillow, red folded blanket/cushion, black keyboard on the armrest, side table with a glass and black mouse, left curtain, and edges of the blue armchair and footstool).\n\nWhat differs is primarily the **camera framing/viewpoint** (and resulting visible",
+   "s": 72.02
+  },
+  {
+   "arm": "genie",
+   "i": 1,
+   "a": "p1_truth.jpg",
+   "b": "p1_genie.jpg",
+   "same": false,
+   "reply": "**No.** While both images show overlapping areas of the same room (sharing the grey sofa, patterned pillow, red folded blanket, dark fabric, and black keyboard), they do not show the exact same part of the room or all the same objects.\n\n**What differs:**\n* **Framing / part of the room:** Image 1 is angled further to the left, showing all three cushions of the sofa. Image 2 is angled further to the",
+   "s": 13.81
+  },
+  {
+   "arm": "genie",
+   "i": 2,
+   "a": "p2_truth.jpg",
+   "b": "p2_genie.jpg",
+   "same": false,
+   "reply": "**No.** While both images show overlapping views of the same room and grey sofa with mostly the same items (such as the glassware, bottle, glasses, and bowl on the table, the floor lamp, and the clothes on the couch), they differ in two main ways:\n\n1. **The table is different:** In Image 1, the table in front of the sofa has a wooden top with a **black metal frame and legs**. In Image 2, it is an ",
+   "s": 36.29
+  },
+  {
+   "arm": "genie",
+   "i": 3,
+   "a": "p3_truth.jpg",
+   "b": "p3_genie.jpg",
+   "same": false,
+   "reply": "**No.** While both images show the same room and overlap in the middle, the camera has panned to the right in Image 2, so they show different parts of the room with different visible objects.\n\n**What differs:**\n* **Only visible in Image 1 (left side):** The black grand piano with sheet music, the piano bench, the patterned rug, the window, and the green plant leaves in the foreground.\n* **Only vis",
+   "s": 21.29
+  },
+  {
+   "arm": "genie",
+   "i": 4,
+   "a": "p4_truth.jpg",
+   "b": "p4_genie.jpg",
+   "same": false,
+   "reply": "**No.** While both images show the same part of the same room (including the same piano, bench, rug, tall potted yucca plant, speaker on a stand, wooden wall shelf, and doorway), several objects and details differ:\n\n1. **Object on top of the speaker:** Image 1 has a small pink-flowered bonsai tree sitting on the speaker, whereas Image 2 has a silver table lamp with a shade.\n2. **Piano lid:** The g",
+   "s": 25.75
+  },
+  {
+   "arm": "genie",
+   "i": 5,
+   "a": "p5_truth.jpg",
+   "b": "p5_genie.jpg",
+   "same": false,
+   "reply": "**No.** While both images depict the same corner of a room with the same basic layout (a black grand piano, bench, patterned rug, window, bookcase, and white door), several objects and details differ:\n\n* **Wall art:** Image 2 has a framed picture hanging on the middle wall (with sunlight falling below it), which is missing in Image 1.\n* **Bookcase contents:** The bookcase in Image 1 is densely pac",
+   "s": 24.65
+  },
+  {
+   "arm": "genie",
+   "i": 6,
+   "a": "p6_truth.jpg",
+   "b": "p6_genie.jpg",
+   "same": false,
+   "reply": "**No.** While both images show the same corner of the same room (with the same yucca plant, wooden bookshelf and books, small dark box/book in front of the bottom shelf, and guitar leaning behind the plant), they do not contain all the same objects and differ significantly on the left side and in quality:\n\n* **Left foreground and wall:** Image 1 contains a **black speaker with a white woofer cone*",
+   "s": 55.5
+  },
+  {
+   "arm": "genie",
+   "i": 7,
+   "a": "p7_truth.jpg",
+   "b": "p7_genie.jpg",
+   "same": false,
+   "reply": "**No** \u2014 they show **overlapping parts** of the same room from different camera positions/framing rather than the exact same part of the room with all the same objects.\n\nWhile both images share the same room and several objects in the overlapping middle section (the black studio monitor speaker with a white woofer, the small pink bonsai tree, the framed pictures behind it, and the spiky green yucc",
+   "s": 35.49
+  },
+  {
+   "arm": "genie",
+   "i": 8,
+   "a": "p8_truth.jpg",
+   "b": "p8_genie.jpg",
+   "same": false,
+   "reply": "**No.** Although both images feature a similar black speaker with a white woofer cone, a dark screen to its left, pink blossoms, and black-and-white imagery in the background, they show different setups and objects:\n\n* **Room and furniture:** Image 1 shows a living room with a TV on a media console, a blue armchair with a stuffed dog, curtains over a window, and a wooden floor with a rug. Image 2 ",
+   "s": 33.87
+  },
+  {
+   "arm": "genie",
+   "i": 9,
+   "a": "p9_truth.jpg",
+   "b": "p9_genie.jpg",
+   "same": false,
+   "reply": "**No.** These two images do not show the same part of the room with the same objects. \n\nHere is what differs:\n\n* **Armchair and object on it:** Image 1 shows a front-facing dark blue-grey recliner with a brown-and-white spotted plush toy on it. Image 2 shows a differently shaped armchair/chaise angled to the left with a patterned throw pillow on it.\n* **Missing furniture and items:** The grey sofa",
+   "s": 21.13
+  },
+  {
+   "arm": "banana",
+   "i": 0,
+   "a": "p0_truth.jpg",
+   "b": "p0_banana.jpg",
+   "same": false,
+   "reply": "**No.** Although both images show the same room and the overlapping area contains the same objects in the same positions (the grey sofa, the patterned pillow on the right seat, the red folded fabric and black keyboard on the armrest, the side table with a glass and mouse, and the dark curtains), they are taken from different angles and distances and therefore show different parts of the room with ",
+   "s": 32.57
+  },
+  {
+   "arm": "banana",
+   "i": 1,
+   "a": "p1_truth.jpg",
+   "b": "p1_banana.jpg",
+   "same": false,
+   "reply": "**No.** While both images appear to depict the same room (sharing the beige wall, grey patterned sofa, dark pile of clothes, and red-and-blue patterned pillow), they show different parts of the room, different framing, and several differences in the objects and sofa layout:\n\n* **Different framing and areas of the room:**\n  * **Image 1** is zoomed in closer and framed further to the **right**, show",
+   "s": 54.68
+  },
+  {
+   "arm": "banana",
+   "i": 2,
+   "a": "p2_truth.jpg",
+   "b": "p2_banana.jpg",
+   "same": false,
+   "reply": "**No.** While the grey couch, the small side table with its items (glasses, water bottle, tall glass carafe, bowl, drinking glass, and clothing on the couch), and the white cylindrical floor lamp are the same, the surrounding room layout and many objects differ significantly:\n\n* **Room layout and walls:** Image 2 has a protruding corner wall creating an alcove/hallway with two doorways, whereas Im",
+   "s": 26.21
+  },
+  {
+   "arm": "banana",
+   "i": 3,
+   "a": "p3_truth.jpg",
+   "b": "p3_banana.jpg",
+   "same": false,
+   "reply": "**No.** While both images show a very similar white four-panel door opening inward from a hallway with black-and-white checkered flooring, the rest of the room layout and objects are completely different:\n\n* **Area to the left of the door:**\n  * **Image 1** has a flat wall with a black grand piano, sheet music, a black piano bench, a patterned rug, and a green plant in the foreground.\n  * **Image ",
+   "s": 38.42
+  },
+  {
+   "arm": "banana",
+   "i": 4,
+   "a": "p4_truth.jpg",
+   "b": "p4_banana.jpg",
+   "same": false,
+   "reply": "**No.** Although both images depict the same room and share many of the same central objects (the black grand piano with sheet music, bench, patterned rug, potted plant, black speaker on a stand, rear window with a blind, and recessed wooden bookshelf), they do not show the exact same part of the room or all of the same objects.\n\n**What differs:**\n\n1. **Object on top of the black speaker:** In Ima",
+   "s": 53.54
+  },
+  {
+   "arm": "banana",
+   "i": 5,
+   "a": "p5_truth.jpg",
+   "b": "p5_banana.jpg",
+   "same": false,
+   "reply": "**No.** While the right side of the room (the grand piano, bench, rug, window, and wall) is the same, the left side contains different objects and a slightly different framing:\n\n* **Bookshelves:** Image 1 has a single wooden bookshelf, whereas Image 2 has a second, wider wooden bookshelf section added to the left of it (filled with books and large stacks of notebooks/papers), plus books stacked on",
+   "s": 20.25
+  },
+  {
+   "arm": "banana",
+   "i": 6,
+   "a": "p6_truth.jpg",
+   "b": "p6_banana.jpg",
+   "same": false,
+   "reply": "**No.** While both images overlap on the same central corner of a room\u2014featuring the same yucca plant, acoustic guitar, white recessed alcove, and wooden bookshelf (including the black-and-white book/album at the bottom)\u2014they show different portions of the room and differ in several objects and structural details:\n\n**Differences in what is shown:**\n* **Area of the room / framing:** \n  * **Image 1*",
+   "s": 33.18
+  },
+  {
+   "arm": "banana",
+   "i": 7,
+   "a": "p7_truth.jpg",
+   "b": "p7_banana.jpg",
+   "same": false,
+   "reply": "**No.** While both images appear to show the same corner of the same room\u2014evidenced by the identical black speaker with a white woofer cone on a black stand, the small box and pink bonsai tree on top of it, the white-matted picture frame on the wall behind it, and the wall corner to the right\u2014they do not contain the same surrounding objects.\n\n**What differs:**\n* **To the left of the speaker:**\n  *",
+   "s": 30.08
+  },
+  {
+   "arm": "banana",
+   "i": 8,
+   "a": "p8_truth.jpg",
+   "b": "p8_banana.jpg",
+   "same": false,
+   "reply": "**No.** While both images share the same foreground elements on the right\u2014the black speaker with a white woofer cone, the TV/monitor (including the exact same glare/artifact pattern on the screen), and the pink floral decoration above it\u2014the rest of the room and surrounding objects are completely different.\n\n**What differs:**\n* **Left side of the room:** Image 1 shows a window with long curtains, ",
+   "s": 25.52
+  },
+  {
+   "arm": "banana",
+   "i": 9,
+   "a": "p9_truth.jpg",
+   "b": "p9_banana.jpg",
+   "same": false,
+   "reply": "**No.** While both images depict a very similar corner of a room containing the same dark blue-grey recliner armchair, olive curtains, wooden floor, light blue-grey rug, brown-and-white plush toy, and a black ottoman, they do not show the exact same view or the same objects.\n\n**What differs:**\n\n* **Objects only in Image 1:**\n  * A grey sofa on the left with a patterned pillow, a red pillow/blanket",
+   "s": 29.1
+  },
+  {
+   "arm": "sanity",
+   "i": 0,
+   "a": "p0_truth.jpg",
+   "b": "p1_genie.jpg",
+   "same": true,
+   "reply": "**Yes**, both images show the same corner of the same room with the same main objects in the same positions (grey sofa, floral pillow, red blanket, black keyboard, small side table with a glass and mouse, curtains, window, and blue armchair). \n\nHowever, they differ in the following ways:\n\n* **Framing and objects at the edges:** Image 2 is slightly wider/zoomed out compared to Image 1, which brings",
+   "s": 24.14
+  },
+  {
+   "arm": "sanity",
+   "i": 1,
+   "a": "p1_truth.jpg",
+   "b": "p2_genie.jpg",
+   "same": true,
+   "reply": "**Yes**, both images show the same part of the same room (the same grey three-cushion sofa, yellowish wall, patterned pillow, dark and orange/yellow clothes on the sofa, red blanket, black keyboard, wooden coffee table, and glassware).\n\n**What differs:**\n- **Camera position and framing (field of view):** Image 2 is taken from farther back with a wider view, while Image 1 is closer/more zoomed in a",
+   "s": 59.83
+  },
+  {
+   "arm": "sanity",
+   "i": 2,
+   "a": "p2_truth.jpg",
+   "b": "p3_genie.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the same part of the same room with the same objects (the grey sofa, white cylindrical floor lamp, laptop/tablet on the armrest, small side table with eyeglasses, bottle, glasses/vase, dark and yellow/orange cloths, patterned pillow on the right, and doorway on the left).\n\n**What differs:**\n- **Camera position and framing:** Image 2 is pulled further back (wider view) and",
+   "s": 16.5
+  },
+  {
+   "arm": "sanity",
+   "i": 3,
+   "a": "p3_truth.jpg",
+   "b": "p4_genie.jpg",
+   "same": false,
+   "reply": "**No.** While both images show the same room (featuring the same grand piano, patterned rug, window, wooden floor, and open white door), they do not show the exact same part of the room or the exact same objects/arrangement. \n\nHere is what differs:\n\n* **Piano lid and items on it:** In Image 1, the grand piano's lid is **closed** with stacks of books/papers resting on top of it. In Image 2, the pia",
+   "s": 22.04
+  },
+  {
+   "arm": "sanity",
+   "i": 4,
+   "a": "p4_truth.jpg",
+   "b": "p5_genie.jpg",
+   "same": false,
+   "reply": "**No.** While both images show the same corner of the same room\u2014with the same black grand piano, sheet music, piano bench, patterned rug, window, and white paneled door\u2014several objects and details differ:\n\n* **Missing plant, speaker, and pink bonsai:** Image 1 has a large black speaker on a stand in the left foreground, a small pink flowering bonsai on top of it, and a tall potted green plant (in ",
+   "s": 61.22
+  },
+  {
+   "arm": "sanity",
+   "i": 5,
+   "a": "p5_truth.jpg",
+   "b": "p6_genie.jpg",
+   "same": false,
+   "reply": "**No.** Although both images are of the same room and share an overlapping section (the wooden bookcase with the exact same books, the leaning guitar, and the green yucca plant), they show different views/parts of the room and therefore contain different visible objects.\n\n**What differs:**\n* **Framing / Area of the room:** Image 1 is panned further to the right, while Image 2 is panned further to ",
+   "s": 18.66
+  },
+  {
+   "arm": "sanity",
+   "i": 6,
+   "a": "p6_truth.jpg",
+   "b": "p7_genie.jpg",
+   "same": true,
+   "reply": "**Yes**, both images show the same part of the same room with the same objects (the black speaker, pink bonsai decoration, framed pictures, yucca plant, fireplace/alcove, wooden bookshelf with the exact same arrangement of books and binders, and the brown object leaning beside the shelf).\n\n**What differs:**\n* **Framing, zoom, and camera angle:** Image 2 is zoomed in much closer (or taken from a cl",
+   "s": 16.25
+  },
+  {
+   "arm": "sanity",
+   "i": 7,
+   "a": "p7_truth.jpg",
+   "b": "p8_genie.jpg",
+   "same": false,
+   "reply": "**No.** Although both images share a superficially similar layout (a black screen on the left, a black speaker with a white woofer in the center, pink flowers and framed photos in the background, and a green plant on the right), they show different rooms and different objects:\n\n* **Surface & setup:** Image 1 shows a living-room media setup with a large TV on a glass-and-wood TV stand (with a cente",
+   "s": 15.67
+  },
+  {
+   "arm": "sanity",
+   "i": 8,
+   "a": "p8_truth.jpg",
+   "b": "p9_genie.jpg",
+   "same": false,
+   "reply": "No, these two images do not show the same part of the same room with the same objects. While both feature wood flooring, dark curtains, and a dark blue-grey chair, several key elements differ:\n\n* **Foreground and electronics:** Image 1 is dominated by a TV and a home theater setup (black speakers with a white cone, a center speaker, and a subwoofer on the floor), whereas Image 2 is a close-up of h",
+   "s": 16.4
+  },
+  {
+   "arm": "sanity",
+   "i": 9,
+   "a": "p9_truth.jpg",
+   "b": "p0_genie.jpg",
+   "same": true,
+   "reply": "**Yes**, both images show the same corner of the same room with the same main objects in the exact same positions (the gray sofa, patterned and red cushions, black keyboard, side table with a mouse and glass, blue-cushioned wooden footstool, dark blue recliner with the spotted plush dog, curtains, and window).\n\n**What differs:**\n* **Camera position and framing:** Image 1 is taken from further back",
+   "s": 17.3
+  }
+ ],
+ "controls": [
+  {
+   "arm": "positive",
+   "i": 0,
+   "a": "p0_truth.jpg",
+   "b": "p0_pos5.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the same part of the same room with the exact same objects in the same positions\u2014nothing has been moved, added, or removed.\n\n**What differs** is only the camera framing (Image 2 is panned slightly to the left compared to Image 1):\n- **Right side:** In Image 1, a dark blue armchair, a larger portion of the window, and more of the wooden-framed blue chair in the bottom-righ",
+   "s": 38.27
+  },
+  {
+   "arm": "positive",
+   "i": 1,
+   "a": "p1_truth.jpg",
+   "b": "p1_pos5.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the same part of the same room with the same objects; only the camera viewpoint/framing differs slightly.\n\n**What differs:**\n- **Camera shift/framing:** Image 2 is shifted slightly to the left compared to Image 1 (showing slight parallax between the foreground items and the couch).\n- **Left edge:** Image 2 reveals more of the blurry bottle with the blue cap and surroundin",
+   "s": 21.54
+  },
+  {
+   "arm": "positive",
+   "i": 2,
+   "a": "p2_truth.jpg",
+   "b": "p2_pos5.jpg",
+   "same": true,
+   "reply": "**Yes**, both images show the same part of the same room with the same objects (the gray couch, wooden coffee table with the bottle, glasses, and bowl, the tablet on the armrest, the white lamp, the clothes on the sofa, and the doorway).\n\n**What differs:**\n- **Camera framing (horizontal pan/shift):** Image 2 is shifted slightly to the left compared to Image 1.\n- **Left edge:** Image 2 includes a w",
+   "s": 25.12
+  },
+  {
+   "arm": "positive",
+   "i": 3,
+   "a": "p3_truth.jpg",
+   "b": "p3_pos5.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the same part of the same room with the exact same objects (the plant, window, grand piano, bench, rug, white door, floor lamp, grey armchair, tablet, and side table with its items).\n\n**What differs:** Only the camera framing/viewpoint. Image 2 is panned slightly to the left compared to Image 1, revealing more of the green plant and left wall while cropping off slightly m",
+   "s": 21.02
+  },
+  {
+   "arm": "positive",
+   "i": 4,
+   "a": "p4_truth.jpg",
+   "b": "p4_pos5.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the same part of the same room with all the same objects (the black grand piano with sheet music, piano bench, patterned rug, potted plant, speaker on a stand with the pink bonsai on top, bookshelves, window, and open white door).\n\n**What differs:**\n- **Camera framing / angle:** Image 2 is panned slightly to the left (and slightly zoomed/shifted closer) compared to Image ",
+   "s": 24.96
+  },
+  {
+   "arm": "positive",
+   "i": 5,
+   "a": "p5_truth.jpg",
+   "b": "p5_pos5.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the same part of the same room with the same objects\u2014the bookshelf filled with books, the guitar leaning beside it, the window, the black grand piano with sheet music, the piano bench, and the patterned rug\u2014with no objects added, removed, or moved.\n\n**What differs** is only the camera framing/position (Image 2 is panned slightly to the left compared to Image 1):\n- **Left ",
+   "s": 29.42
+  },
+  {
+   "arm": "positive",
+   "i": 6,
+   "a": "p6_truth.jpg",
+   "b": "p6_pos5.jpg",
+   "same": true,
+   "reply": "**Yes**, both images show the same part of the same room with the same objects (the speaker, pink floral decoration, yucca plant, guitar, and wooden bookshelf with the same books).\n\n**What differs:**\n* **Camera framing / viewpoint:** Image 2 is shifted slightly to the **left** compared to Image 1.\n  * **Left edge:** Image 2 reveals more to the left of the speaker, including a large dark vertical o",
+   "s": 42.07
+  },
+  {
+   "arm": "positive",
+   "i": 7,
+   "a": "p7_truth.jpg",
+   "b": "p7_pos5.jpg",
+   "same": true,
+   "reply": "**Yes**, both images show the same part of the same room with the same objects\u2014nothing in the scene itself has been moved, added, or removed. \n\n**What differs is the camera framing/viewpoint:** Image 2 is panned (shifted) slightly to the left compared to Image 1, which changes what is visible along the edges:\n\n* **Visible on the left in Image 2 (cropped out in Image 1):**\n  * The left edge of the ",
+   "s": 25.75
+  },
+  {
+   "arm": "positive",
+   "i": 8,
+   "a": "p8_truth.jpg",
+   "b": "p8_pos5.jpg",
+   "same": true,
+   "reply": "**Yes**, both images show the same part of the same room with the same objects (the armchair with the stuffed toy, curtains, TV, speakers, subwoofer, Nintendo Switch, and decorations).\n\nWhat differs is only the **camera angle/framing**: Image 2 is panned slightly to the left compared to Image 1. As a result:\n- **On the left**, Image 2 reveals the entire armchair and stuffed toy, the edge of a wood",
+   "s": 19.36
+  },
+  {
+   "arm": "positive",
+   "i": 9,
+   "a": "p9_truth.jpg",
+   "b": "p9_pos5.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the same part of the same room with the exact same objects in the same positions. \n\n**What differs:** Only the camera viewpoint/framing differs slightly\u2014Image 2 is shifted/panned slightly to the left compared to Image 1, revealing a bit more of the grey sofa and patterned pillow on the left edge (as well as slightly more of the dark blur at the top-left corner) while shif",
+   "s": 20.33
+  },
+  {
+   "arm": "seed_hold",
+   "i": 0,
+   "a": "p0_start.jpg",
+   "b": "p0_genie_t0.jpg",
+   "same": true,
+   "reply": "**Yes**, both images show the exact same part of the same room with the same objects in the same positions (the grey sofa, floral pillow, red blanket, keyboard, side table with glass and mouse, footrest, blue recliner with the spotted plush toy, curtains, and window).\n\n**What differs:**\nThe differences are purely in visual quality/rendering sharpness and artifacts rather than the scene itself:\n- *",
+   "s": 23.2
+  },
+  {
+   "arm": "seed_hold",
+   "i": 1,
+   "a": "p1_start.jpg",
+   "b": "p1_genie_t0.jpg",
+   "same": true,
+   "reply": "Yes, both images show the exact same part of the same room with all the same objects in the same positions. \n\nWhat differs is the image quality and presence of visual/rendering artifacts:\n- **Wall:** Image 1 has noticeable dark blurry smudges and blotches across the beige wall (especially toward the upper center-left), whereas the wall in Image 2 is much cleaner and more uniform.\n- **Curtains and ",
+   "s": 17.39
+  },
+  {
+   "arm": "seed_hold",
+   "i": 2,
+   "a": "p2_start.jpg",
+   "b": "p2_genie_t0.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the exact same part of the same room from the same viewpoint, with all the same objects in the same positions (the grey sofa, wooden side table with eyeglasses, bowl, bottle, and glasses, the crumpled dark and yellow/red fabric, the patterned pillow, the red blanket, the keyboard, and the small table with a mouse and glass).\n\nThe only differences are minor rendering/image",
+   "s": 23.17
+  },
+  {
+   "arm": "seed_hold",
+   "i": 3,
+   "a": "p3_start.jpg",
+   "b": "p3_genie_t0.jpg",
+   "same": true,
+   "reply": "Yes, the two images show the exact same part of the same room with the same objects. Nothing differs between them; the framing, objects, and visual details are identical in both images.",
+   "s": 26.23
+  },
+  {
+   "arm": "seed_hold",
+   "i": 4,
+   "a": "p4_start.jpg",
+   "b": "p4_genie_t0.jpg",
+   "same": true,
+   "reply": "Yes. The two images appear to be identical\u2014they show the exact same part of the same room from the same viewpoint with all the same objects (speaker, potted plant, grand piano with bench and rug, open white door, tall cylindrical lamp, gray armchair with tablet, side table, and rendering artifacts) and nothing differs between them.",
+   "s": 33.69
+  },
+  {
+   "arm": "seed_hold",
+   "i": 5,
+   "a": "p5_start.jpg",
+   "b": "p5_genie_t0.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the exact same part of the same room from virtually the same viewpoint, containing all the same objects (the black grand piano with sheet music, the piano bench, the patterned rug, the bookshelf on the left, the window behind the piano, the white paneled door on the right, and the boxes/case underneath the piano).\n\nThe only differences are very minor lighting, blur, and r",
+   "s": 46.18
+  },
+  {
+   "arm": "seed_hold",
+   "i": 6,
+   "a": "p6_start.jpg",
+   "b": "p6_genie_t0.jpg",
+   "same": true,
+   "reply": "**Yes**, both images show the exact same part of the same room from the same viewpoint with all the same objects (the potted plant, bookshelf and books, leaning guitar, piano, sheet music, bench, rug, boxes, and window).\n\nWhat differs is only the **image quality, sharpness, and rendering/reconstruction artifacts** (they appear to be two different 3D reconstructions/renders of the same scene):\n\n* *",
+   "s": 16.73
+  },
+  {
+   "arm": "seed_hold",
+   "i": 7,
+   "a": "p7_start.jpg",
+   "b": "p7_genie_t0.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the exact same part of the same room with the same objects\u2014including the black speaker on the left, the pink floral ornament and leaning framed image behind it, the potted spiky green plant in the center, and the wooden bookshelf filled with books on the right.\n\n**What differs:** Nothing visibly differs between the two images; the objects, placement, camera angle, lightin",
+   "s": 16.39
+  },
+  {
+   "arm": "seed_hold",
+   "i": 8,
+   "a": "p8_start.jpg",
+   "b": "p8_genie_t0.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the exact same part of the same room from the same viewpoint with the same objects (the black speaker with a white cone, the pink floral/bonsai ornament behind it, the leaning picture/print, the green plant leaves on the right, and the surrounding surfaces).\n\n**What differs:** There are no differences in the objects or layout\u2014only minor differences in image quality and re",
+   "s": 14.71
+  },
+  {
+   "arm": "seed_hold",
+   "i": 9,
+   "a": "p9_start.jpg",
+   "b": "p9_genie_t0.jpg",
+   "same": true,
+   "reply": "**Yes.** Both images show the same part of the same room with the same visible objects: a dark bluish-gray recliner armchair with a brown-and-white plush toy on it, a black rectangular box/table on the wooden floor beside a light rug, long curtains, and a window on the left, all heavily obstructed on the middle and right by the same large, out-of-focus dark and tan foreground object(s).\n\n**What di",
+   "s": 28.69
+  }
+ ],
+ "controls_summary": {
+  "note": "added after the pass mark, not part of it",
+  "positive_same": 10,
+  "positive_n": 10,
+  "seed_hold_same": 10,
+  "seed_hold_n": 10
+ },
+ "summary": {
+  "angle_deg": 30,
+  "hold_s": 2.0,
+  "hold_frames": 48,
+  "frames_during_hold": {
+   "calib": 51,
+   "p0": 60,
+   "p1": 48,
+   "p2": 14,
+   "p3": 60,
+   "p4": 49,
+   "p5": 56,
+   "p6": 48,
+   "p7": 15,
+   "p8": 20,
+   "p9": 10
+  },
+  "genie_sessions_measured": 10,
+  "genie_same": 1,
+  "genie_n": 10,
+  "banana_same": 0,
+  "banana_n": 10,
+  "sanity_different": 5,
+  "sanity_n": 10,
+  "unparsed": 0,
+  "neon_calls": 31,
+  "banana_calls": 10,
+  "genie_sessions": 12,
+  "pass": false
+ }
+}
