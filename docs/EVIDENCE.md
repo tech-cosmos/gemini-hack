@@ -8,6 +8,12 @@ the slides or the talk.
 -
 
 ## Along the way (spikes, pilots, things that failed)
+- 8/10 · spike 12b: Neon picks a grid view within 1 step and 45° of a phone-like query render (Mip-NeRF 360 room splat, 10 seeded poses); heading error p50 9.3° · `results/s10b_locate.json` · `uv run --no-project --with google-genai==3.6.1 --with playwright --with pillow python -I spikes/s10_roomsearch/locate.py .context/room.splat run --targets "the piano=v0_135,the potted plant=v2_270,the window=v2_225"` (renderer served with local copies of three 0.180.0 / spark 2.4.0 from `.context/vendor`)
+- 50.08 s p50 (max 57.8) · spike 12b Neon locate call, 40 images + query, 10 at once · same file · same command
+- 3/3 right image, 1/3 right turn side · spike 12b flat-photo baseline (Hydrogen, 40 renders as a list) · `results/s10b_locate.json`, `results/s10b_eye.json` (by eye) · same command
+- 9/10, 18.03 s p50 · spike 12b **after the fact, not registered**: same locate with the 40 views as one labelled contact sheet; one solo 40-image call 22.38 s · `results/s10b_probe.json` · `uv run --no-project --with google-genai==3.6.1 --with pillow python -I spikes/s10_roomsearch/locate_probe.py`
+- 8/10, 31.65 s p50 · spike 12c: Hydrogen instead of Neon, same 40-image locate prompt, 10 at once · `results/s10b_hydrogen.json` · `uv run --no-project --with google-genai==3.6.1 --with pillow python -I spikes/s10_roomsearch/locate_probe.py hydrogen`
+- 9/10, 10.395 s p50 (max 27.82) · spike 12c arm (b), not the marked arm: Hydrogen with the 40 views as one labelled contact sheet, 2 at a time · same file · same command
 - **5 of 10 · 2 of 10 · 6 of 10** · spike 13 Dream vs Twin, registered run: Genie 4 / Nano Banana turned views judged "same part of the same room" as the splat truth by one Neon call each; shuffled sanity pairs judged "different". Pass mark was sanity 10/10: **fail** (sanity pairs overlap; judge grades framing). Not a Genie win: most Genie after-frames were un-turned (0–14 frames during the hold), so its 5/10 mostly means Genie did not move · `results/s11_dreamtwin.json` · `uv run --no-project --with google-genai==3.6.1 --with playwright python spikes/s11_dreamtwin.py .context/room.splat room`
 - 10 of 10 · 10 of 10 · positive control (truth vs splat +5°) judged "same"; seed hold (start render vs Genie first frame) judged "same"; added after the pass mark · same file
 - 4, 9, 14, 1, 0, 0, 1, 1, 5, 4 · Genie frames received during the 2 s `arrow_left` hold, 4 sessions at once (calibration session 25); calibrated angle 15° · same file

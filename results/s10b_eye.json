@@ -1,0 +1,17 @@
+{
+ "judge": "rrrozhd's agent, by eye on .context/s10b/contact.jpg and .context/s10b/query_vs_pred.jpg, 13:30",
+ "baseline_right_image": [
+  {"obj": "the piano", "chosen": "v2_180.jpg", "shows_x": true},
+  {"obj": "the potted plant", "chosen": "v2_270.jpg", "shows_x": true},
+  {"obj": "the window", "chosen": "v4_000.jpg", "shows_x": true}
+ ],
+ "baseline_right_image_n": 3, "baseline_n": 3,
+ "baseline_direction_side_vs_code": [
+  {"obj": "the piano", "baseline": "walk straight ahead", "code_true_bearing_from_query": 36.9, "side_right": false},
+  {"obj": "the potted plant", "baseline": "turn left", "code_true_bearing_from_query": -140.0, "side_right": true},
+  {"obj": "the window", "baseline": "turn slightly right", "code_true_bearing_from_query": -70.9, "side_right": false}
+ ],
+ "baseline_direction_note": "approximate: the code bearing is from query i's true pose, the baseline starts at query i's true nearest grid view (heading within 22.5 deg, position offset); 'straight ahead' for a 37 deg-right target counted wrong",
+ "locate_picks_by_eye": "query vs Neon-picked view show the same scene for 9/10; q8's query is all floaters (true position 3, a corner whose grid views are mostly floaters) and its pick is a floater view too",
+ "heading_sign_check": "registered sign (pred = grid yaw - turn_right) has lower heading error than turn=0 and than the flipped sign on 8/10 queries; only q8 and q9 (both true position 3) prefer the flipped sign"
+}
