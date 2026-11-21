@@ -1,64 +1,82 @@
 # The organizers' requirements, short version
 
 Our summary of what the organizers gave us. If this file and their brief differ, their brief wins.
-Lead's agent: fill this in from the packet, the kickoff talk and the answers to our questions. Quote exact
-words where the wording matters.
+Source: the participant guide at https://cerebralvalley.ai/e/gemini-4-nyc/details (login needed; the lead
+saved a copy). Venue: The Malin Chelsea, 220 W 26th St. Wi-Fi "Hackathon" / "hackathon".
 
-## Timeline
+## Timeline (Sat 2026-11-21, ET)
 | What | When |
 |---|---|
-| Event | Sat 2026-11-21, 9:00 AM – 10:00 PM EST, New York (in person only) |
-| Building starts | 10:00 EST (per lead) |
-| Code freeze (if any) | ? |
-| Submission deadline | 17:00 EST (per lead) |
-| Presentations | ? |
+| Kick-off | 10:00 |
+| Building starts | 10:30 |
+| Submission deadline | **17:00** (form + 1-minute demo video) |
+| Round one judging (rooms, 3 min live demo + 2 min Q&A) | 17:00 – 18:45 |
+| Final round (top 6 on stage, same format) | 19:00 – 20:00 |
+| Winners | 20:15 |
 
-Source: https://cerebralvalley.ai/e/gemini-4-nyc (hosts: Cerebral Valley + Google DeepMind; 517 going).
+## The hard requirements (every project)
+- Build in **one of the two problem statements** below.
+- Use **at least two Gemini 4 models** (Argon, Carbon, Neon, Hydrogen), **each with a clear job**.
+- **Go beyond a text box**: "voice, camera, video, images, documents or generated media should be central
+  to how the project works."
+- **Repository must be public.** All team members added on the submission page.
+- Demo shows only what we built today. "Judges must be able to clearly identify what was created during the
+  event. Failure ... will result in immediate disqualification." The kit (process files, no product code)
+  is a reused component: say so in the README.
 
-## What to submit
-<!-- Format, file name, where it goes, size limits, required sections, any checker they provide. -->
+## Problem statements
+**One: 5 Sigma.** "Pick a real task that today's agents struggle with, and build a Gemini 4 system that does
+it reliably ... Then prove it: build an evaluation that tests your system on inputs you didn't prepare for,
+and show how it compares to a simple baseline." Questions they ask: what's the baseline and how much
+better; a test set with messy inputs and edge cases; where it still fails and what changed after.
+Their examples: messy real-world forms (scanned PDFs, handwriting) tested on 50 unseen documents vs a
+single-model baseline; a coding agent fixing real GitHub issues measured by the repo's own tests.
 
-## Theme (from the event page)
-Built around the four Gemini 4 models: "Argon, Carbon, Neon and Hydrogen", spanning "advanced reasoning
-and visual coding to robotics and world models". Projects should "push Gemini to its limits".
-No formal tracks listed on the page.
+**Two: Element 119.** "Build something that only works because Gemini 4 can see, hear and generate media."
+Video, audio, images or documents are the core input (and can be the output). "Use any Gemini 4 models
+you want plus the Decisions API, and push them as far as they go: longer footage, messier audio, more
+streams at once, faster real-time loops. Then show us where it breaks."
+"Not allowed: text-only chatbots, demos that only run on scripted inputs, and evaluations made up entirely
+of examples the team wrote to pass."
+
+**Bonus: Build with Commerce (Shopify).** shop.dev, product discovery to a shopping agent. Open to all.
+
+## Judging criteria (round one; the final round weights them equally)
+| Criterion | Weight | What it means |
+|---|---|---|
+| Live Demo | 35% | "Does it work live on real, unrehearsed inputs? NOT slides or a Figma file." |
+| Proof It Works | 25% | "a test against a baseline, an honest look at where it fails, or a plan the agent checks its own output against" |
+| Creativity | 20% | "a problem others avoid? ... beyond a text interface in a way that matters" |
+| Gemini 4 & Decisions API Use | 20% | at least two Gemini 4 models with clear jobs, plus the Decisions API; how far it pushes reasoning, speed or multimodality |
 
 ## Prizes
-| Prize | Amount |
-|---|---|
-| 1st place | $7,500 |
-| 2nd place | $5,000 |
-| 3rd place | $2,500 |
-| Best use of Managed Agents | $5,000 |
-| Best use of Shopify | $2,500 in Shop Cash |
+1st $7,500 · 2nd $5,000 · 3rd $2,500 · **Best use of Managed Agents $5,000** · Best use of Shopify $2,500 Shop Cash.
 
-## Judges (page says "more to be announced")
-Google DeepMind (Thor Schaeff, Jack Wotherspoon, Pedram Pejman, Moses Oh, others), Mike Swift (MLH CEO),
-Shopify (Natalie Jordan, Angel Guerrero), Agora (Hermes Frangoudis), investors and founders from Insight
-Partners, Dune Ventures, Tenex and others.
+## Banned ("Sample Anti-Projects", strictly no)
+AI mental health advisor · basic RAG · Streamlit apps · image analyzers · "AI for Education" chatbot ·
+AI job application screener · AI nutrition coach · personality analyzers · AI medical advice ·
+anything where a dashboard is the main feature · sports analyzers or coaches.
 
-## Judging criteria
-Not published on the event page. Ask at kickoff.
+## Resources
+- "Build with Gemini 4 Builder Guide" (Google Drive, linked from the guide): which model does what,
+  **Gemini Decision 1** for fast routing and scoring, live voice/camera/speech/image/video/music models,
+  setup, recipes for multi-model loops, the Decisions API, Managed Agents (Google-hosted or self-hosted
+  sandboxes), agentic video understanding, and what to avoid in a live demo.
+- Gemini accounts only for checked-in builders, in batches. Contact: blerta@cerebralvalley.ai / Discord.
+- Shopify: shop.dev; Solutions Engineers on site and in Discord.
+- Discord: #announcements, #rules, #questions (ping @CV).
 
-| Criterion | Weight | What it means | Where we score it |
-|---|---|---|---|
-| | | | |
-
-Tie-break: 
-
-## Rules that bite
-- "This event is fully in-person in New York City."
-- "Maximum team size is four."
-- Unknown yet: built-on-site rule, public repo requirement, Gemini API keys/credits per team.
-  This repo holds the Hackathon Kit (process only, no product code): disclose it under "reused components".
-<!-- What must be built on site, what may be reused, allowed models and keys, IP or licence terms. -->
+## Model notes (public sources, verify against the builder guide)
+Hydrogen: fastest and cheapest, everyday coding and agent loops. Neon: high-performance coding and
+multi-step reasoning at low latency. Carbon, Argon: frontier models for the hardest work.
+Managed Agents (Gemini API, Interactions API): one call starts an agent with tools and code execution
+in an isolated Linux sandbox; custom instructions/skills (AGENTS.md, SKILL.md), background runs,
+remote MCP, custom functions, hooks, budgets, scheduled triggers.
 
 ## What the judges and mentors said (exact words, with the time)
 -
 
-## Questions to ask in the first 30 minutes
-1. Which models and APIs can we use, with what limits? Is there a key per team, and can we see the spend?
-2. What exactly is scored, and with what weights? Is there a tie-break?
-3. How and where do we submit? File name, size limit, deadline to the minute?
-4. How long is the presentation, and is the demo live or on slides?
-5. What may we reuse (process scripts, libraries, our own earlier code)?
+## Questions still open
+1. Decisions API: what exactly does it return, latency, and limits? (builder guide)
+2. Which Gemini 4 models can Managed Agents run on?
+3. Live demo: is there a projector, and can we use the venue Wi-Fi for real-time video?
