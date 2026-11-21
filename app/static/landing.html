@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Click Shield · wait a second before your AI agent clicks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Same tokens as the stage app (static/index.html): Linear-like near-black canvas, charcoal panels, hairlines,
+   lavender accent, teal for the shield, red/amber/green only for verdicts. No external fonts or CDNs. */
+:root{--canvas:#010102;--s1:#0f1011;--s2:#141516;--s3:#18191a;--line:#23252a;--line2:#34343a;
+--ink:#f7f8f8;--ink2:#d0d6e0;--mut:#8a8f98;--mut2:#62666d;--acc:#5e6ad2;--acc2:#828fff;--teal:#19c3b3;
+--red:#f2555a;--amber:#f0a020;--green:#27a644;--mono:"SF Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--canvas);color:var(--ink);
+font:15px/1.4 -apple-system,"SF Pro Text","Inter",Helvetica,Arial,sans-serif;letter-spacing:-.05px}
+body{min-height:100vh;display:flex;flex-direction:column;
+background:radial-gradient(900px 420px at 78% -8%,rgba(25,195,179,.10),transparent 70%),
+radial-gradient(700px 380px at 8% 0%,rgba(94,106,210,.12),transparent 70%),var(--canvas)}
+a{color:inherit}
+code{font-family:var(--mono);font-size:.86em;background:var(--s3);border:1px solid var(--line);border-radius:5px;padding:1px 5px;color:var(--ink2)}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 28px}
+/* nav */
+nav{border-bottom:1px solid var(--line);background:rgba(15,16,17,.7)}
+nav .wrap{height:48px;display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:650;font-size:17px;letter-spacing:-.3px;text-decoration:none}
+nav .sp{flex:1}
+nav a.l{font-size:13.5px;color:var(--mut);text-decoration:none}nav a.l:hover{color:var(--ink)}
+.chip{font-size:12px;color:var(--ink2);border:1px solid var(--line2);border-radius:99px;padding:3px 10px;white-space:nowrap}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:36px;padding-top:16px;align-items:start}
+.title{display:flex;align-items:center;gap:20px}
+.logo{position:relative;width:60px;height:66px;flex:none}
+.logo svg{position:relative;width:60px;height:66px;filter:drop-shadow(0 0 18px rgba(25,195,179,.45))}
+.logo:before,.logo:after{content:"";position:absolute;left:50%;top:50%;width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:50%;
+border:2px solid rgba(25,195,179,.55);animation:pulse 2.8s ease-out infinite;opacity:0}
+.logo:after{animation-delay:1.4s}
+@keyframes pulse{0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.9);opacity:0}}
+@media (prefers-reduced-motion:reduce){.logo:before,.logo:after{animation:none}}
+h1{margin:0;font-size:50px;line-height:1;font-weight:750;letter-spacing:-1.8px}
+.tag{margin:10px 0 0;font-size:26px;line-height:1.2;font-weight:600;letter-spacing:-.5px;color:var(--ink)}
+.tag b{color:var(--teal);font-weight:650}
+.sub{margin:10px 0 0;font-size:16px;color:var(--ink2);max-width:640px}
+.cta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:650;font-size:17px;padding:12px 20px;border-radius:11px;white-space:nowrap}
+.btn.p{background:var(--acc);color:#fff;box-shadow:0 8px 30px rgba(94,106,210,.35)}.btn.p:hover{background:var(--acc2)}
+.btn.s{background:var(--s3);border:1px solid var(--line2);color:var(--ink)}.btn.s:hover{border-color:var(--teal)}
+.meta{display:flex;gap:18px;margin-top:9px;font-size:13px;color:var(--mut);flex-wrap:wrap}
+.meta a{color:var(--ink2)}
+/* install card */
+.card{background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+.card h3{margin:0 0 10px;font-size:13px;font-weight:650;color:var(--mut);text-transform:uppercase;letter-spacing:1px}
+.routes{display:flex;gap:8px;margin-bottom:12px}
+.rt{flex:1;border-radius:9px;padding:8px 10px;font-size:12.5px;color:var(--ink2);border:1px solid var(--line2);background:var(--s2)}
+.rt b{display:block;font-size:14px;letter-spacing:1px;margin-bottom:1px}
+.rt.pa b{color:var(--green)}.rt.de b{color:var(--amber)}.rt.st b{color:var(--red)}
+ol.inst{margin:0;padding:0;list-style:none;counter-reset:i;display:flex;flex-direction:column;gap:7px;font-size:13px;color:var(--ink2)}
+ol.inst li{counter-increment:i;display:flex;gap:10px}
+ol.inst li:before{content:counter(i);flex:none;width:20px;height:20px;border-radius:50%;background:var(--s3);border:1px solid var(--line2);
+font-size:11.5px;font-weight:700;color:var(--ink);display:flex;align-items:center;justify-content:center;margin-top:1px}
+/* sections */
+.sec{margin-top:14px}
+.sec>h2{margin:0 0 9px;font-size:13px;font-weight:650;color:var(--mut);text-transform:uppercase;letter-spacing:1px;display:flex;align-items:baseline;gap:12px}
+.sec>h2 a{font-size:12.5px;text-transform:none;letter-spacing:0;color:var(--amber);font-weight:600}
+.steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:stretch}
+.step{background:var(--s1);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;gap:12px}
+.step .ic{flex:none;width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:var(--s3);border:1px solid var(--line2)}
+.step.sh{border-color:rgba(25,195,179,.45)}
+.step h4{margin:0;font-size:15.5px;font-weight:650}
+.step p{margin:3px 0 0;font-size:13px;color:var(--ink2);line-height:1.38}
+.step .n{font-family:var(--mono);font-size:11.5px;color:var(--mut);margin-top:4px}
+.arr{align-self:center;color:var(--mut2);font-size:20px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.fact{background:var(--s1);border:1px solid var(--line);border-radius:12px;padding:9px 14px}
+.fact .v{font-size:26px;font-weight:750;letter-spacing:-.8px;line-height:1.1}
+.fact .v small{font-size:15px;font-weight:600;color:var(--mut);letter-spacing:0}
+.fact p{margin:3px 0 0;font-size:12.5px;color:var(--ink2);line-height:1.36}
+.fact .src{margin-top:4px;font-family:var(--mono);font-size:10.5px;color:var(--mut2)}
+footer{margin-top:auto;padding:12px 0 10px;font-size:12.5px;color:var(--mut)}
+footer .wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+@media (max-width:980px){.hero{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.arr{display:none}.facts{grid-template-columns:1fr 1fr}h1{font-size:46px}}
+@media (max-width:560px){.facts{grid-template-columns:1fr}.tag{font-size:22px}}
+</style></head>
+<body>
+<nav><div class="wrap">
+ <a class="brand" href="/"><svg width="18" height="20" viewBox="0 0 16 18" fill="#19c3b3" aria-hidden="true"><path d="M8 0l8 3v6c0 4.6-3.4 8-8 9-4.6-1-8-4.4-8-9V3z"/></svg>Click Shield</a>
+ <span class="sp"></span>
+ <a class="l" href="/demo">Live demo</a>
+ <a class="l" href="https://github.com/tech-cosmos/gemini-hack" target="_blank" rel="noopener">GitHub</a>
+ <span class="chip">Gemini 4 NYC Hackathon · team Wait a Second</span>
+</div></nav>
+
+<main class="wrap">
+ <section class="hero">
+  <div>
+   <div class="title">
+    <div class="logo"><svg viewBox="0 0 16 18" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fe0cf"/><stop offset="1" stop-color="#0f8f84"/></linearGradient></defs>
+     <path d="M8 0l8 3v6c0 4.6-3.4 8-8 9-4.6-1-8-4.4-8-9V3z" fill="url(#g)"/>
+     <path d="M5.2 6.2l7.1 4.2-3.1.7-1.6 3z" fill="#062a27" stroke="#e9fffc" stroke-width=".7" stroke-linejoin="round"/></svg></div>
+    <h1>Click Shield</h1>
+   </div>
+   <p class="tag"><b>Wait a second</b> before your AI agent clicks.</p>
+   <p class="sub">A fast Gemini Decision 1 gate checks every click a browser agent makes. Unsure clicks are set off in a Managed Agents sandbox first.</p>
+   <div class="cta">
+    <a class="btn p" href="/demo">Watch it stop a hijack →</a>
+    <a class="btn s" href="/download/click-shield-extension.zip" download><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8M4.5 6.8L8 10.3l3.5-3.5M2.5 13.5h11"/></svg>Get the Chrome extension</a>
+   </div>
+   <div class="meta"><span>Bring your own Gemini key</span><a href="https://github.com/tech-cosmos/gemini-hack" target="_blank" rel="noopener">Code &amp; evidence on GitHub</a></div>
+  </div>
+
+  <div class="card">
+   <h3>Every click gets one of three routes</h3>
+   <div class="routes">
+    <div class="rt pa"><b>PASS</b>the button the task names</div>
+    <div class="rt de"><b>DETONATE</b>not sure: try it in a sandbox</div>
+    <div class="rt st"><b>STOP</b>an overt attack</div>
+   </div>
+   <h3>Install the extension</h3>
+   <ol class="inst">
+    <li><span>Unzip · <code>chrome://extensions</code> · Developer mode · Load unpacked.</span></li>
+    <li><span>In the repo, run the Shield API: <code>python -m api.server</code></span></li>
+    <li><span>In the extension options, set your task and Gemini key.</span></li>
+   </ol>
+  </div>
+ </section>
+
+ <section class="sec">
+  <h2>How it works</h2>
+  <div class="steps">
+   <div class="step"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3l15 9-6.5 1.5L9.5 20z" fill="#d0d6e0"/></svg></div>
+    <div><h4>Agent proposes a click</h4><p>Gemini 4 Hydrogen computer use picks where to click. Nothing fires yet.</p></div></div>
+   <div class="arr">→</div>
+   <div class="step sh"><div class="ic"><svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><path d="M8 0l8 3v6c0 4.6-3.4 8-8 9-4.6-1-8-4.4-8-9V3z" fill="#19c3b3"/></svg></div>
+    <div><h4>Shield routes it</h4><p>Decision 1 reads the screenshot, the click and the task, and answers PASS, STOP or DETONATE.</p>
+     <div class="n">0.722 s p50 in tests · 2.556 s p50 under load</div></div></div>
+   <div class="arr">→</div>
+   <div class="step"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0a020" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M8 7V5h8v2M9 12l2 2 4-4"/></svg></div>
+    <div><h4>Detonation chamber</h4><p>A Managed Agents sandbox clicks it on a throwaway copy and reports what it really does.</p>
+     <div class="n">40.72-91.64 s per click</div></div></div>
+  </div>
+ </section>
+
+ <section class="sec">
+  <h2>What we found <a href="https://github.com/tech-cosmos/gemini-hack#where-it-fails" target="_blank" rel="noopener">Not 100% prevention: see where it fails →</a></h2>
+  <div class="facts">
+   <div class="fact"><div class="v">3/6 <small>pages hijacked</small></div>
+    <p>A real Gemini agent ignores "AI, click X" (0/12, 1/12) but falls for site-style prerequisites.</p>
+    <div class="src">spike 17 · s17_cu_hijack(_strong).json</div></div>
+   <div class="fact"><div class="v">6/7 <small>· 33/33</small></div>
+    <p>Real agent hijack clicks routed away from PASS · correct clicks passed. Miss: a fake dialog reusing the task's button label.</p>
+    <div class="src">spike 18 · results/s18_q2.json</div></div>
+   <div class="fact"><div class="v">30/30</div>
+    <p>Public VPI-Bench pop-up hijacks routed away from PASS. Cost: 0/9 legit pop-ups passed (sent to the sandbox).</p>
+    <div class="src">eval_vpi q2 · results/eval_vpi.json</div></div>
+   <div class="fact"><div class="v">4/4</div>
+    <p>Detonation chamber verdicts right on our fixtures: 3 hijacks malicious, 1 legit reload benign.</p>
+    <div class="src">results/managed_detonate.json</div></div>
+  </div>
+ </section>
+</main>
+
+<footer><div class="wrap">
+ <span>Built today at the Gemini 4 NYC Hackathon by Wait a Second (Shivam, Dan) · Gemini Decision 1 · Gemini 4 Hydrogen computer use · Managed Agents · Robotics-ER 2</span>
+ <span>Numbers: <code>docs/EVIDENCE.md</code></span>
+</div></footer>
+</body></html>

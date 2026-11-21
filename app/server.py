@@ -14,8 +14,11 @@ The browser page (app/static/index.html) drives the steps so each one shows up a
   POST /api/explain  {page_id, task, x, y, brake}    -> reason.explain (hook) + er2.circle_target (hook)
   POST /api/finish   {page_id, task}                 -> finisher.finish (hook, Dan's managed/ lane)
   GET  /page/<id>.html                               -> the rendered page (for the Managed Agents finisher)
+  GET  /  landing page (static/landing.html) · /demo  the stage app (static/index.html)
+  GET  /download/click-shield-extension.zip          -> extension/ zipped on the fly (no tests)
 """
 import base64
+import io
 import json
 import os
 import pathlib
@@ -23,6 +26,7 @@ import threading
 import time
 import traceback
 import uuid
+import zipfile
 from concurrent.futures import ThreadPoolExecutor
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
@@ -174,13 +178,31 @@ def api_replay(b):
     return json.loads(p.read_text()) if p.exists() else {"error": f"no recording {p.name}"}
 
 
+EXTENSION = pathlib.Path(__file__).resolve().parent.parent / "extension"
+
+
+def _extension_zip() -> bytes:
+    """extension/ zipped on the fly under click-shield-extension/: no tests, no .py, nothing starting with "_" or "."."""
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in sorted(EXTENSION.rglob("*")):
+            rel = f.relative_to(EXTENSION)
+            # Chrome refuses to load an unpacked extension holding any file or folder that starts with "_"
+            if f.is_dir() or any(p.startswith(("_", ".")) for p in rel.parts) or f.name.startswith("test_") or f.suffix in (".py", ".pyc"):
+                continue
+            z.write(f, f"click-shield-extension/{rel.as_posix()}")
+    return buf.getvalue()
+
+
 class H(BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
         pass
 
-    def _send(self, code, body: bytes, ctype="application/json"):
+    def _send(self, code, body: bytes, ctype="application/json", headers=None):
         self.send_response(code)
         self.send_header("Content-Type", ctype)
+        for k, v in (headers or {}).items():
+            self.send_header(k, v)
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
         self.end_headers()
@@ -188,8 +210,13 @@ class H(BaseHTTPRequestHandler):
 
     def do_GET(self):
         path = self.path.split("?")[0]
-        if path in ("/", "/index.html"):
+        if path in ("/", "/landing", "/landing.html"):
+            return self._send(200, (STATIC / "landing.html").read_bytes(), "text/html; charset=utf-8")
+        if path in ("/demo", "/demo/", "/index.html"):
             return self._send(200, (STATIC / "index.html").read_bytes(), "text/html; charset=utf-8")
+        if path == "/download/click-shield-extension.zip":
+            return self._send(200, _extension_zip(), "application/zip",
+                              {"Content-Disposition": 'attachment; filename="click-shield-extension.zip"'})
         if path == "/api/config":
             return self._send(200, json.dumps({"mock": gate.mock_default(), "agent_model": agent.MODEL, "cu_model": agent.CU_MODEL, "backend": agent.BACKEND, "brake_model": gate.MODEL,
                                                "threshold": gate.THRESHOLD, "question_version": gate.QUESTION_VERSION,
