@@ -43,7 +43,7 @@ A spike is the cheapest run that could kill the idea: 15 to 20 minutes, one pers
 
 | Idea | Who | Protocol | Pass mark (written first) | Result | Verdict |
 |---|---|---|---|---|---|
-| 0 · plumbing | first person with a key | Call two Gemini 4 models + Decision 1 from a script; time Hydrogen on one 720p frame, 10 calls | All three respond; Hydrogen p50 < 1.5 s | | |
+| 0 · plumbing | first person with a key | Call two Gemini 4 models + Decision 1 from a script; time Hydrogen on one 720p frame, 10 calls | All three respond; Hydrogen p50 < 1.5 s | Neon 4.12 s, Carbon 6.13 s, Hydrogen on a 1280×853 frame p50 4.16 s (max 10.41 s, n=10), Decision 1 on the same frame at low res, 2 questions, p50 0.56 s (n=5) | **Fail on Hydrogen speed.** Generation per frame is too slow for a live loop; Decision 1 is fast enough. Live loops score frames with Decision 1 and call Hydrogen/Carbon only on events |
 | 1 · Step Guard | | 10 phone frames of one LEGO step (5 right, 5 wrong piece) + the manual page; Hydrogen + Decision 1 judge each | ≥ 8/10 right, p50 < 2 s per frame | | |
 | 2 · Fixit | | 1 tiny repo with a seeded bug + a 30 s narrated recording; one Managed Agent run, 3 times | Reproduces and fix passes its test in ≥ 2/3 runs, each < 5 min | | |
 | 3 · Sketch to app | | 3 sketches by someone else; Managed Agent build + self-check | Checklist passes on ≥ 2/3, each < 5 min | | |
@@ -53,6 +53,12 @@ A spike is the cheapest run that could kill the idea: 15 to 20 minutes, one pers
 | 7 · Wire Trace | | 20 Knossos test diagrams (Food Web + Circuit); one call vs pairwise Decision 1 | Baseline edge F1 < 85 and pairwise beats it by ≥ 5 points | | |
 
 ## 4. The pattern
+**11:35 (Shivam's agent):** Step Guard (1) and Witness (5) are the same engine: Carbon turns an instruction
+into failure-first yes/no checks, Decision 1 scores frames against them. Spike 0 says the same engine is
+the only fast one (Decision 1 0.56 s vs Hydrogen 4.16 s per frame). Witness brings a real benchmark for
+Proof (ArmnetBench); Step Guard brings the live, judge-proof demo (a person assembling, a voice catching
+the mistake). Merged, one build scores on all four criteria. Dan's Witness spike decides whether
+Decision 1 holds up on real video.
 After two rounds, look across the results for what they have in common. The surprise that explains
 several results at once is usually the project.
 

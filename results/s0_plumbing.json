@@ -1,0 +1,29 @@
+{
+  "gemini-4-neon": {
+    "ok": true,
+    "s": 4.12,
+    "text": "ready"
+  },
+  "gemini-4-carbon": {
+    "ok": true,
+    "s": 6.13,
+    "text": "ready"
+  },
+  "hydrogen_sample": "The frame contains blueberry scones on stained parchment paper, two cups of coffee, a bowl of blueberries, a spoon, and ",
+  "gemini-4-hydrogen": {
+    "ok": true,
+    "n": 10,
+    "p50_s": 4.16,
+    "max_s": 10.41
+  },
+  "decision_sample": {
+    "has_person": 0.08,
+    "has_food": 0.9
+  },
+  "gemini-decision-1": {
+    "ok": true,
+    "n": 5,
+    "p50_s": 0.56
+  },
+  "pass": false
+}
