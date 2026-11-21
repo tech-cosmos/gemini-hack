@@ -29,6 +29,7 @@ MODEL = os.environ.get("AGENT_MODEL", "gemini-3.5-flash-lite")
 THINKING = os.environ.get("AGENT_THINKING", "")  # "" = model default
 BACKEND = os.environ.get("AGENT_BACKEND", "cu")  # "cu" = computer_use tool (spike 17, default); "json" = fast stand-in
 CU_MODEL = os.environ.get("CU_MODEL", "gemini-4-hydrogen")
+CU_API = os.environ.get("CU_API", "interactions")  # "interactions" (primary) or "generate_content" (fallback / spike 17 path)
 # same computer_use call shape on all three (spike 17); tried in order when a model stays busy
 CU_FALLBACK = [m for m in os.environ.get("CU_FALLBACK", "gemini-4-carbon,gemini-4-argon").split(",") if m]
 # when every computer-use model fails, try the JSON stand-in (AGENT_MODEL) and label it "not computer use"; CU_LAST_RESORT=0 disables
@@ -68,6 +69,49 @@ def _center(b: dict) -> tuple[int, int]:
 
 def _beta(alt: bool = False):
     return gate_client("v1beta", alt, int(CU_TIMEOUT_S * 1000))
+
+
+def _ia_click(model: str, task: str, png: bytes, note: str | None, alt: bool):
+    """One computer_use step on the Interactions API -> (function_call name, arguments) or (None, text)."""
+    r = gate_client(None, alt, int(CU_TIMEOUT_S * 1000)).interactions.create(
+        model=model, tools=[{"type": "computer_use", "environment": "browser"}],
+        input=[{"type": "text", "text": task + (note or "")},
+               {"type": "image", "data": base64.b64encode(png).decode(), "mime_type": "image/png"}])
+    for st in (r.steps or []):
+        if getattr(st, "type", None) == "function_call":
+            return st.name, dict(st.arguments or {})
+    return None, (getattr(r, "output_text", "") or "")[:200]
+
+
+def propose_click_ia(task: str, png: bytes, note: str | None = None, size: tuple[int, int] = (1280, 800)) -> dict:
+    """PRIMARY (15:40): computer use on the Interactions API. Shape from the SDK types (tool {"type": "computer_use",
+    "environment": "browser"}, reply step type "function_call" with name + arguments); NOT yet confirmed live: the two
+    probe calls at 15:40 got 429 (Hydrogen 20/day on Free Tier, Carbon 0 tokens/min on Free Tier).
+    Same model order and retry rules as propose_click_cu; x, y come back 0-999."""
+    t0 = time.perf_counter()
+    notes, out, model = [], None, None
+    for mi, model in enumerate([CU_MODEL] + [m for m in CU_FALLBACK if m != CU_MODEL]):
+        if mi:
+            notes.append(f"fell back to {model}")
+        try:
+            out = with_retries(lambda alt: _ia_click(model, task, png, note, alt), on_retry=lambda n, e, msg: notes.append(f"{model}: {msg}"))
+            break
+        except Exception as e:
+            if quota(e):
+                notes.append(f"{model}: {short_error(e)}")
+                raise AgentBusy("API quota reached on this key", notes, quota=True)
+            if not retryable(e):
+                raise
+            notes.append(f"{model}: {short_error(e)}")
+    if out is None:
+        raise AgentBusy("all computer-use models busy", notes)
+    name, a = out
+    if name is None or "x" not in a or "y" not in a:
+        raise RuntimeError(f"computer-use agent returned no click: {name} {a if name else a}")
+    intent = str(a.get("intent") or "")
+    return {"x": round(a["x"] / 1000 * size[0]), "y": round(a["y"] / 1000 * size[1]), "label": intent[:60], "intent": intent,
+            "s": round(time.perf_counter() - t0, 4), "model": model + " + computer_use (interactions)", "notes": notes,
+            "raw": f"{name} {a}"[:200]}
 
 
 def propose_click_cu(task: str, png: bytes, note: str | None = None, size: tuple[int, int] = (1280, 800),
@@ -131,7 +175,18 @@ def propose_click(task: str, png: bytes, note: str | None = None, *, mock: bool 
     notes = []
     if (backend or BACKEND) == "cu":
         try:
-            return propose_click_cu(task, png, note, size)
+            if CU_API == "interactions":
+                try:
+                    return propose_click_ia(task, png, note, size)
+                except AgentBusy as e:
+                    if e.quota:
+                        raise
+                    notes = e.notes + ["interactions busy: trying generate_content"]
+                except RuntimeError as e:  # unexpected reply shape: try the generate_content path once
+                    notes = [f"interactions: {str(e)[:80]}; trying generate_content"]
+            p = propose_click_cu(task, png, note, size)
+            p["notes"] = notes + p.get("notes", [])
+            return p
         except AgentBusy as e:
             if not CU_LAST_RESORT or e.quota:
                 raise
