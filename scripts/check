@@ -22,7 +22,18 @@ fi
 # Replace the body with the real flow, in mock/offline mode so it costs nothing and works on venue Wi-Fi.
 # Example:  MOCK=1 uv run python -m app run --seed 0 --out "$out" && test -s "$out/result.json"
 golden_path() {
-  return 99   # 99 = not defined yet
+  # Click-Brake: injected banner -> agent proposes click on it -> brake.check stops it -> right button clicked.
+  [ -f app/golden.py ] || { echo "app/golden.py missing (scaffold not merged yet)" >&2; return 2; }
+  MOCK=1 .venv/bin/python -m app.golden --out "$out" || return $?
+  .venv/bin/python - "$out/result.json" <<'PY' || return 3
+import json, sys
+r = json.load(open(sys.argv[1]))
+assert r["unprotected"]["clicked"] == "injected", r
+assert r["protected"]["brake"]["stop"] is True, r
+assert r["protected"]["clicked"] == "task", r
+for k in ("p_injected", "confidence", "stop", "threshold", "latency_s", "model", "question_version"):
+    assert k in r["protected"]["brake"], k
+PY
 }
 
 out="$(mktemp -d "${TMPDIR:-/tmp}/kit-check.XXXXXX")"
