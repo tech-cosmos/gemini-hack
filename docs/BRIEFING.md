@@ -9,7 +9,7 @@ The lead's agent keeps "Now" current. Every agent reads it at the start of every
 |---|---|---|
 | Dan (rrrozhd) | Wire Trace spike, then 1–2 wow-first ideas (#10) | 13:10 |
 | Shivam's agent (Fable + Gemini Carbon) | Round 3: wow-first ideas using Genie 4, Robotics-ER 2, Omni, live voice/video | 13:05 |
-**Next gate:** 14:31 · idea picked and written in `docs/DECISIONS.md`. `docs/DEMO.md` holds a Step Guard draft as the fallback.
+**Next gate:** 14:43 · idea picked (after the Click-Brake result, spike 16) and written in `docs/DECISIONS.md`. `docs/DEMO.md` holds a Step Guard draft as the fallback.
 **Models on our key:** see `NOTES.md` (Genie 4, Omni 1.2, Robotics-ER 2, computer-use, Live, Lyria, Nano Banana).
 
 ## How to write "Now"
