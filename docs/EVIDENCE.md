@@ -8,6 +8,11 @@ the slides or the talk.
 -
 
 ## Along the way (spikes, pilots, things that failed)
+- **0.925 at 1.58 s p50** · cascade balanced accuracy and latency on 40 **held-out** ego2act human clips (20 unseen tasks × correct/wrong), rule frozen before the run · `results/s2_heldout.json` · `.venv/bin/python spikes/s2_heldout.py 10 20` (11:42)
+- 0.80 at 1.21 s · Decision 1 alone, same 40 clips · same file
+- 0.925 at 16.8 s · Neon agentic alone, same 40 clips (max 47.9 s) · same file
+- 1 / 2 / 4 · false "success" verdicts on the 20 wrong clips: cascade / Neon / Decision 1 · same file
+- 16 of 40 · clips the cascade escalated to Neon · same file
 - 0.875 · Witness spike arm A: balanced accuracy of one Decision 1 yes/no on 39 ArmnetBench front-camera robot clips (20 success / 19 failure) · `spikes/witness/result.json` · `uv run --no-project --with google-genai==3.6.1 --with pandas --with pyarrow python -I spikes/witness/spike.py`
 - 0.80 · Witness spike arm B: balanced accuracy of Carbon's failure-first checks scored by Decision 1, same clips · same file · same command
 - 0.95 / 0.932 · AUROC for arm A / arm B · same file · same command

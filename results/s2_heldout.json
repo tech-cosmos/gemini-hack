@@ -1,0 +1,821 @@
+{
+  "summary": {
+    "decision1_alone": {
+      "balanced_acc": 0.8,
+      "tpr": 0.8,
+      "tnr": 0.8,
+      "false_success": 4,
+      "n": 40,
+      "p50_s": 1.21,
+      "max_s": 2.04
+    },
+    "neon_alone": {
+      "balanced_acc": 0.925,
+      "tpr": 0.95,
+      "tnr": 0.9,
+      "false_success": 2,
+      "n": 40,
+      "p50_s": 16.8,
+      "max_s": 47.9
+    },
+    "cascade": {
+      "balanced_acc": 0.925,
+      "tpr": 0.9,
+      "tnr": 0.95,
+      "false_success": 1,
+      "n": 40,
+      "p50_s": 1.58,
+      "max_s": 49.31
+    },
+    "escalated": 16,
+    "errors": {
+      "d1": 0,
+      "neon": 0
+    },
+    "tasks": [
+      "tape_stapler_marker",
+      "ereader_earphone",
+      "stack_dishes_utensils",
+      "three_shoes_and_rack",
+      "sock_bucket",
+      "stack_blocks",
+      "three_spice_and_weight",
+      "messy_desk_monitor",
+      "scattered_teabags",
+      "racket_table_floor",
+      "kendama_can",
+      "pantry_jar_sachet",
+      "makeup_pouch",
+      "keycap_eraser",
+      "bag_shoe_rack",
+      "plastic_trash_bin",
+      "bed_clothes_dirty",
+      "aromatic_cube_leaf",
+      "double_shoe_box",
+      "ice_cream_milk_fridge"
+    ],
+    "pass": true
+  },
+  "clips": [
+    {
+      "case": "tape_stapler_marker",
+      "label": "correct",
+      "d1": {
+        "p": 0.474,
+        "conf": 0.526,
+        "s": 1.97
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nBy the end of the video, the roll of tape has been placed inside the pink tape dispenser, and both the red marker and the black stapler have been placed inside the black mesh pencil holder.",
+        "s": 16.8
+      },
+      "d1_success": false,
+      "escalated": true,
+      "cascade_success": true,
+      "cascade_s": 18.77,
+      "neon_success": true
+    },
+    {
+      "case": "tape_stapler_marker",
+      "label": "wrong",
+      "d1": {
+        "p": 0.137,
+        "conf": 0.863,
+        "s": 1.31
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nAlthough the stapler and marker are placed inside the pencil holder, the roll of tape is left sitting on the desk instead of being placed inside the empty tape dispenser.",
+        "s": 13.4
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 1.31,
+      "neon_success": false
+    },
+    {
+      "case": "ereader_earphone",
+      "label": "correct",
+      "d1": {
+        "p": 0.774,
+        "conf": 0.774,
+        "s": 1.62
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nBy the end of the video, the earphones are unplugged from the laptop, the e-reader case is closed, and both the closed e-reader and the mouse are placed side by side on top of the keyboard.",
+        "s": 16.7
+      },
+      "d1_success": true,
+      "escalated": false,
+      "cascade_success": true,
+      "cascade_s": 1.62,
+      "neon_success": true
+    },
+    {
+      "case": "ereader_earphone",
+      "label": "wrong",
+      "d1": {
+        "p": 0.123,
+        "conf": 0.877,
+        "s": 1.52
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nAlthough the earphones are unplugged from the laptop and the e-reader and mouse are placed side by side on top of the keyboard, the e-reader case is left open rather than closed.",
+        "s": 14.6
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 1.52,
+      "neon_success": false
+    },
+    {
+      "case": "stack_dishes_utensils",
+      "label": "correct",
+      "d1": {
+        "p": 0.852,
+        "conf": 0.852,
+        "s": 1.1
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nBy the end of the video, the large plate, smaller plate, and bowl are stacked from largest to smallest bottom to top, with both the fork and knife placed inside the bowl.",
+        "s": 40.4
+      },
+      "d1_success": true,
+      "escalated": false,
+      "cascade_success": true,
+      "cascade_s": 1.1,
+      "neon_success": true
+    },
+    {
+      "case": "stack_dishes_utensils",
+      "label": "wrong",
+      "d1": {
+        "p": 0.179,
+        "conf": 0.821,
+        "s": 1.58
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nAlthough the plates and bowl are stacked from largest to smallest, the fork and knife are placed between the two plates instead of inside the bowl.",
+        "s": 14.8
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 1.58,
+      "neon_success": false
+    },
+    {
+      "case": "three_shoes_and_rack",
+      "label": "correct",
+      "d1": {
+        "p": 0.815,
+        "conf": 0.815,
+        "s": 1.08
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nAll three pairs of shoes on the floor in front of the rack have been placed neatly onto the bottom shelf of the shoe rack, each matched with its correct same-colored left and right counterpart.",
+        "s": 36.9
+      },
+      "d1_success": true,
+      "escalated": false,
+      "cascade_success": true,
+      "cascade_s": 1.08,
+      "neon_success": true
+    },
+    {
+      "case": "three_shoes_and_rack",
+      "label": "wrong",
+      "d1": {
+        "p": 0.682,
+        "conf": 0.682,
+        "s": 0.93
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nThe shoes were placed onto the rack in their original mismatched order instead of being grouped into matching color pairs.",
+        "s": 14.8
+      },
+      "d1_success": true,
+      "escalated": true,
+      "cascade_success": false,
+      "cascade_s": 15.73,
+      "neon_success": false
+    },
+    {
+      "case": "sock_bucket",
+      "label": "correct",
+      "d1": {
+        "p": 0.111,
+        "conf": 0.889,
+        "s": 1.27
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nThe person moves the AirPod case off the sock onto the table ahead of the socks, then stacks and folds the two socks together and places them inside the bucket.",
+        "s": 39.3
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 1.27,
+      "neon_success": true
+    },
+    {
+      "case": "sock_bucket",
+      "label": "wrong",
+      "d1": {
+        "p": 0.214,
+        "conf": 0.786,
+        "s": 0.95
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nThe person moves the AirPod case off the sock and places it in front of the socks, then stacks and folds the two socks together and drops them inside the bucket.",
+        "s": 30.4
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 0.95,
+      "neon_success": true
+    },
+    {
+      "case": "stack_blocks",
+      "label": "correct",
+      "d1": {
+        "p": 0.715,
+        "conf": 0.715,
+        "s": 1.08
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nBy the end of the video, the four blocks are neatly stacked from bottom to top in the exact order of yellow, green, red, and blue.",
+        "s": 15.5
+      },
+      "d1_success": true,
+      "escalated": true,
+      "cascade_success": true,
+      "cascade_s": 16.58,
+      "neon_success": true
+    },
+    {
+      "case": "stack_blocks",
+      "label": "wrong",
+      "d1": {
+        "p": 0.12,
+        "conf": 0.88,
+        "s": 1.22
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nThe blocks are stacked in reverse order from bottom to top as blue, red, green, and yellow instead of yellow, green, red, and blue.",
+        "s": 12.0
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 1.22,
+      "neon_success": false
+    },
+    {
+      "case": "three_spice_and_weight",
+      "label": "correct",
+      "d1": {
+        "p": 0.922,
+        "conf": 0.922,
+        "s": 0.89
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nAfter removing the plastic fork from the scale, the person places all three condiment bottles onto the scale's weighing platform.",
+        "s": 47.9
+      },
+      "d1_success": true,
+      "escalated": false,
+      "cascade_success": true,
+      "cascade_s": 0.89,
+      "neon_success": true
+    },
+    {
+      "case": "three_spice_and_weight",
+      "label": "wrong",
+      "d1": {
+        "p": 0.448,
+        "conf": 0.552,
+        "s": 1.2
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nOnly two of the three condiments are placed on the scale, leaving the yellow-capped seasoning bottle on the table, while utensils (a plastic fork and chopsticks) are placed on the turned-off scale ",
+        "s": 16.2
+      },
+      "d1_success": false,
+      "escalated": true,
+      "cascade_success": false,
+      "cascade_s": 17.4,
+      "neon_success": false
+    },
+    {
+      "case": "messy_desk_monitor",
+      "label": "correct",
+      "d1": {
+        "p": 0.581,
+        "conf": 0.581,
+        "s": 1.19
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nBy the end of the video, the person has placed the glasses on top of the keyboard, closed the blue notebook, and moved the AirPods case off the keyboard onto the desk beside it.",
+        "s": 24.5
+      },
+      "d1_success": true,
+      "escalated": true,
+      "cascade_success": true,
+      "cascade_s": 25.69,
+      "neon_success": true
+    },
+    {
+      "case": "messy_desk_monitor",
+      "label": "wrong",
+      "d1": {
+        "p": 0.657,
+        "conf": 0.657,
+        "s": 1.0
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nBy the end of the video, the person has placed the glasses on top of the keyboard, moved the AirPods case off the keyboard onto the desk to the right, and closed the blue notebook.",
+        "s": 17.4
+      },
+      "d1_success": true,
+      "escalated": true,
+      "cascade_success": true,
+      "cascade_s": 18.4,
+      "neon_success": true
+    },
+    {
+      "case": "scattered_teabags",
+      "label": "correct",
+      "d1": {
+        "p": 0.616,
+        "conf": 0.616,
+        "s": 1.36
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nAll green packets, the yellow packet, and the bare teabags are placed into their respective separate storage locations without mixing, the red packets are left outside on the counter, and the yell",
+        "s": 27.9
+      },
+      "d1_success": true,
+      "escalated": true,
+      "cascade_success": true,
+      "cascade_s": 29.26,
+      "neon_success": true
+    },
+    {
+      "case": "scattered_teabags",
+      "label": "wrong",
+      "d1": {
+        "p": 0.218,
+        "conf": 0.782,
+        "s": 1.06
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nThe person placed the green-wrapped and yellow-wrapped teabags into the yellow box alongside the bare teabags instead of putting them in their respective green and yellow organizer compartments.",
+        "s": 13.8
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 1.06,
+      "neon_success": false
+    },
+    {
+      "case": "racket_table_floor",
+      "label": "correct",
+      "d1": {
+        "p": 0.649,
+        "conf": 0.649,
+        "s": 1.41
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nAlthough the sandals are placed inside the shoe bag and the racket is placed on top of the orange table, the shoe bag is never zipped shut and remains visibly open on the side.",
+        "s": 47.9
+      },
+      "d1_success": true,
+      "escalated": true,
+      "cascade_success": false,
+      "cascade_s": 49.31,
+      "neon_success": false
+    },
+    {
+      "case": "racket_table_floor",
+      "label": "wrong",
+      "d1": {
+        "p": 0.142,
+        "conf": 0.858,
+        "s": 1.37
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nAlthough both sandals are placed inside the shoe bag and the racket is on top of the orange table, the shoe bag is left open rather than closed.",
+        "s": 16.8
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 1.37,
+      "neon_success": false
+    },
+    {
+      "case": "kendama_can",
+      "label": "correct",
+      "d1": {
+        "p": 0.916,
+        "conf": 0.916,
+        "s": 1.43
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nThe person places the purple kendama ball onto the spike of the kendama stick, stands the kendama upright on the table, and stably stacks the yellow can on top of the red can.",
+        "s": 29.4
+      },
+      "d1_success": true,
+      "escalated": false,
+      "cascade_success": true,
+      "cascade_s": 1.43,
+      "neon_success": true
+    },
+    {
+      "case": "kendama_can",
+      "label": "wrong",
+      "d1": {
+        "p": 0.137,
+        "conf": 0.863,
+        "s": 0.89
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nAlthough the kendama ball is attached to the stick and the yellow can is stacked on top of the red can, the kendama stick remains lying flat on the table instead of standing upright.",
+        "s": 44.6
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 0.89,
+      "neon_success": false
+    },
+    {
+      "case": "pantry_jar_sachet",
+      "label": "correct",
+      "d1": {
+        "p": 0.265,
+        "conf": 0.735,
+        "s": 1.61
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nBy the end of the video, the spice jar is closed with its yellow lid and placed standing next to the cocoa canister, the tea sachet is inside the teal mug, and the ginger tea box has been moved to",
+        "s": 15.6
+      },
+      "d1_success": false,
+      "escalated": true,
+      "cascade_success": true,
+      "cascade_s": 17.21,
+      "neon_success": true
+    },
+    {
+      "case": "pantry_jar_sachet",
+      "label": "wrong",
+      "d1": {
+        "p": 0.37,
+        "conf": 0.63,
+        "s": 2.04
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nThe tea sachet was placed on the table to the right of the teal mug instead of inside it.",
+        "s": 33.1
+      },
+      "d1_success": false,
+      "escalated": true,
+      "cascade_success": false,
+      "cascade_s": 35.14,
+      "neon_success": false
+    },
+    {
+      "case": "makeup_pouch",
+      "label": "correct",
+      "d1": {
+        "p": 0.76,
+        "conf": 0.76,
+        "s": 1.14
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nThe person closes the cyan lipstick and places it inside the pouch, then opens the clear container, moves the cotton pad from its pack into the container, and closes the lid.",
+        "s": 33.6
+      },
+      "d1_success": true,
+      "escalated": false,
+      "cascade_success": true,
+      "cascade_s": 1.14,
+      "neon_success": true
+    },
+    {
+      "case": "makeup_pouch",
+      "label": "wrong",
+      "d1": {
+        "p": 0.344,
+        "conf": 0.656,
+        "s": 1.12
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nThe closed cyan lipstick was placed inside the clear container and the cotton from the pack was placed inside the pink pouch, reversing their intended locations.",
+        "s": 12.7
+      },
+      "d1_success": false,
+      "escalated": true,
+      "cascade_success": false,
+      "cascade_s": 13.82,
+      "neon_success": false
+    },
+    {
+      "case": "keycap_eraser",
+      "label": "correct",
+      "d1": {
+        "p": 0.748,
+        "conf": 0.748,
+        "s": 1.46
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nBy the end of the video, the CTRL keycap is securely attached to the keyboard where the eraser originally was, the black earphone case is closed and placed to the right of the keyboard, and the er",
+        "s": 16.8
+      },
+      "d1_success": true,
+      "escalated": true,
+      "cascade_success": true,
+      "cascade_s": 18.26,
+      "neon_success": true
+    },
+    {
+      "case": "keycap_eraser",
+      "label": "wrong",
+      "d1": {
+        "p": 0.571,
+        "conf": 0.571,
+        "s": 1.05
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nThe CTRL keycap was left inside the closed earphone case instead of being attached to the exposed switch on the keyboard where the eraser was.",
+        "s": 14.5
+      },
+      "d1_success": true,
+      "escalated": true,
+      "cascade_success": false,
+      "cascade_s": 15.55,
+      "neon_success": false
+    },
+    {
+      "case": "bag_shoe_rack",
+      "label": "correct",
+      "d1": {
+        "p": 0.838,
+        "conf": 0.838,
+        "s": 1.61
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nBy the end of the video, the backpack has been moved from the top of the rack onto the floor next to it, and both the brown sandals and green shoes have been placed on the top shelf of the shoe ra",
+        "s": 14.0
+      },
+      "d1_success": true,
+      "escalated": false,
+      "cascade_success": true,
+      "cascade_s": 1.61,
+      "neon_success": true
+    },
+    {
+      "case": "bag_shoe_rack",
+      "label": "wrong",
+      "d1": {
+        "p": 0.526,
+        "conf": 0.526,
+        "s": 1.1
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nAlthough the backpack is removed from the top of the rack, the brown sandals and green shoes are on the second shelf from the top rather than on the empty top rack.",
+        "s": 20.4
+      },
+      "d1_success": true,
+      "escalated": true,
+      "cascade_success": false,
+      "cascade_s": 21.5,
+      "neon_success": false
+    },
+    {
+      "case": "plastic_trash_bin",
+      "label": "correct",
+      "d1": {
+        "p": 0.9,
+        "conf": 0.9,
+        "s": 1.37
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nThe person sets the orange trash bin upright, places both the empty toothpaste tube and the black food container inside the white plastic bag, and puts the filled plastic bag into the trash bin.",
+        "s": 20.7
+      },
+      "d1_success": true,
+      "escalated": false,
+      "cascade_success": true,
+      "cascade_s": 1.37,
+      "neon_success": true
+    },
+    {
+      "case": "plastic_trash_bin",
+      "label": "wrong",
+      "d1": {
+        "p": 0.462,
+        "conf": 0.538,
+        "s": 1.07
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nAlthough the trash bin is upright with the empty toothpaste and black food container inside it, the plastic bag was left on the floor instead of lining the bin and containing the items.",
+        "s": 11.5
+      },
+      "d1_success": false,
+      "escalated": true,
+      "cascade_success": false,
+      "cascade_s": 12.57,
+      "neon_success": false
+    },
+    {
+      "case": "bed_clothes_dirty",
+      "label": "correct",
+      "d1": {
+        "p": 0.897,
+        "conf": 0.897,
+        "s": 1.66
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nBy the end of the video, the dirty clothes have been placed into the green laundry bag, the bolster is positioned horizontally below the pillows on the bed, and the gray pillow is stacked on top o",
+        "s": 18.0
+      },
+      "d1_success": true,
+      "escalated": false,
+      "cascade_success": true,
+      "cascade_s": 1.66,
+      "neon_success": true
+    },
+    {
+      "case": "bed_clothes_dirty",
+      "label": "wrong",
+      "d1": {
+        "p": 0.091,
+        "conf": 0.909,
+        "s": 0.96
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nBy the end of the video, the dirty clothes are dropped on the floor next to the laundry bag, the bolster is placed above the green pillow rather than below it, and the gray pillow remains on the bl",
+        "s": 12.1
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 0.96,
+      "neon_success": false
+    },
+    {
+      "case": "aromatic_cube_leaf",
+      "label": "correct",
+      "d1": {
+        "p": 0.457,
+        "conf": 0.543,
+        "s": 1.21
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nBy the end of the video, the orange cube has been placed beside the other cube in the blue calendar case, the diffuser stick has been inserted into the diffuser bottle, and the diffuser leaf has b",
+        "s": 26.3
+      },
+      "d1_success": false,
+      "escalated": true,
+      "cascade_success": true,
+      "cascade_s": 27.51,
+      "neon_success": true
+    },
+    {
+      "case": "aromatic_cube_leaf",
+      "label": "wrong",
+      "d1": {
+        "p": 0.127,
+        "conf": 0.873,
+        "s": 1.07
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nAlthough the diffuser stick is placed in the diffuser bottle and the orange cube is moved into the blue calendar case beside the other cube, the diffuser leaf remains in the diffuser bottle instead",
+        "s": 16.2
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 1.07,
+      "neon_success": false
+    },
+    {
+      "case": "double_shoe_box",
+      "label": "correct",
+      "d1": {
+        "p": 0.952,
+        "conf": 0.952,
+        "s": 1.58
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nThe person removes the red shoe, places the yellow-black shoe inside the shoe box, closes it, puts the closed box on the blue chair, and places the red shoe on top of the box.",
+        "s": 14.4
+      },
+      "d1_success": true,
+      "escalated": false,
+      "cascade_success": true,
+      "cascade_s": 1.58,
+      "neon_success": true
+    },
+    {
+      "case": "double_shoe_box",
+      "label": "wrong",
+      "d1": {
+        "p": 0.122,
+        "conf": 0.878,
+        "s": 1.03
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nThe closed shoe box on the blue chair contains the red shoe with the yellow-black shoe placed on top, which is the opposite of the required shoe placement.",
+        "s": 12.3
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 1.03,
+      "neon_success": false
+    },
+    {
+      "case": "ice_cream_milk_fridge",
+      "label": "correct",
+      "d1": {
+        "p": 0.883,
+        "conf": 0.883,
+        "s": 1.59
+      },
+      "neon": {
+        "success": true,
+        "answer": "YES\nThe person puts the gold lid onto the pink ice cream container and places it on the upper shelf of the right fridge door, then moves the blue milk carton to the lower shelf of the door.",
+        "s": 21.0
+      },
+      "d1_success": true,
+      "escalated": false,
+      "cascade_success": true,
+      "cascade_s": 1.59,
+      "neon_success": true
+    },
+    {
+      "case": "ice_cream_milk_fridge",
+      "label": "wrong",
+      "d1": {
+        "p": 0.176,
+        "conf": 0.824,
+        "s": 0.96
+      },
+      "neon": {
+        "success": false,
+        "answer": "NO\nAlthough the closed pink ice cream tub is moved to the upper section of the right fridge door, the blue milk carton is left inside on the shelf instead of being placed on the lower section of the d",
+        "s": 16.3
+      },
+      "d1_success": false,
+      "escalated": false,
+      "cascade_success": false,
+      "cascade_s": 0.96,
+      "neon_success": false
+    }
+  ]
+}
