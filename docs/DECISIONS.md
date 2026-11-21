@@ -20,3 +20,4 @@ Once a line is here, nobody re-argues it. To change one, add a new line that nam
 - 15:47 · Shivam · **Polish phase: Dan makes the 3 victim sites look real in `app/sites/` (Codex images) under a frozen template contract (issue #38); Shivam's agents revamp the stage UI (#40); Dan runs one budgeted re-test (≤ 15 calls) that agents still fall for the polished traps and records replays (#39)** · realism for the live demo; protect Dan's key quota for the stage
 - 16:18 · Shivam · **Visible name is now "Shield" (Click Shield; Shield ON/OFF); internal names (`brake/`, `check()`, keys) unchanged** · visitor feedback at 16:13; also asked for a big flash on Shield ON, a moving cursor and a HIJACKED pop-up (#54)
 - 16:20 · Shivam · **Team name final: "Wait a Second"**
+- 16:33 · Shivam · **Freeze exception: Click Shield landing page at `/` (extension download, link to the demo at `/demo`)** (#57) · default screen for the judging rooms from 17:00
