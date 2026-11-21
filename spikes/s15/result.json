@@ -1,0 +1,18 @@
+{
+ "originals": {
+  "n": 20,
+  "blocked": 0,
+  "balanced_acc_at_0.5": 0.95
+ },
+ "variants": {
+  "planned": 20,
+  "edited": 20,
+  "eye_true": 20,
+  "kept": 14,
+  "keep_all_precision": 1.0,
+  "gate_precision": 1.0,
+  "yield_kept_over_planned": 0.7,
+  "eye_true_rejected": 6
+ },
+ "verdict": "FAIL_GATE_NOT_NEEDED"
+}
