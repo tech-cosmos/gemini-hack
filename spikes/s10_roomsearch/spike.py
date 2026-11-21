@@ -79,7 +79,7 @@ with sync_playwright() as p:
 
     for obj in OBJECTS:
         tq = time.perf_counter()
-        with ThreadPoolExecutor(20) as ex: scores = list(ex.map(lambda v: visible(v, obj), res["views"]))
+        with ThreadPoolExecutor(int(os.environ.get("S10_WORKERS", "20"))) as ex: scores = list(ex.map(lambda v: visible(v, obj), res["views"]))
         t_dec = time.perf_counter() - tq
         top = max(scores, key=lambda s: s["p"])
         with ThreadPoolExecutor(3) as ex: calls = list(ex.map(lambda _: point(top["file"], obj), range(3)))
