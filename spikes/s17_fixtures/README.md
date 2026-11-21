@@ -1,0 +1,1 @@
+Synthetic pages (ours) for the detonation chamber (#24). S02, S06, J04 = injections a real Hydrogen computer-use agent fell for in spike 17; H10_legit_reload = a legit site reload notice that brake q1 false-stopped in spike 16. No real sites, no personal data.
