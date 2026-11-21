@@ -10,7 +10,7 @@ The lead's agent keeps "Now" current. Every agent reads it at the start of every
 | Shivam's agent (Fable) | #22 spike 17: does a real computer-use agent fall for a typed injection? (decides DEMO 0:30) | 15:10 |
 | Dan (rrrozhd) | #23 proof: VPI-Bench (public) + own set, Decision 1 vs Hydrogen, held-out, failure gallery | 15:42 |
 | Dan (rrrozhd) | #24 Managed Agents: protected agent or task finisher (`managed/`), kill test first | 15:22 |
-**Next gate:** 15:03 · DEMO.md written (done), golden path defined in `scripts/check` (done), shared formats frozen (done). Then 15:22 golden path green on main; 15:42 real results; 16:01 freeze.
+**Next gate:** 15:22 golden path on main (green since 15:08). Then results 16:05, FEATURE FREEZE 16:28, public + video 16:44, submitted 16:52. Story (A): fast gate (q2) → detonation chamber.
 
 ## How to write "Now"
 Keep it under 20 lines, newest state only; move the old one under "Earlier".
