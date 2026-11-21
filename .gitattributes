@@ -1,0 +1,8 @@
+# Same bytes on every laptop: text is LF everywhere, so Windows checkouts can't break scripts or
+# byte-for-byte checks. Add `-text` for any generated file that must never be touched.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.pdf binary
+*.pptx binary
+*.zip binary

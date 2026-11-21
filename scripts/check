@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Run before every merge. Two parts:
+#   1. Safety: no key file and nothing that looks like a key is tracked by git.
+#   2. The golden path: the one flow the demo depends on, end to end, offline.
+# The lead fills in golden_path() by the 25% gate. Until then this only warns.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+# ---- 1. safety -------------------------------------------------------------
+if git ls-files --error-unmatch .env >/dev/null 2>&1; then
+  echo "✗ .env is tracked by git. Remove it (git rm --cached .env) and rotate the keys." >&2; exit 1
+fi
+pat='sk-(or-|ant-|proj-)?[A-Za-z0-9_-]{24,}|ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{40,}|AKIA[0-9A-Z]{16}|xox[bp]-[A-Za-z0-9-]{20,}|AIza[0-9A-Za-z_-]{35}'
+hits=$(git grep -lIE "$pat" -- . ':!scripts/check' 2>/dev/null || true)
+if [ -n "$hits" ]; then
+  echo "✗ these tracked files contain something that looks like an API key (not printed here):" >&2
+  printf '%s\n' "$hits" | sed 's/^/    /' >&2
+  exit 1
+fi
+
+# ---- 2. golden path --------------------------------------------------------
+# Replace the body with the real flow, in mock/offline mode so it costs nothing and works on venue Wi-Fi.
+# Example:  MOCK=1 uv run python -m app run --seed 0 --out "$out" && test -s "$out/result.json"
+golden_path() {
+  return 99   # 99 = not defined yet
+}
+
+out="$(mktemp -d "${TMPDIR:-/tmp}/kit-check.XXXXXX")"
+trap 'rm -rf "$out"' EXIT
+rc=0; golden_path || rc=$?
+if [ "$rc" = 99 ]; then
+  echo "scripts/check: safety OK · ⚠ golden path not defined yet (lead: fill in golden_path by the 25% gate)"
+elif [ "$rc" = 0 ]; then
+  echo "scripts/check: safety OK · golden path OK"
+else
+  echo "✗ scripts/check: golden path FAILED (exit $rc). Do not merge." >&2; exit "$rc"
+fi

@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+# Lead, once per new repo (safe to run again): sets the clock, creates the labels and the live-log
+# issue, writes the lead's name into the rule files, invites the team, prints the message to paste.
+#   scripts/init --event "HackX 2027" --start 2027-01-16T09:30 --deadline 2027-01-16T15:30 \
+#                --invite maya,sam,li [--lead <login>] [--budget 100]
+# Times are local. Only the options you pass are changed.
+. "$(dirname "$0")/lib.sh"
+event=""; start=""; deadline=""; invite=""; lead=""; budget=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --event) event=$2; shift 2 ;;
+    --start) start=$2; shift 2 ;;
+    --deadline) deadline=$2; shift 2 ;;
+    --invite) invite=$2; shift 2 ;;
+    --lead) lead=$2; shift 2 ;;
+    --budget) budget=$2; shift 2 ;;
+    *) echo "unknown option: $1" >&2; exit 1 ;;
+  esac
+done
+repo=$(kit_repo); me=$(kit_me_refresh)
+[ -n "$repo" ] || { echo "no GitHub remote here. Create the repo first: gh repo create <name> --private --template tech-cosmos/hackathon-kit --clone" >&2; exit 1; }
+[ -n "$me" ] || { echo "gh is not signed in: gh auth login" >&2; exit 1; }
+[ -n "$lead" ] || lead=${KIT_LEAD:-$me}
+for t in "$start" "$deadline"; do
+  [ -z "$t" ] || kit_epoch "$t" >/dev/null || { echo "bad time '$t': use YYYY-MM-DDTHH:MM" >&2; exit 1; }
+done
+
+esc() { printf '%s' "$1" | sed -e 's/[&|\\]/\\&/g'; }
+setv() { kit_sub kit.env "s|^$1=\"[^\"]*\"|$1=\"$(esc "$2")\"|"; }
+setv KIT_REPO "$repo"; setv KIT_LEAD "$lead"
+[ -n "$event" ] && setv KIT_EVENT "$event"
+[ -n "$start" ] && setv KIT_START "$start"
+[ -n "$deadline" ] && setv KIT_DEADLINE "$deadline"
+[ -n "$budget" ] && setv KIT_BUDGET_USD "$budget"
+. ./kit.env
+echo "✓ kit.env: repo $repo · lead $lead${KIT_EVENT:+ · $KIT_EVENT}"
+
+label() { gh label create "$1" --repo "$repo" --color "$2" --description "$3" --force >/dev/null 2>&1; }
+label directive     000000 "Agreed team task from the lead: do first"
+label everyone      5319e7 "A directive for the whole team"
+label request       d93f0b "Something you need from the lead"
+label blocked       b60205 "Cannot continue without help"
+label human         fbca04 "Only a person can do this (not an agent)"
+label demo-critical 0e8a16 "The demo breaks without it"
+echo "✓ labels"
+
+n=${KIT_LOG_ISSUE:-1}
+title=$(gh issue view "$n" --repo "$repo" --json title --jq .title 2>/dev/null)
+case "$title" in
+  "Live log"*) ;;
+  *) url=$(gh issue create --repo "$repo" --title "Live log (every agent posts here)" \
+       --body "One line after every meaningful step: \`scripts/log \"what happened (#issue)\"\`. Started, finished, stuck, learned. Silence is the only wrong amount.") \
+       || { echo "could not create the live log issue" >&2; exit 1; }
+     n=${url##*/}; setv KIT_LOG_ISSUE "$n"; gh issue pin "$n" --repo "$repo" >/dev/null 2>&1 ;;
+esac
+echo "✓ live log: issue #$n"
+
+# The lead's name, the repo and the event go into the files agents read.
+files=$(git ls-files | grep -vE '^(scripts/|KIT\.md$)' | xargs grep -lE '__(LEAD|REPO|EVENT)__' 2>/dev/null)
+for f in $files; do
+  kit_sub "$f" "s|__LEAD__|$(esc "$lead")|g; s|__REPO__|$(esc "$repo")|g; s|__EVENT__|$(esc "${KIT_EVENT:-the hackathon}")|g"
+done
+echo "✓ rule files filled in"
+
+if [ -n "$(git status --porcelain)" ]; then
+  git add -A && git commit -q -m "chore: kit set up for ${KIT_EVENT:-the event}" \
+    && git push -q origin HEAD 2>/dev/null && echo "✓ committed and pushed" \
+    || echo "⚠ commit or push failed: commit kit.env and the rule files yourself"
+fi
+
+for u in $(printf '%s' "$invite" | tr ',' ' '); do
+  u=${u#@}
+  if gh api -X PUT "repos/$repo/collaborators/$u" -f permission=push >/dev/null 2>&1; then echo "✓ invited $u"
+  else echo "⚠ could not invite $u (check the username)"; fi
+done
+
+echo
+bash "$(dirname "$0")/clock"
+cat <<EOF
+
+---- paste this to the team -------------------------------------------------
+Repo: https://github.com/$repo (I've invited you by GitHub username).
+Paste this into your AI coding tool (Claude Code, Codex, Cursor, anything with a terminal):
+
+  Set me up for our hackathon repo by following docs/SETUP.md in https://github.com/$repo
+  (the "Agent steps" section). My GitHub username is ___.
+
+That's all: your agent accepts the invite, clones, reads the rules and tells you which piece is yours.
+How we stay in sync: everything that matters is written in the repo, not in chat. I'm the lead
+(@$lead); tasks arrive as GitHub issues and your agent shows them to you.
+------------------------------------------------------------------------------
+EOF
+exit 0

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Finish a directive or an issue: comment what you did, close it when everyone named is done, log it.
+#   scripts/done 12 "ZIP built, checker 0 FAIL"
+# A directive for several people closes when each of them has said done. One for `everyone` stays open
+# for the lead to close; it stops showing up for you.
+. "$(dirname "$0")/lib.sh"
+[ $# -ge 2 ] || { echo 'usage: scripts/done <N> "what you did"' >&2; exit 1; }
+repo=$(kit_repo); me=$(kit_lc "$(kit_me)")
+n=${1#\#}; shift
+gh issue comment "$n" --repo "$repo" --body "done: $*" >/dev/null || { echo "could not comment on #$n" >&2; exit 1; }
+# shellcheck disable=SC2016
+left=$(gh issue view "$n" --repo "$repo" --json assignees,labels,comments --jq '
+  ([.labels[].name] | index("everyone") != null) as $all
+  | [.assignees[].login | ascii_downcase] as $to
+  | [.comments[] | select(.body | ascii_downcase | test("^\\s*done")) | .author.login | ascii_downcase] as $done
+  | if $all then "everyone" else (($to - $done) | join(", ")) end' 2>/dev/null)
+if [ -z "$left" ]; then
+  gh issue close "$n" --repo "$repo" >/dev/null && echo "closed #$n"
+elif [ "$left" = "everyone" ]; then
+  echo "#$n is for everyone: your part is recorded, the lead closes it"
+else
+  echo "#$n stays open: still waiting for $left"
+fi
+bash "$(dirname "$0")/log" "done #$n: $*" >/dev/null
+exit 0

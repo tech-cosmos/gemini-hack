@@ -1,0 +1,7 @@
+# The lead's files. scripts/init writes the lead's login here.
+/AGENTS.md   @__LEAD__
+/kit.env     @__LEAD__
+/docs/       @__LEAD__
+/scripts/    @__LEAD__
+/.claude/    @__LEAD__
+/.github/    @__LEAD__

@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# Everything an agent needs at the start of a session, in about 60 lines:
+# your role, the clock, the briefing, your directives, issues, decisions, the live log, main, status.
+# Claude Code runs it at session start (hook); other tools run it before each task.
+. "$(dirname "$0")/lib.sh"
+repo=$(kit_repo); log=${KIT_LOG_ISSUE:-1}
+me=$(kit_me_refresh)
+if [ -z "$me" ]; then
+  echo "⚠ gh is not signed in (run: gh auth login). Showing local files only."
+elif kit_is_lead; then
+  echo "👤 You work for $me, the TEAM LEAD${KIT_EVENT:+ · $KIT_EVENT}. Your operating manual: docs/PLAYBOOK.md"
+else
+  echo "👤 You work for $me, a LANE OWNER${KIT_EVENT:+ · $KIT_EVENT}. $(kit_lead) leads and decides. Work only on issues you claimed, in their folders."
+fi
+kit_clock_line
+miss=$(kit_submission_missing)
+[ -n "$miss" ] && echo "⚠ docs/SUBMISSION.md still missing: $miss"
+
+echo; echo "== NOW (docs/BRIEFING.md) =="
+awk '/^## Now/{f=1;next} /^## /{f=0} f' docs/BRIEFING.md 2>/dev/null | sed '/^[[:space:]]*$/d' | head -25
+
+d=$(kit_directive_lines)
+if [ -n "$d" ]; then echo; echo "== 📌 YOUR DIRECTIVES (do these first) =="; printf '%s\n' "$d"; fi
+
+if [ -n "$me" ] && [ -n "$repo" ]; then
+  echo; echo "== Open issues (★ = yours) =="
+  # shellcheck disable=SC2016
+  q='.[] | select(.number != __LOG__) | select([.labels[].name] | index("directive") == null)
+     | ([.assignees[].login]) as $a
+     | (if ($a | map(ascii_downcase) | index("__ME__")) != null then "★ " else "  " end)
+       + "#\(.number) \(.title[0:72]) [\(if ($a | length) == 0 then "unclaimed" else ($a | join(",")) end)]"
+       + (if ([.labels[].name] | index("blocked")) != null then " BLOCKED" else "" end)'
+  q=${q//__LOG__/$log}; q=${q//__ME__/$(kit_lc "$me")}
+  gh issue list --repo "$repo" --state open --limit 30 --json number,title,assignees,labels --jq "$q" 2>/dev/null
+
+  echo; echo "== Live log (latest 12, issue #$log) =="
+  gh issue view "$log" --repo "$repo" --json comments \
+    --jq '.comments[-12:][] | .body | gsub("[\r\n]+"; " ") | .[0:220]' 2>/dev/null || echo "(no live log yet: the lead runs scripts/init)"
+fi
+
+dec=$(grep -E '^- [0-9]' docs/DECISIONS.md 2>/dev/null | tail -n 6)
+if [ -n "$dec" ]; then echo; echo "== Decisions (latest 6) =="; printf '%s\n' "$dec" | cut -c1-200; fi
+
+echo; echo "== main (latest 8) =="
+git fetch -q origin 2>/dev/null
+git log --oneline -8 origin/main 2>/dev/null | cut -c1-110
+
+s=$(ls -1 status 2>/dev/null | grep -v '^\.' | sort | tail -6)
+if [ -n "$s" ]; then
+  echo; echo "== Newest status lines =="
+  printf '%s\n' "$s" | while read -r f; do printf '%s: %s\n' "$f" "$(head -c 200 "status/$f" | tr '\n' ' ')"; done
+fi
+
+b=$(bash scripts/budget 2>/dev/null) && [ -n "$b" ] && { echo; echo "== Budget =="; echo "$b"; }
+
+echo
+echo "Next: keep scripts/watch running so directives reach you without waiting for a message"
+echo "(Claude Code: start it with the Monitor tool, timeout 30 min, and start it again when it expires)."
+exit 0

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Ask the lead for something: a decision, a change in a file you don't own, more scope, help.
+#   scripts/request "need scripts/check to accept --offline; my lane can't run it on venue Wi-Fi"
+# Add --blocked when you cannot continue without it.
+. "$(dirname "$0")/lib.sh"
+labels="request"
+if [ "${1:-}" = "--blocked" ]; then labels="request,blocked"; shift; fi
+[ $# -ge 1 ] || { echo 'usage: scripts/request [--blocked] "<what you need and why>"' >&2; exit 1; }
+repo=$(kit_repo); lead=$(kit_lead)
+title=$(printf '%s' "$*" | cut -c1-90)
+url=$(gh issue create --repo "$repo" --label "$labels" --assignee "$lead" --title "request: $title" \
+  --body "From $(kit_me)'s agent, for @$lead.
+
+$*") || { echo "could not open the request" >&2; exit 1; }
+bash "$(dirname "$0")/log" "🙋 request for the lead: $title ($url)" >/dev/null
+echo "$url"

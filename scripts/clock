@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# The clock and the gates, with the time each gate falls at. Usage: scripts/clock
+. "$(dirname "$0")/lib.sh"
+kit_clock_line
+p=$(kit_progress) || exit 0
+pct=${p% *}
+echo
+kit_gates | while IFS='|' read -r g t; do
+  if [ "$g" -le "$pct" ]; then mark="✓"; else mark=" "; fi
+  printf '%s %s  %3s%%  %s\n' "$mark" "$(kit_gate_time "$g")" "$g" "$t"
+done
+miss=$(kit_submission_missing)
+[ -n "$miss" ] && { echo; echo "⚠ docs/SUBMISSION.md still missing: $miss"; }
+exit 0

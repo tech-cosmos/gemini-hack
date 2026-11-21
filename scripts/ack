@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Tell the lead you saw a directive. Usage: scripts/ack <issue number> ["optional note"]
+. "$(dirname "$0")/lib.sh"
+[ $# -ge 1 ] || { echo 'usage: scripts/ack <N> ["note"]' >&2; exit 1; }
+n=${1#\#}; shift
+gh issue comment "$n" --repo "$(kit_repo)" --body "ack${1:+: $*}" >/dev/null && echo "acked #$n"
