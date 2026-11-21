@@ -8,9 +8,9 @@ empty row until it is filled. The most expensive late surprise is a missing team
 | Team name | |
 | Where to submit (link) | |
 | Exact file or repo name | |
-| Deadline to the minute | |
+| Deadline to the minute | 2026-11-21 17:00 EST |
 | Who uploads | |
-| Upload target (aim earlier than the deadline) | |
+| Upload target (aim earlier than the deadline) | 16:30 EST |
 | Required contents | |
 | Presentation length and format | |
 

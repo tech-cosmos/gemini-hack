@@ -8,9 +8,9 @@ words where the wording matters.
 | What | When |
 |---|---|
 | Event | Sat 2026-11-21, 9:00 AM – 10:00 PM EST, New York (in person only) |
-| Building starts | ? (ask at kickoff) |
+| Building starts | 10:00 EST (per lead) |
 | Code freeze (if any) | ? |
-| Submission deadline | ? (ask at kickoff) |
+| Submission deadline | 17:00 EST (per lead) |
 | Presentations | ? |
 
 Source: https://cerebralvalley.ai/e/gemini-4-nyc (hosts: Cerebral Valley + Google DeepMind; 517 going).
