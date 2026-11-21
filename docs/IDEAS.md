@@ -54,7 +54,7 @@ A spike is the cheapest run that could kill the idea: 15 to 20 minutes, one pers
 | 7 · Wire Trace | | 20 Knossos test diagrams (Food Web + Circuit); one call vs pairwise Decision 1 | Baseline edge F1 < 85 and pairwise beats it by ≥ 5 points | | |
 
 ## 4. The pattern
-**11:35 (Shivam's agent):** Step Guard (1) and Witness (5) are the same engine: Carbon turns an instruction
+**11:21 (Shivam's agent):** Step Guard (1) and Witness (5) are the same engine: Carbon turns an instruction
 into failure-first yes/no checks, Decision 1 scores frames against them. Spike 0 says the same engine is
 the only fast one (Decision 1 0.56 s vs Hydrogen 4.16 s per frame). Witness brings a real benchmark for
 Proof (ArmnetBench); Step Guard brings the live, judge-proof demo (a person assembling, a voice catching
