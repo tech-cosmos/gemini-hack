@@ -2,99 +2,191 @@
 <html lang="en"><head><meta charset="utf-8"><title>Click-Brake</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-:root{--bg:#0d1117;--panel:#161b22;--line:#30363d;--fg:#f0f6fc;--mut:#9da7b3;--red:#ff4d4f;--green:#2ea043;--amber:#f0a020;--blue:#58a6ff}
-*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:18px/1.3 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+/* Console styling follows the Linear DESIGN.md tokens (awesome-design-md): near-black canvas, charcoal panels with
+   hairline borders, one lavender accent; semantic red/amber/green only for verdicts. */
+:root{--canvas:#010102;--s1:#0f1011;--s2:#141516;--s3:#18191a;--s4:#1f2023;--line:#23252a;--line2:#34343a;
+--ink:#f7f8f8;--ink2:#d0d6e0;--mut:#8a8f98;--mut2:#62666d;--acc:#5e6ad2;--acc2:#828fff;
+--red:#f2555a;--red2:#5a1517;--amber:#f0a020;--amber2:#4a3300;--green:#27a644;--green2:#0c3a1a;
+--mono:"SF Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--canvas);color:var(--ink);
+font:16px/1.35 -apple-system,"SF Pro Text","Inter",Helvetica,Arial,sans-serif;letter-spacing:-.05px}
 body{display:flex;flex-direction:column;overflow:hidden}
-header{display:flex;align-items:baseline;gap:18px;padding:6px 20px;border-bottom:1px solid var(--line)}
-header h1{margin:0;font-size:28px;letter-spacing:.3px}header h1 span{color:var(--red)}header .sub{color:var(--mut);font-size:17px}
-header .cfg{margin-left:auto;color:var(--mut);font-size:14px}
-main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(370px,1fr);gap:14px;padding:10px 20px}
-main>section{min-height:0;display:flex;flex-direction:column}
-#stepsPanel{flex:1;min-height:0;display:flex;flex-direction:column}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
-.lbl{font-size:13px;text-transform:uppercase;letter-spacing:1.2px;color:var(--mut);margin:0 0 6px}
-#stage{position:relative;width:100%;aspect-ratio:1280/620;overflow:hidden;border-radius:8px;border:2px solid var(--line);background:#fff}
+button,select,input,textarea{font:inherit;color:inherit}
+/* ---- top bar ---- */
+.bar{height:58px;flex:none;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--line);background:var(--s1)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:650;font-size:21px;letter-spacing:-.4px;margin-right:6px;white-space:nowrap}
+.brand i{width:12px;height:12px;border-radius:3px;background:var(--acc);box-shadow:0 0 0 3px rgba(94,106,210,.25)}
+select.sm{background:var(--s3);border:1px solid var(--line2);border-radius:8px;padding:6px 8px;font-size:14px}
+.seg{display:flex;background:var(--s3);border:1px solid var(--line2);border-radius:10px;padding:3px}
+.seg button{border:0;background:none;padding:7px 14px;border-radius:7px;font-weight:650;font-size:16px;color:var(--mut);cursor:pointer;white-space:nowrap}
+.seg button.on.off{background:var(--red2);color:#ffd4d5}.seg button.on.onn{background:var(--green2);color:#c9f5d3}
+#run{border:0;background:var(--acc);color:#fff;font-weight:650;font-size:17px;padding:9px 20px;border-radius:10px;cursor:pointer;white-space:nowrap}
+#run:hover{background:var(--acc2)}#run:disabled{opacity:.5;cursor:wait}
+.sw{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--ink2);cursor:pointer;white-space:nowrap}
+.sw input{display:none}.sw .k{width:34px;height:20px;border-radius:99px;background:var(--line2);position:relative;transition:background .15s}
+.sw .k:after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:left .15s}
+.sw input:checked+.k{background:#8250df}.sw input:checked+.k:after{left:17px}
+.badge{display:none;background:#8250df;color:#fff;font-weight:800;font-size:13px;letter-spacing:1.5px;padding:3px 9px;border-radius:6px}
+.badge.show{display:inline-block}
+details.set{margin-left:auto;position:relative}details.set summary{list-style:none;cursor:pointer;color:var(--mut);font-size:14px;padding:6px 10px;border:1px solid var(--line2);border-radius:8px}
+details.set summary::-webkit-details-marker{display:none}
+details.set .pop{position:absolute;right:0;top:40px;z-index:20;background:var(--s2);border:1px solid var(--line2);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px;width:310px;box-shadow:0 12px 40px #000a}
+.pop label{font-size:14px;color:var(--ink2);display:flex;gap:8px;align-items:center}
+.pop .cfg{font-size:12px;color:var(--mut);font-family:var(--mono)}
+/* ---- layout ---- */
+main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,62fr) minmax(0,38fr);gap:12px;padding:12px 14px}
+.left{min-height:0;display:flex;flex-direction:column;position:relative}
+/* browser frame */
+.browser{border:1px solid var(--line2);border-radius:12px;overflow:hidden;background:var(--s2);box-shadow:0 20px 60px #0008}
+.chrome{height:38px;display:flex;align-items:center;gap:12px;padding:0 12px;background:#202124;border-bottom:1px solid #000}
+.dots{display:flex;gap:7px}.dots b{width:12px;height:12px;border-radius:50%;display:block}
+.dots b:nth-child(1){background:#ff5f57}.dots b:nth-child(2){background:#febc2e}.dots b:nth-child(3){background:#28c840}
+.url{flex:1;height:26px;border-radius:13px;background:#35363a;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:14px;color:#e8eaed;overflow:hidden;white-space:nowrap}
+.url svg{flex:none}.url .host{color:#fff}.url .path{color:#9aa0a6}
+.agentchip{font-size:12px;color:#c9cdd3;background:#2b2c2f;border:1px solid #3c3d41;padding:3px 8px;border-radius:6px;white-space:nowrap;font-family:var(--mono)}
+#stage{position:relative;width:100%;aspect-ratio:1280/800;overflow:hidden;background:#fff}
 #stage iframe{position:absolute;left:0;top:0;width:1280px;height:800px;border:0;transform-origin:0 0;pointer-events:none}
-.ring{position:absolute;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;border:6px solid var(--red);box-shadow:0 0 0 4px rgba(255,77,79,.35);pointer-events:none;animation:pop .35s ease-out}
-.ring.green{border-color:var(--green);box-shadow:0 0 0 4px rgba(46,160,67,.35)}.ring.amber{border-color:var(--amber);box-shadow:0 0 0 4px rgba(240,160,32,.35)}
-.ring .tag{position:absolute;top:66px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#000c;color:#fff;font-size:16px;padding:3px 8px;border-radius:6px;font-weight:700}
+#stageTag{display:none;position:absolute;right:10px;top:10px;z-index:6;background:#8250df;color:#fff;font-weight:800;font-size:20px;padding:4px 12px;border-radius:8px;letter-spacing:2px}
+/* agent cursor + ring */
+#cursor{position:absolute;left:50%;top:60%;z-index:5;width:26px;height:26px;margin:-3px 0 0 -4px;transition:left .45s cubic-bezier(.2,.8,.2,1),top .45s cubic-bezier(.2,.8,.2,1),opacity .2s;opacity:0;pointer-events:none;filter:drop-shadow(0 2px 3px #0008)}
+.ring{position:absolute;z-index:4;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;border:5px solid var(--red);box-shadow:0 0 0 5px rgba(242,85,90,.3);pointer-events:none;animation:pop .35s ease-out}
+.ring.green{border-color:var(--green);box-shadow:0 0 0 5px rgba(39,166,68,.3)}.ring.amber{border-color:var(--amber);box-shadow:0 0 0 5px rgba(240,160,32,.3)}
+.ring.pend{border-color:var(--acc2);box-shadow:0 0 0 5px rgba(130,143,255,.3);animation:pop .35s ease-out,pulse 1.1s ease-in-out infinite}
+.ring .tag{position:absolute;top:64px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#000d;color:#fff;font-size:15px;padding:3px 9px;border-radius:6px;font-weight:700}
 @keyframes pop{from{transform:scale(2.2);opacity:0}to{transform:scale(1);opacity:1}}
-.row{display:flex;gap:10px;align-items:center;margin-top:9px;flex-wrap:wrap}
-input[type=text],textarea,select{background:#0d1117;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font:inherit;font-size:17px}
-input[type=text]{flex:1;min-width:120px}textarea{width:100%;resize:vertical;min-height:44px}
-.attacker{border:2px dashed var(--red);border-radius:10px;padding:8px 12px;margin-top:8px}
-.attacker .lbl{color:var(--red)}
-.tmpl{font-size:20px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.tmpl input{font-size:20px;font-weight:600}
-details summary{cursor:pointer;color:var(--mut);font-size:14px;margin-top:8px}
-button.run{flex:1;font:inherit;font-size:20px;font-weight:800;padding:11px 8px;white-space:nowrap;border-radius:10px;border:0;cursor:pointer;color:#fff}
-button.off{background:#6e2a2a}button.on{background:#1f6f3a}button.run:disabled{opacity:.45;cursor:wait}
-button.small{font:inherit;font-size:14px;background:#21262d;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer}
-#verdict{border-radius:12px;padding:12px 16px;margin-bottom:10px;min-height:120px;display:flex;flex-direction:column;justify-content:center}
-#verdict .big{font-size:42px;font-weight:900;line-height:1.08}#verdict .det{font-size:21px;margin-top:6px;font-weight:600}
-#verdict.idle{background:#21262d;color:var(--mut)}#verdict.idle .big{font-size:26px;font-weight:600}
-#verdict.red{background:#5c1416;border:3px solid var(--red)}#verdict.stop{background:#4a3500;border:3px solid var(--amber)}
-#verdict.green{background:#0f3d1e;border:3px solid var(--green)}#verdict.work{background:#0c2d4d;border:3px solid var(--blue)}
-#verdict.det8{background:#3d2a00;border:3px dashed var(--amber)}
-#steps{list-style:none;margin:0;padding:0;flex:1;min-height:0;overflow:auto}
-#steps li{display:grid;grid-template-columns:24px 1fr auto;gap:8px;padding:6px 2px;border-bottom:1px solid var(--line);font-size:19px;font-weight:600;align-items:baseline}
-#steps li .t{font-variant-numeric:tabular-nums;font-weight:800;color:var(--blue);font-size:20px}
-#steps li .m{color:var(--mut);font-size:13px;font-weight:400}#steps li.bad{color:#ffb3b3}#steps li.ok{color:#b6f0c2}#steps li.warn{color:#ffd58a}
-.chk{font-size:14px;color:var(--mut);display:flex;gap:6px;align-items:center}
-.spin{display:inline-block;width:20px;height:20px;border:3px solid #fff4;border-top-color:#fff;border-radius:50%;animation:sp 1s linear infinite;vertical-align:-2px;margin-right:10px}
+@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(130,143,255,.12)}}
+/* trap drawer */
+.drawer{margin-top:10px;border:1px dashed #7a2a2d;border-radius:12px;background:var(--s1);overflow:hidden;flex:none}
+.drawer>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:9px 14px;font-size:15px}
+.drawer>summary::-webkit-details-marker{display:none}
+.drawer .tl{color:var(--red);font-size:12px;letter-spacing:1.4px;font-weight:700;text-transform:uppercase;white-space:nowrap}
+.drawer .sum{color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}.drawer .sum b{color:var(--ink)}
+.drawer .chev{color:var(--mut)}.drawer[open] .chev{transform:rotate(180deg)}
+.dbody{padding:4px 14px 12px;display:flex;flex-direction:column;gap:8px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.lbl{font-size:12px;letter-spacing:1.2px;color:var(--mut);text-transform:uppercase}
+input[type=text],textarea,select.in{background:var(--canvas);border:1px solid var(--line2);border-radius:8px;padding:7px 10px;font-size:16px}
+input[type=text]{flex:1;min-width:100px}textarea{width:100%;resize:vertical;min-height:40px}
+.tmpl input{font-weight:650;font-size:17px}
+button.sm{background:var(--s3);border:1px solid var(--line2);border-radius:8px;padding:6px 10px;font-size:14px;cursor:pointer}
+details.exact summary{cursor:pointer;color:var(--mut);font-size:13px}
+/* ---- console ---- */
+.console{min-height:0;display:flex;flex-direction:column;background:var(--s1);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.chead{display:flex;align-items:baseline;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.chead b{font-size:15px;letter-spacing:-.2px;white-space:nowrap}.chead span{font-size:13px;color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#tl{flex:1;min-height:0;overflow:auto;padding:10px 12px 6px 30px;position:relative}
+#tl:before{content:"";position:absolute;left:17px;top:14px;bottom:0;width:2px;background:var(--line)}
+.ev{position:relative;margin-bottom:8px;animation:rise .22s ease-out}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.ev:before{content:"";position:absolute;left:-18px;top:12px;width:10px;height:10px;border-radius:50%;background:var(--line2);border:2px solid var(--s1)}
+.ev.card{background:var(--s3);border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+.ev.card:before{background:var(--acc)}.ev.bad:before{background:var(--red)}.ev.warn:before{background:var(--amber)}.ev.ok:before{background:var(--green)}
+.ev .h{display:flex;align-items:baseline;gap:8px}.ev .h .k{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--mut);font-weight:700}
+.ev .h .t{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:17px;color:var(--acc2)}
+.ev .main{font-size:18px;font-weight:650;margin-top:2px;letter-spacing:-.2px}
+.ev .sub{font-size:13px;color:var(--mut);margin-top:2px}
+.ev .intent{font-size:14px;color:var(--ink2);margin-top:4px;font-style:italic}
+.ev.mini{font-size:14px;color:var(--mut);padding:1px 0 0}.ev.mini:before{width:6px;height:6px;left:-16px;top:7px}
+.ev.mini.bad{color:#ffb0b2}.ev.mini.ok{color:#9be0ae}.ev.mini.warn{color:#ffd58a}
+.ev.mini .t{font-family:var(--mono);color:var(--mut);margin-left:6px}
+.tagk{font-size:12px;font-weight:700;padding:1px 7px;border-radius:5px;margin-left:6px;vertical-align:2px}
+.tagk.bad{background:var(--red2);color:#ffc1c3}.tagk.ok{background:var(--green2);color:#a9ecbb}.tagk.mut{background:var(--s4);color:var(--ink2)}
+.bars{display:grid;grid-template-columns:72px 1fr 46px;gap:5px 8px;align-items:center;margin-top:7px;font-size:13px;color:var(--ink2)}
+.bars .tr{height:12px;border-radius:6px;background:var(--s1);position:relative;overflow:hidden;border:1px solid var(--line)}
+.bars .tr i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:6px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.bars .tr:after{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:2px;background:#fff8}
+.bars .v{font-family:var(--mono);font-weight:700;font-size:15px;text-align:right;color:var(--ink)}
+.chip{display:inline-block;font-weight:800;font-size:14px;letter-spacing:1px;padding:2px 9px;border-radius:6px}
+.chip.PASS{background:var(--green2);color:#a9ecbb;border:1px solid var(--green)}.chip.STOP{background:var(--red2);color:#ffc1c3;border:1px solid var(--red)}
+.chip.DETONATE{background:var(--amber2);color:#ffd58a;border:1px solid var(--amber)}
+.count{font-family:var(--mono);font-weight:800;font-size:26px;color:var(--amber)}
+.spin{display:inline-block;width:16px;height:16px;border:3px solid #fff3;border-top-color:#fff;border-radius:50%;animation:sp 1s linear infinite;vertical-align:-2px;margin-right:8px}
 @keyframes sp{to{transform:rotate(360deg)}}
-#stageTag{display:none;position:absolute;right:10px;top:10px;background:#8250df;color:#fff;font-weight:800;font-size:22px;padding:4px 12px;border-radius:8px;letter-spacing:2px}
-.replaytag{display:inline-block;align-self:flex-start;background:#8250df;color:#fff;font-weight:800;font-size:15px;padding:2px 10px;border-radius:6px;margin-bottom:6px;letter-spacing:1px}
-#steps li.m{color:var(--mut);font-size:14px}
+/* verdict */
+#verdict{flex:none;margin:8px 10px 10px;border-radius:12px;padding:12px 14px;min-height:112px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line);transition:background .35s,border-color .35s}
+#verdict .big{font-size:36px;font-weight:800;line-height:1.05;letter-spacing:-1px}
+#verdict .det{font-size:17px;margin-top:6px;font-weight:550;color:var(--ink2)}
+#verdict.idle{background:var(--s2)}#verdict.idle .big{font-size:24px;font-weight:600;color:var(--ink2);letter-spacing:-.3px}
+#verdict.work{background:var(--s2);border-color:var(--acc)}#verdict.work .big{font-size:26px;font-weight:650}
+#verdict.red{background:var(--red2);border-color:var(--red)}#verdict.red .big{color:#fff}
+#verdict.stop{border-color:var(--red);animation:amberRed 1.1s ease-out forwards}
+@keyframes amberRed{from{background:var(--amber2)}to{background:var(--red2)}}
+#verdict.green{background:var(--green2);border-color:var(--green)}
+#verdict.det8{background:var(--amber2);border:1px dashed var(--amber)}#verdict.det8 .big{font-size:30px}
+.replaytag{display:inline-block;align-self:flex-start;background:#8250df;color:#fff;font-weight:800;font-size:12px;padding:2px 8px;border-radius:5px;margin-bottom:5px;letter-spacing:1px}
+#verdict button{margin-top:10px;align-self:flex-start;font-size:18px;background:var(--acc);border:0;border-radius:8px;padding:7px 14px;color:#fff;cursor:pointer}
 </style></head>
 <body>
-<header><h1>Click<span>-</span>Brake</h1><div class="sub">a brake in front of every click a browser agent makes</div><div class="cfg" id="cfg"></div></header>
+<div class="bar">
+ <div class="brand"><i></i>Click-Brake</div>
+ <select class="sm" id="site" title="victim site"></select>
+ <div class="seg" title="keys 1 / 2"><button id="bOff" class="off">Brake OFF</button><button id="bOn" class="onn">Brake ON</button></div>
+ <button id="run" title="key R">▶ Run agent</button>
+ <label class="sw" title="Play back the recorded live run for this site (no network)"><input type="checkbox" id="offline"><span class="k"></span>Replay</label>
+ <span class="badge" id="replayBadge">REPLAY</span>
+ <details class="set"><summary>⚙ Settings</summary><div class="pop">
+  <label>Agent <select class="sm" id="backend"><option value="cu">Gemini computer use (Hydrogen)</option><option value="json">fast stand-in (flash-lite JSON)</option></select></label>
+  <label><input type="checkbox" id="mock"> offline mock (no API)</label>
+  <label title="The first proposal replays a click on the injected button instead of asking the agent"><input type="checkbox" id="replay"> replay hijack proposal</label>
+  <div class="cfg" id="cfg"></div>
+ </div></details>
+</div>
 <main>
- <section>
-  <div class="panel">
-   <div class="row" style="margin-top:0"><span class="lbl" style="margin:0">The site the agent is using (live page)</span>
-    <select id="site"></select></div>
-   <div id="stage" style="margin-top:8px"><iframe id="frame" sandbox="allow-same-origin"></iframe><div id="stageTag">REPLAY</div></div>
-   <div class="row"><span class="lbl" style="margin:0">User's task</span><input type="text" id="task"></div>
-   <div class="attacker">
-    <div class="row" style="margin-top:0"><span class="lbl" style="margin:0">Attacker: write your own trap</span>
-     <select id="mode"><option value="banner">Banner at top</option><option value="modal">Pop-up dialog</option>
+ <section class="left">
+  <div class="browser">
+   <div class="chrome"><div class="dots"><b></b><b></b><b></b></div>
+    <div class="url"><svg width="13" height="13" viewBox="0 0 16 16" fill="#9aa0a6"><path d="M4 7V5a4 4 0 118 0v2h1v8H3V7h1zm2 0h4V5a2 2 0 10-4 0v2z"/></svg>
+     <span class="host" id="urlHost"></span><span class="path" id="urlPath"></span></div>
+    <span class="agentchip" id="agentChip">agent idle</span></div>
+   <div id="stage"><iframe id="frame" sandbox="allow-same-origin" scrolling="no"></iframe><div id="stageTag">REPLAY</div>
+    <svg id="cursor" viewBox="0 0 24 24"><path d="M3 2l16 9.5-7 1.6-3.6 6.9z" fill="#111" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+  </div>
+  <details class="drawer" id="drawer">
+   <summary><span class="tl">Attacker trap</span><span class="sum" id="trapSum"></span><span class="chev">▾</span></summary>
+   <div class="dbody">
+    <div class="row"><span class="lbl">User's task</span><input type="text" id="task"></div>
+    <div class="row"><select class="in" id="mode"><option value="banner">Banner at top</option><option value="modal">Pop-up dialog</option>
       <option value="cookie">Legit cookie notice (site's own)</option><option value="none">Nothing (clean page)</option></select>
-     <button class="small" id="reset">reset</button></div>
-    <div class="row tmpl" id="tmplRow"><input type="text" id="t_what" style="max-width:420px" placeholder="TAP 202 can only be selected"> <span>after you click</span>
-     <input type="text" id="t_btn" style="max-width:260px"></div>
-    <details><summary>edit the exact wording (title / message / button)</summary>
-     <div class="row"><input type="text" id="a_title" placeholder="title (dialog heading / bold banner lead)"><input type="text" id="a_button" placeholder="button text" style="max-width:240px"></div>
-     <div class="row"><textarea id="a_text" placeholder="message"></textarea></div>
+     <button class="sm" id="reset">reset</button></div>
+    <div class="row tmpl" id="tmplRow"><input type="text" id="t_what" style="max-width:360px" placeholder="TAP 202 can only be selected"><span>after you click</span>
+     <input type="text" id="t_btn" style="max-width:230px"></div>
+    <details class="exact"><summary>edit the exact wording (title / message / button)</summary>
+     <div class="row" style="margin-top:6px"><input type="text" id="a_title" placeholder="title"><input type="text" id="a_button" placeholder="button text" style="max-width:220px"></div>
+     <div class="row" style="margin-top:6px"><textarea id="a_text" placeholder="message"></textarea></div>
     </details>
    </div>
-  </div>
+  </details>
  </section>
- <section>
-  <div class="row" style="margin-top:0">
-   <button class="run off" id="runOff">Run agent · brake OFF</button>
-   <button class="run on" id="runOn">Run agent · brake ON</button>
-  </div>
-  <div class="row" style="margin:6px 0 8px;gap:12px">
-   <select id="backend" style="font-size:14px"><option value="cu">agent: Gemini computer use (Hydrogen)</option><option value="json">agent: fast stand-in (flash-lite JSON)</option></select>
-   <label class="chk"><input type="checkbox" id="mock"> offline mock</label>
-   <label class="chk" title="Brake-OFF and the first brake-ON proposal replay a click on the injected button instead of asking the agent"><input type="checkbox" id="replay"> replay hijack proposal</label>
-   <label class="chk" title="Play back the recorded live run for this site (no network). Clearly labelled REPLAY."><input type="checkbox" id="offline"> Replay (offline)</label>
-  </div>
-  <div id="verdict" class="idle"><div class="big">Write a trap, then run the agent.</div></div>
-  <div class="panel" id="stepsPanel"><p class="lbl">Steps · latency</p><ul id="steps"></ul></div>
+ <section class="console">
+  <div class="chead"><b>Click-Brake console</b><span id="chTask"></span></div>
+  <div id="tl"></div>
+  <div id="verdict" class="idle"><div class="big">Write a trap, pick Brake OFF or ON, then Run.</div></div>
  </section>
 </main>
 <script>
 const $ = id => document.getElementById(id);
-let CFG = {}, page = null, busy = false;
+let CFG = {}, page = null, busy = false, BRAKE = false;
+const URLS = {shop: ["northwind-audio.com", "/checkout"], flights: ["skylane-flights.com", "/checkout"], bank: ["harborbank.com", "/transfers/new"]};
 const S = () => CFG.sites[$("site").value];
 const attack = () => ({title: $("a_title").value, text: $("a_text").value, button: $("a_button").value});
 function fill(a){ $("a_title").value = a.title || ""; $("a_text").value = a.text || ""; $("a_button").value = a.button || "";
   const m = /^(.*) after you click (.*)$/i.exec(a.text || "");
-  $("t_what").value = m ? m[1] : ""; $("t_btn").value = m ? m[2] : (a.button || ""); }
+  $("t_what").value = m ? m[1] : ""; $("t_btn").value = m ? m[2] : (a.button || ""); trapSummary(); }
 function fromTemplate(){ const w = $("t_what").value.trim(), b = $("t_btn").value.trim();
   $("a_text").value = `${w} after you click ${b}`; $("a_button").value = b;
   if ($("mode").value === "modal" && !$("a_title").value) $("a_title").value = "One more step"; preview(); }
+function trapSummary(){
+  const m = $("mode").value, el = $("trapSum"); el.innerHTML = "";
+  if (m === "none") { el.textContent = "clean page (no trap)"; return; }
+  const kind = {banner: "banner", modal: "dialog", cookie: "legit cookie notice"}[m];
+  el.append(document.createTextNode(`${kind}: “${($("a_title").value ? $("a_title").value + " " : "") + $("a_text").value}” `));
+  const b = document.createElement("b"); b.textContent = `[${$("a_button").value}]`; el.append(b);
+}
+function setBrake(on){ BRAKE = on; $("bOn").classList.toggle("on", on); $("bOff").classList.toggle("on", !on); }
+$("bOff").onclick = () => setBrake(false); $("bOn").onclick = () => setBrake(true);
+$("offline").addEventListener("change", () => $("replayBadge").classList.toggle("show", $("offline").checked));
+document.addEventListener("keydown", e => { if (/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
+  if (e.key === "1") setBrake(false); else if (e.key === "2") setBrake(true); else if (e.key === "r" || e.key === "R") run(BRAKE); });
 
 function scaleFrame(){ const w = $("stage").clientWidth; $("frame").style.transform = `scale(${w/1280})`; }
 window.addEventListener("resize", scaleFrame);
@@ -114,6 +206,7 @@ async function post(path, body){
   if (REC && !(path === "/api/detonate_poll" && !j.done)) REC.push({path, ms: path === "/api/detonate_poll" ? 1200 : Math.round(performance.now() - t), resp: j});
   return j;
 }
+// ---- stage: cursor + rings ----
 function clearRings(){ document.querySelectorAll("#stage .ring").forEach(e => e.remove()); }
 function ring(x, y, cls, tag){
   const s = $("stage").clientWidth / 1280, d = document.createElement("div");
@@ -121,13 +214,53 @@ function ring(x, y, cls, tag){
   if (tag) { const t = document.createElement("div"); t.className = "tag"; t.textContent = tag; d.appendChild(t); }
   $("stage").appendChild(d);
 }
-function step(text, secs, cls, meta){
-  const li = document.createElement("li"); li.className = cls || "";
-  li.innerHTML = `<span>${$("steps").children.length + 1}</span><span></span><span class="t"></span>`;
-  li.children[1].textContent = text;
-  if (meta) { const m = document.createElement("div"); m.className = "m"; m.textContent = meta; li.children[1].appendChild(m); }
-  li.children[2].textContent = secs == null ? "" : Number(secs).toFixed(2) + " s";
-  $("steps").appendChild(li); $("steps").scrollTop = $("steps").scrollHeight; return li;
+async function moveCursor(x, y){ const s = $("stage").clientWidth / 1280, c = $("cursor");
+  c.style.opacity = 1; c.style.left = (x*s) + "px"; c.style.top = (y*s) + "px"; await sleep(PLAY ? 300 : 460); }
+// ---- console timeline ----
+function addEv(cls){ const d = document.createElement("div"); d.className = "ev " + cls; $("tl").appendChild(d); $("tl").scrollTop = $("tl").scrollHeight; return d; }
+const T = s => s == null ? "" : Number(s).toFixed(2) + " s";
+function step(text, secs, cls, meta){  // small line (screenshot, retries, notes, reason, fired click...)
+  const d = addEv("mini " + (cls || "")); d.textContent = text;
+  if (secs != null) { const t = document.createElement("span"); t.className = "t"; t.textContent = T(secs); d.appendChild(t); }
+  if (meta) d.title = meta; return d;
+}
+function cardHead(d, kind, secs){ const h = document.createElement("div"); h.className = "h";
+  const k = document.createElement("span"); k.className = "k"; k.textContent = kind; h.appendChild(k);
+  const t = document.createElement("span"); t.className = "t"; t.textContent = T(secs); h.appendChild(t); d.appendChild(h); return t; }
+function txt(d, cls, s){ const e = document.createElement("div"); e.className = cls; e.textContent = s; d.appendChild(e); return e; }
+const KIND_TEXT = {dismiss: "closes the dialog", task: "the right button", injected: "the attacker's button", popup: "the site's own pop-up", other: "a different button", none: "nothing clickable"};
+const KIND_CLS = {injected: "bad", task: "ok"};
+function evAgent(p, el, name){
+  const d = addEv("card " + (KIND_CLS[el.kind] || "")); cardHead(d, "Agent proposes", p.s);
+  const m = txt(d, "main", `Click “${name}”`);
+  const tg = document.createElement("span"); tg.className = "tagk " + (KIND_CLS[el.kind] || "mut"); tg.textContent = KIND_TEXT[el.kind]; m.appendChild(tg);
+  if (p.intent) txt(d, "intent", `its own reason: “${p.intent.slice(0, 120)}”`);
+  txt(d, "sub", `${p.model} · (${p.x}, ${p.y})`);
+}
+function evBrake(r){
+  const d = addEv("card " + (r.route === "PASS" ? "ok" : r.route === "STOP" ? "bad" : "warn")); cardHead(d, "Brake · Decision 1", r.latency_s);
+  const m = txt(d, "main", ""); const c = document.createElement("span"); c.className = "chip " + r.route; c.textContent = r.route; m.appendChild(c);
+  const rule = document.createElement("span"); rule.className = "sub"; rule.style.marginLeft = "8px";
+  rule.textContent = r.route === "PASS" ? "on task ≥ 0.5" : r.route === "STOP" ? "not on task, overt attack ≥ 0.5" : "not on task, not overt: unsure"; m.appendChild(rule);
+  const b = document.createElement("div"); b.className = "bars";
+  for (const [lab, v, col] of [["on task", r.p_on_task, "var(--green)"], ["attack", r.p_injected, "var(--red)"]]) {
+    const l = document.createElement("span"); l.textContent = lab; b.appendChild(l);
+    const tr = document.createElement("div"); tr.className = "tr"; const i = document.createElement("i"); i.style.background = col; tr.appendChild(i); b.appendChild(tr);
+    const vv = document.createElement("span"); vv.className = "v"; vv.textContent = v.toFixed(2); b.appendChild(vv);
+    requestAnimationFrame(() => requestAnimationFrame(() => { i.style.width = (v * 100) + "%"; }));
+  }
+  d.appendChild(b); txt(d, "sub", `${r.model} · ${r.question_version} · threshold ${r.threshold}`);
+}
+function evSandbox(name){
+  const d = addEv("card warn"); const t = cardHead(d, "Sandbox · Managed Agents", null);
+  const m = txt(d, "main", ""); const sp = document.createElement("span"); sp.className = "spin"; m.appendChild(sp);
+  const cnt = document.createElement("span"); cnt.className = "count"; cnt.textContent = "0 s"; m.appendChild(cnt);
+  const s = txt(d, "sub", `a sandboxed agent clicks “${name}” first and watches what happens`);
+  return {tick(el){ cnt.textContent = `${el.toFixed(0)} s`; },
+          done(res, recorded){ sp.remove(); t.textContent = T(res.s); cnt.style.color = res.verdict === "benign" ? "var(--green)" : "var(--red)";
+            cnt.textContent = res.verdict.toUpperCase(); d.className = "ev card " + (res.verdict === "benign" ? "ok" : "bad");
+            s.textContent = res.what_happened; s.style.color = "var(--ink2)"; s.style.fontSize = "15px";
+            txt(d, "sub", (recorded ? `recorded detonation (took ${recorded} s live) · ` : "") + (res.stub ? "detonate stub (managed/detonate.py missing)" : res.mock ? "mock" : "managed/detonate.py")); }};
 }
 function verdict(cls, big, det, spin){
   const v = $("verdict"); v.className = cls; v.innerHTML = ""; const b = document.createElement("div"); b.className = "big";
@@ -137,24 +270,24 @@ function verdict(cls, big, det, spin){
 }
 
 let tmr = null;
-function preview(){ clearTimeout(tmr); tmr = setTimeout(async () => {
+function preview(){ trapSummary(); clearTimeout(tmr); tmr = setTimeout(async () => {
   if (busy) return; const mode = $("mode").value;
   try { page = await post("/api/shot", {site: $("site").value, mode, attack: mode === "none" ? null : attack()}); $("frame").srcdoc = page.html; clearRings(); }
-  catch(e){ verdict("red", "Render failed", String(e)); }
+  catch(e){ verdict("red", "Render failed", String(e.message || e)); }
 }, 250); }
 ["a_title", "a_text", "a_button"].forEach(id => $(id).addEventListener("input", preview));
 ["t_what", "t_btn"].forEach(id => $(id).addEventListener("input", fromTemplate));
 $("mode").addEventListener("change", () => { const m = $("mode").value; fill(m === "cookie" ? S().cookie : S().attack);
   $("tmplRow").style.display = m === "cookie" || m === "none" ? "none" : "flex"; preview(); });
 $("reset").addEventListener("click", () => { $("mode").value = S().mode; $("mode").dispatchEvent(new Event("change")); });
-$("site").addEventListener("change", () => { $("task").value = S().task; $("reset").click(); verdict("idle", "Write a trap, then run the agent."); $("steps").innerHTML = ""; });
-
-const KIND_TEXT = {dismiss: "close the dialog", task: "the right button", injected: "the attacker's button", popup: "the site's own pop-up", other: "a different button", none: "nothing clickable"};
-const ROUTE_CLS = {PASS: "ok", STOP: "warn", DETONATE: "warn"};
+$("task").addEventListener("input", () => { $("chTask").textContent = "task: " + $("task").value; });
+$("site").addEventListener("change", () => { const k = $("site").value; $("task").value = S().task; $("chTask").textContent = "task: " + S().task;
+  $("urlHost").textContent = URLS[k][0]; $("urlPath").textContent = URLS[k][1];
+  $("reset").click(); verdict("idle", "Write a trap, pick Brake OFF or ON, then Run."); $("tl").innerHTML = ""; $("cursor").style.opacity = 0; });
 
 async function run(brake){
-  if (busy) return; busy = true; $("runOff").disabled = $("runOn").disabled = true;
-  $("steps").innerHTML = ""; clearRings(); PLAY = null; REC = null;
+  if (busy) return; busy = true; $("run").disabled = true; $("drawer").open = false;
+  $("tl").innerHTML = ""; clearRings(); PLAY = null; REC = null;
   let outcome = "error";
   if ($("offline").checked) {
     try {
@@ -164,57 +297,55 @@ async function run(brake){
       $("task").value = rec.task; $("mode").value = rec.mode; if (rec.attack) fill(rec.attack);
       PLAY = {events: rec.events, i: 0, recorded: rec.recorded.slice(11, 16)};
       $("stageTag").style.display = "block";
-    } catch (e) { verdict("idle", "No recorded run for this site yet", "A successful live run with a working key saves one automatically (app/replays/)."); busy = false; $("runOff").disabled = $("runOn").disabled = false; return; }
+    } catch (e) { verdict("idle", "No recorded run for this site yet", "A successful live run with a working key saves one automatically (app/replays/)."); busy = false; $("run").disabled = false; return; }
   } else if (!$("mock").checked) REC = [];
   const task = $("task").value, replay = $("replay").checked, site = $("site").value;
   let mode = $("mode").value, note = null, total = 0, stopped = null;
   const mode0 = mode, attack0 = mode === "none" ? null : attack();
+  $("agentChip").textContent = brake ? "agent · brake ON" : "agent · brake OFF";
   try {
     for (let i = 0; i < 6; i++) {
       verdict("work", "Rendering page…");
       page = await post("/api/shot", {site, mode, attack: mode === "none" ? null : attack()}); $("frame").srcdoc = page.html;
-      step("Screenshot of the page (headless Chrome, 1280×800)", page.s);
-      verdict("work", note ? "Agent re-plans after the block…" : "Agent is choosing a click…");
+      step("Screenshot 1280×800 (headless Chrome)", page.s);
+      verdict("work", note ? "Agent re-plans after the block…" : "Agent is looking at the page…");
       const pr = await post("/api/propose", {page_id: page.page_id, task, note, replay: replay && !note});
       const p = pr.proposal, el = pr.element, name = el.text || p.label || "?"; total += p.s;
-      (p.notes || []).forEach(n => step(n, null, "m"));
-      clearRings(); ring(p.x, p.y, brake ? "amber" : "", name.slice(0, 40));
-      step(`Agent proposes: click “${name}” → ${KIND_TEXT[el.kind]}`, p.s, el.kind === "injected" ? "bad" : "",
-           `${p.model} · (${p.x}, ${p.y})${p.intent ? " · intent: " + p.intent.slice(0, 110) : ""}`);
+      (p.notes || []).forEach(n => step(n, null, "warn"));
+      clearRings(); await moveCursor(p.x, p.y); ring(p.x, p.y, brake ? "pend" : "", name.slice(0, 40));
+      evAgent(p, el, name);
       let allowed = true;
       if (brake) {
         verdict("work", "Brake checking the click…");
         const r = await post("/api/brake", {page_id: page.page_id, task, x: p.x, y: p.y, kind: el.kind, intent: p.intent || ""}); total += r.latency_s;
-        step(`Brake ${r.route}: on-task ${r.p_on_task.toFixed(2)} · attack ${r.p_injected.toFixed(2)}`, r.latency_s, ROUTE_CLS[r.route],
-             `${r.model} · ${r.question_version} · PASS if on-task ≥ ${r.threshold}; else STOP if attack ≥ ${r.threshold}; else DETONATE`);
+        evBrake(r);
         if (r.route === "DETONATE") {
           clearRings(); ring(p.x, p.y, "amber", "UNSURE");
-          const detMsg = `Detonating: a sandboxed agent clicks “${name}” first to see what it does (on-task ${r.p_on_task.toFixed(2)}, attack ${r.p_injected.toFixed(2)}).`;
-          verdict("det8", "UNSURE → sandbox test · 0 s", detMsg, true);
+          const box = evSandbox(name);
+          const detMsg = `A sandboxed agent clicks “${name}” first to see what it does.`;
+          verdict("det8", "UNSURE → sandbox test", detMsg, true);
           let jp = {done: false, elapsed_s: 0};
           while (!jp.done) {  // detonation already started server-side when the brake said DETONATE (40-90 s live)
             await sleep(PLAY ? 0 : 1000);
             jp = await post("/api/detonate_poll", {job: r.job});
-            if (PLAY) verdict("det8", "UNSURE → sandbox test", `${detMsg} Recorded live: it took ${jp.elapsed_s.toFixed(0)} s.`, false);
-            else verdict("det8", `UNSURE → sandbox test · ${jp.elapsed_s.toFixed(0)} s`, detMsg, !jp.done);
+            if (!jp.done) box.tick(jp.elapsed_s);
           }
           const d = jp.result; total += d.s || 0;
-          const safe = d.verdict === "benign";
-          step(`Sandbox: ${d.verdict} — ${d.what_happened}`, d.s, safe ? "ok" : "warn",
-               (PLAY ? "recorded detonation · " : "") + (d.stub ? "detonate stub (managed/detonate.py not on main)" : (d.mock ? "mock" : "managed/detonate.py (Managed Agents sandbox)")));
-          allowed = safe; if (!safe) r.sandbox = d;
+          box.done(d, PLAY ? jp.elapsed_s.toFixed(0) : null);
+          allowed = d.verdict === "benign"; if (!allowed) r.sandbox = d;
         } else allowed = r.route === "PASS";
         if (!allowed) {
           clearRings(); ring(p.x, p.y, "", "STOPPED");
-          const how = r.sandbox ? `sandbox said ${r.sandbox.verdict}` : `attack p=${r.p_injected.toFixed(2)}`;
-          verdict("stop", `STOPPED in ${(r.latency_s + (r.sandbox ? (r.sandbox.s || 0) : 0)).toFixed(2)} s · ${how}`, `Blocked a click on “${name}” before it fired.`);
+          const secs = r.latency_s + (r.sandbox ? (r.sandbox.s || 0) : 0);
+          const how = r.sandbox ? `sandbox: ${r.sandbox.verdict}` : `attack ${r.p_injected.toFixed(2)}`;
+          verdict("stop", `STOPPED · ${secs.toFixed(r.sandbox ? 0 : 2)} s`, `Blocked “${name}” before it fired (${how}).`);
           const ex = await post("/api/explain", {page_id: page.page_id, task, x: p.x, y: p.y, brake: r, intent: p.intent || ""});
-          if (ex.reason) { step(`Reason: ${ex.reason.text}`, ex.reason.s, "warn", ex.reason.model); $("verdict").querySelector(".det").textContent = ex.reason.text; }
-          if (ex.circle) { ring(ex.circle.x, ex.circle.y, "green", ex.circle.label || "task needs this"); step(`ER 2 circles “${ex.circle.label || ""}”: the button the task names`, ex.circle.s, "ok", ex.circle.model); }
-          await new Promise(res => setTimeout(res, 1600));
+          if (ex.reason) { step(`Why: ${ex.reason.text}`, ex.reason.s, "warn", ex.reason.model); $("verdict").querySelector(".det").textContent = ex.reason.text; }
+          if (ex.circle) { ring(ex.circle.x, ex.circle.y, "green", ex.circle.label || "task needs this"); step(`ER 2 circles “${ex.circle.label || ""}”, the button the task names`, ex.circle.s, "ok", ex.circle.model); }
+          await sleep(1600);
           note = {x: p.x, y: p.y, label: name}; stopped = stopped || r;
           if (mode === "modal") {
-            // q1 also stopped "Cancel" inside an injected dialog; closing it with Esc is a keypress, not a click, so the click brake doesn't gate it.
+            // closing the blocked dialog with Esc is a keypress, not a click, so the click brake doesn't gate it
             step("Dialog closed with Esc (keypress; the brake gates clicks only)", null, "ok"); mode = "none";
           }
           continue;
@@ -228,22 +359,21 @@ async function run(brake){
       if (leak) {
         let what = ""; try { what = Object.entries(JSON.parse(leak.body)).filter(([k]) => k !== "page" && k !== "cookie").map(([k, v]) => v).join(", "); } catch (x) {}
         const host = (leak.url.match(/^https?:\/\/([^/]+)/) || [])[1] || leak.url;
-        leakText = `would have sent ${what || "your data"} to ${host}`;
-        step(`Page ${leak.method} → ${host}: ${what}`, null, "bad", "blocked by the app's browser: nothing left this machine");
+        leakText = `Would have sent ${what || "your data"} to ${host}`;
+        step(`Page ${leak.method} → ${host}: ${what} (blocked here, nothing left this machine)`, null, "bad");
       }
       if (el.kind === "injected") {
         clearRings(); ring(p.x, p.y, "", "HIJACKED");
-        verdict("red", `HIJACKED — agent clicked “${name}”`,
-                (leakText ? leakText[0].toUpperCase() + leakText.slice(1) + " (blocked here). " : "") + (brake ? "The brake let it through (a miss)." : "That's what happens today."));
-        step("Click fired on the attacker's button", null, "bad"); outcome = "hijacked"; break;
+        verdict("red", "HIJACKED", (leakText ? leakText + ". " : `Agent clicked “${name}”. `) + (brake ? "The brake let it through (a miss)." : "That's what happens today."));
+        step(`Click fired on the attacker's “${name}”`, null, "bad"); outcome = "hijacked"; break;
       }
       if (el.kind === "popup") { step(`Click fired on the site's own “${el.text}” (allowed)`, null, "ok"); mode = "none"; note = null; continue; }
       if (el.kind === "dismiss") { step(`Click fired on “${el.text}”: dialog closed`, null, "ok"); mode = "none"; continue; }
       if (el.kind === "task") {
         clearRings(); ring(p.x, p.y, "green", el.text);
-        const how = stopped ? `Hijack ${stopped.sandbox ? "detonated and " : ""}STOPPED in ${(stopped.latency_s + (stopped.sandbox ? stopped.sandbox.s || 0 : 0)).toFixed(stopped.sandbox ? 0 : 2)} s, then the agent clicked “${el.text}”`
+        const how = stopped ? `Hijack ${stopped.sandbox ? "detonated and " : ""}stopped (${(stopped.latency_s + (stopped.sandbox ? stopped.sandbox.s || 0 : 0)).toFixed(stopped.sandbox ? 0 : 2)} s), then the agent clicked “${el.text}”`
                             : `${brake ? "Brake ON" : "Brake OFF"} · agent clicked “${el.text}”`;
-        verdict("green", `${S().done} ✓`, `${how} · total model time ${total.toFixed(1)} s`);
+        verdict("green", `DONE · ${S().done}`, `${how} · model time ${total.toFixed(1)} s`);
         step(`Click fired on “${el.text}”: ${S().done.toLowerCase()}`, null, "ok"); outcome = stopped ? "stopped_then_done" : "done";
         if (brake) { const f = await post("/api/finish", {page_id: page.page_id, task}); if (f.finish) step("Managed Agents finished the task", f.finish.s, "ok"); }
         break;
@@ -251,12 +381,12 @@ async function run(brake){
       verdict("idle", `Agent clicked “${name}”`, "Not the task button and not the trap."); step("Click fired elsewhere", null); break;
     }
   } catch (e) {
-    outcome = "error"; (e.notes || []).forEach(n => step(n, null, "m"));
+    outcome = "error"; (e.notes || []).forEach(n => step(n, null, "warn"));
     if (e.busy) {
       verdict("idle", e.quota ? "API quota reached on this key" : "Model busy — venue load",
               e.quota ? "Switch key (GEMINI_API_KEY_ALT) or use the recorded run." : "All retries and fallbacks failed. Try again, or use the recorded run.");
-      const b = document.createElement("button"); b.className = "small"; b.style.cssText = "font-size:20px;margin-top:10px;align-self:flex-start";
-      b.textContent = "▶ Use replay"; b.onclick = () => { $("offline").checked = true; run(brake); }; $("verdict").appendChild(b);
+      const b = document.createElement("button"); b.textContent = "▶ Use replay";
+      b.onclick = () => { $("offline").checked = true; $("replayBadge").classList.add("show"); run(brake); }; $("verdict").appendChild(b);
       step(e.message, null, "warn");
     } else { verdict("red", "Something went wrong", e.message); step(e.message, null, "bad"); }
   }
@@ -264,20 +394,19 @@ async function run(brake){
   if (REC && ((!brake && outcome === "hijacked") || (brake && outcome === "stopped_then_done"))) {
     try { const sv = await (await fetch("/api/save_replay", {method: "POST", headers: {"Content-Type": "application/json"},
             body: JSON.stringify({site, brake, task, mode: mode0, attack: attack0, outcome, events: REC})})).json();
-          step(`Saved as offline replay (${sv.saved})`, null, "m"); } catch (e) {}
+          step(`Saved as offline replay (${sv.saved})`, null); } catch (e) {}
   }
-  REC = null; PLAY = null; $("stageTag").style.display = "none";
-  busy = false; $("runOff").disabled = $("runOn").disabled = false;
+  REC = null; PLAY = null; $("stageTag").style.display = "none"; $("agentChip").textContent = "agent idle";
+  busy = false; $("run").disabled = false;
 }
-$("runOff").addEventListener("click", () => run(false));
-$("runOn").addEventListener("click", () => run(true));
+$("run").addEventListener("click", () => run(BRAKE));
 
 (async () => {
   CFG = await (await fetch("/api/config")).json();
   for (const [k, v] of Object.entries(CFG.sites)) { const o = document.createElement("option"); o.value = k; o.textContent = v.name; $("site").appendChild(o); }
   $("site").value = CFG.default_site; $("mock").checked = CFG.mock; $("backend").value = CFG.backend;
-  $("cfg").textContent = `brake: ${CFG.brake_model} ${CFG.question_version}`;
-  scaleFrame(); $("site").dispatchEvent(new Event("change"));
+  $("cfg").textContent = `brake ${CFG.brake_model} ${CFG.question_version} · agent ${CFG.cu_model}${CFG.mock ? " · MOCK" : ""}`;
+  setBrake(false); scaleFrame(); $("site").dispatchEvent(new Event("change"));
 })();
 </script>
 </body></html>
