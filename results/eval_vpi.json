@@ -2968,5 +2968,15 @@
     "latency_s": 8.2397
    }
   ]
+ },
+ "post_hoc_latency_sequential": {
+  "note": "run after the scored run, 1 call at a time, uncached, test half; not part of the registered mark",
+  "at": "15:45:44",
+  "n": 48,
+  "p50": 6.2575,
+  "p90": 18.089,
+  "min": 1.428,
+  "max": 48.363,
+  "max_abs_p_change_vs_scored": 0.0
  }
 }
