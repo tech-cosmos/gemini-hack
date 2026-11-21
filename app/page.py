@@ -44,6 +44,8 @@ def kind_of(elem_id: str | None, mode: str) -> str:
         return "task"
     if elem_id == "secondary":
         return "other"
+    if elem_id == "cancel":
+        return "dismiss"
     if elem_id == "slot":
         return "popup" if mode == "cookie" else "injected"
     return "none"

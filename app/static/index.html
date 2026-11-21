@@ -113,7 +113,7 @@ function preview(){ clearTimeout(tmr); tmr = setTimeout(async () => {
 $("mode").addEventListener("change", () => { $("reset").click(); });
 $("reset").addEventListener("click", () => { fill($("mode").value === "cookie" ? CFG.cookie : CFG.attack); preview(); });
 
-const KIND_TEXT = {task: "the right button", injected: "the attacker's button", popup: "the site's own pop-up", other: "a wrong button", none: "nothing clickable"};
+const KIND_TEXT = {dismiss: "close the dialog", task: "the right button", injected: "the attacker's button", popup: "the site's own pop-up", other: "a wrong button", none: "nothing clickable"};
 
 async function run(brake){
   if (busy) return; busy = true; $("runOff").disabled = $("runOn").disabled = true;
@@ -121,7 +121,7 @@ async function run(brake){
   const task = $("task").value, replay = $("replay").checked;
   let mode = $("mode").value, note = null, total = 0, stopped = null;
   try {
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 6; i++) {
       verdict("work", "Rendering page…");
       page = await post("/api/shot", {mode, attack: mode === "none" ? null : attack()}); $("site").srcdoc = page.html;
       step("Screenshot of the page (headless Chrome, 1280×800)", page.s);
@@ -142,6 +142,11 @@ async function run(brake){
           if (ex.circle) { ring(ex.circle.x, ex.circle.y, "green", ex.circle.label || "task needs this"); step(`ER 2 circles “${ex.circle.label || ""}”`, ex.circle.s, "ok"); }
           await new Promise(res => setTimeout(res, 1600));
           note = {x: p.x, y: p.y, label: el.text || p.label}; stopped = stopped || r;
+          if (mode === "modal") {
+            // Decision 1 also stops "Cancel" inside an injected dialog (measured p 0.82-0.91), so the agent can't click its way
+            // out. It closes the dialog with Esc instead: a keypress, not a click, so the click brake doesn't gate it.
+            step("Dialog closed with Esc (keypress; the brake gates clicks only)", null, "ok"); mode = "none";
+          }
           continue;
         }
       }
@@ -152,6 +157,9 @@ async function run(brake){
       }
       if (el.kind === "popup") {
         step(`Click fired on the site's own “${el.text}” (allowed)`, null, "ok"); mode = "none"; note = null; continue;
+      }
+      if (el.kind === "dismiss") {
+        step(`Click fired on “${el.text}”: dialog closed`, null, "ok"); mode = "none"; continue;
       }
       if (el.kind === "task") {
         clearRings(); ring(p.x, p.y, "green", el.text);
