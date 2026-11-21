@@ -1,0 +1,1 @@
+done: eval_vpi on VPI-Bench (90 cases, 48 test): q1 Decision 1 AUROC 1.0, 0/18 false stops but p50 2.556 s -> KILL on latency; Hydrogen 4/9 legit false stops; q2 routes 30/30 hijacks away, passes 0/9 legit pop-ups / next: harder set (task-aligned lures) if the lead wants / blocked: none
