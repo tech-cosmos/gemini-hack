@@ -1,0 +1,15 @@
+{
+ "n": 30,
+ "A_hydrogen_5vote": {
+  "exact_match": 0.567,
+  "mae": 0.8,
+  "mean_signed_error": -0.2
+ },
+ "B_swarm_merge": {
+  "exact_match": 0.3,
+  "mae": 2.63,
+  "mean_signed_error": 0.9
+ },
+ "B_instances_median": 10.0,
+ "B_pairs_median": 29.5
+}

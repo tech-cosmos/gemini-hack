@@ -1,0 +1,722 @@
+[
+ {
+  "q_id": "0352",
+  "source": "scannetpp",
+  "question": "How many different bookshelves have appeared so far?",
+  "seconds": 168.7,
+  "truth": 2,
+  "A": {
+   "votes": [
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "answer": 2
+  },
+  "B": {
+   "shards": 9,
+   "instances": 8,
+   "pairs": 25,
+   "merges": 15,
+   "answer": 2
+  }
+ },
+ {
+  "q_id": "0389",
+  "source": "scannetpp",
+  "question": "How many different whiteboards have appeared so far?",
+  "seconds": 19.5,
+  "truth": 3,
+  "A": {
+   "votes": [
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "answer": 3
+  },
+  "B": {
+   "shards": 1,
+   "instances": 3,
+   "pairs": 0,
+   "merges": 0,
+   "answer": 3
+  }
+ },
+ {
+  "q_id": "0423",
+  "source": "scannetpp",
+  "question": "How many different ceiling lights have appeared so far?",
+  "seconds": 55.4,
+  "truth": 12,
+  "A": {
+   "votes": [
+    11,
+    12,
+    12,
+    0,
+    0
+   ],
+   "answer": 11
+  },
+  "B": {
+   "shards": 3,
+   "instances": 20,
+   "pairs": 109,
+   "merges": 0,
+   "answer": 20
+  }
+ },
+ {
+  "q_id": "0460",
+  "source": "arkitscenes",
+  "question": "How many different tables have appeared so far?",
+  "seconds": 153.7,
+  "truth": 4,
+  "A": {
+   "votes": [
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "answer": 4
+  },
+  "B": {
+   "shards": 8,
+   "instances": 10,
+   "pairs": 41,
+   "merges": 9,
+   "answer": 3
+  }
+ },
+ {
+  "q_id": "0472",
+  "source": "arkitscenes",
+  "question": "How many different tables have appeared so far?",
+  "seconds": 119.0,
+  "truth": 4,
+  "A": {
+   "votes": [
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "answer": 4
+  },
+  "B": {
+   "shards": 6,
+   "instances": 12,
+   "pairs": 59,
+   "merges": 13,
+   "answer": 5
+  }
+ },
+ {
+  "q_id": "0488",
+  "source": "arkitscenes",
+  "question": "How many different chairs have appeared so far?",
+  "seconds": 48.3,
+  "truth": 7,
+  "A": {
+   "votes": [
+    7,
+    7,
+    7,
+    7,
+    7
+   ],
+   "answer": 7
+  },
+  "B": {
+   "shards": 3,
+   "instances": 19,
+   "pairs": 120,
+   "merges": 36,
+   "answer": 4
+  }
+ },
+ {
+  "q_id": "0512",
+  "source": "arkitscenes",
+  "question": "How many different washers have appeared so far?",
+  "seconds": 96.4,
+  "truth": 2,
+  "A": {
+   "votes": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "answer": 1
+  },
+  "B": {
+   "shards": 5,
+   "instances": 3,
+   "pairs": 3,
+   "merges": 1,
+   "answer": 2
+  }
+ },
+ {
+  "q_id": "0526",
+  "source": "arkitscenes",
+  "question": "How many different chairs have appeared so far?",
+  "seconds": 46.6,
+  "truth": 6,
+  "A": {
+   "votes": [
+    6,
+    6,
+    6,
+    6,
+    6
+   ],
+   "answer": 6
+  },
+  "B": {
+   "shards": 3,
+   "instances": 15,
+   "pairs": 68,
+   "merges": 7,
+   "answer": 8
+  }
+ },
+ {
+  "q_id": "0541",
+  "source": "arkitscenes",
+  "question": "How many different chairs have appeared so far?",
+  "seconds": 69.1,
+  "truth": 6,
+  "A": {
+   "votes": [
+    6,
+    6,
+    6,
+    6,
+    6
+   ],
+   "answer": 6
+  },
+  "B": {
+   "shards": 4,
+   "instances": 14,
+   "pairs": 71,
+   "merges": 32,
+   "answer": 1
+  }
+ },
+ {
+  "q_id": "0553",
+  "source": "arkitscenes",
+  "question": "How many different chairs have appeared so far?",
+  "seconds": 62.8,
+  "truth": 6,
+  "A": {
+   "votes": [
+    7,
+    8,
+    8,
+    8,
+    7
+   ],
+   "answer": 8
+  },
+  "B": {
+   "shards": 4,
+   "instances": 12,
+   "pairs": 44,
+   "merges": 2,
+   "answer": 10
+  }
+ },
+ {
+  "q_id": "0581",
+  "source": "arkitscenes",
+  "question": "How many different chairs have appeared so far?",
+  "seconds": 51.6,
+  "truth": 5,
+  "A": {
+   "votes": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "answer": 5
+  },
+  "B": {
+   "shards": 3,
+   "instances": 10,
+   "pairs": 32,
+   "merges": 6,
+   "answer": 6
+  }
+ },
+ {
+  "q_id": "0593",
+  "source": "arkitscenes",
+  "question": "How many different chairs have appeared so far?",
+  "seconds": 79.2,
+  "truth": 5,
+  "A": {
+   "votes": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "answer": 5
+  },
+  "B": {
+   "shards": 4,
+   "instances": 8,
+   "pairs": 15,
+   "merges": 9,
+   "answer": 2
+  }
+ },
+ {
+  "q_id": "0605",
+  "source": "arkitscenes",
+  "question": "How many different chairs have appeared so far?",
+  "seconds": 62.8,
+  "truth": 6,
+  "A": {
+   "votes": [
+    8,
+    7,
+    8,
+    6,
+    6
+   ],
+   "answer": 7
+  },
+  "B": {
+   "shards": 4,
+   "instances": 3,
+   "pairs": 2,
+   "merges": 0,
+   "answer": 3
+  }
+ },
+ {
+  "q_id": "0616",
+  "source": "scannetpp",
+  "question": "How many different chairs have appeared so far?",
+  "seconds": 31.2,
+  "truth": 5,
+  "A": {
+   "votes": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "answer": 5
+  },
+  "B": {
+   "shards": 2,
+   "instances": 8,
+   "pairs": 15,
+   "merges": 7,
+   "answer": 2
+  }
+ },
+ {
+  "q_id": "0685",
+  "source": "scannetpp",
+  "question": "How many different tables have appeared so far?",
+  "seconds": 102.9,
+  "truth": 11,
+  "A": {
+   "votes": [
+    3,
+    3,
+    3,
+    3,
+    4
+   ],
+   "answer": 3
+  },
+  "B": {
+   "shards": 6,
+   "instances": 15,
+   "pairs": 87,
+   "merges": 18,
+   "answer": 5
+  }
+ },
+ {
+  "q_id": "0719",
+  "source": "scannetpp",
+  "question": "How many different ceiling lights have appeared so far?",
+  "seconds": 91.6,
+  "truth": 4,
+  "A": {
+   "votes": [
+    4,
+    0,
+    4,
+    3,
+    4
+   ],
+   "answer": 4
+  },
+  "B": {
+   "shards": 5,
+   "instances": 11,
+   "pairs": 43,
+   "merges": 0,
+   "answer": 11
+  }
+ },
+ {
+  "q_id": "0752",
+  "source": "scannetpp",
+  "question": "How many different buckets have appeared so far?",
+  "seconds": 116.0,
+  "truth": 4,
+  "A": {
+   "votes": [
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "answer": 4
+  },
+  "B": {
+   "shards": 6,
+   "instances": 6,
+   "pairs": 12,
+   "merges": 2,
+   "answer": 4
+  }
+ },
+ {
+  "q_id": "0824",
+  "source": "scannetpp",
+  "question": "How many different computer mice have appeared so far?",
+  "seconds": 72.9,
+  "truth": 2,
+  "A": {
+   "votes": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "answer": 1
+  },
+  "B": {
+   "shards": 4,
+   "instances": 4,
+   "pairs": 6,
+   "merges": 1,
+   "answer": 3
+  }
+ },
+ {
+  "q_id": "0850",
+  "source": "scannetpp",
+  "question": "How many different plants have appeared so far?",
+  "seconds": 15.7,
+  "truth": 2,
+  "A": {
+   "votes": [
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "answer": 2
+  },
+  "B": {
+   "shards": 1,
+   "instances": 2,
+   "pairs": 0,
+   "merges": 0,
+   "answer": 2
+  }
+ },
+ {
+  "q_id": "0880",
+  "source": "scannetpp",
+  "question": "How many different monitors have appeared so far?",
+  "seconds": 112.9,
+  "truth": 3,
+  "A": {
+   "votes": [
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "answer": 3
+  },
+  "B": {
+   "shards": 6,
+   "instances": 14,
+   "pairs": 78,
+   "merges": 41,
+   "answer": 2
+  }
+ },
+ {
+  "q_id": "0911",
+  "source": "scannetpp",
+  "question": "How many different crates have appeared so far?",
+  "seconds": 142.8,
+  "truth": 9,
+  "A": {
+   "votes": [
+    7,
+    7,
+    7,
+    7,
+    7
+   ],
+   "answer": 7
+  },
+  "B": {
+   "shards": 8,
+   "instances": 22,
+   "pairs": 189,
+   "merges": 29,
+   "answer": 11
+  }
+ },
+ {
+  "q_id": "0950",
+  "source": "scannet",
+  "question": "How many different windows have appeared so far?",
+  "seconds": 63.0,
+  "truth": 3,
+  "A": {
+   "votes": [
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "answer": 2
+  },
+  "B": {
+   "shards": 4,
+   "instances": 9,
+   "pairs": 29,
+   "merges": 12,
+   "answer": 3
+  }
+ },
+ {
+  "q_id": "0976",
+  "source": "scannet",
+  "question": "How many different printers have appeared so far?",
+  "seconds": 5.4,
+  "truth": 3,
+  "A": {
+   "votes": [
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "answer": 3
+  },
+  "B": {
+   "shards": 1,
+   "instances": 3,
+   "pairs": 0,
+   "merges": 0,
+   "answer": 3
+  }
+ },
+ {
+  "q_id": "1000",
+  "source": "scannet",
+  "question": "How many different monitors have appeared so far?",
+  "seconds": 13.8,
+  "truth": 10,
+  "A": {
+   "votes": [
+    8,
+    10,
+    9,
+    10,
+    9
+   ],
+   "answer": 9
+  },
+  "B": {
+   "shards": 1,
+   "instances": 10,
+   "pairs": 0,
+   "merges": 0,
+   "answer": 10
+  }
+ },
+ {
+  "q_id": "1018",
+  "source": "scannet",
+  "question": "How many different tables have appeared so far?",
+  "seconds": 62.4,
+  "truth": 5,
+  "A": {
+   "votes": [
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "answer": 8
+  },
+  "B": {
+   "shards": 4,
+   "instances": 29,
+   "pairs": 308,
+   "merges": 5,
+   "answer": 24
+  }
+ },
+ {
+  "q_id": "1028",
+  "source": "scannet",
+  "question": "How many different pillows have appeared so far?",
+  "seconds": 24.4,
+  "truth": 5,
+  "A": {
+   "votes": [
+    6,
+    6,
+    6,
+    6,
+    6
+   ],
+   "answer": 6
+  },
+  "B": {
+   "shards": 2,
+   "instances": 11,
+   "pairs": 30,
+   "merges": 0,
+   "answer": 11
+  }
+ },
+ {
+  "q_id": "1050",
+  "source": "scannet",
+  "question": "How many different pillows have appeared so far?",
+  "seconds": 118.2,
+  "truth": 4,
+  "A": {
+   "votes": [
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "answer": 4
+  },
+  "B": {
+   "shards": 6,
+   "instances": 8,
+   "pairs": 23,
+   "merges": 8,
+   "answer": 4
+  }
+ },
+ {
+  "q_id": "1062",
+  "source": "scannet",
+  "question": "How many different trash bins have appeared so far?",
+  "seconds": 88.4,
+  "truth": 6,
+  "A": {
+   "votes": [
+    6,
+    6,
+    6,
+    6,
+    6
+   ],
+   "answer": 6
+  },
+  "B": {
+   "shards": 5,
+   "instances": 13,
+   "pairs": 57,
+   "merges": 14,
+   "answer": 5
+  }
+ },
+ {
+  "q_id": "1087",
+  "source": "scannet",
+  "question": "How many different pillows have appeared so far?",
+  "seconds": 17.7,
+  "truth": 3,
+  "A": {
+   "votes": [
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "answer": 4
+  },
+  "B": {
+   "shards": 1,
+   "instances": 4,
+   "pairs": 0,
+   "merges": 0,
+   "answer": 4
+  }
+ },
+ {
+  "q_id": "1104",
+  "source": "scannet",
+  "question": "How many different windows have appeared so far?",
+  "seconds": 14.6,
+  "truth": 4,
+  "A": {
+   "votes": [
+    6,
+    5,
+    5,
+    5,
+    5
+   ],
+   "answer": 5
+  },
+  "B": {
+   "shards": 1,
+   "instances": 5,
+   "pairs": 0,
+   "merges": 0,
+   "answer": 5
+  }
+ }
+]
