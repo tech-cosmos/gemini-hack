@@ -3,16 +3,17 @@
 The lead's agent keeps "Now" current. Every agent reads it at the start of every session.
 
 ## Now
-**11:28 · Exploring ideas until ~13:00 (the lead moved the idea gate).** Shivam and Dan (rrrozhd) both explore before we lock one. Read `docs/BRIEF.md`
-first: two problem statements (5 Sigma, Element 119), 2+ Gemini 4 models + Decisions API, beyond text,
-public repo, judged 35% on a live demo with unseen inputs and 25% on proof vs a baseline.
-| Who | Piece | Done by |
+**11:56 · Still exploring; idea NOT locked (lead decides by 12:58).** Every spike result is in `docs/IDEAS.md` (spike table) and `docs/EVIDENCE.md`.
+**Strongest so far:** Step Guard cascade (Decision 1 → Neon agentic when unsure): 0.925 bal acc at p50 1.58 s on 40 held-out ego2act clips (Neon alone 0.925 at 16.8 s, Decision 1 alone 0.80). Dan's Witness spike: Decision 1 alone 0.875 on robot clips.
+**Being explored now:**
+| Who | Spike | Status |
 |---|---|---|
-| Shivam | Spikes 0/0b/0c done (Decision 1 0.56 s, Hydrogen ~4 s per frame, Managed Agent 20.7 s); more spikes on the shortlist | 12:45 |
-| Dan (rrrozhd) | Witness spike (#2): Decision 1 on ArmnetBench clips | 12:45 |
-**Claim order for unowned issues:** the ideas issue first.
-**Next gate:** 12:58 · idea picked by spike test and written in `docs/DECISIONS.md` (the lead decides). The builder guide's summary is in `docs/BRIEF.md`: read it before spiking.
-**Budget:** organizer Gemini keys only. No purchases without the lead.
+| Dan (rrrozhd) | Census (#6): count distinct objects in video, SVCBench | running (#8), result by 12:30 |
+| Shivam's agent (Fable) | Tripwire (#10): catch a mistake while it happens | **failed**: 3/10 caught early, 0/10 false alarms, 0.69 s/tick |
+| Shivam's agent (Fable) | licence check for Fable's ideas 10–17 + datasets with timestamped mistakes | running |
+**New ideas 10–17** came from a different model (Fable), with a hostile-judge read on Step Guard: see IDEAS.md.
+**Next gate:** 12:58 · idea picked and written in `docs/DECISIONS.md`.
+**Budget:** organizer Gemini keys only.
 
 ## How to write "Now"
 Keep it under 20 lines, newest state only; move the old one under "Earlier".
