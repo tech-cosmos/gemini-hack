@@ -8,6 +8,9 @@ the slides or the talk.
 -
 
 ## Along the way (spikes, pilots, things that failed)
+- **15 of 20 · 0 of 20** · full clips / half-length prefixes where Decision 1 says "finished and stopped" at p ≥ 0.6 (threshold refit on spike 6b, then frozen), 20 held-out ego2act clips, tasks at ranks 50–59. Pass mark was ≥ 16 and ≤ 2: **fail** by one full clip. Median p 0.672 vs 0.2375 · `results/s7_donegate_heldout.json` · `.venv/bin/python spikes/s7_donegate_heldout.py` (12:38)
+- 0.99 · 20 of 20 · AUROC of that p between full clips and half prefixes · full clips scoring above their own half, same run · same file
+- 0.825 s / 1.91 s · Decision 1 p50 / max latency per call, 40 calls, 0 errors, same run · same file
 - **0.8 · 0 of 10** · AUROC of the frozen Decision 1 goal question between Omni 1.2 RIGHT and WRONG generations (10 fresh ego2act tasks, 20 clips) · RIGHT clips at p ≥ 0.75. Pass mark was ≥ 0.85 and ≥ 7/10: **fail** · `results/s6_genjudge.json` · `.venv/bin/python spikes/s6_genjudge.py` (12:35)
 - 26.8 s (max 30.1) · Omni 1.2 Flash image→video, 6 s 720p clip, wall time p50, n=20, 20/20 returned, no refusals · same file and command
 - **11 of 20 · 0 of 20** · full clips / half-length prefixes where Decision 1 says "finished and stopped" at p ≥ 0.75 (20 spike 3 clips). Pass mark was ≥ 16 and ≤ 2: **fail**. Median p 0.784 vs 0.22; p50 0.735 s per call · `results/s6_donegate.json` · `.venv/bin/python spikes/s6_donegate.py` (12:35)

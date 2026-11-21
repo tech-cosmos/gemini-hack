@@ -1,0 +1,481 @@
+{
+  "summary": {
+    "question": "Has the person finished working on the task and stopped (hands withdrawn or idle at the end), regardless of whether it was done correctly?",
+    "flag_threshold": 0.6,
+    "tasks": [
+      "charge_airpods_watch",
+      "clock_bottle_container",
+      "oil_spray_pouch",
+      "rugby_dumbbell",
+      "egg_sauce_container",
+      "broccoli_tofu_chicken",
+      "radio_toy",
+      "key_lanyard",
+      "royal_flush",
+      "group_supplements"
+    ],
+    "ranks": [
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "tasks_used_before": 50,
+    "full_done": 15,
+    "full_n": 20,
+    "half_done": 0,
+    "half_n": 20,
+    "full_done_correct": 7,
+    "full_done_wrong": 8,
+    "full_p_median": 0.672,
+    "half_p_median": 0.2375,
+    "full_p_min": 0.332,
+    "half_p_max": 0.499,
+    "auroc_full_vs_half": 0.99,
+    "full_above_own_half": 20,
+    "pairs_n": 20,
+    "full_at_0.75_for_reference": 7,
+    "half_at_0.75_for_reference": 0,
+    "full_missed": [
+      [
+        "charge_airpods_watch",
+        "correct",
+        0.582
+      ],
+      [
+        "egg_sauce_container",
+        "wrong",
+        0.581
+      ],
+      [
+        "broccoli_tofu_chicken",
+        "correct",
+        0.506
+      ],
+      [
+        "broccoli_tofu_chicken",
+        "wrong",
+        0.332
+      ],
+      [
+        "key_lanyard",
+        "correct",
+        0.56
+      ]
+    ],
+    "half_false_done": [],
+    "latency_p50_s": 0.825,
+    "latency_max_s": 1.91,
+    "decision1_calls": 40,
+    "errors": 0,
+    "pass": false
+  },
+  "clips": [
+    {
+      "case": "charge_airpods_watch",
+      "label": "correct",
+      "kind": "full",
+      "t_s": 20.0,
+      "p": 0.582,
+      "conf": 0.582,
+      "s": 1.12,
+      "attempts": 1
+    },
+    {
+      "case": "charge_airpods_watch",
+      "label": "correct",
+      "kind": "half",
+      "t_s": 10.0,
+      "p": 0.438,
+      "conf": 0.562,
+      "s": 1.01,
+      "attempts": 1
+    },
+    {
+      "case": "charge_airpods_watch",
+      "label": "wrong",
+      "kind": "full",
+      "t_s": 13.625,
+      "p": 0.653,
+      "conf": 0.653,
+      "s": 1.01,
+      "attempts": 1
+    },
+    {
+      "case": "charge_airpods_watch",
+      "label": "wrong",
+      "kind": "half",
+      "t_s": 6.812,
+      "p": 0.307,
+      "conf": 0.693,
+      "s": 1.01,
+      "attempts": 1
+    },
+    {
+      "case": "clock_bottle_container",
+      "label": "correct",
+      "kind": "full",
+      "t_s": 20.333,
+      "p": 0.885,
+      "conf": 0.885,
+      "s": 0.68,
+      "attempts": 1
+    },
+    {
+      "case": "clock_bottle_container",
+      "label": "correct",
+      "kind": "half",
+      "t_s": 10.167,
+      "p": 0.183,
+      "conf": 0.817,
+      "s": 0.54,
+      "attempts": 1
+    },
+    {
+      "case": "clock_bottle_container",
+      "label": "wrong",
+      "kind": "full",
+      "t_s": 16.167,
+      "p": 0.847,
+      "conf": 0.847,
+      "s": 1.91,
+      "attempts": 1
+    },
+    {
+      "case": "clock_bottle_container",
+      "label": "wrong",
+      "kind": "half",
+      "t_s": 8.083,
+      "p": 0.192,
+      "conf": 0.808,
+      "s": 0.98,
+      "attempts": 1
+    },
+    {
+      "case": "oil_spray_pouch",
+      "label": "correct",
+      "kind": "full",
+      "t_s": 20.625,
+      "p": 0.806,
+      "conf": 0.806,
+      "s": 0.78,
+      "attempts": 1
+    },
+    {
+      "case": "oil_spray_pouch",
+      "label": "correct",
+      "kind": "half",
+      "t_s": 10.312,
+      "p": 0.159,
+      "conf": 0.841,
+      "s": 0.69,
+      "attempts": 1
+    },
+    {
+      "case": "oil_spray_pouch",
+      "label": "wrong",
+      "kind": "full",
+      "t_s": 16.75,
+      "p": 0.743,
+      "conf": 0.743,
+      "s": 0.83,
+      "attempts": 1
+    },
+    {
+      "case": "oil_spray_pouch",
+      "label": "wrong",
+      "kind": "half",
+      "t_s": 8.375,
+      "p": 0.202,
+      "conf": 0.798,
+      "s": 0.66,
+      "attempts": 1
+    },
+    {
+      "case": "rugby_dumbbell",
+      "label": "correct",
+      "kind": "full",
+      "t_s": 20.708,
+      "p": 0.863,
+      "conf": 0.863,
+      "s": 0.74,
+      "attempts": 1
+    },
+    {
+      "case": "rugby_dumbbell",
+      "label": "correct",
+      "kind": "half",
+      "t_s": 10.354,
+      "p": 0.167,
+      "conf": 0.833,
+      "s": 0.82,
+      "attempts": 1
+    },
+    {
+      "case": "rugby_dumbbell",
+      "label": "wrong",
+      "kind": "full",
+      "t_s": 10.708,
+      "p": 0.846,
+      "conf": 0.846,
+      "s": 0.96,
+      "attempts": 1
+    },
+    {
+      "case": "rugby_dumbbell",
+      "label": "wrong",
+      "kind": "half",
+      "t_s": 5.354,
+      "p": 0.266,
+      "conf": 0.734,
+      "s": 0.74,
+      "attempts": 1
+    },
+    {
+      "case": "egg_sauce_container",
+      "label": "correct",
+      "kind": "full",
+      "t_s": 20.917,
+      "p": 0.652,
+      "conf": 0.652,
+      "s": 0.87,
+      "attempts": 1
+    },
+    {
+      "case": "egg_sauce_container",
+      "label": "correct",
+      "kind": "half",
+      "t_s": 10.458,
+      "p": 0.209,
+      "conf": 0.791,
+      "s": 0.72,
+      "attempts": 1
+    },
+    {
+      "case": "egg_sauce_container",
+      "label": "wrong",
+      "kind": "full",
+      "t_s": 19.458,
+      "p": 0.581,
+      "conf": 0.581,
+      "s": 1.23,
+      "attempts": 1
+    },
+    {
+      "case": "egg_sauce_container",
+      "label": "wrong",
+      "kind": "half",
+      "t_s": 9.729,
+      "p": 0.341,
+      "conf": 0.659,
+      "s": 0.66,
+      "attempts": 1
+    },
+    {
+      "case": "broccoli_tofu_chicken",
+      "label": "correct",
+      "kind": "full",
+      "t_s": 21.333,
+      "p": 0.506,
+      "conf": 0.506,
+      "s": 0.96,
+      "attempts": 1
+    },
+    {
+      "case": "broccoli_tofu_chicken",
+      "label": "correct",
+      "kind": "half",
+      "t_s": 10.667,
+      "p": 0.2,
+      "conf": 0.8,
+      "s": 0.37,
+      "attempts": 1
+    },
+    {
+      "case": "broccoli_tofu_chicken",
+      "label": "wrong",
+      "kind": "full",
+      "t_s": 18.208,
+      "p": 0.332,
+      "conf": 0.668,
+      "s": 1.69,
+      "attempts": 1
+    },
+    {
+      "case": "broccoli_tofu_chicken",
+      "label": "wrong",
+      "kind": "half",
+      "t_s": 9.104,
+      "p": 0.284,
+      "conf": 0.716,
+      "s": 0.95,
+      "attempts": 1
+    },
+    {
+      "case": "radio_toy",
+      "label": "correct",
+      "kind": "full",
+      "t_s": 21.458,
+      "p": 0.89,
+      "conf": 0.89,
+      "s": 0.9,
+      "attempts": 1
+    },
+    {
+      "case": "radio_toy",
+      "label": "correct",
+      "kind": "half",
+      "t_s": 10.729,
+      "p": 0.271,
+      "conf": 0.729,
+      "s": 0.81,
+      "attempts": 1
+    },
+    {
+      "case": "radio_toy",
+      "label": "wrong",
+      "kind": "full",
+      "t_s": 8.958,
+      "p": 0.6,
+      "conf": 0.6,
+      "s": 1.04,
+      "attempts": 1
+    },
+    {
+      "case": "radio_toy",
+      "label": "wrong",
+      "kind": "half",
+      "t_s": 4.479,
+      "p": 0.206,
+      "conf": 0.794,
+      "s": 0.46,
+      "attempts": 1
+    },
+    {
+      "case": "key_lanyard",
+      "label": "correct",
+      "kind": "full",
+      "t_s": 22.083,
+      "p": 0.56,
+      "conf": 0.56,
+      "s": 0.69,
+      "attempts": 1
+    },
+    {
+      "case": "key_lanyard",
+      "label": "correct",
+      "kind": "half",
+      "t_s": 11.042,
+      "p": 0.338,
+      "conf": 0.662,
+      "s": 0.51,
+      "attempts": 1
+    },
+    {
+      "case": "key_lanyard",
+      "label": "wrong",
+      "kind": "full",
+      "t_s": 12.083,
+      "p": 0.659,
+      "conf": 0.659,
+      "s": 1.03,
+      "attempts": 1
+    },
+    {
+      "case": "key_lanyard",
+      "label": "wrong",
+      "kind": "half",
+      "t_s": 6.042,
+      "p": 0.499,
+      "conf": 0.501,
+      "s": 0.48,
+      "attempts": 1
+    },
+    {
+      "case": "royal_flush",
+      "label": "correct",
+      "kind": "full",
+      "t_s": 22.167,
+      "p": 0.651,
+      "conf": 0.651,
+      "s": 1.57,
+      "attempts": 1
+    },
+    {
+      "case": "royal_flush",
+      "label": "correct",
+      "kind": "half",
+      "t_s": 11.083,
+      "p": 0.269,
+      "conf": 0.731,
+      "s": 0.98,
+      "attempts": 1
+    },
+    {
+      "case": "royal_flush",
+      "label": "wrong",
+      "kind": "full",
+      "t_s": 17.042,
+      "p": 0.877,
+      "conf": 0.877,
+      "s": 0.8,
+      "attempts": 1
+    },
+    {
+      "case": "royal_flush",
+      "label": "wrong",
+      "kind": "half",
+      "t_s": 8.521,
+      "p": 0.17,
+      "conf": 0.83,
+      "s": 0.76,
+      "attempts": 1
+    },
+    {
+      "case": "group_supplements",
+      "label": "correct",
+      "kind": "full",
+      "t_s": 22.208,
+      "p": 0.685,
+      "conf": 0.685,
+      "s": 0.84,
+      "attempts": 1
+    },
+    {
+      "case": "group_supplements",
+      "label": "correct",
+      "kind": "half",
+      "t_s": 11.104,
+      "p": 0.197,
+      "conf": 0.803,
+      "s": 0.83,
+      "attempts": 1
+    },
+    {
+      "case": "group_supplements",
+      "label": "wrong",
+      "kind": "full",
+      "t_s": 19.708,
+      "p": 0.694,
+      "conf": 0.694,
+      "s": 0.82,
+      "attempts": 1
+    },
+    {
+      "case": "group_supplements",
+      "label": "wrong",
+      "kind": "half",
+      "t_s": 9.854,
+      "p": 0.304,
+      "conf": 0.696,
+      "s": 0.53,
+      "attempts": 1
+    }
+  ]
+}
