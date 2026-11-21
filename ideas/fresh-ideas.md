@@ -83,7 +83,49 @@ Checks follow the route order, so there is no matching across look-alike places.
   visible, "point at it and turn" (Robotics-ER 2 alone) already answers. When it's not visible, Genie invents it. Predicted to lose to its own baseline.
 - **Multi-photo Genie venue**: the API refuses it (measured above).
 
-## Ranking
+## More real-world tasks on the 3D venue model (13:25, after Dan asked for more)
+Common thread: agents are bad at **metric and line-of-sight reasoning** from a flat photo. A splat gives them
+geometry they can measure, and the answer can be checked in the real room with a tape measure or by standing there.
+
+### D · Tape Measure ("how far, how wide, will it fit?") · strongest proof
+**Pitch:** "Ask any size or distance in this room. It measures it in the 3D copy, then you check it with a tape."
+**20-second clip:** a judge asks "will a 6-foot table fit through that door?" Robotics-ER 2 puts dots on both door jambs in a
+render, rays give two 3D points, and it answers "the doorway is 0.86 m, so no, tilt it." The judge pulls a tape measure: 0.84 m.
+**How:** Decision 1 picks renders where both ends are visible → Robotics-ER 2 points at each end → `window.ray` gives 3D points →
+distance in code. Metric scale comes from a LiDAR phone scan (Polycam or Scaniverse on a LiDAR iPhone, not yet checked) or from one taped reference.
+Neon turns the numbers into a yes/no answer ("will it fit / is there room for 20 chairs").
+**Eval:** 20 distances chosen by other hackers (pairs of things in the room), tape-measured by them **before** any run.
+Score: median relative error. Public benchmark to cite: VSI-Bench absolute-distance and room-size questions (built on
+ScanNet and ARKitScenes; **licence not verified**). VLMs are known to be weak on these.
+**Baseline:** Neon given one phone photo of the same pair: "how far apart in metres?"
+**Spike (pass mark before any run):** 10 taped distances in the venue scan. **PASS** = median relative error ≤ 15% and at most
+half of Neon's single-photo error.
+**Scores:** wow 4 · proof **5** · buildable 4 (same harness as A plus two rays; scale is the risk).
+
+### E · Blind Spot (where to put 2 cameras or exit signs so every door or seat is covered)
+**Pitch:** "Name what must be seen; it searches thousands of viewpoints in the 3D copy and places the cameras."
+**20-second clip:** "cover both doors and the stage with 2 cameras." The agent shows the 2 mount points in the 3D copy. A judge holds a
+phone at mount point 1, and the live view shows both doors.
+**How:** render from about 200 candidate mount points × headings. **Decision 1 answers "is <door/stage> fully visible?" for each
+render**. This is the gate at scale, the one job Decision 1 kept winning today. A greedy set cover picks the mounts, and Neon double-checks the winners.
+**Eval:** coverage predicted vs a phone photo taken from the chosen spot (Neon or a person judges "door visible"), over 15 tasks
+written by other hackers. **Baseline:** Neon given the flat photo set, asked to choose spots.
+**Scores:** wow 4 · proof 4 · buildable 3. Fire-safety and security use; avoid it looking like a dashboard.
+
+### F · Ghost Layout (try furniture in the real room before moving it)
+**Pitch:** "Say 'a stage for 30 people by the window'; it places it in the 3D copy and checks every seat can see the screen."
+**20-second clip:** a ghost stage and chairs appear in the photoreal copy of this room. The camera sits in the worst seat, and Decision 1 flags
+"pillar blocks the screen from seat 14."
+**How:** Carbon plans the layout. Simple three.js meshes go into the Spark scene (Spark mixes meshes and splats). Renders are taken from every seat,
+Decision 1 asks "is the screen fully visible?", and Carbon fixes the layout and loops.
+**Eval:** weak. Sightline checks against photos from 10 real seats. **Scores:** wow 5 · proof 2 · buildable 2. Keep it as a stretch goal on top of E.
+
+### Updated ranking for the venue model
+1. **A · Room Search** (5/4/3). The headline demo.
+2. **D · Tape Measure** (4/5/4). Best proof and the cheapest build: the same pipeline plus one subtraction. **A + D together** are one product: "ask the room".
+3. E · Blind Spot (4/4/3). 4. B · Dream vs Twin, as the "where it breaks" act. 5. F, a stretch goal.
+
+## Ranking (first pass, 13:05)
 1. **A · Room Search** (wow 5 / proof 4 / build 3). The splat makes the agent's answer checkable in the real room, and the questions come from outsiders.
 2. **B · Dream vs Twin** (4 / 5 / 3), as A's "where it breaks" act. It reuses A's capture and renderer.
 3. C · Errand Rehearsal (4 / 3 / 2). Fold into A.
