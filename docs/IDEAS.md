@@ -66,7 +66,7 @@ Decision 1 holds up on real video.
 After two rounds, look across the results for what they have in common. The surprise that explains
 several results at once is usually the project.
 
-**11:58 (Shivam's agent), after spikes 1, 1c, 1d:** the project is the **cascade**. Decision 1 watches in
+**11:34 (Shivam's agent), after spikes 1, 1c, 1d:** the project is the **cascade**. Decision 1 watches in
 under a second and is right when it is sure; Neon's agentic video is right 9 times in 10 but takes ~20 s.
 Escalating only the unsure cases kept Neon's accuracy at Decision 1's typical speed on these 20 clips.
 That gives every criterion a number: Live (a judge's task judged in ~1 s, hard cases in ~20 s),
