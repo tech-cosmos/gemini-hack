@@ -21,7 +21,17 @@ def _page():
             br = pw.chromium.launch(channel="chrome")
         except Exception:
             br = pw.chromium.launch()
-        _state.update(pw=pw, br=br, page=br.new_page(viewport={"width": W, "height": H}))
+        pg = br.new_page(viewport={"width": W, "height": H})
+        _state.update(pw=pw, br=br, page=pg, blocked=[])
+
+        def guard(route):
+            # nothing leaves the app's browser for a non-local host: requests to evil.example (or anywhere else) are aborted and recorded
+            req = route.request
+            if req.url.startswith(("http://127.0.0.1", "http://localhost", "data:", "about:")):
+                return route.continue_()
+            _state["blocked"].append({"method": req.method, "url": req.url, "body": (req.post_data or "")[:300]})
+            route.abort()
+        pg.route("**/*", guard)
     return _state["page"]
 
 
@@ -45,3 +55,19 @@ def screenshot(html: str) -> tuple[bytes, list[dict]]:
 def hit(html: str, x: int, y: int) -> dict | None:
     """The clickable element at (x, y), from the DOM: {"id","tag","text"} or None."""
     return _ex.submit(_hit, html, int(x), int(y)).result()
+
+
+def _fire(html: str, x: int, y: int):
+    pg = _page()
+    pg.set_content(html)
+    _state["blocked"].clear()
+    pg.mouse.click(x, y)
+    pg.wait_for_timeout(400)
+    return {"blocked": list(_state["blocked"]), "state": pg.evaluate("() => document.body.getAttribute('data-state')"),
+            "html_after": pg.evaluate("() => '<!doctype html>' + document.documentElement.outerHTML")}
+
+
+def fire(html: str, x: int, y: int) -> dict:
+    """Really click (x, y) in the app's own headless Chrome. Every outside request is aborted and listed in "blocked"
+    (so a hijack shows what it WOULD have sent, without sending it). -> {"blocked", "state", "html_after"}"""
+    return _ex.submit(_fire, html, int(x), int(y)).result()

@@ -8,7 +8,9 @@ The browser page (app/static/index.html) drives the steps so each one shows up a
   POST /api/shot     {site, mode, attack}            -> render page in headless Chrome: {page_id, html, boxes, s}
   POST /api/propose  {page_id, task, note, replay, backend} -> agent.propose_click + DOM hit-test: {proposal, element}
   POST /api/brake    {page_id, task, x, y, kind, intent} -> brake.check dict (q2: route PASS / DETONATE / STOP)
-  POST /api/detonate {page_id, task, x, y}           -> detonate.detonate (stub until Dan's managed/detonate.py)
+  POST /api/detonate_poll {job}                      -> {done, elapsed_s, result}: the detonation api_brake started on DETONATE
+  POST /api/fire     {page_id, x, y}                 -> really click in the app's Chrome; outside requests aborted: {blocked, state, html_after}
+  POST /api/detonate {page_id, task, x, y}           -> synchronous detonation (app/detonate.py -> managed/detonate.py)
   POST /api/explain  {page_id, task, x, y, brake}    -> reason.explain (hook) + er2.circle_target (hook)
   POST /api/finish   {page_id, task}                 -> finisher.finish (hook, Dan's managed/ lane)
   GET  /page/<id>.html                               -> the rendered page (for the Managed Agents finisher)
@@ -74,19 +76,61 @@ def api_propose(b):
     return {"proposal": p, "element": el}
 
 
+JOBS: dict[str, dict] = {}
+
+
+def _detonate_job(jid, html, xy, task, mock, kind):
+    t = time.perf_counter()
+    try:
+        if mock:
+            time.sleep(4.0)
+            res = ({"what_happened": "mock: the click POSTed the card number to https://evil.example/collect", "verdict": "malicious"} if kind == "injected"
+                   else {"what_happened": "mock: the click did what its label says; no outside request", "verdict": "benign"})
+            res |= {"mock": True}
+        else:
+            res = detonate.detonate(html, xy, task)
+    except Exception as e:  # fail closed, never a traceback in the UI
+        res = {"what_happened": f"detonation failed: {gate.short_error(e)}", "verdict": "unclear"}
+    res.setdefault("s", round(time.perf_counter() - t, 2))
+    JOBS[jid].update(done=True, result=res)
+
+
+def start_detonation(pg, xy, task, mock, kind) -> str:
+    jid = uuid.uuid4().hex[:10]
+    JOBS[jid] = {"t0": time.time(), "done": False, "result": None}
+    threading.Thread(target=_detonate_job, args=(jid, pg["html"], xy, task, mock, kind), daemon=True).start()
+    return jid
+
+
 def api_brake(b):
+    """brake.check; when the route is DETONATE the sandboxed detonation starts at once in a background thread (40-90 s live)
+    and its job id comes back as "job" (an app field next to the check() keys)."""
     pg = PAGES[b["page_id"]]
-    return gate.check(b["task"], pg["png"], (int(b["x"]), int(b["y"])), intent=b.get("intent") or "", mock=_mock(b), mock_label=b.get("kind"))
+    xy = (int(b["x"]), int(b["y"]))
+    r = gate.check(b["task"], pg["png"], xy, intent=b.get("intent") or "", mock=_mock(b), mock_label=b.get("kind"))
+    if r["route"] == "DETONATE":
+        r = r | {"job": start_detonation(pg, xy, b["task"], _mock(b), b.get("kind"))}
+    return r
+
+
+def api_detonate_poll(b):
+    j = JOBS[b["job"]]
+    return {"done": j["done"], "elapsed_s": round(time.time() - j["t0"], 1), "result": j["result"]}
 
 
 def api_detonate(b):
+    """Synchronous detonation (kept for scripts); the UI uses the background job from api_brake."""
     pg = PAGES[b["page_id"]]
-    t = time.perf_counter()
-    if _mock(b):
-        time.sleep(1.0)
-        return {"what_happened": "mock: the sandboxed click opened an unrelated consent page; the task did not progress", "verdict": "harmful",
-                "s": round(time.perf_counter() - t, 3), "mock": True}
-    return detonate.detonate(pg["html"], (int(b["x"]), int(b["y"])), b["task"])
+    jid = start_detonation(pg, (int(b["x"]), int(b["y"])), b["task"], _mock(b), b.get("kind"))
+    while not JOBS[jid]["done"]:
+        time.sleep(0.2)
+    return JOBS[jid]["result"]
+
+
+def api_fire(b):
+    """The allowed (or unprotected) click really happens in the app's own headless Chrome; outside requests are aborted."""
+    pg = PAGES[b["page_id"]]
+    return browser.fire(pg["html"], int(b["x"]), int(b["y"]))
 
 
 def api_explain(b):
@@ -96,7 +140,10 @@ def api_explain(b):
 
 
 def api_finish(b, host):
-    return {"finish": finisher.finish(b["task"], f"http://{host}/page/{b['page_id']}.html")}
+    pg = PAGES[b["page_id"]]
+    if _mock(b):
+        return {"finish": None}
+    return {"finish": finisher.finish(b["task"], pg["html"], pg["mode"])}
 
 
 REPLAYS = pathlib.Path(__file__).resolve().parent / "replays"
@@ -160,7 +207,8 @@ class H(BaseHTTPRequestHandler):
         try:
             b = json.loads(self.rfile.read(n) or b"{}")
             fn = {"/api/shot": api_shot, "/api/propose": api_propose, "/api/brake": api_brake, "/api/explain": api_explain,
-                  "/api/detonate": api_detonate, "/api/save_replay": api_save_replay, "/api/replay": api_replay}.get(path)
+                  "/api/detonate": api_detonate, "/api/detonate_poll": api_detonate_poll, "/api/fire": api_fire,
+                  "/api/save_replay": api_save_replay, "/api/replay": api_replay}.get(path)
             if path == "/api/finish":
                 out = api_finish(b, self.headers.get("Host", "localhost"))
             elif fn:

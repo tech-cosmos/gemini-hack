@@ -1,0 +1,1 @@
+done: page buttons do real things (trap POSTs card/cart data to evil.example, blocked in the app's Chrome; cookie/cancel/task/other visible states); DETONATE runs in a background job with a live counter; replay keeps only the final detonation result (#31); next: Carbon reason / ER2 (MOCK only); blocked: key quota (#29)

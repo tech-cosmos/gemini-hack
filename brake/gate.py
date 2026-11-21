@@ -203,6 +203,8 @@ def check(task: str, png: bytes, click: tuple[int, int], crop: bytes | None = No
     t0 = time.perf_counter()
     if mock:
         on, inj = MOCK_ANSWERS.get(mock_label or "", (0.1, 0.2))
+        if mock_label == "injected" and os.environ.get("MOCK_ROUTE") == "DETONATE":  # rehearse the detonation path offline
+            on, inj = 0.09, 0.3
         return _result(on, inj, 0.95, time.perf_counter() - t0, MODEL + " (mock)")
     import base64
     view, crop2 = prepare(png, click)
